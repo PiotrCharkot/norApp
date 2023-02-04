@@ -1,8 +1,8 @@
 import { View, Text, Image, KeyboardAvoidingView, Animated, Dimensions, TouchableOpacity } from 'react-native'
-import React, {useState, useEffect, useRef, useCallback} from 'react'
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React, {useState, useEffect, useRef} from 'react'
+import { useNavigation } from "@react-navigation/native";
 import { authentication } from '../../../firebase/firebase-config';
+import { EmailAuthProvider, linkWithCredential, updateProfile  } from "firebase/auth";
 import { Input } from "react-native-elements";
 import { withAnchorPoint } from 'react-native-anchor-point';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,20 +10,20 @@ import GradientButton from '../../components/buttons/GradientButton';
 import styles from './style';
 
 const offsetButton = 25;
-
-const LoginScreen = () => {
+const ReAuthScreen = () => {
 
     const navigation = useNavigation();
 
     const screenWidth = Dimensions.get("window").width;
     const interpolatedValue = useRef(new Animated.Value(0)).current;
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
-    const buttonForgetPos = useRef(new Animated.Value(-290)).current;
-    const buttonRegisterPos = useRef(new Animated.Value(-290)).current;
-    const [imageLink, setImageLink] = useState(require('../../../assets/login.png'));
+    const buttonLoginPos = useRef(new Animated.Value(-290)).current;
+    const [imageLink, setImageLink] = useState(require('../../../assets/sign-in.png'));
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+
+    const credential = EmailAuthProvider.credential(email, password);
 
 
 const circlePositionDeg = interpolatedValue.interpolate({
@@ -36,7 +36,7 @@ const xPositionDeg = interpolatedValueForX.interpolate({
     outputRange: ["0deg", "180deg"]
 })
 
-const openLoginAnimation = () => {
+const openScreenAnimation = () => {
 
     setTimeout(() => {
         Animated.spring(interpolatedValue, {
@@ -46,25 +46,19 @@ const openLoginAnimation = () => {
             useNativeDriver: true,
         }).start();
 
-        Animated.spring(buttonRegisterPos, {
-            delay: 1500,
+        Animated.spring(buttonLoginPos, {
+            delay: 1000,
             toValue: 0,
             speed: 1,
             bounciness: 0,
             useNativeDriver: true,
         }).start();
 
-        Animated.spring(buttonForgetPos, {
-            delay: 1000,
-            toValue: 0,
-            speed: 1,
-            bounciness: 1,
-            useNativeDriver: true,
-        }).start();
-    }, 300);
+        
+    }, 100);
 }
 
-const closeLoginAnimation = () => {
+const closeScreenAnimation = () => {
     Animated.spring(interpolatedValue, {
         delay: 500,
         toValue: 360,
@@ -73,7 +67,7 @@ const closeLoginAnimation = () => {
         useNativeDriver: true,
     }).start();
 
-    Animated.spring(buttonRegisterPos, {
+    Animated.spring(buttonLoginPos, {
         delay: 100,
         toValue: -290,
         speed: 1,
@@ -81,68 +75,50 @@ const closeLoginAnimation = () => {
         useNativeDriver: true,
     }).start();
 
-    Animated.spring(buttonForgetPos, {
-        delay: 300,
-        toValue: -290,
-        speed: 1,
-        bounciness: 1,
-        useNativeDriver: true,
-    }).start();
-
 }
 
-const logIn = () => {
-    signInWithEmailAndPassword(authentication, email, password)
-  .then((userCredential) => {
+
+const createUser = () => {
+    linkWithCredential(authentication.currentUser, credential)
+    .then((usercred) => {
+        const user = usercred.user;
+        updateProfile(authentication.currentUser, {
+            displayName: username
+          }).then(() => {
+            console.log('username updated to: ', username);
+          }).catch((error) => {
+            console.log(error);
+          });
+        console.log("Anonymous account successfully upgraded", user);
+        setUsername('');
+        setEmail('');
+        setPassword('');
+    }).catch((error) => {
+        console.log("Error upgrading anonymous account", error);
+    });
+
     
-    const user = userCredential.user;
-    setEmail('');
-    setPassword('');
-    console.log('user loged successfully!!!');
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
 
-  
-  exitButton();
+    exitButton();
 }
 
-const registerButton = () => {
-    console.log('register button pressed');
-    setImageLink(require('../../../assets/sign-in.png'))
+const backToLogIn = () => {
 
-    closeLoginAnimation();
+    setImageLink(require('../../../assets/login.png'))
 
-    setTimeout(() => {
-        
-        navigation.navigate('Register');
-        
-        setTimeout(() => {
-            
-            setImageLink(require('../../../assets/login.png'))
-        }, 300);
-    }, 2000);
-}
-
-const forgotButton = () => {
-    setImageLink(require('../../../assets/lock-question.png'))
-
-    closeLoginAnimation();
+    closeScreenAnimation();
 
     setTimeout(() => {
-        
-        navigation.navigate('Forget');
-        
+        navigation.navigate('Login');
         setTimeout(() => {
             
-            setImageLink(require('../../../assets/login.png'))
+            setImageLink(require('../../../assets/sign-in.png'))
         }, 300);
     }, 2000);
 }
 
 const exitButton = () => {
+    console.log('exxit');
 
     setImageLink(require('../../../assets/goodbye.png'))
     Animated.spring(interpolatedValueForX, {
@@ -152,14 +128,13 @@ const exitButton = () => {
         useNativeDriver: true,
     }).start();
 
-    closeLoginAnimation();
+    closeScreenAnimation();
 
     setTimeout(() => {
 
         navigation.navigate('Main');
     }, 1500)
 }
-
 
 const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
     let transform = {
@@ -168,16 +143,9 @@ const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) =
     return withAnchorPoint(transform, { x: valX, y: valY }, { width: viewWidth * 1.5, height: viewHeight * 1.5 });
 };
 
-useFocusEffect(
-    useCallback(() => {
-    const unsubscribe = openLoginAnimation(); 
-
-    return () => unsubscribe;
-  }, []))
-
 useEffect(() => {
 
-    openLoginAnimation();
+    openScreenAnimation()
    
 },[]);
 
@@ -196,7 +164,6 @@ useEffect(() => {
             <Animated.View style={{...styles.circleContainer, ...getTransform(screenWidth, screenWidth, { rotate: circlePositionDeg }, { translateX: -screenWidth / 2 }, 0.165, 0.5)}}>
                 <View style={styles.leftContainer}>
                 <LinearGradient colors={['white', '#fafafa']} style={styles.mainContainer} start={[0.0, 1.0]} end={[1.0, 1.0]}>
-
                     <Image style={{...styles.leftImg, tintColor: 'grey'}} source={imageLink}/>
                 </LinearGradient>
                 </View>
@@ -207,8 +174,20 @@ useEffect(() => {
 
                             <Input 
                             style={styles.input}
+                            placeholder='username'
+                            inputContainerStyle={styles.inputContainerStyle}
+                            leftIcon={<Image style={styles.inputImg} source={require('../../../assets/profil.png')}/>}
+                            type={"text"}
+                            value={username}
+                            onChangeText={(text) => setUsername(text)}
+                            />
+                        </View>
+
+                        <View style={styles.inputHolder}>
+
+                            <Input 
+                            style={styles.input}
                             placeholder='email address'
-                            autoCapitalize='none'
                             inputContainerStyle={styles.inputContainerStyle}
                             leftIcon={<Image style={styles.inputImg} source={require('../../../assets/email.png')}/>}
                             type={"email"}
@@ -238,11 +217,11 @@ useEffect(() => {
                         width={40}
                         colorA={'white'} 
                         colorB={'#c256e3'} 
-                        callbackFunc={logIn} 
+                        callbackFunc={createUser} 
                         path={'tick'} 
-                        colorIcon={'grey'}
                         heightIcon={15} 
                         widthIcon={15}
+                        colorIcon={'grey'}
                         noText={true}
                         startGradient={[0.0, 0.0]}
                         endGradient={[1.0, 1.0]}
@@ -257,45 +236,26 @@ useEffect(() => {
                         
                             
                     </View>
-                    <Animated.View style={{...styles.forgotButtonCont, ...styles.shadowStrong, transform: [{translateX: buttonForgetPos}]}}>
-                        <GradientButton  
-                            height={40} 
-                            width={screenWidth * 1.5 / 4 + offsetButton }
-                            colorA={'white'} 
-                            colorB={'#e8cceb'} 
-                            callbackFunc={forgotButton} 
-                            path={'forgot'} 
-                            colorIcon={'grey'}
-                            heightIcon={15} 
-                            widthIcon={15}
-                            noText={false}
-                            text={' forgot password'}
-                            colorText={'grey'}
-                            startGradient={[1.0, 0.0]}
-                            endGradient={[1.0, 1.0]}
-                            borderTopRightRadius={20} 
-                            borderBottomRightRadius={20} 
-                        />
-                    </Animated.View>
-                    <Animated.View style={{...styles.regButtonCont, ...styles.shadowStrong, transform: [{translateX: buttonRegisterPos}]}}>
+                    
+                    <Animated.View style={{...styles.regButtonCont, ...styles.shadowStrong, transform: [{translateX: buttonLoginPos}]}}>
                         <GradientButton  
                             height={40} 
                             width={screenWidth * 1.5 / 6 + offsetButton}
                             colorA={'white'} 
                             colorB={'#e8cceb'} 
-                            callbackFunc={registerButton} 
-                            path={'register'}
-                            colorIcon={'grey'} 
+                            callbackFunc={backToLogIn} 
+                            path={'register'} 
                             heightIcon={15} 
                             widthIcon={15}
+                            colorIcon={'grey'}
                             noText={false}
-                            text={' register'}
+                            text={' back    '}
                             colorText={'grey'}
                             startGradient={[1.0, 0.0]}
                             endGradient={[1.0, 1.0]}
                             borderTopRightRadius={20} 
                             borderBottomRightRadius={20} 
-                        />
+                            />
                     </Animated.View>
                 </View>
 
@@ -308,4 +268,4 @@ useEffect(() => {
 }
 
 
-export default LoginScreen
+export default ReAuthScreen

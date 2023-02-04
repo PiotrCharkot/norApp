@@ -87,11 +87,12 @@ const Draggable = ({
           onReleaseDraggable({ index, pageX, pageY });
           /* * * * * * * */
           if (true) {
-            Animated.spring(pan.current, {
+            Animated.timing(pan.current, {
               toValue: {
                 x: 0 - pan.current.x._offset,
                 y: 0 - pan.current.y._offset,
               },
+              duration: 30,
               useNativeDriver: false,
             }).start(() => {
               pan.current.setValue({ x: 0, y: 0 });

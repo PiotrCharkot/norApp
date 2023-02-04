@@ -17,7 +17,6 @@ const ProgressBar = (params) => {
     const totalLenght = params.totalLenghtNum;
     const latestScreen = params.latestScreen;
     const comeBack = params.comeBack;
-    console.log('progres bar', latestScreen);
 
     const lineOffset = useRef(new Animated.Value(- progressLineLenght / totalLenght)).current;
 

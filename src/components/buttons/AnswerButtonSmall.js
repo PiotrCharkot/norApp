@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 const screenWidth = Dimensions.get('window').width;
 
 
-const AnswerButton = (params) => {
+const AnswerButtonSmall = (params) => {
 
     const [opacityButton, setOpacityButton] = useState(0.6);
 
@@ -17,26 +17,28 @@ const AnswerButton = (params) => {
 
   return (
     <TouchableOpacity onPress={answerButtonCallback}>
-        <LinearGradient colors={ params.colors ? params.colors : ['#6d28ed', '#b829e3']} style={{...styles.mainContainer, opacity: opacityButton}}>
+        <LinearGradient colors={['#6d28ed', '#b829e3']} style={{...styles.mainContainer, opacity: opacityButton}}>
             <Text style={styles.text}>{params.text}</Text>
         </LinearGradient>
     </TouchableOpacity>
   )
 }
 
-export default AnswerButton;
+export default AnswerButtonSmall;
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: 50,
-        width: screenWidth - 40,
+        height: 25,
+        width: screenWidth / 2 - 40,
         marginBottom: 10,
-        paddingLeft: 10,
+        marginRight: 10,
+        paddingLeft: 5,
         justifyContent: 'center',
-        borderRadius: 10
+        borderRadius: 5
     },
     text: {
         color: 'white',
-        fontSize: 20
+        fontSize: 17,
+        fontWeight: '600'
     }
 })

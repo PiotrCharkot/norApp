@@ -2,8 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
-const picSize = 150
-console.log('screen width: ', screenWidth);
+const picSize = 150;
+
 const styles = StyleSheet.create({
 
     mainContainer: {
@@ -19,10 +19,22 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     loginButtonContainer: {
-        marginTop: 0
+        paddingLeft: 10,
+        marginTop: 0,
+        marginRight: screenWidth - 150,
+        width: 100,
+    },
+    settingsImgContainer: {
+        alignItems: 'center',
+        width: 40,
+    },
+    settingsImg: {
+        height: 20,
+        width: 20,
+        tintColor: 'white'
     },
     backgroundTop: {
-        
+        flexDirection: 'row',
         left: -screenWidth / 2,
         top: -screenWidth / 3,
         justifyContent: 'center',
@@ -39,7 +51,6 @@ const styles = StyleSheet.create({
         width: '100%',
         top: -screenWidth / 3,
         overflow: 'visible',
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         
@@ -47,7 +58,7 @@ const styles = StyleSheet.create({
     imgContainer: {
         justifyContent: 'center',
         position: 'absolute',
-        backgroundColor: 'salmon', 
+        backgroundColor: '#4c669f', 
         height: picSize, 
         width: picSize, 
         top: - picSize / 2,
@@ -56,6 +67,68 @@ const styles = StyleSheet.create({
         borderWidth: 4,
         borderColor: 'white',
         overflow: "visible"
+    },
+    infoContainer: {
+        width: screenWidth - 80,
+        borderWidth: 1, 
+        borderColor: 'lightgrey',
+        borderRadius: 40,
+        marginTop: picSize / 2 + 25,
+    },
+    scrollStyle: {
+        alignItems: 'center',
+    },
+    topInfo: {
+        marginTop: 10,
+        marginBottom: 15,
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
+    },
+    leftTopInfo: {
+        width: '50%',
+        height: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRightWidth: 0.5,
+        borderRightColor: 'lightgrey'
+    },
+    rightTopInfo: {
+        width: '50%',
+        height: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    pointsText: {
+        fontSize: 25,
+        fontWeight: '700'
+    },
+    valContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+        width: screenWidth - 120,
+        borderBottomWidth: 0.5,
+        borderBottomColor: 'lightgrey',
+        
+    },
+    fieldDesc: { 
+        height: 35,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        paddingLeft: 10
+    },
+    fieldVal: {
+        height: 35,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        paddingRight: 10
+    },
+    fieldDescText: {
+        color: 'grey'
+    },
+    fieldValText: {
+        fontWeight: '600'
     },
     img: {
         height : picSize - 8,
@@ -78,6 +151,16 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: '900',
         fontSize: 20
+    },
+    btnChangePicOpacity: {
+        marginTop: 30,
+        height: 30,
+        width: screenWidth - 120,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 0.5,
+        borderColor: 'lightgrey',
+        borderRadius: 15,
     }
 });
 

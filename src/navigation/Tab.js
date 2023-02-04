@@ -77,20 +77,15 @@ const Tabs = () => {
 
     useEffect(() => {
         const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
-            console.log('starting signup');
             if (authUser) {
-                console.log(authUser.isAnonymous);
-                console.log(authUser.uid);
-                console.log(authUser.displayName);
+                //console.log('is anonymous?: ', authUser.isAnonymous);
             }
             if (authUser && !authUser.isAnonymous) {
-                console.log('loged as registred user');
-                console.log('loging reg user: ', authUser);
+                //console.log('loging as registred user: ', authUser);
             } else if (!authUser) {
-                console.log('siging in anonymus user now');
                 signInAnonymously(authentication)
                 .then(() => {
-                    console.log('anonymus sign in was success');
+                    //console.log('anonymus sign in was success');
                 })
                 .catch((error) => {
                     const errorCode = error.code;

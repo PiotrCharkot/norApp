@@ -128,8 +128,6 @@ const TestWordScreen = ({route}) => {
         + userWordInfo.words4.length
         + userWordInfo.words5.length
 
-        console.log('wooooooooooooooooord', userWordInfo);
-
 
         for (let i = 0; i < numberOfWords; i++) {
             

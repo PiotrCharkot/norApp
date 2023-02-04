@@ -17,7 +17,6 @@ const Class1x1x3 = ({ route }) => {
 
     const {userPoints, latestScreen, comeBackRoute} = route.params
     
-    //console.log('latest Screen in 3: ' , latestScreen );
     console.log('points 3 screen: ' , userPoints );
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);

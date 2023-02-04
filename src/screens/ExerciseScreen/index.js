@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './style'
 import Card from '../../components/cards/Card';
 import CardExerciseList from '../../components/cards/CardExerciseList';
-import dummyData from '../dummyData';
+import exerciseData from '../../listData/exerciseData';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.6 + 20;
@@ -46,7 +46,7 @@ const ExerciseScreen = () => {
 
 
   useEffect(() => {
-    setDataFlatList([{key: 'left-spacer'}, ...dummyData, {key: 'right-spacer'}])
+    setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}])
   }, [])
 
   useEffect(() => {

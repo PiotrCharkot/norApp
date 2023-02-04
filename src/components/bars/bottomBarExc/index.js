@@ -17,7 +17,7 @@ const BottomBar = (params) => {
 
     const navigation = useNavigation();
 
-    
+   
     const correctMessagePosition = useRef(new Animated.Value(0)).current;
     const correctImagePosition = useRef(new Animated.Value(0)).current;
     const wrongMessagePosition = useRef(new Animated.Value(0)).current;
@@ -35,7 +35,7 @@ const BottomBar = (params) => {
     const goBack = () => {
 
         if (params.questionScreen && pathIcon === 'next' && buttonFunction === 'goToNext' && params.currentScreen === params.latestScreen) {
-            setButtonFunction(buttonFunction);
+            setButtonFunction('checkAnswer');
             setPathIcon('tick');
 
             setCurrentPoints(() => {
@@ -122,33 +122,6 @@ const BottomBar = (params) => {
                 }).start()
             }
 
-        } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen ) {
-            let returnArr = [];
-            console.log(params.userAnswers);
-
-            let isCorrect = (questionAns, userAns) => {
-                let returnVal;
-                for (let i = 0; i < questionAns.length; i++) {
-                    if (questionAns[i] === userAns[i]) {
-                        returnVal = true;
-                    } else {
-                        return false;
-                    }
-                }
-                
-                return returnVal;
-            }
-
-            for (let i = 0; i < correctAnswers.length; i++) {
-                let tempVal = isCorrect(correctAnswers[i], params.userAnswers[i]);
-                returnArr.push(tempVal);
-            }
-
-
-            params.checkAns(returnArr);
-
-            setButtonFunction('goToNext');
-            setPathIcon('next');
         } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen ) {
             let returnArr = [];
 
@@ -164,77 +137,6 @@ const BottomBar = (params) => {
 
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen ) {
-            let returnArr = [];
-
-            for (let i = 0; i < correctAnswers.length; i++) {
-                if (correctAnswers.includes(params.userAnswers[i] + params.userAnswers2[i])) {
-                    returnArr.push(true);
-                    console.log('well');
-                } else {
-                    returnArr.push(false);
-                }
-            } 
-
-            params.checkAns(returnArr);
-
-            setButtonFunction('goToNext');
-            setPathIcon('next');
-        } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen ) {
-            console.log(params.userAnswers);
-            let returnArr = [];
-            for (let i = 0; i < correctAnswers.length; i++) {
-                if (correctAnswers[i] === params.userAnswers[i]) {
-                    returnArr.push(true);
-                } else {
-                    returnArr.push(false);
-                }
-            }
-
-            params.checkAns(returnArr);
-
-            setButtonFunction('goToNext');
-            setPathIcon('next');
-        } else if (buttonFunction === 'chooseCorrectCategory' && params.currentScreen >= params.latestScreen ) {
-
-            console.log('answer in the bottom bar' ,params.userAnswers,  params.containerCapacity[1]);
-            let returnArr = [];
-            for (let i = 0; i < params.userAnswers.length; i++) {
-                if (correctAnswers[0].includes(params.userAnswers[i]) && i < params.containerCapacity[0]) {
-                    returnArr.push(1);
-                } else  if (correctAnswers[1].includes(params.userAnswers[i]) && i >= params.containerCapacity[0] && i < params.containerCapacity[1]) {
-                    returnArr.push(1);
-                } else if (params.userAnswers[i] === '???') {
-                    returnArr.push(3)
-                } else if (i >= params.containerCapacity[1]) {
-                    returnArr.push(3)
-                } else {
-                    returnArr.push(2);
-                }
-            }
-
-            params.checkAns(returnArr);
-
-            setButtonFunction('goToNext');
-            setPathIcon('next');
-            
-        } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen ) {
-            let returnArr = [];
-
-            
-            console.log(params.textLength);
-
-            for (let i = 0; i < params.textLength; i++) {
-                if (correctAnswers.includes(i)) {
-                    params.userAnswers.includes(i) ? returnArr.push(1) : returnArr.push(0) 
-                } else {
-                    returnArr.push(0)
-                }
-            }
-
-            params.checkAns(returnArr);
-            setButtonFunction('goToNext');
-            setPathIcon('next');
         } else {
             
             navigation.navigate(params.linkNext, {
@@ -245,14 +147,13 @@ const BottomBar = (params) => {
     }
 
     useEffect(() => {
-        if (params.questionScreen) {
-            setButtonFunction(params.callbackButton)
+        if (buttonFunction === 'checkAnswer' || buttonFunction === 'checkAllAnswers') {
             setPathIcon('tick');
             setImgLink(() => imgLinks[Math.floor(Math.random() * imgLinks.length)])
             setImgMargin(() => Math.floor(Math.random() * 200))
 
         }
-    }, [params.resetCheck])
+    }, [])
 
     useFocusEffect(() => {
         changeIcon();

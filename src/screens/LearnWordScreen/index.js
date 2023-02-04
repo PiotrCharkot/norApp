@@ -18,7 +18,7 @@ const words = collection(db, 'words');
 const LearnWordScreen = ({route}) => {
 
     const {userId, refToList, savedLang} = route.params;
-
+    console.log(route.params);
     const scrollX = useRef(new Animated.Value(0)).current;
 
     const [dataFlatList, setDataFlatList] = useState([]);
