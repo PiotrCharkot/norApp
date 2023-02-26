@@ -2,25 +2,26 @@ import { View, Text, StyleSheet, Animated, Dimensions } from 'react-native'
 import React, { useState, useEffect, useRef  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar';
-import DraggableQuick from '../../../../components/other/DraggableQuick'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar';
+import DraggableQuick from '../../../../../components/other/DraggableQuick';
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 6;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
+const correct = generalStyles.gradientTopCorrectDraggable;
+const correct1 = generalStyles.gradientBottomCorrectDraggable;
+const incorrect = generalStyles.gradientBottomWrongDraggable;
+const incorrect1 = generalStyles.gradientTopWrongDraggable;
+
+const gradientTop = generalStyles.gradientTopDraggable2;
+const gradientBottom = generalStyles.gradientBottomDraggable2;
+
 
 const leftContainerCapacity = 7;
 const rightContainerCapacity = 14;
 
 
-
-const correctAnswerColor = 'rgb(144, 238, 144)';
-const wrongAnswerColor = 'rgb(252, 109, 118)';
-const neutralAnswerColor = 'rgb(255, 255, 255)';
 const correctAnswers = [['høyttaler', 'bil', 'melk' ,'flaske', 'farge'], ['kort', 'bord', 'barn',  'universitet', 'vindu']];
 
 
@@ -168,7 +169,7 @@ const Exc1x1x6 = ({route}) => {
                                     return (
                 
                                     <LinearGradient
-                                    colors={item === '???' ? ['transparent', 'transparent'] : isCorrect[index] === 1 ? [correct , correct1] : isCorrect[index] === 2 ? [incorrect1 , incorrect] : ['#6d28ed', '#b829e3']}
+                                    colors={item === '???' ? ['transparent', 'transparent'] : isCorrect[index] === 1 ? [correct , correct1] : isCorrect[index] === 2 ? [incorrect1 , incorrect] : [gradientTop, gradientBottom]}
                                     key={index}
                                         style={[
                                         isMovedOver && styles.draggableContainerSwap,
@@ -209,7 +210,7 @@ const Exc1x1x6 = ({route}) => {
                                 return (
             
                                 <LinearGradient
-                                colors={item === '???' ? ['transparent', 'transparent'] : isCorrect[index] === 1 ? [correct , correct1] : isCorrect[index] === 2 ? [incorrect1 , incorrect] : ['#6d28ed', '#b829e3']}
+                                colors={item === '???' ? ['transparent', 'transparent'] : isCorrect[index] === 1 ? [correct , correct1] : isCorrect[index] === 2 ? [incorrect1 , incorrect] : [gradientTop, gradientBottom]}
                                 key={index}
                                     style={[
                                     isMovedOver && styles.draggableContainerSwap,
@@ -247,7 +248,7 @@ const Exc1x1x6 = ({route}) => {
                                     return (
                 
                                     <LinearGradient
-                                    colors={['#6d28ed', '#b829e3']}
+                                    colors={[gradientTop, gradientBottom]}
                                     key={index}
                                         style={[
                                         isMovedOver && styles.draggableContainerSwap,
@@ -346,8 +347,8 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   draggableContainer: {

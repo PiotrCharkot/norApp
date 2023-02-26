@@ -2,17 +2,22 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
-import Draggable from '../../../../components/other/Draggable'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import Draggable from '../../../../../components/other/Draggable'
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 
 const currentScreen = 2;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
+const correct = generalStyles.gradientTopCorrectDraggable;
+const correct1 = generalStyles.gradientBottomCorrectDraggable;
+const incorrect = generalStyles.gradientBottomWrongDraggable;
+const incorrect1 = generalStyles.gradientTopWrongDraggable;
+const gradientTop = generalStyles.gradientTopDraggable;
+const gradientBottom = generalStyles.gradientBottomDraggable;
+const gradientTop2 = generalStyles.gradientTopDraggable3;
+const gradientBottom2 = generalStyles.gradientBottomDraggable3;
 
 
 const correctAnswers = ['Å treffe spikeren på hodet', 'Å love gull og grønne skoger', 'Å ta med en klype salt', 'Å skjære alle over en kam', 'Å gå over bekken etter vann', 'Bedre sent enn aldri', 
@@ -96,7 +101,7 @@ const Exc1x1x2 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={2} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -120,7 +125,7 @@ const Exc1x1x2 = ({route}) => {
                                 return (
             
                                 <LinearGradient
-                                colors={ isCorrect[index] === 0 ? ['#6d28ed', '#b829e3'] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
+                                colors={ isCorrect[index] === 0 ? [gradientTop, gradientBottom] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
                                 key={index}
                                     style={[
                                     isMovedOver && styles.draggableContainerSwap,
@@ -153,7 +158,7 @@ const Exc1x1x2 = ({route}) => {
                                 return (
             
                                 <LinearGradient
-                                colors={isCorrect[index] === 0 ? ['#6d28ed', '#b829e3'] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
+                                colors={isCorrect[index] === 0 ? [gradientTop2, gradientBottom2] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
                                 key={index}
                                     style={[
                                     isMovedOver && styles.draggableContainerSwap,
@@ -217,8 +222,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   swapableContainer: {

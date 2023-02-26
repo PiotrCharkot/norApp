@@ -22,9 +22,11 @@ const Class1x1x3 = ({ route }) => {
     const [releaseDraggable, setReleaseDraggable] = useState(null);
     const [words, setWords] = useState(['Jeg' ,'            ', 'tretti år', '            ',  'og', 'kommer', 'fra',  'Oslo.','!!!' , 'var', 'gammel', 'er', 'bli', 'ung', 'pen' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
+    const [answerBonus, setAnswerBonus] = useState(5)
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     
+
 
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
@@ -35,6 +37,10 @@ const Class1x1x3 = ({ route }) => {
         if (route.params.userPoints > 0) {
             console.log('setting new points', route.params.userPoints );
             setCurrentPoints(userPoints)
+        }
+
+        if (latestScreen >= currentScreen) {
+          setAnswerBonus(0)  
         }
     })
 
@@ -131,7 +137,7 @@ const Class1x1x3 = ({ route }) => {
         callbackButton={'checkAnswer'}
         userAnswers={words}
         correctAnswers={correctAnswers}
-        answerBonus={15}
+        answerBonus={answerBonus}
         linkNext={'Class1x1x4'}
         linkPrevious={'Class1x1x2'} 
         buttonWidth={45}

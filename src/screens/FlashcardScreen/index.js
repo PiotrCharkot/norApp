@@ -126,7 +126,10 @@ const FlashcardScreen = () => {
   useEffect(() => {
     const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
         
-      setUserId(authUser.uid)
+      if (authUser) {
+
+        setUserId(authUser.uid)
+      }
     });
 
     getValueFor('language');
@@ -324,7 +327,7 @@ const FlashcardScreen = () => {
         }
         
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
+          console.log(doc.id, " !====> ", doc.data());
 
         });
 

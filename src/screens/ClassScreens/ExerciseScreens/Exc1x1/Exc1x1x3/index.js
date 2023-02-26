@@ -2,16 +2,21 @@ import {View, Text, StyleSheet, ScrollView, Dimensions, StatusBar, TouchableOpac
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
-import Draggable from '../../../../components/other/Draggable'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import Draggable from '../../../../../components/other/Draggable'
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 3;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
+const correct = generalStyles.gradientTopCorrectDraggable;
+const correct1 = generalStyles.gradientBottomCorrectDraggable;
+const incorrect = generalStyles.gradientBottomWrongDraggable;
+const incorrect1 = generalStyles.gradientTopWrongDraggable;
+
+const gradientTop = generalStyles.gradientTopDraggable2;
+const gradientBottom = generalStyles.gradientBottomDraggable2;
+
 
 const correctAnswers = ['Over', '80%', 'av', 'befolkningen', 'i Norge','bor i', 'byer og', 'tetsteder,', 'og de', 'fleste', 'byene', 'ligger', 'ved', 'kysten.', 'De', 'vokste', 'opprinnelig', 'fram', 'der det', 'var', 'næringsgrunnlag,', 'og der', 'det gikk', 'vei', 'eller', 'man', 'kunne', 'komme', 'fram', 'med båt.', 'Bergen er', 'et godt', 'eksempel.', 'Fram til', '1830', 'var', 'Bergen', 'Norges', 'største', 'by.' ];
 const indexOfGaps = [3, 12, 16, 24, 28, 35]
@@ -36,7 +41,7 @@ const Exc1x1x3 = ({ route }) => {
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
             setLatestScreenDone(latestScreen);
-            setComeBack(true)
+            setComeBack(true);
         }
 
         if (route.params.userPoints > 0) {
@@ -52,8 +57,7 @@ const Exc1x1x3 = ({ route }) => {
     }, [words]);
 
     useEffect(() => {
-      console.log(words.length);
-      console.log('answers are: ', answersChecked);
+      
       if (answersChecked.length !== 0) {
           
         for (let i = 0; i < answersChecked.length; i++) {
@@ -92,7 +96,7 @@ const Exc1x1x3 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={3} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -131,7 +135,7 @@ const Exc1x1x3 = ({ route }) => {
                           return (
       
                           <LinearGradient
-                          colors={isCorrect[index] === 0 || index > correctAnswers.length ? ['#6d28ed', '#b829e3'] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
+                          colors={isCorrect[index] === 0 || index > correctAnswers.length ? [gradientTop, gradientBottom] : isCorrect[index] === 1 ? [correct , correct1] : [incorrect1 , incorrect]}
                           key={index}
                               style={[
                               isMovedOver && styles.draggableContainerSwap,
@@ -158,6 +162,7 @@ const Exc1x1x3 = ({ route }) => {
         callbackButton={'checkAnswerGapsText'}
         userAnswers={words}
         correctAnswers={correctAnswers}
+        numberOfGaps={indexOfGaps.length}
         answerBonus={15}
         linkNext={'Exc1x1x4'}
         linkPrevious={'Exc1x1x2'} 
@@ -194,8 +199,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   bottomBarContainer: {

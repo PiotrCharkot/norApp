@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Dimensions, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
+import generalStyles from '../../styles/generalStyles';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -17,7 +18,7 @@ const AnswerButtonSmall = (params) => {
 
   return (
     <TouchableOpacity onPress={answerButtonCallback}>
-        <LinearGradient colors={['#6d28ed', '#b829e3']} style={{...styles.mainContainer, opacity: opacityButton}}>
+        <LinearGradient colors={[generalStyles.gradientTopDraggable3, generalStyles.gradientBottomDraggable3]} style={{...styles.mainContainer, opacity: opacityButton}}>
             <Text style={styles.text}>{params.text}</Text>
         </LinearGradient>
     </TouchableOpacity>

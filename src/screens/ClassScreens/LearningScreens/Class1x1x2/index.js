@@ -17,25 +17,32 @@ const Class1x1x2 = ({route}) => {
 
     const {userPoints, latestScreen, comeBackRoute} = route.params
     
-    console.log('points 2 screen: ' , userPoints );
+    console.log('points 2nd screen: ' , userPoints );
     const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
     const [isAnswerBChecked, setIsAnswerBChecked] = useState(false);
     const [isAnswerCChecked, setIsAnswerCChecked] = useState(false);
     const [isAnswerDChecked, setIsAnswerDChecked] = useState(false);
+    const [answerBonus, setAnswerBonus] = useState(5)
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
 
+
+    
     useFocusEffect(() => {
         
         if (latestScreen > currentScreen) {
             setLatestScreenDone(latestScreen);
-            setComeBack(true)
+            setComeBack(true);
         }
 
         if (route.params.userPoints > 0) {
             console.log('setting new points', route.params.userPoints );
             setCurrentPoints(userPoints)
+        }
+
+        if (latestScreen >= currentScreen) {
+          setAnswerBonus(0)  
         }
     })
 
@@ -63,7 +70,7 @@ const Class1x1x2 = ({route}) => {
         callbackButton={'checkAnswer'} 
         userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
         correctAnswers={correctAnswers}
-        answerBonus={15}
+        answerBonus={answerBonus}
         buttonWidth={45}
         buttonHeight={45}
         linkNext={'Class1x1x3'}

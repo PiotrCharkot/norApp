@@ -13,6 +13,7 @@ const Class1x1x1 = ({route}) => {
   const [comeBack, setComeBack] = useState(false);
 
 
+
   useFocusEffect(() => {
     if (route.params) {
       const {userPoints, latestScreen, comeBackRoute} = route.params;
@@ -20,7 +21,7 @@ const Class1x1x1 = ({route}) => {
       if (latestScreen > currentScreen) {
         setLatestScreenDone(latestScreen);
         setComeBack(true)
-      }
+      } 
 
       if (route.params.userPoints > 0) {
         setCurrentPoints(userPoints)

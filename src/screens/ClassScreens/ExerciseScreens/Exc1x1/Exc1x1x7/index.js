@@ -2,16 +2,16 @@ import { View, Text, StyleSheet, Animated, Dimensions, Touchable, TouchableOpaci
 import React, { useState, useEffect, useRef  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar';
-import AnswerButton from '../../../../components/buttons/AnswerButton';
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar';
+import AnswerButton from '../../../../../components/buttons/AnswerButton';
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 7;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
+
+const correct1 = generalStyles.gradientBottomCorrectDraggable;
+
 
 const mistakesIndex = [8, 21, 24, 33];
 const words = ['Ideelt', 'sett', 'ønsker', 'jeg', 'meg', 'seks', 'timers', 'arbeidsdag', 'før', 'småbarnforeldre,', 'slik', 'noen', 'politikere', 'har', 'foreslått.', 'Det', 'er', 'hektisk', 'å kombinere',  'foreldrerollen', 'med', 'fulltidjobb.', 'Ofte', 'rekker', 'ikke jeg', 'å hente', 'i', 'barnehagen', 'før', 'klokka', 'fem,', 'og', 'da', 'fått', 'jeg', 'dårlig', 'samvittighet.']
@@ -127,7 +127,7 @@ const Exc1x1x7 = ({route}) => {
               return (
                 <TouchableOpacity key={index} onPress={() => markWord(index)} style={{
                   ...styles.touchable,
-                  backgroundColor: isCorrect[index] === 1 ? correct1 : markedWords.includes(index) ? 'lightblue' : 'transparent'
+                  backgroundColor: isCorrect[index] === 1 ? correct1 : markedWords.includes(index) ? generalStyles.colorHighlightChoosenAnswer : 'transparent'
                   }}>
                   <Text style={{
                     ...styles.wordsTxt,
@@ -199,8 +199,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   textContainer: {

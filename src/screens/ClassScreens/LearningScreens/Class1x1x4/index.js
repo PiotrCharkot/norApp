@@ -7,6 +7,7 @@ import BottomBar from '../../../../components/bars/bottomBar'
 const currentScreen = 4;
 
 
+
 const Class1x1x4 = ({route}) => {
 
   
@@ -18,11 +19,12 @@ const Class1x1x4 = ({route}) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
 
+
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
             setLatestScreenDone(latestScreen);
             setComeBack(true)
-        }
+        } 
 
         if (route.params.userPoints > 0) {
             setCurrentPoints(userPoints)

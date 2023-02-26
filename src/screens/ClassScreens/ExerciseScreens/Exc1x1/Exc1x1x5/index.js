@@ -1,23 +1,14 @@
 import { View, Text, StyleSheet, Animated  } from 'react-native'
 import React, { useState, useEffect, useRef  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar';
-import AnswerButtonSmall from '../../../../components/buttons/AnswerButtonSmall';
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar';
+import AnswerButtonSmall from '../../../../../components/buttons/AnswerButtonSmall';
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 5;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
-
-
-const correctAnswerColor = 'rgb(144, 238, 144)';
-const wrongAnswerColor = 'rgb(252, 109, 118)';
-const neutralAnswerColor = 'rgb(255, 255, 255)';
-const outputColors = [wrongAnswerColor, neutralAnswerColor, correctAnswerColor];
+const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 const answer1 = 'meg';
 const answer2 = 'oss';
@@ -41,12 +32,7 @@ const correctAnswers = [[false, true, false, false], [false, true, true, false],
 
 const Exc1x1x5 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
-
-    const [A1, setA1] = useState('');
-    const [A2, setA2] = useState('');
-    const [A3, setA3] = useState('');
-    const [A4, setA4] = useState('');
+    const {userPoints, latestScreen, comeBackRoute} = route.params;
     
     const [isAnswer1Checked, setIsAnswer1Checked] = useState(false);
     const [isAnswer2Checked, setIsAnswer2Checked] = useState(false);
@@ -64,7 +50,6 @@ const Exc1x1x5 = ({route}) => {
     const [isAnswer14Checked, setIsAnswer14Checked] = useState(false);
     const [isAnswer15Checked, setIsAnswer15Checked] = useState(false);
     const [isAnswer16Checked, setIsAnswer16Checked] = useState(false);
-    const [isCorrect, setIsCorrect] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ])
     const [answersChecked, setAnswersChecked] = useState([])
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
@@ -141,8 +126,8 @@ const Exc1x1x5 = ({route}) => {
 
         if (answersChecked.length !== 0) {
             
-            let delayAnimation = 0;
-            console.log(answersChecked);
+          let delayAnimation = 0;
+          
           for (let i = 0; i < answersChecked.length; i++) {
 
 
@@ -255,7 +240,8 @@ export default Exc1x1x5
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: '100%'
+    height: '100%',
+    backgroundColor: 'white'
   },
   head: {},
   body: {
@@ -268,8 +254,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   middleView: {
@@ -279,7 +265,15 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderRadius: 10,
     paddingHorizontal: 10, 
-    paddingTop: 10
+    paddingTop: 10,
+    shadowColor: 'black',
+    shadowOffset: {
+        width: 0,
+        height: 0,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 4.5,
+    elevation: 5
   },
   questionTextMiddle: {
     fontSize: 20

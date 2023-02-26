@@ -1,23 +1,14 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Animated } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Animated } from 'react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import { LinearGradient } from 'expo-linear-gradient';
 import { Input } from "react-native-elements";
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
-
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 4;
-const correct = 'green';
-const correct1 = 'lightgreen';
-const incorrect = 'red';
-const incorrect1 = 'darkred';
-
-const correctAnswerColor = 'rgb(144, 238, 144)';
-const wrongAnswerColor = 'rgb(252, 109, 118)';
-const neutralAnswerColor = 'rgb(255, 255, 255)';
-const outputColors = [wrongAnswerColor, neutralAnswerColor, correctAnswerColor];
+const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 
 const correctAnswers = ['små', 'små', 'lille', 'liten', 'lita', 'små', 'lille', 'lite'];
@@ -37,7 +28,6 @@ const Exc1x1x4 = ({route}) => {
     const [answersChecked, setAnswersChecked] = useState([])
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
-    const [isCorrect, setIsCorrect] = useState([0, 0, 0, 0, 0, 0, 0, 0])
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
 
@@ -123,8 +113,7 @@ const Exc1x1x4 = ({route}) => {
 
         if (answersChecked.length !== 0) {
 
-            let delayAnimation = 0;
-            console.log(answersChecked);
+          let delayAnimation = 0;
           for (let i = 0; i < answersChecked.length; i++) {
 
 
@@ -155,7 +144,7 @@ const Exc1x1x4 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={4} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -337,8 +326,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   questionContainer: {

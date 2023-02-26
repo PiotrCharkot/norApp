@@ -1,17 +1,14 @@
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native'
 import React, { useState, useEffect, useRef} from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;
-const colorUnderline = 'lightgrey';
-const colorChosenAns = 'lightblue';
-const correctAnswerColor = 'rgb(144, 238, 144)';
-const wrongAnswerColor = 'rgb(252, 109, 118)';
-const neutralAnswerColor = 'rgb(255, 255, 255)';
-const outputColors = [wrongAnswerColor, neutralAnswerColor, correctAnswerColor];
-const bckColor1 = '#00000'
+const colorUnderline = generalStyles.colorHighlightChoiceOption;
+const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
+const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 const correctAnswers = [1, 2, 2, 1, 1];
 
@@ -79,7 +76,7 @@ const Exc1x1x1 = ({route}) => {
         setCurrentPoints(userPoints)
     }
     }
-    console.log('anwers: ', answersChecked);
+    
   })
 
   useEffect(() => {
@@ -227,8 +224,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   title: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.exerciseScreenTitleSize,
+    fontWeight: generalStyles.exerciseScreenTitleFontWeight,
     marginVertical: 10,
   },
   questionContainer: {

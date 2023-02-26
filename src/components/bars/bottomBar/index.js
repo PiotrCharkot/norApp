@@ -6,7 +6,7 @@ import GradientButton from '../../buttons/GradientButton'
 
 const screenWidth = Dimensions.get('window').width;
 const iconColor = 'white';
-const screenBonus = 10;
+const screenBonus = 3;
 
 const imgLinks = [require('../../../../assets/reindeerSmile_NoBackground.png'), require('../../../../assets/reindeerSmile4_NoBackground.png')]
 
@@ -30,11 +30,13 @@ const BottomBar = (params) => {
     const [failedAnswer, setFaildAnswer] = useState(false);
     const [imgLink, setImgLink] = useState(imgLinks[0]);
     const [imgMargin, setImgMargin] = useState(0);
+    const [letGoBack, setLetGoBack] = useState(true);
+    const [answCheckOnce, setAnswCheckOnce] = useState(false);
     
 
     const goBack = () => {
 
-        if (params.questionScreen && pathIcon === 'next' && buttonFunction === 'goToNext' && params.currentScreen === params.latestScreen) {
+        if (params.questionScreen && pathIcon === 'next' && buttonFunction === 'goToNext' && params.currentScreen === params.latestScreen && letGoBack) {
             setButtonFunction(buttonFunction);
             setPathIcon('tick');
 
@@ -123,8 +125,9 @@ const BottomBar = (params) => {
             }
 
         } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen ) {
+            let bonusAnswer = 2;
+            let questionPoints = 0;
             let returnArr = [];
-            console.log(params.userAnswers);
 
             let isCorrect = (questionAns, userAns) => {
                 let returnVal;
@@ -142,19 +145,34 @@ const BottomBar = (params) => {
             for (let i = 0; i < correctAnswers.length; i++) {
                 let tempVal = isCorrect(correctAnswers[i], params.userAnswers[i]);
                 returnArr.push(tempVal);
+                if (tempVal) {
+                    questionPoints = questionPoints + bonusAnswer;
+                }
             }
 
 
             params.checkAns(returnArr);
 
+            
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen ) {
+            let bonusAnswer = 2;
             let returnArr = [];
+            let questionPoints = 0;
 
             for (let i = 0; i < correctAnswers.length; i++) {
                 if (correctAnswers[i] === params.userAnswers[i]) {
                     returnArr.push(true);
+                    questionPoints = questionPoints + bonusAnswer;
                 } else {
                     returnArr.push(false);
                 }
@@ -162,15 +180,26 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+            
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen ) {
+            let bonusAnswer = 2;
             let returnArr = [];
+            let questionPoints = 0;
 
             for (let i = 0; i < correctAnswers.length; i++) {
                 if (correctAnswers.includes(params.userAnswers[i] + params.userAnswers2[i])) {
                     returnArr.push(true);
-                    console.log('well');
+                    questionPoints = questionPoints + bonusAnswer;
                 } else {
                     returnArr.push(false);
                 }
@@ -178,14 +207,25 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen ) {
-            console.log(params.userAnswers);
+            
+            let bonusAnswer = 2;
             let returnArr = [];
+            let questionPoints = correctAnswers.length * bonusAnswer * -1 + (params.numberOfGaps * 2);
             for (let i = 0; i < correctAnswers.length; i++) {
                 if (correctAnswers[i] === params.userAnswers[i]) {
                     returnArr.push(true);
+                    questionPoints = questionPoints + bonusAnswer;
                 } else {
                     returnArr.push(false);
                 }
@@ -193,17 +233,28 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'chooseCorrectCategory' && params.currentScreen >= params.latestScreen ) {
 
-            console.log('answer in the bottom bar' ,params.userAnswers,  params.containerCapacity[1]);
+            let bonusAnswer = 2;
             let returnArr = [];
+            let questionPoints = 0;
             for (let i = 0; i < params.userAnswers.length; i++) {
                 if (correctAnswers[0].includes(params.userAnswers[i]) && i < params.containerCapacity[0]) {
                     returnArr.push(1);
+                    questionPoints = questionPoints + bonusAnswer;
                 } else  if (correctAnswers[1].includes(params.userAnswers[i]) && i >= params.containerCapacity[0] && i < params.containerCapacity[1]) {
                     returnArr.push(1);
+                    questionPoints = questionPoints + bonusAnswer;
                 } else if (params.userAnswers[i] === '???') {
                     returnArr.push(3)
                 } else if (i >= params.containerCapacity[1]) {
@@ -215,30 +266,97 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
             
         } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen ) {
+            let bonusAnswer = 2;
             let returnArr = [];
-
-            
-            console.log(params.textLength);
+            let questionPoints = 0;
+            let wrongAnswer = 0;
+            let correctAnswer = 0;
 
             for (let i = 0; i < params.textLength; i++) {
                 if (correctAnswers.includes(i)) {
-                    params.userAnswers.includes(i) ? returnArr.push(1) : returnArr.push(0) 
+                    if (params.userAnswers.includes(i)) {
+                        returnArr.push(1);
+                        questionPoints = questionPoints + bonusAnswer;
+                        correctAnswer++;
+                    } else {
+                        returnArr.push(0);
+                        wrongAnswer++;
+                    }
                 } else {
                     returnArr.push(0)
                 }
             }
 
             params.checkAns(returnArr);
+
+            if (!answCheckOnce) {
+                let penaltyWrongAns = params.userAnswers.length - correctAnswers.length + wrongAnswer;
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints - penaltyWrongAns;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
+            setButtonFunction('goToNext');
+            setPathIcon('next');
+        }  else if (buttonFunction === 'orderChceck' && params.currentScreen >= params.latestScreen ) {
+            let bonusAnswer = 2;
+            let returnArr = [];
+            let questionPoints = 0;
+
+            const arrayEquals = (a, b) => {
+                return Array.isArray(a) &&
+                    Array.isArray(b) &&
+                    a.length === b.length &&
+                    a.every((val, index) => val === b[index]);
+            }
+            
+
+            for (let i = 0; i < params.userAnswers.length; i++) {
+                let tempVal = false;
+                for (let j = 0; j < correctAnswers[i].length; j++) {
+                    if (arrayEquals(correctAnswers[i][j], params.userAnswers[i])) {
+                        
+                        tempVal = true
+                    }
+                }
+                returnArr.push(tempVal)
+                if (tempVal) {
+                    questionPoints = questionPoints + bonusAnswer;
+                }
+            }
+
+            params.checkAns(returnArr);
+
+            if (!answCheckOnce) {
+                setCurrentPoints(() => {
+                    return params.userPoints + questionPoints;
+                })
+            }
+
+            setAnswCheckOnce(true);
+            setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else {
+
+           
             
             navigation.navigate(params.linkNext, {
-                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack 
+                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints
             })
         }
         
@@ -250,6 +368,8 @@ const BottomBar = (params) => {
             setPathIcon('tick');
             setImgLink(() => imgLinks[Math.floor(Math.random() * imgLinks.length)])
             setImgMargin(() => Math.floor(Math.random() * 200))
+
+
 
         }
     }, [params.resetCheck])

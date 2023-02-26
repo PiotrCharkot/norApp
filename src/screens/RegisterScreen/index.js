@@ -2,6 +2,8 @@ import { View, Text, Image, KeyboardAvoidingView, Animated, Dimensions, Touchabl
 import React, {useState, useEffect, useRef} from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { authentication } from '../../../firebase/firebase-config';
+import { db } from '../../../firebase/firebase-config'
+import { collection, getDocs, query, where, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { EmailAuthProvider, linkWithCredential, updateProfile  } from "firebase/auth";
 import { Input } from "react-native-elements";
 import { withAnchorPoint } from 'react-native-anchor-point';
@@ -10,6 +12,9 @@ import GradientButton from '../../components/buttons/GradientButton';
 import styles from './style';
 
 const offsetButton = 25;
+const usersPointsCollection = collection(db, 'usersPoints');
+
+
 const RegisterScreen = () => {
 
     const navigation = useNavigation();
@@ -35,6 +40,35 @@ const xPositionDeg = interpolatedValueForX.interpolate({
     inputRange: [0, 360],
     outputRange: ["0deg", "180deg"]
 })
+
+
+const updateUserNameInRankigs = async (userIdentyfication, userN) => {
+    console.log('my id in update is: ', userIdentyfication, 'and name is: ', userN );
+    
+    const q = query(usersPointsCollection, where('userRef', '==', userIdentyfication))
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+
+
+        querySnapshot.forEach((item) => {
+
+            const docRef = doc(db, "usersPoints", item.id);
+            
+            updateDoc(docRef, {
+                userName: userN   
+            })
+            .then(docRef => {
+                console.log("username in rankings has been updated to: ", userN);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        })
+    } else {
+        console.log('there is no user in rankings yet');
+    }
+}
 
 const openScreenAnimation = () => {
 
@@ -89,6 +123,10 @@ const createUser = () => {
           }).catch((error) => {
             console.log(error);
           });
+         
+        
+          updateUserNameInRankigs(user.uid, username);
+        
         console.log("Anonymous account successfully upgraded", user);
         setUsername('');
         setEmail('');
