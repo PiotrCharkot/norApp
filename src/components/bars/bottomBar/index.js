@@ -6,7 +6,6 @@ import GradientButton from '../../buttons/GradientButton'
 
 const screenWidth = Dimensions.get('window').width;
 const iconColor = 'white';
-const screenBonus = 3;
 
 const imgLinks = [require('../../../../assets/reindeerSmile_NoBackground.png'), require('../../../../assets/reindeerSmile4_NoBackground.png')]
 
@@ -41,7 +40,7 @@ const BottomBar = (params) => {
             setPathIcon('tick');
 
             setCurrentPoints(() => {
-                return failedAnswer ? params.userPoints - screenBonus : params.userPoints - screenBonus - params.answerBonus;
+                return failedAnswer ? params.userPoints : params.userPoints - params.answerBonus;
             })
 
             Animated.spring(correctMessagePosition, {
@@ -80,6 +79,8 @@ const BottomBar = (params) => {
 
     const buttonAction = () => {
         if (buttonFunction === 'checkAnswer' && params.currentScreen >= params.latestScreen ) {
+
+            let additonalScreenPoints = params.learningScreen ? params.currentScreen * 10 : 0;
             
             let isCorrect = () => {
                 let returnVal;
@@ -114,7 +115,8 @@ const BottomBar = (params) => {
                 }).start();
                 
                 setCurrentPoints(() => {
-                    return failedAnswer ? params.userPoints + screenBonus : params.userPoints + screenBonus + params.answerBonus;
+                    console.log('what is status of answer: ', failedAnswer, params.userPoints, params.answerBonus);
+                    return failedAnswer ? params.userPoints + additonalScreenPoints : params.userPoints + params.answerBonus  + additonalScreenPoints ;
                 })
             } else {
                 Animated.spring(wrongMessagePosition, {
@@ -125,7 +127,7 @@ const BottomBar = (params) => {
             }
 
         } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen ) {
-            let bonusAnswer = 2;
+            let bonusAnswer = 3;
             let questionPoints = 0;
             let returnArr = [];
 
@@ -165,7 +167,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen ) {
-            let bonusAnswer = 2;
+            let bonusAnswer = 4;
             let returnArr = [];
             let questionPoints = 0;
 
@@ -192,7 +194,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen ) {
-            let bonusAnswer = 2;
+            let bonusAnswer = 4;
             let returnArr = [];
             let questionPoints = 0;
 
@@ -219,9 +221,9 @@ const BottomBar = (params) => {
             setPathIcon('next');
         } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen ) {
             
-            let bonusAnswer = 2;
+            let bonusAnswer = 6;
             let returnArr = [];
-            let questionPoints = correctAnswers.length * bonusAnswer * -1 + (params.numberOfGaps * 2);
+            let questionPoints = correctAnswers.length * bonusAnswer * -1 + (params.numberOfGaps * bonusAnswer);
             for (let i = 0; i < correctAnswers.length; i++) {
                 if (correctAnswers[i] === params.userAnswers[i]) {
                     returnArr.push(true);
@@ -278,7 +280,7 @@ const BottomBar = (params) => {
             setPathIcon('next');
             
         } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen ) {
-            let bonusAnswer = 2;
+            let bonusAnswer = 6;
             let returnArr = [];
             let questionPoints = 0;
             let wrongAnswer = 0;
@@ -293,6 +295,7 @@ const BottomBar = (params) => {
                     } else {
                         returnArr.push(0);
                         wrongAnswer++;
+                        console.log('pushing wrong');
                     }
                 } else {
                     returnArr.push(0)
@@ -302,7 +305,8 @@ const BottomBar = (params) => {
             params.checkAns(returnArr);
 
             if (!answCheckOnce) {
-                let penaltyWrongAns = params.userAnswers.length - correctAnswers.length + wrongAnswer;
+                
+                let penaltyWrongAns = (params.userAnswers.length - correctAnswers.length + wrongAnswer) * 2;
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints - penaltyWrongAns;
                 })
@@ -313,7 +317,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         }  else if (buttonFunction === 'orderChceck' && params.currentScreen >= params.latestScreen ) {
-            let bonusAnswer = 2;
+            let bonusAnswer = 6;
             let returnArr = [];
             let questionPoints = 0;
 
@@ -351,10 +355,69 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else {
+        } else if (buttonFunction === 'checkAnswerOrderCheck' && params.currentScreen >= params.latestScreen ) {
 
-           
+            let additonalScreenPoints = params.learningScreen ? params.currentScreen * 10 : 0;
+
+            const arrayEquals = (a, b) => {
+                return Array.isArray(a) &&
+                    Array.isArray(b) &&
+                    a.length === b.length &&
+                    a.every((val, index) => val === b[index]);
+            }
             
+            let isCorrect = () => {
+                let returnArr = [];
+                
+                for (let i = 0; i < params.userAnswers.length; i++) {
+                    let tempVal = false;
+                    for (let j = 0; j < correctAnswers[i].length; j++) {
+                        if (arrayEquals(correctAnswers[i][j], params.userAnswers[i])) {
+                            
+                            tempVal = true
+                        }
+                    }
+                    returnArr.push(tempVal)
+                }
+
+                if (!returnArr[0]) {
+
+                    setFaildAnswer(true);
+                }
+                return returnArr[0];
+            }
+            
+            if (isCorrect()) {
+                setButtonFunction('goToNext');
+                setPathIcon('next');
+                
+                Animated.spring(correctMessagePosition, {
+                    toValue: -170,
+                    duration: 200,
+                    useNativeDriver: true
+                }).start();
+
+                Animated.spring(correctImagePosition, {
+                    delay: 400,
+                    toValue: -220,
+                    duration: 200,
+                    bounciness: 7,
+                    useNativeDriver: true
+                }).start();
+                
+                setCurrentPoints(() => {
+                    return failedAnswer ? params.userPoints + additonalScreenPoints : params.userPoints + params.answerBonus + additonalScreenPoints;
+                })
+            } else {
+                Animated.spring(wrongMessagePosition, {
+                    toValue: -170,
+                    duration: 200,
+                    useNativeDriver: true
+                }).start()
+            }
+
+        } else {
+  
             navigation.navigate(params.linkNext, {
                 userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints
             })
@@ -397,7 +460,7 @@ const BottomBar = (params) => {
         </Animated.View>
         
         <Animated.View style={{...styles.wrongMessageContainer, transform: [{translateY: wrongMessagePosition}] }}>
-            <Text style={styles.textMessage}>Wrong Answer</Text>
+            <Text style={styles.textMessage}>Wrong Answer, try again</Text>
         </Animated.View>
 
 

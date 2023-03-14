@@ -1,0 +1,50 @@
+export default dataObj = [
+    {
+    title: 'Personlige pronomen',
+    description: 'personal pronouns',
+    level: 'A1',
+    link: 'Class1x1x1',
+    key: 1,
+    showPro: false,
+   },
+    {
+    title: 'Possessiver',
+    description: 'possessive',
+    level: 'A1',
+    link: 'Class1x2x1',
+    key: 2,
+    showPro: false,
+   },
+    {
+    title: 'Spørreord',
+    description: 'question words',
+    level: 'A1',
+    link: '',
+    key: 3,
+    showPro: false,
+   },
+    {
+    title: 'Demonstrativer',
+    description: 'demonstratives',
+    level: 'A1',
+    link: '',
+    key: 4,
+    showPro: true,
+   },
+    {
+    title: 'Kvantorer',
+    description: 'quantifiers',
+    level: 'A1',
+    link: '',
+    key: 5,
+    showPro: true,
+   },
+   {
+    title: 'Ubestemt pronomen',
+    description: 'indefinite pronoun',
+    level: 'A1',
+    link: '',
+    key: 6,
+    showPro: true,
+   }
+];

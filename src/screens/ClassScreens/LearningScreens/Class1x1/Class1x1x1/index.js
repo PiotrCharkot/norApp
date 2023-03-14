@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useState, useEffect} from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;
 
@@ -33,16 +34,18 @@ const Class1x1x1 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={1} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBack}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBack}/>
         <View style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Welcome screen text</Text>
+            <Text style={styles.title}>Presens - present time</Text>
           </View>
 
           <View style={styles.middleView}>
             <Text style={styles.text}>
-            It isn't really a good idea to be extending native prototypes though, it is generally considered a bad practice that a lot of people just recommend against doing so entirely as there are safer ways that are just as good. There is a SO discussion on the topic here, but every JS programming book I've read has strongly recommended against it. For OPs problem I usually just do
+            In this class we are going to learn about present time. It is the most used time in norwegian language. It is also the easiest to learn.
             </Text>
+
+            
           </View>
         </View>
     
@@ -67,7 +70,8 @@ export default Class1x1x1
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: '100%'
+    height: '100%',
+    backgroundColor: generalStyles.backgroundColorLearnScreen
   },
   head: {},
   body: {
@@ -77,20 +81,20 @@ const styles = StyleSheet.create({
   topView: {
     marginTop: 20,
     marginBottom: 20,
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   middleView: {
     marginTop: 20,
     marginBottom: 20,
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   title: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
   text: {
-    fontSize: 18,
+    fontSize: generalStyles.screenTextSize,
     fontWeight: '400',
   },
   bottomBarContainer: {

@@ -9,7 +9,7 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const currentScreen = 8;
-const totalPoints = 100;
+const totalPoints = 212;
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 const gradientTop = generalStyles.gradientTopDraggable2;
@@ -17,11 +17,17 @@ const gradientBottom = generalStyles.gradientBottomDraggable2;
 
 const wordsCorrect = [
     [
-        ['drar', 'vi', 'på', 'ferie', 'i morgen', 'eller', 'i dag', '?' ],
-        ['drar', 'vi', 'på', 'ferie', 'i dag', 'eller', 'i morgen', '?' ]
+      ['drar', 'vi', 'på', 'ferie', 'i morgen', 'eller', 'i dag', '?' ],
+      ['drar', 'vi', 'på', 'ferie', 'i dag', 'eller', 'i morgen', '?' ]
     ],[
-        ['jeg', 'har', 'tid', 'til', 'å', 'vente', '.'],
-        ['tid', 'til', 'å','vente', 'har' ,'jeg' , '.'],
+      ['jeg', 'har', 'tid', 'til', 'å', 'vente', '.'],
+      ['tid', 'til', 'å','vente', 'har' ,'jeg' , '.'],
+    ],[
+      ['jeg', 'spiser', 'mat', 'nå', '.'],
+      ['nå', 'spiser', 'jeg', 'mat', '.'],
+      ['mat', 'spiser', 'jeg', 'nå', '.'],
+    ],[
+      ['kan', 'du', 'hjelpe', 'meg', '?']
     ]
 ]
 
@@ -34,6 +40,8 @@ const Exc1x1x8 = ({ route }) => {
     const [answersChecked, setAnswersChecked] = useState([]);
     const [words, setWords] = useState(['?', 'ferie', 'vi', 'i morgen', 'i dag', 'drar', 'på', 'eller' ]);
     const [words1, setWords1] = useState(['.', 'tid', 'til', 'har', 'å', 'jeg', 'vente' ]);
+    const [words2, setWords2] = useState(['nå', '.', 'mat', 'spiser', 'jeg' ]);
+    const [words3, setWords3] = useState(['du', 'meg', '?', 'kan', 'hjelpe' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -44,9 +52,9 @@ const Exc1x1x8 = ({ route }) => {
     const a3background = useRef(new Animated.Value(0)).current;
     const a4background = useRef(new Animated.Value(0)).current;
 
-    const backgroundArray = [a1background, a2background];
+    const backgroundArray = [a1background, a2background, a3background, a4background];
 
-    const allUserAnswers = [words, words1]
+    const allUserAnswers = [words, words1, words2, words3]  
 
 
     const backgroundA1 = a1background.interpolate({
@@ -168,6 +176,27 @@ const Exc1x1x8 = ({ route }) => {
     };
 
 
+    const swap2 = (index1, index2) => {
+      var arr = [...words2];
+      var temp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = temp;
+      setWords2(arr);
+      resetAnimation()
+      
+    };
+
+    const swap3 = (index1, index2) => {
+      var arr = [...words3];
+      var temp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = temp;
+      setWords3(arr);
+      resetAnimation()
+      
+    };
+
+
   return (
     <View style={styles.mainContainer}>
       <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
@@ -224,6 +253,74 @@ const Exc1x1x8 = ({ route }) => {
                         releaseDraggable={releaseDraggable}
                         onReleaseDraggable={onReleaseDraggable}
                         swap={swap1}
+                        renderChild={(isMovedOver) => {
+                            return (
+        
+                            <LinearGradient
+                            colors={[gradientTop, gradientBottom]}
+                            key={index}
+                                style={[
+                                isMovedOver && styles.draggableContainerSwap,
+                                item.trim() == '' && !indexOfGaps.includes(index) ?  styles.draggableContainerEmpty : styles.draggableContainer,
+                                ]}
+                            >
+                                
+                                <Text style={styles.textInDraggable}>{item}</Text>
+                            </LinearGradient>
+                            );
+                        }}
+                        />
+                    );
+                    
+                    })}
+                </Animated.View>
+
+                <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA3}} >
+                    {words2.map((item, index) => {
+                    
+                    return (
+                        <Draggable
+                        key={index}
+                        index={index}
+                        movingDraggable={movingDraggable}
+                        onMovingDraggable={onMovingDraggable}
+                        releaseDraggable={releaseDraggable}
+                        onReleaseDraggable={onReleaseDraggable}
+                        swap={swap2}
+                        renderChild={(isMovedOver) => {
+                            return (
+        
+                            <LinearGradient
+                            colors={[gradientTop, gradientBottom]}
+                            key={index}
+                                style={[
+                                isMovedOver && styles.draggableContainerSwap,
+                                item.trim() == '' && !indexOfGaps.includes(index) ?  styles.draggableContainerEmpty : styles.draggableContainer,
+                                ]}
+                            >
+                                
+                                <Text style={styles.textInDraggable}>{item}</Text>
+                            </LinearGradient>
+                            );
+                        }}
+                        />
+                    );
+                    
+                    })}
+                </Animated.View>
+
+                <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA4}} >
+                    {words3.map((item, index) => {
+                    
+                    return (
+                        <Draggable
+                        key={index}
+                        index={index}
+                        movingDraggable={movingDraggable}
+                        onMovingDraggable={onMovingDraggable}
+                        releaseDraggable={releaseDraggable}
+                        onReleaseDraggable={onReleaseDraggable}
+                        swap={swap3}
                         renderChild={(isMovedOver) => {
                             return (
         

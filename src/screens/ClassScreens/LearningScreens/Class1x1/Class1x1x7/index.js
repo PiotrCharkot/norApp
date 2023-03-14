@@ -1,28 +1,29 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
-import AnswerButton from '../../../../components/buttons/AnswerButton'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import AnswerButton from '../../../../../components/buttons/AnswerButton'
+import generalStyles from '../../../../../styles/generalStyles';
 
-const currentScreen = 2;
-const answerOne = 'Answer A';
-const answerTwo = 'Answer B';
-const answerThree = 'Answer C';
-const answerFour = 'Answer D';
+const currentScreen = 7;
+const answerOne = 'æ';
+const answerTwo = 'to';
+const answerThree = 'å';
+const answerFour = 'a';
 const correctAnswers = [false, false, true, false];
 
 
-const Class1x1x2 = ({route}) => {
+const Class1x1x7 = ({route}) => {
 
     const {userPoints, latestScreen, comeBackRoute} = route.params
     
-    console.log('points 2nd screen: ' , userPoints );
+    console.log('points 7nd screen: ' , userPoints );
     const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
     const [isAnswerBChecked, setIsAnswerBChecked] = useState(false);
     const [isAnswerCChecked, setIsAnswerCChecked] = useState(false);
     const [isAnswerDChecked, setIsAnswerDChecked] = useState(false);
-    const [answerBonus, setAnswerBonus] = useState(5)
+    const [answerBonus, setAnswerBonus] = useState(8)
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -42,17 +43,19 @@ const Class1x1x2 = ({route}) => {
         }
 
         if (latestScreen >= currentScreen) {
-          setAnswerBonus(0)  
+          //setAnswerBonus(0)  
+
+          //why is set answer bonus = 0 ?????????????????? check other screens!!!
         }
     })
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={2} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Choose right answer.</Text>
+                <Text style={styles.questionText}>Which letter is used before base form of norwegian verb?</Text>
             </View>
 
             <View style={styles.buttonsContainer}>
@@ -73,8 +76,8 @@ const Class1x1x2 = ({route}) => {
         answerBonus={answerBonus}
         buttonWidth={45}
         buttonHeight={45}
-        linkNext={'Class1x1x3'}
-        linkPrevious={'Class1x1x1'}
+        linkNext={'Class1x1x8'}
+        linkPrevious={'Class1x1x6'}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
@@ -86,7 +89,7 @@ const Class1x1x2 = ({route}) => {
   )
 }
 
-export default Class1x1x2
+export default Class1x1x7
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -103,8 +106,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
   buttonsContainer: {

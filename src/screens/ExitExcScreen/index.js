@@ -8,6 +8,7 @@ import uuid from 'react-native-uuid';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-community/masked-view';
 import { withAnchorPoint } from 'react-native-anchor-point';
+import { useNavigation } from "@react-navigation/native";
 import GradientButton from '../../components/buttons/GradientButton';
 
 const screenWidth = Dimensions.get('window').width;
@@ -19,6 +20,7 @@ const usersPointsCollection = collection(db, 'usersPoints');
 
 const ExitExcScreen = ({route}) => {
 
+  const navigation = useNavigation();
   const { userPoints, allPoints } = route.params;
 
   const [indicatotValue, setIndicatorValue] = useState(0);
@@ -59,6 +61,7 @@ const ExitExcScreen = ({route}) => {
   })
 
   useEffect(() => {
+
     const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
         
       if (authUser) {
@@ -79,6 +82,7 @@ const ExitExcScreen = ({route}) => {
 
 
   useEffect(() => {
+
 
     let docId = uuid.v4();
 
@@ -106,14 +110,13 @@ const ExitExcScreen = ({route}) => {
       
 
       if (querySnapshot.empty) {
-        console.log('setting new points for user in data base now');
+        
         setDataToFb();
       } else {
     
         setIsNewUser(false);
-        console.log('user exist in data base');
+        
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, " !!!=> ", doc.data().dailyPoints);
           if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
             setCurrentDailyScore(0);
           } else {
@@ -148,10 +151,10 @@ const ExitExcScreen = ({route}) => {
 
   useEffect(() => {
 
+   
     let resultIndicatorValue = -180 + userPoints / allPoints * 180;
     setIndicatorValue(Math.floor(userPoints / allPoints * 100))
 
-    console.log('setting new points exit screen', userPoints,'/', allPoints );
     Animated.timing(interpolatedValue, {
         toValue: resultIndicatorValue,
         duration: 3000,
@@ -176,7 +179,6 @@ const ExitExcScreen = ({route}) => {
 
   useEffect(() => {
     if (showLineOffset) {
-      console.log('curent score in use effect: ', currentDailyScore, lineOffset);
 
       if (currentDailyScore >= pointsToScore) {
         setDayUp(true);
@@ -204,7 +206,6 @@ const ExitExcScreen = ({route}) => {
         }, 4100);
       }
 
-      console.log('lineofset cal', lineOffset);
       Animated.sequence([
         Animated.timing(lineOffset, {
           toValue: currentDailyScore - pointsToScore >= 0 ? 0 : currentDailyScore - pointsToScore,
@@ -259,6 +260,12 @@ const ExitExcScreen = ({route}) => {
   };
 
   const goToMain = () => {
+    navigation.navigate("Main");
+    console.log('routing to main');
+  }
+
+  const goToResults = () => {
+    navigation.navigate("results");
     console.log('routing to main');
   }
     
@@ -358,14 +365,14 @@ const ExitExcScreen = ({route}) => {
           width={screenWidth / 1.5 }
           colorA={'#485563'} 
           colorB={'#29323c'} 
-          callbackFunc={goToMain} 
+          callbackFunc={goToResults} 
           path={'forgot'} 
           colorIcon={'white'}
           heightIcon={15} 
           widthIcon={15}
           fontSize={20}
           noText={false}
-          text={' check '}
+          text={' check rankings '}
           colorText={'white'}
           startGradient={[1.0, 0.0]}
           endGradient={[1.0, 1.0]}

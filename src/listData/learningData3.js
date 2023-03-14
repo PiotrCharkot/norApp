@@ -1,14 +1,14 @@
 export default dataObj = [
     {
-    title: 'First thing',
-    description: 'here is some description',
+    title: 'Artikler',
+    description: 'articles',
     level: 'A1',
     link: 'Class1x1x1',
     key: 1,
     showPro: false,
    },
     {
-    title: 'Sceond thing',
+    title: 'Bøyning av substantiv',
     description: 'here is some description 2',
     level: 'A1',
     link: 'Class1x2x1',
@@ -16,7 +16,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Third thing',
+    title: 'Uregelmessig bøyning',
     description: 'here is some description 3',
     level: 'A1',
     link: '',
@@ -24,7 +24,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Fourth thing',
+    title: 'Bestemt eller ubestemt',
     description: 'here is some description 4',
     level: 'A1',
     link: '',
@@ -32,7 +32,7 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Fifth thing',
+    title: 'Substaniv som ikke telles',
     description: 'here is some description 5',
     level: 'A1',
     link: '',
@@ -40,7 +40,7 @@ export default dataObj = [
     showPro: true,
    },
    {
-    title: 'First thing',
+    title: 'Genitiv',
     description: 'here is some description',
     level: 'A1',
     link: '',
@@ -48,7 +48,7 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Sceond thing',
+    title: 'Substantivfraser',
     description: 'here is some description 2',
     level: 'A1',
     link: '',
@@ -56,27 +56,11 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Third thing',
+    title: 'Samskriving',
     description: 'here is some description 3',
     level: 'A1',
     link: '',
     key: 8,
     showPro: true,
-   },
-    {
-    title: 'Fourth thing',
-    description: 'here is some description 4',
-    level: 'A1',
-    link: '',
-    key: 9,
-    showPro: true,
-   },
-    {
-    title: 'Fifth thing',
-    description: 'here is some description 5',
-    level: 'A1',
-    link: '',
-    key: 10,
-    showPro: true,
-   },
+   }
 ];

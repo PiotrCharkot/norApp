@@ -10,7 +10,7 @@
       "sourceExts": ["cjs"]
     },
     "splash": {
-      "image": "./assets/results.png",
+      "image": "./assets/norskFlag.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

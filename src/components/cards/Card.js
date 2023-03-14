@@ -6,7 +6,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 const screenWidth = Dimensions.get('window').width;
 
 const Card = (params) => {
-    
 
     
     const navigation = useNavigation();
@@ -14,7 +13,7 @@ const Card = (params) => {
   return (
     <TouchableOpacity style={styles.mainContainer} onPress={() => navigation.navigate(params.link)}>
         <View style={styles.innerContainer}>
-            <LinearGradient colors={[ '#FF2E4C', '#1E2A78']} style={styles.gradient} >
+            <LinearGradient colors={[ params.color1, params.color2]} style={styles.gradient} >
                 <Text style={styles.textTitle}>{params.title}</Text>
                 <Text style={styles.textDescription}>{params.description}</Text>
                 
@@ -105,7 +104,15 @@ const styles = StyleSheet.create({
     textTitle: {
         color: 'white',
         fontSize: 20,
-        fontWeight: '800'
+        fontWeight: '800',
+        shadowColor: 'black',
+        shadowOffset: {
+            width: -1,
+            height: -1,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 4.5,
+        elevation: 5
     },
     textDescription: {
         color: 'white',
@@ -113,12 +120,12 @@ const styles = StyleSheet.create({
         fontWeight: '500'
     },
     textLevel: {
-        color: '#68d2d4',
+        color: 'grey',
         fontSize: 22,
         fontWeight: '900'
     },
     textPro: {
-        color: '#68d2d4',
+        color: 'grey',
         fontSize: 20,
         fontWeight: '800'
     },

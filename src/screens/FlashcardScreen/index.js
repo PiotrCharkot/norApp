@@ -393,7 +393,7 @@ const FlashcardScreen = () => {
         <View style={styles.headBottom}>
           <View style={styles.createButtonContainer}>
             <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.textButton}>Create new...</Text>
+              <Text style={styles.textButton}>Create my cards</Text>
             </TouchableOpacity>
           </View>
         

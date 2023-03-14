@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native'
-import React, { useState, useEffect} from 'react';
+import { View, Text, Image, StyleSheet, Dimensions, Animated } from 'react-native'
+import React, { useState, useEffect, useRef} from 'react';
 import { getStorage, ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -9,11 +9,42 @@ const RankingItem = (item) => {
 
     const storage = getStorage();
 
-    const [imgSrc, setImgSrc] = useState("https://image.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg");
+    const interpolatedValue = useRef(new Animated.Value(0)).current;
+
+    const [imgSrc, setImgSrc] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AHD_transparent_picture.png&psig=AOvVaw06tXtft-O_kCjAPf3xT_cS&ust=1677700689506000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLD1rp-Auf0CFQAAAAAdAAAAABAE");
     
+    const circlePositionDeg = interpolatedValue.interpolate({
+        inputRange: [0, 360],
+        outputRange: ["0deg", "360deg"]
+    })
+
+
+
     useEffect(() => {
 
-        
+        let randomDelay = Math.floor(Math.random() * 10) * 1000;
+        let randomPause = Math.floor(Math.random() * 10) * 1000;
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(interpolatedValue, {
+                    duration: 3000,
+                    toValue: 180,
+                    delay: randomDelay,
+                    speed: 1,
+                    bounciness: 12,
+                    useNativeDriver: true,
+                    isInteraction: false,
+                }), Animated.timing(interpolatedValue, {
+                    duration: randomPause,
+                    toValue: 180,
+                    useNativeDriver: true,
+                    isInteraction: false,
+                }),
+            ]), {
+                useNativeDriver: true,
+                isInteraction: false
+            }
+        ).start();
 
         getDownloadURL(ref(storage, 'profilePictures/' + item.params.userRef))
         .then((url) => {
@@ -31,15 +62,19 @@ const RankingItem = (item) => {
         });
     }, [])
     
+                     
+        
     
-  return (
+  return item.params.userRef === 'extra' ? (
+    <View style={{height: 160}}></View>
+  ) : (
     <View style={styles.wrapper}>
 
         <View style={styles.positionContainer}>
             <Text style={styles.positionText}>{item.params.position}</Text>
         </View>
-            <LinearGradient colors={['#6190E8', '#A7BFE8']} style={styles.gradient}>
-                <LinearGradient colors={[ '#A7BFE8', '#6190E8']} style={styles.colorLine}></LinearGradient>
+            <LinearGradient colors={ item.params.userRef === item.userRef ? ['#1D976C', '#93F9B9'] : ['#6190E8', '#A7BFE8']} start={[0.8, 0.2]} style={styles.gradient}>
+                <LinearGradient colors={ item.params.userRef === item.userRef ? ['#93F9B9', 'white'] : [ '#A7BFE8', 'white']} start={[0.85, 0.5]} end={[0.3, 0.5]} style={styles.colorLine}></LinearGradient>
                 <View  style={{...styles.mainContainer}}>
                 
                     <View style={styles.nameContainer}>
@@ -49,7 +84,7 @@ const RankingItem = (item) => {
                     <View style={styles.resultsContainer}>
                         <View style={styles.daysContainer}>
                             <Text style={styles.daysText}>{item.params.daysInRow}  </Text> 
-                            <Image style={styles.pictureSun}  source={require('../../../assets/sun.png')} />
+                            <Animated.Image style={{...styles.pictureSun, transform: [{rotate: circlePositionDeg}] }}  source={require('../../../assets/sun.png')} />
                         </View>
                         <View style={styles.pointsContainer}>
                             <Text style={styles.pointsText}>{item.params.totalPoints}</Text>
@@ -68,11 +103,7 @@ export default RankingItem
  
 
 const styles = StyleSheet.create({
-    wrapper: {
-        //position: 'absolute',
-        // borderRadius: 25,
-        // overflow: 'visible'
-    },
+    wrapper: {},
     gradient: {
         borderRadius: 25,
     },

@@ -1,0 +1,50 @@
+export default dataObj = [
+    {
+    title: 'Presens',
+    description: 'present time - introduction',
+    level: 'A1',
+    link: 'Class1x1x1',
+    key: 1,
+    showPro: false,
+   },
+    {
+    title: 'Presens futurum',
+    description: 'future time',
+    level: 'A1',
+    link: 'Class1x2x1',
+    key: 2,
+    showPro: false,
+   },
+    {
+    title: 'Preteritum',
+    description: 'past time',
+    level: 'A1',
+    link: '',
+    key: 3,
+    showPro: false,
+   },
+    {
+    title: 'Presens perfektum',
+    description: 'past participle',
+    level: 'A1',
+    link: '',
+    key: 4,
+    showPro: true,
+   },
+    {
+    title: 'Preteritum perfektum',
+    description: 'past perfect',
+    level: 'A1',
+    link: '',
+    key: 5,
+    showPro: true,
+   },
+   {
+    title: 'Andre konstruksjoner',
+    description: 'other constructions',
+    level: 'A1',
+    link: '',
+    key: 6,
+    showPro: true,
+   }
+];

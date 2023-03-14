@@ -1,13 +1,22 @@
 import { StyleSheet } from "react-native";
 
 const generalStyles = StyleSheet.create({
+    backgroundColorLearnScreen: 'white',
     colorHighlightChoiceOption: 'lightgrey',
     colorHighlightChoosenAnswer: '#77A1D3',
     correctAnswerConfirmationColor: 'rgb(144, 238, 144)',
     wrongAnswerConfirmationColor: 'rgb(252, 109, 118)',
     neutralAnswerConfirmationColor: 'rgb(255, 255, 255)',
     exerciseScreenTitleSize: 22,
+    learningScreenTitleSize: 22,
     exerciseScreenTitleFontWeight: '700',
+    learningScreenTitleFontWeight: '700',
+    screenTextSize: 22,
+    screenTextSizeSmall: 20,
+    exampleTextSize: 30,
+    exampleTextSizeSmall: 20,
+    exampleBackgroundColor: 'lightgrey',
+    exampleTextWeight: '700',
     gradientTopDraggable: '#2a0845',
     gradientBottomDraggable: '#6441A5',
     gradientTopDraggable2: '#093028',

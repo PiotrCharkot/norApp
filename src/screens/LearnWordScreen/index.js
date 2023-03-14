@@ -6,7 +6,7 @@ import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
-import dummyData from '../dummyData';
+import dummyData from '../../listData/learningData1';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;

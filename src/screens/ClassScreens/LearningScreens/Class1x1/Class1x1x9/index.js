@@ -1,32 +1,42 @@
-import {View, Text, StyleSheet, ScrollView, Dimensions, StatusBar, TouchableOpacity, Image, SafeAreaView, } from 'react-native'
+import {View, Text, StyleSheet, Dimensions} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-import ProgressBar from '../../../../components/bars/progressBar'
-import BottomBar from '../../../../components/bars/bottomBar'
-import Draggable from '../../../../components/other/Draggable'
+import ProgressBar from '../../../../../components/bars/progressBar'
+import BottomBar from '../../../../../components/bars/bottomBar'
+import Draggable from '../../../../../components/other/Draggable'
+import generalStyles from '../../../../../styles/generalStyles';
 
 const { width, height } = Dimensions.get("window");
-const currentScreen = 3;
+const currentScreen = 9;
+const totalPoints = 24 + currentScreen * 10;
 
-const correctAnswers = ['Jeg', 'er', 'tretti år', 'gammel'];
-const indexOfGaps = [1, 3]
-const indexOfText = [0, 2, 4, 5, 6, 7]
+const gradientTop = generalStyles.gradientTopDraggable2;
+const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const Class1x1x3 = ({ route }) => {
+const wordsCorrect = [
+    [
+        ['jeg', 'spiser', 'mat', 'nå'],
+        ['nå',  'spiser', 'jeg','mat'],
+        ['mat', 'spiser', 'jeg', 'nå'],
+    ]
+]
+
+const Class1x1x9 = ({ route }) => {
 
     const {userPoints, latestScreen, comeBackRoute} = route.params
     
-    console.log('points 3 screen: ' , userPoints );
+    console.log('points 8 screen: ' , userPoints );
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Jeg' ,'            ', 'tretti år', '            ',  'og', 'kommer', 'fra',  'Oslo.','!!!' , 'var', 'gammel', 'er', 'bli', 'ung', 'pen' ]);
+    const [words, setWords] = useState(['nå', 'jeg' , 'mat', 'spiser' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
-    const [answerBonus, setAnswerBonus] = useState(5)
+    const [answerBonus, setAnswerBonus] = useState(8)
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
-    
 
+    const allUserAnswers = [words]
+    
 
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
@@ -71,60 +81,45 @@ const Class1x1x3 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={3} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Place right words in gaps.</Text>
+                <Text style={styles.questionText}>Set words in correct order.</Text>
+                <Text style={styles.textBody}>(I'm eating food now.)</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
 
 
                 {words.map((item, index) => {
-                    
-                    if (indexOfText.includes(index)) {
-                        return (
-                            <View style={styles.exgzampleTextContainer} key={index}>
-                                <Text style={styles.exgzampleText}>{item}</Text>
-                            </View>
-                        )
-                    } else if (item === '!!!') {
-                        return (
-                            <View style={styles.spacer} key={index}>
-                               
-                            </View>
-                        )
-                    }
-                    else {
-                        return (
-                            <Draggable
+                    return (
+                        <Draggable
+                        key={index}
+                        index={index}
+                        movingDraggable={movingDraggable}
+                        onMovingDraggable={onMovingDraggable}
+                        releaseDraggable={releaseDraggable}
+                        onReleaseDraggable={onReleaseDraggable}
+                        swap={swap}
+                        renderChild={(isMovedOver) => {
+                            return (
+        
+                            <LinearGradient
+                            colors={[gradientTop, gradientBottom]}
                             key={index}
-                            index={index}
-                            movingDraggable={movingDraggable}
-                            onMovingDraggable={onMovingDraggable}
-                            releaseDraggable={releaseDraggable}
-                            onReleaseDraggable={onReleaseDraggable}
-                            swap={swap}
-                            renderChild={(isMovedOver) => {
-                                return (
-            
-                                <LinearGradient
-                                colors={['#6d28ed', '#b829e3']}
-                                key={index}
-                                    style={[
-                                    isMovedOver && styles.draggableContainerSwap,
-                                    item.trim() == '' && !indexOfGaps.includes(index) ?  styles.draggableContainerEmpty : styles.draggableContainer,
-                                    ]}
-                                >
-                                    
-                                    <Text style={styles.textInDraggable}>{item}</Text>
-                                </LinearGradient>
-                                );
-                            }}
-                            />
-                        );
-                    }
+                                style={[
+                                isMovedOver && styles.draggableContainerSwap,
+                                styles.draggableContainer,
+                                ]}
+                            >
+                                
+                                <Text style={styles.textInDraggable}>{item}</Text>
+                            </LinearGradient>
+                            );
+                        }}
+                        />
+                    );
                     
                 })}
 
@@ -134,12 +129,12 @@ const Class1x1x3 = ({ route }) => {
 
       <View style={styles.bottomBarContainer}>
         <BottomBar 
-        callbackButton={'checkAnswer'}
-        userAnswers={words}
-        correctAnswers={correctAnswers}
+        callbackButton={'checkAnswerOrderCheck'}
+        userAnswers={allUserAnswers}
+        correctAnswers={wordsCorrect}
         answerBonus={answerBonus}
-        linkNext={'Class1x1x4'}
-        linkPrevious={'Class1x1x2'} 
+        linkNext={'ExitExcScreen'}
+        linkPrevious={'Class1x1x8'}
         buttonWidth={45}
         buttonHeight={45}
         userPoints={currentPoints}
@@ -147,13 +142,15 @@ const Class1x1x3 = ({ route }) => {
         currentScreen={currentScreen}
         questionScreen={true}
         comeBack={comeBack}
+        totalPoints={totalPoints}
+        learningScreen={true}
         />
       </View>
     </View>
   )
 }
 
-export default Class1x1x3
+export default Class1x1x9
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -217,7 +214,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: 'white'
   },
-  exgzampleText: {
+  textBody: {
     fontSize: 18,
     fontWeight: '500',
     flexWrap: 'wrap'

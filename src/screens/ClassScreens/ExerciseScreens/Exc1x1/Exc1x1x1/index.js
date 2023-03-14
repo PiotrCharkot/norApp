@@ -122,53 +122,53 @@ const Exc1x1x1 = ({route}) => {
 
             <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA1}} >
                 <Text style={styles.text}>
-                    Question 1  is first word <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA1(1)}>
-                            <Text style={styles.text}>word1</Text>
+                De snakket om det, <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA1(1)}>
+                            <Text style={styles.text}>mens</Text>
                             </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA1(2)}>
-                            <Text style={styles.text}>word2</Text>
-                        </TouchableOpacity> rest of text
+                            <Text style={styles.text}>fordi</Text>
+                        </TouchableOpacity> de spiste
                 </Text>
             </Animated.View>
 
             <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA2}} >
                 <Text style={styles.text}>
-                    Question 2 is second word is correct some more text here <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA2(1)}>
-                            <Text style={styles.text}>word1</Text>
+                Kristian drar på ferie <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA2(1)}>
+                            <Text style={styles.text}>mens</Text>
                             </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA2(2)}>
-                            <Text style={styles.text}>word2</Text>
-                        </TouchableOpacity> rest of text
+                            <Text style={styles.text}>til tross for at</Text>
+                        </TouchableOpacity> han ikke har mye penger
                 </Text>
             </Animated.View>
             
 
             <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA3}} >
                 <Text style={styles.text}>
-                    Question 3 is second word <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA3(1)}>
-                            <Text style={styles.text}>word1</Text>
+                Faren hans dødde, <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA3(1)}>
+                            <Text style={styles.text}>når</Text>
                             </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA3(2)}>
-                            <Text style={styles.text}>word2</Text>
-                        </TouchableOpacity> rest of text
+                            <Text style={styles.text}>da</Text>
+                        </TouchableOpacity> han var 12 år gammel
                 </Text>
             </Animated.View>
 
 
             <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA4}} >
                 <Text style={styles.text}>
-                    Question 4 corect is first word <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA4(1)}>
-                            <Text style={styles.text}>word1</Text>
+                Vi går en tur, <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA4(1)}>
+                            <Text style={styles.text}>hvis</Text>
                             </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA4(2)}>
-                            <Text style={styles.text}>word2</Text>
-                        </TouchableOpacity> rest of text some more dummy text here
+                            <Text style={styles.text}>selv om</Text>
+                        </TouchableOpacity> det er pent vær
                 </Text>
             </Animated.View>
 
             <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA5}} >
                 <Text style={styles.text}>
-                    Question 5  is first word <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA5(1)}>
-                            <Text style={styles.text}>word1</Text>
+                Julie spør <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA5(1)}>
+                            <Text style={styles.text}>om</Text>
                             </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA5(2)}>
-                            <Text style={styles.text}>word2</Text>
-                        </TouchableOpacity> rest of text
+                            <Text style={styles.text}>fordi</Text>
+                        </TouchableOpacity> du kan hjelpe henne.
                 </Text>
             </Animated.View>
             
