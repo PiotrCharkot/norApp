@@ -167,7 +167,7 @@ const LearnWordScreen = ({route}) => {
     </View>
     ) : (
     <View>
-        <Text>Looooooooooooooooooooding</Text>
+        <Text>Loading...</Text>
     </View>
     )
     

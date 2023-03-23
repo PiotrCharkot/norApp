@@ -18,7 +18,7 @@ const CardFlashList = (params) => {
 
     const pressTest = () => {
         
-        navigation.navigate('TestWord', {refToList: refNummer, userId: userIdRef, savedLang: language})
+        navigation.navigate('TestWord', {refToList: refNummer, userId: userIdRef, savedLang: language, own: false})
     }
 
   return (

@@ -11,16 +11,16 @@ import { withAnchorPoint } from 'react-native-anchor-point';
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
-
+let indexOfElement;
 
 
 const TestWordScreen = ({route}) => {
 
-    const {userId, refToList, savedLang} = route.params;
+    const {userId, refToList, savedLang, own} = route.params;
 
     const navigation = useNavigation();
 
-    const words = collection(db, 'words');
+    const words = collection(db, own ? 'wordsOwn' : 'words');
     const userWordsData = collection(db, 'usersWordsInfo');
     
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
@@ -99,7 +99,14 @@ const TestWordScreen = ({route}) => {
         setTimeout(() => {
     
             console.log('new object to return to fb: ', userWordInfo);
-            navigation.navigate('Main');
+            if (own) {
+                navigation.navigate({
+                    name: 'MyList',
+                    params: {userRef: userId}
+                  })
+            } else {
+                navigation.navigate('Main');
+            }
         }, 1500)
     }
 
@@ -131,6 +138,7 @@ const TestWordScreen = ({route}) => {
 
         for (let i = 0; i < numberOfWords; i++) {
             
+          
             if (wordsLvlUp.includes(i)) {
                 if (userWordInfo.words1.includes(i)) {
                     for( let j = 0; j < userWordInfo.words1.length; j++){ 
@@ -229,7 +237,7 @@ const TestWordScreen = ({route}) => {
         }
 
 
-        allUsersArrs.splice(refToList - 1, 1, userWordInfo)
+        allUsersArrs.splice(indexOfElement, 1, userWordInfo) //here is the problem !!
 
         updateDoc(docRef, {
             wordList: allUsersArrs
@@ -268,23 +276,31 @@ const TestWordScreen = ({route}) => {
             const q = query(words, where('refNum', '==', refToList))
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
+                
                 setTitle(doc.data().title)
                 setServerData(doc.data().wordsArr)
-                console.log('data server', serverData);
+                
             });
 
             const q2 = query(userWordsData, where('userReference', '==', userId))
             const querySnapshot2 = await getDocs(q2);
             querySnapshot2.forEach((doc) => {
-                console.log('user word info', doc.data().wordList[refToList - 1]);
-            
-                setUserWordInfo(doc.data().wordList[refToList - 1])
+                
+
+                doc.data().wordList.map(item => {
+                    if (item.refToList === refToList) {
+                        setUserWordInfo(item)
+                    }
+                })
+
+                indexOfElement = doc.data().wordList.findIndex( item => item.refToList === refToList)
+                console.log('infooooooooo', userWordInfo);
+                //setUserWordInfo(doc.data().wordList[refToList - 1])
                 setAllUsersArrs(doc.data().wordList)
                 setDocumentId(doc.id)
-                //mainpulte serverData with userWordInfo and render list
-
+               
                 setShowContent(true);
-                console.log('data server', serverData);
+                
             })
 
         }
@@ -312,6 +328,7 @@ const TestWordScreen = ({route}) => {
     useEffect(() => {
         if (showContent) {
 
+            console.log('server data', serverData);
             let modifiedData = [];
             let justAdded = [];
             let wordNotRepeatIn = 4;

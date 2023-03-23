@@ -3,6 +3,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import * as SecureStore from 'expo-secure-store';
 import { useIsFocused } from "@react-navigation/native";
 import { onAuthStateChanged  } from 'firebase/auth';
+import { useNavigation } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where, doc, setDoc } from "firebase/firestore";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -19,7 +20,8 @@ const transparent = 'rgba(255,255,255,0)';
 const usersWordsInfo = collection(db, 'usersWordsInfo');
 
 const FlashcardScreen = () => {
-   
+  
+  const navigation = useNavigation();
   const isFocused = useIsFocused();
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -392,8 +394,11 @@ const FlashcardScreen = () => {
       <View style={styles.head}>
         <View style={styles.headBottom}>
           <View style={styles.createButtonContainer}>
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.textButton}>Create my cards</Text>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate({
+              name: 'MyList',
+              params: {userRef: userId}
+            })}>
+              <Text style={styles.textButton}>My cards</Text>
             </TouchableOpacity>
           </View>
         
@@ -424,27 +429,27 @@ const FlashcardScreen = () => {
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder2}]}}>
 
-            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Ukedager / A1'}/>
+            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Ukedager / A1'} language={choosenLanguage}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder3}]}}>
 
-            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Farger / A1'}/>
+            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Farger / A1'} language={choosenLanguage}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder4}]}}>
 
-            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Next Card / A2'}/>
+            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Next Card / A2'} language={choosenLanguage}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder5}]}}>
 
-            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Next Card / B1'}/>
+            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Next Card / B1'} language={choosenLanguage}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder6}]}}>
 
-            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Next Card / B2'}/>
+            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Next Card / B2'} language={choosenLanguage}/>
           </Animated.View>
 
           <View style={styles.marginBottom}></View>
