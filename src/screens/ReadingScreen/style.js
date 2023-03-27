@@ -32,46 +32,22 @@ const styles = StyleSheet.create({
     head: {
         height: 80,
         width: "100%",
-        backgroundColor: 'rgba(255,255,255,0)',
-        justifyContent: 'flex-end'
+        backgroundColor: 'rgba(255,255,255,0)'
     },
-    headBottom: {
-        flexDirection: 'row', 
-        justifyContent: 'space-between'
+    iconX: {
+        height: 25,
+        width: 25,
+        tintColor: 'grey'
     },
-    readingButtonContainer: {
-        flexDirection: 'row',
-        margin: 10,
-    },
-    buttonContainer: {
-        borderWidth: 1,
-        borderColor: 'rgba(184, 41, 227, 0.5)',
-        padding: 5,
-        borderRadius: 5,
-        backgroundColor: 'rgba(184, 41, 227, 0.1)',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row'
-    },
-    bookPic: {
-        height: 16,
-        width: 16, 
-        marginLeft: 10,
-        tintColor: 'brown'
-    },
-    textButton: {
-        fontWeight: '600',
-        color: 'brown'
+    iconXContainer: {
+        height: 25,
+        width: 25,
+        position: 'absolute',
+        left: screenWidth - 50,
+        top: 50
     },
     flatListsContainer: {
         marginTop: 235,
-    },
-    flatListsContainerBottom: {
-        marginTop: 50,
-    },
-    flatListsContainerLast: {
-        marginTop: 50,
-        marginBottom: 200
     },
     titleContainer: {
         position: 'absolute',
@@ -79,9 +55,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white',
         height: 20,
-        //width: 220,
+        width: 120,
         top: -10,
-        //left: screenWidth / 2 - 110
+        left: screenWidth / 2 - 60
     },
     titleText: {
         fontWeight: '900',
@@ -102,4 +78,3 @@ const styles = StyleSheet.create({
 
 
 export default styles;
-

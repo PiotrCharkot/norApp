@@ -11,12 +11,15 @@ import ForgetPassScreen from "../screens/ForgetPassScreen";
 import LearnWordScreen from "../screens/LearnWordScreen";
 import TestWordScreen from "../screens/TestWordScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import ReadingScreen from "../screens/ReadingScreen";
 import ChangePictureScreen from "../screens/ChangePicture";
 import NewPasswordScreen from "../screens/NewPasswordScreen";
 import ReAuthScreen from "../screens/ReAuthScreen";
 import CreateListScreen from "../screens/CreateListScreen";
 import MyListScreen from "../screens/MyListScreen";
 import ExitExcScreen from "../screens/ExitExcScreen";
+import EditListScreen from "../screens/EditListScreen";
+import PublicListScreen from "../screens/PublicListsScreen";
 import Class1x1x1 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x1";
 import Class1x1x2 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x2";
 import Class1x1x3 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x3";
@@ -55,8 +58,11 @@ const Router = () => {
                 <Stack.Screen name="TestWord" component={TestWordScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="ExitExcScreen" component={ExitExcScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Settings" component={SettingsScreen} options={{headerShown: false, animationEnabled: false}}/>
+                <Stack.Screen name="Reading" component={ReadingScreen} options={{headerShown: false, animationEnabled: false}}/>
                 <Stack.Screen name="ChangePic" component={ChangePictureScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="MyList" component={MyListScreen} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="EditList" component={EditListScreen} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="PublicLists" component={PublicListScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="CreateList" component={CreateListScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x1" component={Class1x1x1} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x2" component={Class1x1x2} options={{headerShown: false, animationEnabled: false }}/>

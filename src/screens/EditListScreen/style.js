@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-const screenWidth = Dimensions.get("window").width;
+const screenWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     addingContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        
+        marginTop: 20
     },
     inputSmallContainerStyle: {
         width: 125
@@ -77,7 +77,65 @@ const styles = StyleSheet.create({
         width: 16
     },
     checkboxContainer: {
-        marginBottom: 50
+        marginBottom: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    deleteOpacity: {
+        height: 30,
+        width: 140,
+        backgroundColor: 'pink',
+        borderRadius: 12,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20,
+        marginBottom: 20
+    },
+    deleteOpacityText: {
+        color: 'white',
+        fontWeight: '500'
+    },
+    confirmationContainer: {
+        position: 'absolute',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 0
+    },
+    confirmationContainerInside: {
+        width: '75%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'pink',
+        paddingHorizontal: 20,
+        borderRadius: 14
+    },
+    confirmationText: {
+        fontSize: 24,
+        textAlign: 'center',
+        fontWeight: '500',
+        color: 'white',
+        marginTop: 15
+    },
+    confirmationBtnCont: {
+        flexDirection: 'row',
+        marginVertical: 20,
+        
+    },
+    confirmationBtn: {
+        marginHorizontal: 20,
+        borderWidth: 2,
+        borderColor: 'white',
+        padding: 5,
+        width: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8
+    },
+    confirmationBtnTxt: {
+        fontSize: 16,
+        fontWeight: '500',
+        color: 'white'
     }
 
 });

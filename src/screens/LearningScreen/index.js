@@ -1,7 +1,8 @@
-import { View, Text, Animated, Dimensions } from 'react-native'
+import { View, Text, Animated, Dimensions, TouchableOpacity, Image } from 'react-native'
 import React, {useState, useRef, useEffect} from 'react'
 import { useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from "@react-navigation/native";
 import styles from './style'
 import Card from '../../components/cards/Card';
 import learningData1 from '../../listData/learningData1';
@@ -25,6 +26,8 @@ const LearningScreen = () => {
 
 
   const isFocused = useIsFocused();
+  const navigation = useNavigation();
+  
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollX = useRef(new Animated.Value(0)).current;
   const scrollX2 = useRef(new Animated.Value(0)).current;
@@ -329,7 +332,21 @@ const LearningScreen = () => {
     <View style={styles.mainContainer}>
       
       <View style={styles.head}>
-
+        <View style={styles.headBottom}>
+          <View style={styles.readingButtonContainer}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Reading')}>
+              <Text style={styles.textButton}>Reading</Text>
+              <Image style={styles.bookPic} source={require('../../../assets/book.png')} />
+            </TouchableOpacity>
+          </View>
+        
+          <View>
+          {/*            
+           right side of head pro button
+             */}
+          </View>
+          
+        </View>
       </View>
 
       <Animated.ScrollView onScroll={Animated.event(

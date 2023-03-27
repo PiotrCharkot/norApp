@@ -7,14 +7,14 @@ import { authentication } from '../../../firebase/firebase-config';
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { withAnchorPoint } from 'react-native-anchor-point';
 import styles from './style'
-import CardOwn from '../../components/cards/CardOwn';
+import CardPublic from '../../components/cards/CardPublic';
 
 
 
 
 const wordsOwn = collection(db, 'wordsOwn');
 
-const MyListScreen = ({ route }) => {
+const PublicListScreen = ({ route }) => {
 
 
     const {userRef} = route.params
@@ -25,6 +25,12 @@ const MyListScreen = ({ route }) => {
     const [isContent, setIsContent] = useState(true); //diplay message if thera are no lists!!
     const [dataFlatlist, setDataFlatlist] = useState([]);
     const [userId, setUserId] = useState('');
+    const [documentId, setDocumentId] = useState('tempid');
+    const [allUsersArrs, setAllUsersArrs] = useState([]);
+    const [getNewData, setGetNewData] = useState('');
+
+
+    const userWordsData = collection(db, 'usersWordsInfo');
 
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
     const isFocused = useIsFocused();
@@ -36,7 +42,17 @@ const MyListScreen = ({ route }) => {
 
     const renderItemFunc = ({item}) => {
   
-      return <CardOwn lang={item.listLang} title={item.listTitle} userId={item.useRef} listReference={item.refNum} />
+      return <CardPublic 
+        lang={item.listLang} 
+        title={item.listTitle} 
+        userId={item.useRef} 
+        listReference={item.refNum} 
+        currentUser={userRef} 
+        allArrs={allUsersArrs}
+        docForUpdate={documentId}
+        wordsLength={item.wordsArr.length}
+        resetData={(boolean) => setGetNewData(boolean)}
+        />
     }
 
     const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -57,7 +73,10 @@ const MyListScreen = ({ route }) => {
   
       setTimeout(() => {
   
-          navigation.navigate('Main');
+          navigation.navigate({
+            name: 'MyList',
+            params: {userRef: userId}
+          });
       }, 800)
     }
     
@@ -70,7 +89,7 @@ const MyListScreen = ({ route }) => {
 
       const getDataFb = async () => {
 
-          const q = query(wordsOwn, where('useRef', '==', userRef))
+          const q = query(wordsOwn, where('public', '==', true))
           const querySnapshot = await getDocs(q);
           let tempArr = [];
   
@@ -84,13 +103,24 @@ const MyListScreen = ({ route }) => {
             tempArr.push(doc.data());
           });
   
-          setDataFlatlist(tempArr)
+          console.log('temporarttttt: ', tempArr);
+          setDataFlatlist(tempArr);
+
+
+          const q2 = query(userWordsData, where('userReference', '==', userRef))
+            const querySnapshot2 = await getDocs(q2);
+            querySnapshot2.forEach((doc) => {
+            
+                setDocumentId(doc.id);
+                setAllUsersArrs(doc.data().wordList);
+            
+            })
       }
   
       getDataFb();
     
       
-    }, [isFocused])
+    }, [isFocused, getNewData])
     
 
 
@@ -100,14 +130,7 @@ const MyListScreen = ({ route }) => {
   return (
     <View style={styles.mainContainer}>
     
-      <View style={styles.createButtonContainer}>
-        <TouchableOpacity style={styles.buttonContainerTop} onPress={() => navigation.navigate({
-          name: 'PublicLists',
-          params: {userRef: userId}
-        })}>
-          <Text style={styles.textButton}>See other user's lists</Text>
-        </TouchableOpacity>
-      </View>
+      
       <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
         <TouchableOpacity onPress={() => exitButton()}>
             <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
@@ -137,18 +160,8 @@ const MyListScreen = ({ route }) => {
         </View>}
       
 
-      
-
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.opacityBtn} onPress={() => navigation.navigate({
-            name: 'CreateList',
-            params: {userReference: userId}
-        })}>
-            <Text style={styles.buttonText}>Create new list + </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   )
 }
 
-export default MyListScreen
+export default PublicListScreen

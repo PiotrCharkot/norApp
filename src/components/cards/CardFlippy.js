@@ -155,9 +155,10 @@ const CardFlippy = (params) => {
             <TouchableOpacity style={styles.opacityFlip}  onPress={rotateCard}>
                 <Image style={styles.imgFlip} source={require('../../../assets/flip.png')} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
+            {wordData.soundLink === '' ? <View></View> : <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
                 <Image style={styles.iconSoundImg} source={require('../../../assets/wordSound.png')} />
-            </TouchableOpacity>
+            </TouchableOpacity>}
+            
         </LinearGradient>
       </Animated.View>
       <Animated.View style={{...styles.transView, transform: [{perspective: 500}, {rotateY: rotateValTrans}]}}>

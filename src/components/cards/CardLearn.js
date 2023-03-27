@@ -48,10 +48,11 @@ const CardLearn = (params) => {
             <View style={styles.bottomHalf}>
                 <Text style={styles.textTranslation}>{translation}</Text>
             </View>
-            <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
+            {wordData.soundLink === '' ? <View></View> : <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
 
                 <Image style={styles.iconSoundImg} source={require('../../../assets/wordSound.png')} />
-            </TouchableOpacity>
+            </TouchableOpacity>}
+            
         </LinearGradient>
     </View>
   )

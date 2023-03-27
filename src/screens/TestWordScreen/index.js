@@ -37,6 +37,7 @@ const TestWordScreen = ({route}) => {
     const [flip, setFlip] = useState(false);
     const [btnTxt, setBtnTxt] = useState('')
     const [flipOnStart, setFlipOnStart] = useState(false);
+    const [lastIdentification, setLastIdentification] = useState(200);
     
     const docRef = doc(db, "usersWordsInfo", documentId);
 
@@ -107,7 +108,7 @@ const TestWordScreen = ({route}) => {
             } else {
                 navigation.navigate('Main');
             }
-        }, 1500)
+        }, 800)
     }
 
     const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -128,15 +129,9 @@ const TestWordScreen = ({route}) => {
         setWordsLvlDown([...wordsLvlDown, wordRef])
     }
 
-    const updateUsersWordInfo = () => {
-        const numberOfWords = userWordInfo.words1.length
-        + userWordInfo.words2.length
-        + userWordInfo.words3.length
-        + userWordInfo.words4.length
-        + userWordInfo.words5.length
-
-
-        for (let i = 0; i < numberOfWords; i++) {
+    const updateUsersWordInfo = async () => {
+        console.log('last id in heer', lastIdentification);
+        for (let i = 0; i < lastIdentification; i++) {
             
           
             if (wordsLvlUp.includes(i)) {
@@ -239,7 +234,7 @@ const TestWordScreen = ({route}) => {
 
         allUsersArrs.splice(indexOfElement, 1, userWordInfo) //here is the problem !!
 
-        updateDoc(docRef, {
+        await updateDoc(docRef, {
             wordList: allUsersArrs
         })
         .then(docRef => {
@@ -279,6 +274,7 @@ const TestWordScreen = ({route}) => {
                 
                 setTitle(doc.data().title)
                 setServerData(doc.data().wordsArr)
+                setLastIdentification(doc.data().wordsArr[doc.data().wordsArr.length - 1].wordId + 1);
                 
             });
 
@@ -294,14 +290,14 @@ const TestWordScreen = ({route}) => {
                 })
 
                 indexOfElement = doc.data().wordList.findIndex( item => item.refToList === refToList)
-                console.log('infooooooooo', userWordInfo);
+                
                 //setUserWordInfo(doc.data().wordList[refToList - 1])
                 setAllUsersArrs(doc.data().wordList)
                 setDocumentId(doc.id)
                
                 setShowContent(true);
                 
-            })
+            });
 
         }
 
@@ -328,10 +324,10 @@ const TestWordScreen = ({route}) => {
     useEffect(() => {
         if (showContent) {
 
-            console.log('server data', serverData);
+            
             let modifiedData = [];
             let justAdded = [];
-            let wordNotRepeatIn = 4;
+            let wordNotRepeatIn = 3;
 
             let arr1Leng = userWordInfo.words1.length;
             let arr2Leng = userWordInfo.words2.length + arr1Leng;
@@ -342,11 +338,19 @@ const TestWordScreen = ({route}) => {
             let arrayAllInfo = userWordInfo.words1.concat(userWordInfo.words2, userWordInfo.words3, userWordInfo.words4, userWordInfo.words5)
 
             for (let i = 0; i < 15; i++) {
-                
+                console.log('once');
                 let random1 = arrayAllInfo[Math.floor(Math.random() * arr1Leng)];
-
+                console.log('just added 1', !justAdded.includes(random1));
+                
                 if (!justAdded.includes(random1)) {
-                    let deepCopyObj1 = JSON.parse(JSON.stringify(serverData[random1]))
+                    let objToParse; 
+                    serverData.map( el => {
+                        if (el.wordId === random1) {
+                            objToParse = el;
+                        }
+                    })
+                    console.log('server data content first',objToParse, arrayAllInfo,arr1Leng, random1, justAdded);
+                    let deepCopyObj1 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj1.key = `${i.toString()}a`;
                     modifiedData.push(deepCopyObj1)
                     if (justAdded.length > wordNotRepeatIn) {
@@ -356,12 +360,19 @@ const TestWordScreen = ({route}) => {
                         justAdded.push(random1)
                     }
                 }
-
+                console.log('carry on');
 
                 let random2 = arrayAllInfo[Math.floor(Math.random() * arr2Leng)];
-
+                console.log('just added 2', !justAdded.includes(random2));
                 if (!justAdded.includes(random2)) {
-                    let deepCopyObj2 = JSON.parse(JSON.stringify(serverData[random2]))
+                    let objToParse; 
+                    serverData.map( el => {
+                        if (el.wordId === random2) {
+                            objToParse = el;
+                        }
+                    })
+                    console.log('server data content sec', objToParse,arrayAllInfo,arr2Leng, random2, justAdded);
+                    let deepCopyObj2 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj2.key = `${i.toString()}b`;
                     modifiedData.push(deepCopyObj2)
                     if (justAdded.length > wordNotRepeatIn) {
@@ -374,9 +385,16 @@ const TestWordScreen = ({route}) => {
 
 
                 let random3 = arrayAllInfo[Math.floor(Math.random() * arr3Leng)];
-
+                console.log('just added 3', !justAdded.includes(random3));
                 if (!justAdded.includes(random3)) {
-                    let deepCopyObj3 = JSON.parse(JSON.stringify(serverData[random3]))
+                    let objToParse; 
+                    serverData.map( el => {
+                        if (el.wordId === random3) {
+                            objToParse = el;
+                        }
+                    })
+                    console.log('server data content third',objToParse, arrayAllInfo,arr3Leng, random3, justAdded);
+                    let deepCopyObj3 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj3.key = `${i.toString()}c`;
                     modifiedData.push(deepCopyObj3)
                     if (justAdded.length > wordNotRepeatIn) {
@@ -389,9 +407,16 @@ const TestWordScreen = ({route}) => {
 
 
                 let random4 = arrayAllInfo[Math.floor(Math.random() * arr4Leng)];
-
+                console.log('just added 4', !justAdded.includes(random4));
                 if (!justAdded.includes(random4)) {
-                    let deepCopyObj4 = JSON.parse(JSON.stringify(serverData[random4]))
+                    let objToParse; 
+                    serverData.map( el => {
+                        if (el.wordId === random4) {
+                            objToParse = el;
+                        }
+                    })
+                    console.log('server data content fourth',objToParse, arrayAllInfo,arr4Leng, random4, justAdded);
+                    let deepCopyObj4 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj4.key = `${i.toString()}d`;
                     modifiedData.push(deepCopyObj4)
                     if (justAdded.length > wordNotRepeatIn) {
@@ -401,11 +426,18 @@ const TestWordScreen = ({route}) => {
                         justAdded.push(random4)
                     }
                 }
-
+                console.log('before 5');
                 let random5 = arrayAllInfo[Math.floor(Math.random() * arr5Leng)];
-
+                console.log('just added 5', !justAdded.includes(random5));
                 if (!justAdded.includes(random5)) {
-                    let deepCopyObj5 = JSON.parse(JSON.stringify(serverData[random5]))
+                    let objToParse; 
+                    serverData.map( el => {
+                        if (el.wordId === random5) {
+                            objToParse = el;
+                        }
+                    })
+                    console.log('server data content fifth',objToParse, arrayAllInfo,arr5Leng, random5, justAdded);
+                    let deepCopyObj5 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj5.key = `${i.toString()}e`;
                     modifiedData.push(deepCopyObj5)
                     if (justAdded.length > wordNotRepeatIn) {
@@ -418,7 +450,7 @@ const TestWordScreen = ({route}) => {
                 
             } 
             
-            
+            console.log(modifiedData);
             setDataFlatList([{key: 'left-spacer'}, ...modifiedData, {key: 'right-spacer'}])
             
         }
@@ -436,9 +468,9 @@ const TestWordScreen = ({route}) => {
                     <TouchableOpacity style={styles.buttonContainer} onPress={changeSides}>
                     {
                         flip ? (
-                            <Text style={styles.textButton}>Nor - {btnTxt}</Text>
+                            <Text style={styles.textButton}>Nor - {own ? 'Trans' : btnTxt}</Text>
                         ) : (
-                            <Text style={styles.textButton}>{btnTxt} - Nor</Text>
+                            <Text style={styles.textButton}>{own ? 'Trans' : btnTxt} - Nor</Text>
                         )
                     }
                     

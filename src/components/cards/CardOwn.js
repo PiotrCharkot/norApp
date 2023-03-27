@@ -11,8 +11,16 @@ const CardOwn = (params) => {
     const navigation = useNavigation();
 
     const pressTest = () => {
+        navigation.navigate('TestWord', {refToList: params.listReference, userId: params.userId, savedLang: 'EN', own: true})
+    }
+    
+    const editList = () => {
+        console.log('ref in card', params.listReference);
         
-        navigation.navigate('TestWord', {refToList: params.listReference, userId: params.userId, savedLang: 'EN', own: true}) //fix langugae that is passed as param to child here
+        navigation.navigate({
+            name: 'EditList',
+            params: {userReference: params.userId, refToList: params.listReference}
+        })
     }
     
   return (
@@ -26,9 +34,10 @@ const CardOwn = (params) => {
                 
             </View>
         </View>
-      <Text>CardOwn</Text>
+      <Text></Text>
+      <Text></Text>
       <TouchableOpacity style={styles.touchableEdit}> 
-        <Text style={styles.touchableEditText}>Edit list</Text>
+        <Text style={styles.touchableEditText} onPress={editList}>Edit list</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.touchableTest} onPress={pressTest}> 
         <Text style={styles.touchableTestText}>Test</Text>

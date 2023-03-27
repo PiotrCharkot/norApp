@@ -12,12 +12,12 @@ const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
 
-const words = collection(db, 'words');
 
 
 const LearnWordScreen = ({route}) => {
-
-    const {userId, refToList, savedLang} = route.params;
+    
+    const {userId, refToList, savedLang, own} = route.params;
+    const words = collection(db, own ? 'wordsOwn' : 'words');
     console.log(route.params);
     const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -49,7 +49,14 @@ const LearnWordScreen = ({route}) => {
     
         setTimeout(() => {
     
-            navigation.navigate('Main');
+            if (own) {
+                navigation.navigate({
+                    name: 'PublicLists',
+                    params: {userRef: userId}
+                  })
+            } else {
+                navigation.navigate('Main');
+            }
         }, 1500)
     }
 
