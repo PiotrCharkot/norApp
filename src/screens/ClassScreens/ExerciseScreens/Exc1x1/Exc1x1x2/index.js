@@ -26,7 +26,7 @@ const correctAnswers = ['Å treffe spikeren på hodet', 'Å love gull og grønne
 
 const Exc1x1x2 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
@@ -38,10 +38,12 @@ const Exc1x1x2 = ({route}) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
+    const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
 
     useFocusEffect(() => {
         
         if (latestScreen > currentScreen) {
+            setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
             setComeBack(true)
         }
@@ -55,7 +57,7 @@ const Exc1x1x2 = ({route}) => {
     useEffect(() => {
 
         if (answersChecked.length !== 0) {
-            
+          setLatestScreenAnswered(currentScreen);
           for (let i = 0; i < answersChecked.length; i++) {
 
             const newArr = [...isCorrect];
@@ -199,6 +201,7 @@ const Exc1x1x2 = ({route}) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
+        latestAnswered={latestScreenAnswered}
         />
       </View>
     </View>

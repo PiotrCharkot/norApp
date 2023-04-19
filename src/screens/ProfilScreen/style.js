@@ -154,6 +154,7 @@ const styles = StyleSheet.create({
     },
     btnChangePicOpacity: {
         marginTop: 30,
+        marginBottom: 30,
         height: 30,
         width: screenWidth - 120,
         justifyContent: 'center',

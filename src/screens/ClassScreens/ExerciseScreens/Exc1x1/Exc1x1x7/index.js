@@ -19,7 +19,7 @@ const wordsCorrect = ['Ideelt', 'sett', 'ønsker', 'jeg', 'meg', 'seks', 'timers
 
 const Exc1x1x7 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
 
    
     const [isCorrect, setIsCorrect] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -31,14 +31,14 @@ const Exc1x1x7 = ({route}) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
-
+    const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
 
 
     useEffect(() => {
         
       if (answersChecked.length !== 0) {
 
-        
+        setLatestScreenAnswered(currentScreen);
           
         setShowMistakes(true)
         for (let i = 0; i < answersChecked.length; i++) {
@@ -59,6 +59,7 @@ const Exc1x1x7 = ({route}) => {
     useFocusEffect(() => {
         
         if (latestScreen > currentScreen) {
+            setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
             setComeBack(true)
         }
@@ -175,6 +176,7 @@ const Exc1x1x7 = ({route}) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
+        latestAnswered={latestScreenAnswered}
         />
       </View>
     </View>

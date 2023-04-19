@@ -35,10 +35,13 @@ const BottomBar = (params) => {
 
     const goBack = () => {
 
+        console.log('is coming back: ', params.comeBack);
         if (params.questionScreen && pathIcon === 'next' && buttonFunction === 'goToNext' && params.currentScreen === params.latestScreen && letGoBack) {
-            setButtonFunction(buttonFunction);
+            console.log('btn functions is: ', buttonFunction);
+            setButtonFunction(params.callbackButton);
             setPathIcon('tick');
-
+            console.log('failed answer in goback is: ', failedAnswer);
+            
             setCurrentPoints(() => {
                 return failedAnswer ? params.userPoints : params.userPoints - params.answerBonus;
             })
@@ -56,9 +59,11 @@ const BottomBar = (params) => {
                 useNativeDriver: true
             }).start();
         } else {
+           
+            console.log('current points when go back: ', currentPoints);
             navigation.navigate({
                 name: params.linkPrevious,
-                params: { latestScreen: params.latestScreen, userPoints: currentPoints },
+                params: { latestScreen: params.latestScreen, userPoints: currentPoints, latestAnswered: params.latestAnswered },
                 merge: true,
             });
         }
@@ -66,8 +71,10 @@ const BottomBar = (params) => {
         
     }
 
+
     const changeIcon = () => {
 
+        //console.log('last answerd: ', params.latestAnswered, 'current screen: ', params.currentScreen, 'latest screen: ', params.latestScreen );
         if (params.userPoints > currentPoints) {
             setCurrentPoints(params.userPoints)
         }
@@ -126,7 +133,7 @@ const BottomBar = (params) => {
                 }).start()
             }
 
-        } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen) {
             let bonusAnswer = 3;
             let questionPoints = 0;
             let returnArr = [];
@@ -156,7 +163,7 @@ const BottomBar = (params) => {
             params.checkAns(returnArr);
 
             
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -166,7 +173,7 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen) {
             let bonusAnswer = 4;
             let returnArr = [];
             let questionPoints = 0;
@@ -182,7 +189,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -193,7 +200,7 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen) {
             let bonusAnswer = 4;
             let returnArr = [];
             let questionPoints = 0;
@@ -209,7 +216,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -219,7 +226,7 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen) {
             
             let bonusAnswer = 6;
             let returnArr = [];
@@ -235,7 +242,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -245,7 +252,7 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        } else if (buttonFunction === 'chooseCorrectCategory' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'chooseCorrectCategory' && params.currentScreen >= params.latestScreen) {
 
             let bonusAnswer = 2;
             let returnArr = [];
@@ -268,7 +275,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -279,7 +286,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
             
-        } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen ) {
+        } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen) {
             let bonusAnswer = 6;
             let returnArr = [];
             let questionPoints = 0;
@@ -304,7 +311,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 
                 let penaltyWrongAns = (params.userAnswers.length - correctAnswers.length + wrongAnswer) * 2;
                 setCurrentPoints(() => {
@@ -316,7 +323,7 @@ const BottomBar = (params) => {
             setLetGoBack(false);
             setButtonFunction('goToNext');
             setPathIcon('next');
-        }  else if (buttonFunction === 'orderChceck' && params.currentScreen >= params.latestScreen ) {
+        }  else if (buttonFunction === 'orderChceck' && params.currentScreen >= params.latestScreen) {
             let bonusAnswer = 6;
             let returnArr = [];
             let questionPoints = 0;
@@ -345,7 +352,7 @@ const BottomBar = (params) => {
 
             params.checkAns(returnArr);
 
-            if (!answCheckOnce) {
+            if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints;
                 })
@@ -419,7 +426,7 @@ const BottomBar = (params) => {
         } else {
   
             navigation.navigate(params.linkNext, {
-                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints
+                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints, latestAnswered: params.latestAnswered
             })
         }
         
@@ -438,6 +445,7 @@ const BottomBar = (params) => {
     }, [params.resetCheck])
 
     useFocusEffect(() => {
+        
         changeIcon();
     })
 

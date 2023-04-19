@@ -27,7 +27,7 @@ const correctAnswers = [['høyttaler', 'bil', 'melk' ,'flaske', 'farge'], ['kort
 
 const Exc1x1x6 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
 
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
@@ -38,7 +38,7 @@ const Exc1x1x6 = ({route}) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
-
+    const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
 
     useEffect(() => {
         setMovingDraggable(null);
@@ -49,7 +49,7 @@ const Exc1x1x6 = ({route}) => {
     useEffect(() => {
         
         if (answersChecked.length !== 0) {
-            
+          setLatestScreenAnswered(currentScreen);
           for (let i = 0; i < answersChecked.length; i++) {
   
             const newArr = [...isCorrect];
@@ -126,8 +126,9 @@ const Exc1x1x6 = ({route}) => {
     useFocusEffect(() => {
         
         if (latestScreen > currentScreen) {
-            setLatestScreenDone(latestScreen);
-            setComeBack(true)
+          setLatestScreenAnswered(latestAnswered);
+          setLatestScreenDone(latestScreen);
+          setComeBack(true)
         }
 
         if (route.params.userPoints > 0) {
@@ -291,6 +292,7 @@ const Exc1x1x6 = ({route}) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
+        latestAnswered={latestScreenAnswered}
         />
       </View>
     </View>

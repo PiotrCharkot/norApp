@@ -6,6 +6,7 @@ import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
+import Loader from '../../components/other/Loader';
 import dummyData from '../../listData/learningData1';
 
 const screenWidth = Dimensions.get('window').width;
@@ -125,20 +126,18 @@ const LearnWordScreen = ({route}) => {
     
           <CardLearn wordData={item} lang={savedLang}/>
         </Animated.View>
-      }
+    }
 
 
   return (
-    showContent ? (
+    
     <View style={styles.mainContainer}>
 
         <View style={styles.header}>
             <View style={styles.headBottom}>
                 
                 <View style={styles.createButtonContainer}>
-                    <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.textButton}>Change sides</Text>
-                    </TouchableOpacity>
+                  
                 </View>
                 
                 <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
@@ -151,32 +150,36 @@ const LearnWordScreen = ({route}) => {
             </View>
 
         </View>
-
-        <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>{title}</Text>
-        </View>
-        <Animated.FlatList 
-            style={styles.flatlist}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            snapToInterval={cardSize}
-            decelerationRate={0}
-            data={dataFlatList}
-            renderItem={renderCard}
-            keyExtractor={(item) => item.key}
-            onScroll={Animated.event(
-            [{nativeEvent: {contentOffset: {x: scrollX}}}],
-            {useNativeDriver: false}
+        {showContent ? (
+                <View style={styles.body}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.titleText}>{title}</Text>
+                    </View>
+                    <Animated.FlatList 
+                        style={styles.flatlist}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        snapToInterval={cardSize}
+                        decelerationRate={0}
+                        data={dataFlatList}
+                        renderItem={renderCard}
+                        keyExtractor={(item) => item.key}
+                        onScroll={Animated.event(
+                        [{nativeEvent: {contentOffset: {x: scrollX}}}],
+                        {useNativeDriver: false}
+                        )}
+                        scrollEventThrottle={16}
+                    />
+                </View>
+            ) : (
+                <View style={styles.loaderDisplay}>
+                    <Loader />
+                </View>
             )}
-            scrollEventThrottle={16}
-        />
+        
   
     </View>
-    ) : (
-    <View>
-        <Text>Loading...</Text>
-    </View>
-    )
+    
     
   )
 }

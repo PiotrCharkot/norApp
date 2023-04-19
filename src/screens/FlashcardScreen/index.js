@@ -26,7 +26,7 @@ const FlashcardScreen = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollX = useRef(new Animated.Value(0)).current;
   const scaleLanguageHight = useRef(new Animated.Value(0)).current;
-  const translateLanguage = useRef(new Animated.Value(50)).current;
+  const translateLanguage = useRef(new Animated.Value(70)).current;
   const overlayOpacity = useRef(new Animated.Value(1)).current;
   const overlayOffset = useRef(new Animated.Value(0)).current;
 
@@ -398,7 +398,7 @@ const FlashcardScreen = () => {
               name: 'MyList',
               params: {userRef: userId}
             })}>
-              <Text style={styles.textButton}>My cards</Text>
+              <Text style={styles.textButton}>My lists</Text>
             </TouchableOpacity>
           </View>
         
@@ -455,8 +455,8 @@ const FlashcardScreen = () => {
           <View style={styles.marginBottom}></View>
         </View>
 
-        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeerBalls.png')}/>
-        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeerBalls-blur.png')}/>
+        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeerMid3.png')}/>
+        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeerMid3Blurred.png')}/>
         <Animated.View style={{...styles.gradientContainer, transform: [{scale: scaleImgOnDrag}]}}>
 
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>
@@ -471,14 +471,23 @@ const FlashcardScreen = () => {
           <Text style={styles.languageText}>EN</Text>
           <Image style={styles.flagImg} source={require('../../../assets/united-kingdom.png')} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage('ES')}>
-          <Text style={styles.languageText}>ES</Text>
-          <Image style={styles.flagImg} source={require('../../../assets/spain.png')} />
+        <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage('DE')}>
+          <Text style={styles.languageText}>DE</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/german.png')} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage('PL')}>
           <Text style={styles.languageText}>PL</Text>
           <Image style={styles.flagImg} source={require('../../../assets/poland.png')} />
         </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage('LT')}>
+          <Text style={styles.languageText}>LT</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/lithuania.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage('AR')}>
+          <Text style={styles.languageText}>AR</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/arabic.png')} />
+        </TouchableOpacity>
+        
 
       </Animated.View>
       <Animated.View style={{...styles.whiteOverlay, opacity: overlayOpacity, transform: [{translateX: overlayOffset}]}}></Animated.View>

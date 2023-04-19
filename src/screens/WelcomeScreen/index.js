@@ -39,7 +39,7 @@ const WelcomeScreen = () => {
       setTimeout(() => {
           moveToMain();
           
-      }, 300);
+      }, 100); //in production change to 3800 ms
 
     }, [])
     
@@ -59,20 +59,18 @@ const WelcomeScreen = () => {
           >
             
 
-            <Animated.Text style={{...styles.logoText, opacity: opacityText,}}>
-              Lær norsk
-            </Animated.Text>
+            <Animated.Text style={{...styles.logoText, opacity: opacityText,}}>Lær norsk</Animated.Text>
           
           </Animated.View>
         }
         >
         <View style={styles.backgroundContainer}>
 
-          <Image style={styles.pictureFlag} source={(require('../../../assets/norskFlag.png'))} />
+          <Image style={styles.pictureFlag} source={(require('../../../assets/logo3NoBackground.png'))} />
         </View>
         
       </MaskedView>
-      <Animated.Image style={{...styles.pictureFlagTop, opacity: opacityFront}} source={(require('../../../assets/norskFlag.png'))} />
+      <Animated.Image style={{...styles.pictureFlagTop, opacity: opacityFront}} source={(require('../../../assets/logo3NoBackground.png'))} />
     </View>
   )
 }
@@ -94,19 +92,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   pictureFlag: {
-    height: screenWidth * 0.6  ,
+    height: screenWidth  ,
     width: screenWidth ,
-    marginBottom: 0
+    marginBottom: 0,
+    marginLeft: 7 
   },
   pictureFlagTop: {
     position: 'absolute',
-    top: screenHeight / 2 - screenWidth * 0.6 / 2,
-    height: screenWidth * 0.6  ,
+    top: screenHeight / 2 - screenWidth / 2,
+    height: screenWidth  ,
     width: screenWidth ,
     marginBottom: 0,
+    marginLeft: 7 
   },
   logoText: {
-    fontSize: 80,
+    marginTop: 80,
+    fontSize: 60,
     color: 'black',
     fontWeight: 'bold',
     opacity: 1

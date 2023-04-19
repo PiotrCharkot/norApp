@@ -23,6 +23,19 @@ const ExitExcScreen = ({route}) => {
   const navigation = useNavigation();
   const { userPoints, allPoints } = route.params;
 
+  let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
+  let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
+  let fourDaysAgo = new Date(new Date().setDate(new Date().getDate()-4)).toLocaleDateString();
+  let threeDaysAgo = new Date(new Date().setDate(new Date().getDate()-3)).toLocaleDateString();
+  let twoDaysAgo = new Date(new Date().setDate(new Date().getDate()-2)).toLocaleDateString();
+  let yesterday = new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString();
+  let today = new Date().toLocaleDateString();
+
+  let dayOfWeek = new Date(new Date().setDate(new Date().getDate())).getDay() === 0 ? 7 : new Date(new Date().setDate(new Date().getDate())).getDay();
+
+  let allDaysOfWeek = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
+  let currentWeek = allDaysOfWeek.slice(0, dayOfWeek)
+
   const [indicatotValue, setIndicatorValue] = useState(0);
   const [userId, setUserId] = useState('userId');
   const [userName, setUserName] = useState('')
@@ -83,6 +96,7 @@ const ExitExcScreen = ({route}) => {
 
   useEffect(() => {
 
+    console.log('on exit points: ', userPoints);
 
     let docId = uuid.v4();
 
@@ -117,17 +131,26 @@ const ExitExcScreen = ({route}) => {
         setIsNewUser(false);
         
         querySnapshot.forEach((doc) => {
+          console.log('my date in fb: ', doc.data().lastUpdate, 'date new:', new Date().toLocaleDateString());
           if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
             setCurrentDailyScore(0);
           } else {
             setCurrentDailyScore(doc.data().dailyPoints);
           }
-          setDaysInRowVal(doc.data().daysInRow);
+          setDaysInRowVal(() => {
+            if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
+              return 0;
+            } else {
+              return doc.data().daysInRow
+            }
+          })
+          
           setTotalPointsVal(doc.data().totalPoints);
           setLastUpdateVal(doc.data().lastUpdate);
           setWeeklyPointsVal(doc.data().weeklyPoints);
           setDocumentId(doc.id);
           setShowLineOffset(true);
+          
         });
       }
         
@@ -231,6 +254,7 @@ const ExitExcScreen = ({route}) => {
         updateDoc(docRef, {
           dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + userPoints : userPoints,
           totalPoints: totalPointsVal + userPoints,
+          weeklyPoints: currentWeek.includes(lastUpdateVal) ? weeklyPointsVal + userPoints : userPoints,
           lastUpdate: new Date().toLocaleDateString(),
           daysInRow: currentDailyScore < pointsToScore && currentDailyScore + userPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
         })

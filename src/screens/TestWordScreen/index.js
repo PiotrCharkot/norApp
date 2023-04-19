@@ -6,6 +6,7 @@ import { collection, getDocs, query, where, doc, updateDoc  } from "firebase/fir
 import * as SecureStore from 'expo-secure-store';
 import styles from './style'
 import CardFlippy from '../../components/cards/CardFlippy'
+import Loader from '../../components/other/Loader';
 import { withAnchorPoint } from 'react-native-anchor-point';
 
 const screenWidth = Dimensions.get('window').width;
@@ -506,8 +507,8 @@ const TestWordScreen = ({route}) => {
                 />
             
             ) : (
-                <View>
-                    <Text>Loading...</Text>
+                <View style={styles.loaderDisplay}>
+                    <Loader />
                 </View>
             )}
 

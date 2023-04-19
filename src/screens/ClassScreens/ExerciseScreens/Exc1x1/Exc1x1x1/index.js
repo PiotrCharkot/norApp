@@ -15,6 +15,8 @@ const correctAnswers = [1, 2, 2, 1, 1];
 const Exc1x1x1 = ({route}) => {
   
   const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
+  const [latestScreenAnswered, setLatestScreenAnswered] = useState(0);
+
   const [currentPoints, setCurrentPoints] = useState(0);
   const [comeBack, setComeBack] = useState(false);
   const [answersChecked, setAnswersChecked] = useState([]);
@@ -65,10 +67,11 @@ const Exc1x1x1 = ({route}) => {
     
   useFocusEffect(() => {
     if (route.params) {
-      const {userPoints, latestScreen, comeBackRoute} = route.params;
+      const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params;
       
       if (latestScreen > currentScreen) {
         setLatestScreenDone(latestScreen);
+        setLatestScreenAnswered(latestAnswered);
         setComeBack(true)
       }
 
@@ -82,6 +85,7 @@ const Exc1x1x1 = ({route}) => {
   useEffect(() => {
 
     if (answersChecked.length !== 0) {
+        setLatestScreenAnswered(currentScreen);
         let delayAnimation = 0;
             
         for (let i = 0; i < answersChecked.length; i++) {
@@ -194,6 +198,7 @@ const Exc1x1x1 = ({route}) => {
         questionScreen={true}
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
+        latestAnswered={latestScreenAnswered}
         />
       </View>
     </View>

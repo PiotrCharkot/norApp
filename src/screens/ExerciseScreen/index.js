@@ -1,7 +1,8 @@
-import { View, Text, Image, Animated, ScrollView, FlatList, Dimensions } from 'react-native'
+import { View, Text, Image, Animated, ScrollView, FlatList, Dimensions, TouchableOpacity } from 'react-native'
 import React, {useState, useRef, useEffect} from 'react'
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from "@react-navigation/native";
 import styles from './style'
 import Card from '../../components/cards/Card';
 import CardExerciseList from '../../components/cards/CardExerciseList';
@@ -21,6 +22,7 @@ const transparent = 'rgba(255,255,255,0)';
 const ExerciseScreen = () => {
    
   const isFocused = useIsFocused();
+  const navigation = useNavigation();
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollX = useRef(new Animated.Value(0)).current;
   const overlayOpacity = useRef(new Animated.Value(1)).current;
@@ -117,11 +119,29 @@ const ExerciseScreen = () => {
     </Animated.View>
   }
 
+  const sendToPro = () => {
+    console.log('send to upgrade');
+  }
+
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.head}>
-
+        <View style={styles.headBottom}>
+          <View style={styles.readingButtonContainer}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Reading')}>
+              <Text style={styles.textButton}>Reading</Text>
+              <Image style={styles.bookPic} source={require('../../../assets/book.png')} />
+            </TouchableOpacity>
+          </View>
+        
+          <View style={styles.readingButtonContainer}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={sendToPro}>
+              <Text style={styles.textButton}>upgrade to Pro</Text>
+            </TouchableOpacity>
+          </View>
+          
+        </View>
       </View>
 
       <Animated.ScrollView onScroll={Animated.event(
@@ -131,8 +151,8 @@ const ExerciseScreen = () => {
       scrollEventThrottle={16}
       >
 
-        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeer-colorballs.png')}/>
-        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeer-colorballs-blur.png')}/>
+        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeerMid2.png')}/>
+        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeerMid2Blurred.png')}/>
         <Animated.View style={{...styles.gradientContainer, transform: [{scale: scaleImgOnDrag}]}}>
 
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>

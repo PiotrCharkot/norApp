@@ -51,8 +51,8 @@ const Class1x1x6 = ({route}) => {
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Han kommer vanligvis kl. 10</Text>
-            <Text style={styles.textSmall}>He usualy comes 10 o'clock</Text>
+            <Text style={styles.exampleTextSmall}>Jeg spiser frokost klokka syv hver dag</Text>
+            <Text style={styles.textSmall}>I eat breakfast at seven o'clock every day</Text>
           </View>
 
           <View style={styles.exampleContainer}>
@@ -61,13 +61,13 @@ const Class1x1x6 = ({route}) => {
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Gjestene kommer i morgen tidlig</Text>
-            <Text style={styles.textSmall}>Guest are coming tomorrow in the morning</Text>
+            <Text style={styles.exampleTextSmall}>Vi reiser til Norge neste måned</Text>
+            <Text style={styles.textSmall}>We are traveling to Norway next month</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Jeg er punktilg</Text>
-            <Text style={styles.textSmall}>I am punctual</Text>
+            <Text style={styles.exampleTextSmall}>Hun er syk</Text>
+            <Text style={styles.textSmall}>She is sick</Text>
           </View>
         </View>
     

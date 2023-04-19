@@ -61,6 +61,48 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: 'lightgrey',
         borderRadius: 15,
+    },
+    confirmationContainer: {
+        position: 'absolute',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 0
+    },
+    confirmationContainerInside: {
+        width: '75%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'grey',
+        paddingHorizontal: 20,
+        borderRadius: 14
+    },
+    confirmationText: {
+        fontSize: 24,
+        textAlign: 'center',
+        fontWeight: '500',
+        color: 'white',
+        marginTop: 15
+    },
+    confirmationBtnCont: {
+        flexDirection: 'row',
+        marginVertical: 20,
+        
+    },
+    confirmationBtn: {
+        marginHorizontal: 20,
+        borderWidth: 2,
+        borderColor: 'white',
+        padding: 5,
+        width: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8
+    },
+    confirmationBtnTxt: {
+        fontSize: 16,
+        fontWeight: '500',
+        color: 'white'
     }
 });
 

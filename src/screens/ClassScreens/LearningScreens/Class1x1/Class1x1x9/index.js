@@ -26,7 +26,7 @@ const Class1x1x9 = ({ route }) => {
 
     const {userPoints, latestScreen, comeBackRoute} = route.params
     
-    console.log('points 8 screen: ' , userPoints );
+    console.log('points 9 screen: ' , userPoints );
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
     const [words, setWords] = useState(['nå', 'jeg' , 'mat', 'spiser' ]);
@@ -49,9 +49,9 @@ const Class1x1x9 = ({ route }) => {
             setCurrentPoints(userPoints)
         }
 
-        if (latestScreen >= currentScreen) {
-          setAnswerBonus(0)  
-        }
+        // if (latestScreen >= currentScreen) {
+        //   setAnswerBonus(0)  
+        // }
     })
 
     useEffect(() => {

@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './style'
 import { withAnchorPoint } from 'react-native-anchor-point';
 import CardReading from '../../components/cards/CardReading';
-import exerciseData from '../../listData/exerciseData';
+import textListData from '../../listData/textListData';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.6 + 20;
@@ -80,7 +80,7 @@ const ReadingScreen = () => {
 }
 
   useEffect(() => {
-    setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}])
+    setDataFlatList([{key: 'left-spacer'}, ...textListData, {key: 'right-spacer'}])
   }, [])
 
   useEffect(() => {
@@ -141,7 +141,7 @@ const ReadingScreen = () => {
 
     return <Animated.View style={{transform: [{translateY}]}}>
 
-      <CardReading />
+      <CardReading title={item.title} textId={item.textId}/>
     </Animated.View>
   }
 

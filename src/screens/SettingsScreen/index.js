@@ -7,6 +7,7 @@ import { withAnchorPoint } from 'react-native-anchor-point';
 import * as SecureStore from 'expo-secure-store';
 import styles from './style'
 
+const screenHight = Dimensions.get('window').height;
 
 const SettingsScreen = () => {
 
@@ -16,6 +17,7 @@ const SettingsScreen = () => {
   const navigation = useNavigation();
 
   const scrollY = useRef(new Animated.Value(0)).current;
+  const confirmationPos = useRef(new Animated.Value(200)).current;
   const interpolatedValueForX = useRef(new Animated.Value(0)).current;
   
 
@@ -56,9 +58,28 @@ const SettingsScreen = () => {
     //change in secure store 1 = sound, 0 = mute
   }
 
+  const showConfirmation = () => {
+    Animated.spring(confirmationPos, {
+        toValue: -screenHight / 2 + 65,
+        speed: 3,
+        bounciness: 5,
+        useNativeDriver: true,
+    }).start();
+
+}
+
+const hideConfirmation = () => {
+    Animated.spring(confirmationPos, {
+        toValue: 200,
+        speed: 10,
+        bounciness: 5,
+        useNativeDriver: true,
+    }).start();
+}
+
   const deleteAccount = () => {
     console.log('delete account');
-    //add confirmation question
+    
     deleteUser(user).then(() => {
       // User deleted.
       console.log('delete account acomplished');
@@ -202,7 +223,7 @@ const SettingsScreen = () => {
             <Text style={styles.buttonText}>About</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.btnOpacity} onPress={deleteAccount}>
+          <TouchableOpacity style={styles.btnOpacity} onPress={showConfirmation}>
           <Image source={require('../../../assets/bin.png')}  style={{...styles.buttonImg}}/>
             <Text style={styles.buttonText}>Delete account</Text>
           </TouchableOpacity>
@@ -223,6 +244,22 @@ const SettingsScreen = () => {
         </Animated.ScrollView>
         
       </View>
+
+      <Animated.View style={{...styles.confirmationContainer, transform: [{translateY: confirmationPos}]}}>
+            <View style={styles.confirmationContainerInside}>
+
+                <Text style={styles.confirmationText}>Are you sure you want to delete your account?</Text>
+
+                <View style={styles.confirmationBtnCont}>
+                    <TouchableOpacity style={styles.confirmationBtn} onPress={deleteAccount}>
+                        <Text style={styles.confirmationBtnTxt}>Yes</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.confirmationBtn} onPress={hideConfirmation}>
+                        <Text style={styles.confirmationBtnTxt}>No</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </Animated.View>
     </View>
   )
 }

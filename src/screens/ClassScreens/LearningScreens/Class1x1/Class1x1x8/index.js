@@ -42,9 +42,9 @@ const Class1x1x8 = ({ route }) => {
             setCurrentPoints(userPoints)
         }
 
-        if (latestScreen >= currentScreen) {
-          setAnswerBonus(0)  
-        }
+        // if (latestScreen >= currentScreen) {
+        //   setAnswerBonus(0)  
+        // }
     })
 
     useEffect(() => {

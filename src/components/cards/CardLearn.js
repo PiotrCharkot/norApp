@@ -29,8 +29,12 @@ const CardLearn = (params) => {
         
       if (userLanguage === 'PL') {
         setTranslation(wordData.pl)
-      } else if (userLanguage === 'ES') {
-        setTranslation(wordData.es)
+      } else if (userLanguage === 'DE') {
+        setTranslation(wordData.ger)
+      } else if (userLanguage === 'LT') {
+        setTranslation(wordData.lt)
+      } else if (userLanguage === 'AR') {
+        setTranslation(wordData.ar)
       }
     
     }, [])

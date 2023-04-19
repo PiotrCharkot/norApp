@@ -6,8 +6,6 @@ const screenHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     mainContainer: {
         
-
-        
     },
     header: {
         height: 80,
@@ -54,9 +52,7 @@ const styles = StyleSheet.create({
         tintColor: 'black',
     },
     body: {
-        height: '100%',
-      
-        
+        height: '100%',  
     },
     flatlist: {
         marginTop: 10,
@@ -64,7 +60,13 @@ const styles = StyleSheet.create({
         overflow: 'visible',
         height: '100%',
     },
-    
+    loaderDisplay: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white'
+    }
 });
 
 

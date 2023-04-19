@@ -3,8 +3,13 @@ import React, {useState, useRef, useEffect} from 'react'
 import { useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
-import styles from './style'
+import { collection, getDocs, query, where, doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from '../../../firebase/firebase-config'
+import { authentication } from '../../../firebase/firebase-config';
+import { onAuthStateChanged  } from 'firebase/auth';
+import styles from './style';
 import Card from '../../components/cards/Card';
+import CardBlack from '../../components/cards/CardBlack';
 import learningData1 from '../../listData/learningData1';
 import learningData2 from '../../listData/learningData2';
 import learningData3 from '../../listData/learningData3';
@@ -17,10 +22,12 @@ const cardSize = screenWidth * 0.6 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
 const colorsBackFlatlist = ['#f2d891', '#96f291', '#9aedd4', '#91c8f2', '#f291df', '#f29191', '#f2ae91']
 const colorsBackFlatlist2 = ['#f21d1d', '#ebf21d', '#32f21d', '#1deef2', '#1d2bf2', '#d21df2', '#f21d72']
-const colorsBackFlatlist3 = ['#e6746e', '#e6e46e', '#7ae66e', '#6ee6e2', '#6e7ae6', '#e26ee6', '#e6746e', '#e6e46e', '#7ae66e', '#6ee6e2', '#6e7ae6', '#e26ee6']
+const colorsBackFlatlist3 = ['#f9faac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac']
 const colorsBackFlatlist4 = ['#fccccc', '#fafccc', '#d2fccc', '#ccfcfc', '#ccd0fc', '#f8ccfc', '#fccccc', '#fafccc', '#d2fccc', '#ccfcfc', '#ccd0fc', '#f8ccfc']
 const colorsBackFlatlist5 = ['#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#f9faac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#f9faac',]
 const transparent = 'rgba(255,255,255,0)'
+
+const usersAchivments = collection(db, 'usersAchivments');
 
 const LearningScreen = () => {
 
@@ -38,12 +45,15 @@ const LearningScreen = () => {
   const overlayOpacity = useRef(new Animated.Value(1)).current;
   const overlayOffset = useRef(new Animated.Value(0)).current;
 
+  const [userId, setUserId] = useState('userId');
   const [dataFlatList, setDataFlatList] = useState([]);
   const [dataFlatList2, setDataFlatList2] = useState([]);
   const [dataFlatList3, setDataFlatList3] = useState([]);
   const [dataFlatList4, setDataFlatList4] = useState([]);
   const [dataFlatList5, setDataFlatList5] = useState([]);
   const [dataFlatList6, setDataFlatList6] = useState([]);
+  const [random, setRandom] = useState(0);
+  const [isDataReady, setIsDataReady] = useState(false);
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -77,27 +87,87 @@ const LearningScreen = () => {
   })
 
   const backgroundFlatlist5 = scrollX5.interpolate({
-    inputRange: colorsBackFlatlist5.map((_, i) => i * cardSize),
-    outputRange: colorsBackFlatlist5.map((i) => i)
+    inputRange: colorsBackFlatlist4.map((_, i) => i * cardSize),
+    outputRange: colorsBackFlatlist4.map((i) => i)
   })
 
-  const backgroundFlatlist6 = scrollX5.interpolate({
-    inputRange: colorsBackFlatlist5.map((_, i) => i * cardSize),
-    outputRange: colorsBackFlatlist5.map((i) => i)
+  const backgroundFlatlist6 = scrollX6.interpolate({
+    inputRange: colorsBackFlatlist3.map((_, i) => i * cardSize),
+    outputRange: colorsBackFlatlist3.map((i) => i)
   })
+
+
+  
+  const imagesMain = [require('../../../assets/reindeerMid1.png'), require('../../../assets/reindeerMid2.png'), require('../../../assets/reindeerMid3.png'), require('../../../assets/reindeerMid4.png'), require('../../../assets/reindeerMid5.png'), require('../../../assets/reindeerMid6.png')];
+  const imagesMainBlurred = [require('../../../assets/reindeerMid1Blurred.png'), require('../../../assets/reindeerMid2Blurred.png'), require('../../../assets/reindeerMid3Blurred.png'), require('../../../assets/reindeerMid4Blurred.png'), require('../../../assets/reindeerMid5Blurred.png'), require('../../../assets/reindeerMid6Blurred.png')];
 
 
   useEffect(() => {
+    const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
+        
+      if (authUser) {
+
+        setUserId(authUser.uid)
+      }
+    });
+
+    return unscubscribe;
+  }, [])
+
+
+  useEffect(() => {
+    const getDataFb = async () => {
+
+      const q = query(usersAchivments, where('userRef', '==', userId))
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        console.log('no user in db yet');
+      } else {
+        console.log('user exist in data base');
+      }
+      
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " !====> ", doc.data());
+        
+        for (let i = 0; i < doc.data().learning.section1.length; i++) {
+          console.log('six times: ', doc.data().learning.section1);
+
+          learningData1[i].stars = doc.data().learning.section1[i]
+        }
+        setIsDataReady(true)
+      });
+
+    }
+
+
+    if (userId !== 'userId') {
+
+      getDataFb();
+    }
+
+  
+    return () => {
+      getDataFb;
+    }
+  }, [userId])
+  
+
+  useEffect(() => {
+    let tempVal = Math.floor(Math.random() * imagesMain.length);
+    setRandom(tempVal)
+    console.log('ddddddddddddddddddata', learningData1);
     setDataFlatList([{key: 'left-spacer'}, ...learningData1, {key: 'right-spacer'}])
     setDataFlatList2([{key: 'left-spacer'}, ...learningData2, {key: 'right-spacer'}])
     setDataFlatList3([{key: 'left-spacer'}, ...learningData3, {key: 'right-spacer'}])
     setDataFlatList4([{key: 'left-spacer'}, ...learningData4, {key: 'right-spacer'}])
     setDataFlatList5([{key: 'left-spacer'}, ...learningData5, {key: 'right-spacer'}])
     setDataFlatList6([{key: 'left-spacer'}, ...learningData6, {key: 'right-spacer'}])
-  }, [])
+  }, [isDataReady])
 
   useEffect(() => {
 
+    
     if (isFocused) {
       Animated.sequence([
         
@@ -155,15 +225,17 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY1}]}}>
 
-      <Card 
+      <CardBlack
       color1={'#FF2E4C'}
       color2={'#333333'}
+      color3={'#7affff'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 
@@ -187,9 +259,10 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY2}]}}>
 
-      <Card 
+      <CardBlack 
       color1={'#e9d362'}
       color2={'#333333'}
+      color3={'#fffa96'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
@@ -219,9 +292,10 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY3}]}}>
 
-      <Card 
+      <CardBlack 
       color1={'#73C8A9'}
       color2={'#333333'}
+      color3={'#ff94f6'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
@@ -251,9 +325,10 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY4}]}}>
 
-      <Card 
+      <CardBlack 
       color1={'#3a7bd5'}
       color2={'#333333'}
+      color3={'#9cffa2'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
@@ -283,9 +358,10 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY5}]}}>
 
-      <Card 
+      <CardBlack
       color1={'#3a7bd5'}
       color2={'#333333'}
+      color3={'#ffa6a6'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
@@ -315,9 +391,10 @@ const LearningScreen = () => {
 
     return <Animated.View style={{transform: [{translateY: translateY6}]}}>
 
-      <Card 
+      <CardBlack 
       color1={'#3a7bd5'}
       color2={'#333333'}
+      color3={'#ffffff'}
       title={item.title} 
       description={item.description} 
       level={item.level} 
@@ -325,6 +402,10 @@ const LearningScreen = () => {
       showPro={item.showPro}
       colorSmallSqu={colorSqu}/>
     </Animated.View>
+  }
+
+  const sendToPro = () => {
+    console.log('send to upgrade');
   }
 
 
@@ -340,11 +421,13 @@ const LearningScreen = () => {
             </TouchableOpacity>
           </View>
         
-          <View>
-          {/*            
-           right side of head pro button
-             */}
+         
+          <View style={styles.readingButtonContainer}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={sendToPro}>
+              <Text style={styles.textButton}>upgrade to Pro</Text>
+            </TouchableOpacity>
           </View>
+          
           
         </View>
       </View>
@@ -356,8 +439,8 @@ const LearningScreen = () => {
       scrollEventThrottle={16}
       >
 
-        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeer-full.jpeg')}/>
-        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeer-full-blur.png')}/>
+        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={imagesMain[random]}/>
+        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={imagesMainBlurred[random]}/>
         <Animated.View style={{...styles.gradientContainer, transform: [{scale: scaleImgOnDrag}]}}>
 
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>

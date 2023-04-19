@@ -33,7 +33,7 @@ const wordsCorrect = [
 
 const Exc1x1x8 = ({ route }) => {
 
-  const {userPoints, latestScreen, comeBackRoute} = route.params
+  const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
@@ -46,7 +46,8 @@ const Exc1x1x8 = ({ route }) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
-    
+    const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
+
     const a1background = useRef(new Animated.Value(0)).current;
     const a2background = useRef(new Animated.Value(0)).current;
     const a3background = useRef(new Animated.Value(0)).current;
@@ -96,6 +97,7 @@ const Exc1x1x8 = ({ route }) => {
 
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
+          setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
             setComeBack(true)
         }
@@ -116,7 +118,7 @@ const Exc1x1x8 = ({ route }) => {
       
       console.log('answers are in screen 8: ', answersChecked);
       if (answersChecked.length !== 0) {
-          
+        setLatestScreenAnswered(currentScreen);
         for (let i = 0; i < answersChecked.length; i++) {
 
           let delayAnimation = 0;
@@ -365,6 +367,7 @@ const Exc1x1x8 = ({ route }) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
+        latestAnswered={latestScreenAnswered}
         totalPoints={totalPoints}
         />
       </View>

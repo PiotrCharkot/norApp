@@ -5,16 +5,13 @@ const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     mainContainer: {
-        height: '100%',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
+    
     },
     header: {
         height: 80,
         width: "100%",
         backgroundColor: 'rgba(255,255,255,0)',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
     },
     headBottom: {
         flexDirection: 'row', 
@@ -65,6 +62,17 @@ const styles = StyleSheet.create({
     flatlist: {
         paddingTop: 100,
     },
+    body: {
+        alignItems: 'center',
+        paddingTop: 0
+    },
+    loaderDisplay: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white'
+    }
     
 });
 

@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacity, Image, Dimensions, Animated, ScrollView} 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { collection, getDocs, query, where, doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from '../../../firebase/firebase-config'
 import styles from './style'
 import { getAuth, onAuthStateChanged  } from 'firebase/auth';
 import { authentication } from '../../../firebase/firebase-config';
@@ -19,6 +21,19 @@ const ProfilScreen = () => {
   const user = auth.currentUser;
 
   const storage = getStorage();
+
+  let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
+  let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
+  let fourDaysAgo = new Date(new Date().setDate(new Date().getDate()-4)).toLocaleDateString();
+  let threeDaysAgo = new Date(new Date().setDate(new Date().getDate()-3)).toLocaleDateString();
+  let twoDaysAgo = new Date(new Date().setDate(new Date().getDate()-2)).toLocaleDateString();
+  let yesterday = new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString();
+  let today = new Date().toLocaleDateString();
+
+  let dayOfWeek = new Date(new Date().setDate(new Date().getDate())).getDay() === 0 ? 7 : new Date(new Date().setDate(new Date().getDate())).getDay();
+
+  let allDaysOfWeek = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
+  let currentWeek = allDaysOfWeek.slice(0, dayOfWeek)
  
   const randomPicture = ['reindeer-profile.png', 'reindeer-profile2.png', 'reindeer-profile3.png','reindeer-profile4.png', 'reindeer-profile5.png', 'reindeer-profile6.png', 'reindeer-profile7.png', 'reindeer-profile8.png']
   
@@ -26,11 +41,18 @@ const ProfilScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
 
+  const userFbPoints = collection(db, 'usersPoints');
+
   const [userLoged, setUserLoged] = useState(false);
   const [username, setUsername] = useState('Guest');
   const [userEmail, setUserEmail] = useState('No email');
+  const [userPoints, setUserPoints] = useState(0);
+  const [userDays, setUserDays] = useState(0);
   const [userId, setUserId] = useState('');
   const [userAnonymous, setUserAnonymous] = useState(false);
+  const [userDailyPoints, setUserDailyPoints] = useState(0);
+  const [userWeeklyPoints, setUserWeeklyPoints] = useState(0);
+  const [userShortId, setUserShortId] = useState('');
   const [profilePicUrl, setProfilePicUrl] = useState(null);
   const [newProfilePic, setNewProfilePic] = useState('reindeer-profile3.png');
   const overlayOpacity = useRef(new Animated.Value(1)).current;
@@ -65,16 +87,16 @@ const ProfilScreen = () => {
     });
 
     uploadBytesResumable(ref(storage, `profilePictures/${user.uid}`), blob).then((snapshot) => {
-        //console.log('Uploaded a blob or file!');
+        console.log('Uploaded a blob or file!');
     });
     
    
 }
 
 
-  const downloadFromFb = () => {
+  const downloadFromFb = async () => {
     
-    //console.log( 'id to download picture', user.uid);
+    console.log( 'id to download picture', user.uid);
 
 
     if (user) {
@@ -96,7 +118,7 @@ const ProfilScreen = () => {
               uploadToFb(url);
             })
             .catch((error) => {
-              //console.log('Didnt get profile picture here');
+              console.log('Didnt get profile picture here');
             })
           
         }
@@ -104,32 +126,33 @@ const ProfilScreen = () => {
     }
     
 
-    // if (userId !== '') {
-    //   getDownloadURL(ref(storage, 'profilePictures/' + userId))
-    //   .then((url) => {
-          
-    //     setProfilePicUrl(url)
-          
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     if (error.code === 'storage/object-not-found') {
-    //       //console.log('no file for profile');
+    const q = query(userFbPoints, where('userRef', '==', user.uid))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+      
+       
+        setUserDays(doc.data().daysInRow);
+        setUserPoints(doc.data().totalPoints);
+        setUserDailyPoints(doc.data().dailyPoints);
+        setUserWeeklyPoints(doc.data().weeklyPoints);
 
-    //       getDownloadURL(ref(storage, 'profilePictures/' + newProfilePic))
-    //         .then((url) => {
-            
-    //           setProfilePicUrl(url)
-    //           uploadToFb(url);
-    //         })
-    //         .catch((error) => {
-    //           //console.log('Didnt get profile picture here');
-    //         })
-          
-    //     }
-    //   });
-    // }
-    
+        if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
+          setUserDays(0);
+        }
+
+        if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
+          setUserDailyPoints(0);
+        }
+
+        if (!currentWeek.includes(doc.data().lastUpdate)) {
+          setUserWeeklyPoints(0)
+        }
+
+
+    })
+
+    let shortId = user.uid.substring(0, 10);
+    setUserShortId(shortId)
   }
 
 
@@ -164,28 +187,6 @@ const ProfilScreen = () => {
 
     downloadFromFb();
 
-  //   const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
-      
-  //     //console.log('user id to set in profil screen', authUser.uid);
-      
-
-  //     setUserId(authUser.uid)
-      
-      
-  //     if (authUser && !authUser.isAnonymous) {
-  //       setUserLoged(true);
-  //       setUsername(authUser.displayName);
-  //       setUserEmail(authUser.email);
-  //     } else {
-        
-  //       setUserLoged(false);
-  //       setUsername('Guest');
-  //       setUserEmail('No email');
-  //     }
-  //     downloadFromFb();
-  //   });
-  
-  // return unscubscribe;
   }, [userLoged, isFocused])
 
   useEffect(() => {
@@ -257,14 +258,14 @@ const ProfilScreen = () => {
 
         <View style={{height: 400}}>
 
-        <ScrollView style={styles.infoContainer} contentContainerStyle={styles.scrollStyle}>
+        <ScrollView style={styles.infoContainer} contentContainerStyle={styles.scrollStyle} showsVerticalScrollIndicator={false}>
           <View style={styles.topInfo}>
             <View style={styles.leftTopInfo}>
-              <Text style={styles.pointsText}>340</Text>
+              <Text style={styles.pointsText}>{userPoints}</Text>
               <Text>Points</Text>
             </View>
             <View style={styles.rightTopInfo}>
-              <Text style={styles.pointsText}>5</Text>
+              <Text style={styles.pointsText}>{userDays}</Text>
               <Text>Days</Text>
             </View>
 
@@ -291,6 +292,36 @@ const ProfilScreen = () => {
           <TouchableOpacity style={styles.btnChangePicOpacity} onPress={() => navigation.navigate('ChangePic', {userId: user.uid})}>
             <Text>Change Picture</Text>
           </TouchableOpacity>
+
+
+          <View style={styles.valContainer}>
+            <View style={styles.fieldDesc}>
+              <Text style={styles.fieldDescText}>Daily points</Text>
+            </View>
+            <View style={styles.fieldVal}>
+              <Text style={styles.fieldValText}>{userDailyPoints}</Text>  
+            </View>
+          </View>
+
+
+          <View style={styles.valContainer}>
+            <View style={styles.fieldDesc}>
+              <Text style={styles.fieldDescText}>Weekly points</Text>
+            </View>
+            <View style={styles.fieldVal}>
+              <Text style={styles.fieldValText}>{userWeeklyPoints}</Text>  
+            </View>
+          </View>
+
+          <View style={styles.valContainer}>
+            <View style={styles.fieldDesc}>
+              <Text style={styles.fieldDescText}>My Id</Text>
+            </View>
+            <View style={styles.fieldVal}>
+              <Text style={styles.fieldValText}>{userShortId}</Text>  
+            </View>
+          </View>
+          
         </ScrollView>
         </View>
       </View>

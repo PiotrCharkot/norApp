@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     readingButtonContainer: {
         flexDirection: 'row',
         margin: 10,
+        height: 28
     },
     buttonContainer: {
         borderWidth: 1,

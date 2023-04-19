@@ -12,6 +12,7 @@ import LearnWordScreen from "../screens/LearnWordScreen";
 import TestWordScreen from "../screens/TestWordScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import ReadingScreen from "../screens/ReadingScreen";
+import TextScreen from "../screens/TextScreen";
 import ChangePictureScreen from "../screens/ChangePicture";
 import NewPasswordScreen from "../screens/NewPasswordScreen";
 import ReAuthScreen from "../screens/ReAuthScreen";
@@ -59,6 +60,7 @@ const Router = () => {
                 <Stack.Screen name="ExitExcScreen" component={ExitExcScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Settings" component={SettingsScreen} options={{headerShown: false, animationEnabled: false}}/>
                 <Stack.Screen name="Reading" component={ReadingScreen} options={{headerShown: false, animationEnabled: false}}/>
+                <Stack.Screen name="Text" component={TextScreen} options={{headerShown: false, animationEnabled: false}}/>
                 <Stack.Screen name="ChangePic" component={ChangePictureScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="MyList" component={MyListScreen} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="EditList" component={EditListScreen} options={{headerShown: false, animationEnabled: false }}/>

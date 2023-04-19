@@ -4,13 +4,13 @@
     "slug": "norApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/flashcard.png",
+    "icon": "./assets/logo3.png",
     "userInterfaceStyle": "light",
     "packagerOpts": {
       "sourceExts": ["cjs"]
     },
     "splash": {
-      "image": "./assets/norskFlag.png",
+      "image": "./assets/logo3NoBackground.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,7 +25,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo3.png",
         "backgroundColor": "#FFFFFF"
       }
     },

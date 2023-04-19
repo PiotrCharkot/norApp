@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     createButtonContainer: {
         flexDirection: 'row',
         margin: 10,
+        height: 28
     },
     buttonContainer: {
         borderWidth: 1,
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         right: 10,
         padding: 5,
-        top: 15,
+        top: -5,
         borderRadius: 5,
         
     },

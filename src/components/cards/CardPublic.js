@@ -16,7 +16,7 @@ const CardPublic = (params) => {
     const wordsOwn = collection(db, 'wordsOwn');
 
     const [documentId, setDocumentId] = useState(params.docForUpdate);
-    const [addBtnTxt, setAddBtnTxt] = useState('Add to your list');
+    const [addBtnTxt, setAddBtnTxt] = useState('Add to your lists');
     const [alreadyAdded, setAlreadyAdded] = useState(false);
 
 
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 20,
-        width: 100,
+        width: 110,
         borderRadius: 5,
         bottom: 10,
         left: 30,

@@ -11,6 +11,7 @@ const RankingItem = (item) => {
 
     const interpolatedValue = useRef(new Animated.Value(0)).current;
 
+    const [daysInRow, setDaysInRow] = useState(item.params.daysInRow);
     const [imgSrc, setImgSrc] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AHD_transparent_picture.png&psig=AOvVaw06tXtft-O_kCjAPf3xT_cS&ust=1677700689506000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLD1rp-Auf0CFQAAAAAdAAAAABAE");
     
     const circlePositionDeg = interpolatedValue.interpolate({
@@ -21,7 +22,7 @@ const RankingItem = (item) => {
 
 
     useEffect(() => {
-
+        
         let randomDelay = Math.floor(Math.random() * 10) * 1000;
         let randomPause = Math.floor(Math.random() * 10) * 1000;
         Animated.loop(
@@ -60,12 +61,17 @@ const RankingItem = (item) => {
             
             }
         });
+
+
+        if (item.params.lastUpdate !== item.today && item.params.lastUpdate !== item.yesterday) {
+            setDaysInRow(0)
+        }
     }, [])
     
                      
         
     
-  return item.params.userRef === 'extra' ? (
+  return item.params.userRef === 'extra.png' ? (
     <View style={{height: 160}}></View>
   ) : (
     <View style={styles.wrapper}>
@@ -83,11 +89,11 @@ const RankingItem = (item) => {
 
                     <View style={styles.resultsContainer}>
                         <View style={styles.daysContainer}>
-                            <Text style={styles.daysText}>{item.params.daysInRow}  </Text> 
+                            <Text style={styles.daysText}>{daysInRow}  </Text> 
                             <Animated.Image style={{...styles.pictureSun, transform: [{rotate: circlePositionDeg}] }}  source={require('../../../assets/sun.png')} />
                         </View>
                         <View style={styles.pointsContainer}>
-                            <Text style={styles.pointsText}>{item.params.totalPoints}</Text>
+                            <Text style={styles.pointsText}>{item.weekly ? item.params.weeklyPoints : item.params.totalPoints}</Text>
                         </View>
                     </View>
                     

@@ -15,7 +15,7 @@ const correctAnswers = ['små', 'små', 'lille', 'liten', 'lita', 'små', 'lille
 
 const Exc1x1x4 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
     
     const [A1, setA1] = useState('');
     const [A2, setA2] = useState('');
@@ -30,6 +30,7 @@ const Exc1x1x4 = ({route}) => {
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
+    const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
 
     const a1background = useRef(new Animated.Value(0)).current;
     const a2background = useRef(new Animated.Value(0)).current;
@@ -99,6 +100,7 @@ const Exc1x1x4 = ({route}) => {
     useFocusEffect(() => {
         
         if (latestScreen > currentScreen) {
+            setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
             setComeBack(true)
         }
@@ -112,7 +114,7 @@ const Exc1x1x4 = ({route}) => {
     useEffect(() => {
 
         if (answersChecked.length !== 0) {
-
+          setLatestScreenAnswered(currentScreen); 
           let delayAnimation = 0;
           for (let i = 0; i < answersChecked.length; i++) {
 
@@ -303,6 +305,7 @@ const Exc1x1x4 = ({route}) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
+        latestAnswered={latestScreenAnswered}
         />
       </View>
     </View>

@@ -85,6 +85,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: 'black',
         bottom: - 50,
+    },
+    switcherContainer: {
+        position: 'absolute',
+        top: 50,
+        right: 20
+    },
+    switcherText: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#ad42f5'
     }
 
 });
