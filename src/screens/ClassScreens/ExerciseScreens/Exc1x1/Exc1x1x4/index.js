@@ -15,7 +15,7 @@ const correctAnswers = ['små', 'små', 'lille', 'liten', 'lita', 'små', 'lille
 
 const Exc1x1x4 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params
     
     const [A1, setA1] = useState('');
     const [A2, setA2] = useState('');
@@ -146,7 +146,7 @@ const Exc1x1x4 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -294,8 +294,8 @@ const Exc1x1x4 = ({route}) => {
         userAnswers={[A1, A2, A3, A4, A5, A6, A7, A8]}
         correctAnswers={correctAnswers}
         answerBonus={15}
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Exc1x1x5'}
         linkPrevious={'Exc1x1x3'}
         userPoints={currentPoints}
@@ -306,6 +306,7 @@ const Exc1x1x4 = ({route}) => {
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

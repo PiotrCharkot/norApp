@@ -13,7 +13,7 @@ const currentScreen = 3;
 
 const Class1x1x3 = ({ route }) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points 3 screen: ' , userPoints );
     const [currentPoints, setCurrentPoints] = useState(userPoints);
@@ -43,7 +43,7 @@ const Class1x1x3 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
           <View style={styles.textContainer}>
@@ -82,12 +82,13 @@ const Class1x1x3 = ({ route }) => {
         <BottomBar 
         linkNext={'Class1x1x4'}
         linkPrevious={'Class1x1x2'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

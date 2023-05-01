@@ -17,11 +17,12 @@ const pointsToScore = 200;
 const rotationTime = 300;
 
 const usersPointsCollection = collection(db, 'usersPoints');
+const usersAchivments = collection(db, 'usersAchivments');
 
 const ExitExcScreen = ({route}) => {
 
   const navigation = useNavigation();
-  const { userPoints, allPoints } = route.params;
+  const { userPoints, allPoints, dataMarkers } = route.params;
 
   let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
   let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
@@ -45,9 +46,11 @@ const ExitExcScreen = ({route}) => {
   const [totalPointsVal, setTotalPointsVal] = useState(0);
   const [weeklyPointsVal, setWeeklyPointsVal] = useState(0);
   const [documentId, setDocumentId] = useState('tempid');
+  const [myDocumentId, setMyDocumentId] = useState('tempid');
   const [showLineOffset, setShowLineOffset] = useState(false);
   const [dayUp, setDayUp] = useState(false);
-  const [isNewUser, setIsNewUser] = useState(true)
+  const [isNewUser, setIsNewUser] = useState(true);
+  const [tempObj, setTempObj] = useState({})
 
   const interpolatedValue = useRef(new Animated.Value(-180)).current;
   const interpolatedValueFlipFirst = useRef(new Animated.Value(0)).current;
@@ -57,6 +60,7 @@ const ExitExcScreen = ({route}) => {
 
     
   const docRef = doc(db, "usersPoints", documentId);
+  const myDocRef = doc(db, "usersAchivments", myDocumentId)
 
   const rotateVal = interpolatedValueFlipFirst.interpolate({
     inputRange: [0, 90],
@@ -98,6 +102,8 @@ const ExitExcScreen = ({route}) => {
 
     console.log('on exit points: ', userPoints);
 
+    console.log('some markers', dataMarkers);
+
     let docId = uuid.v4();
 
     const setDataToFb = async () => {
@@ -118,6 +124,49 @@ const ExitExcScreen = ({route}) => {
 
 
     const getDataFb = async () => {
+
+
+      const q2 = query(usersAchivments, where('userRef', '==', userId))
+      const querySnapshot2 = await getDocs(q2);
+      
+
+      if (querySnapshot2.empty) {
+        console.log('should not be empty');
+      } else {
+    
+        querySnapshot2.forEach((doc) => {
+          console.log(doc.id, doc.data());
+          setMyDocumentId(doc.id)
+          let objectDescritpror = Object.getOwnPropertyDescriptor(doc.data(), dataMarkers.part)
+
+          console.log('my descritptor', objectDescritpror.value);
+
+          let objectDescritpror2 = Object.getOwnPropertyDescriptor(objectDescritpror.value, dataMarkers.section);
+
+
+          let objectDescritprorCopy = JSON.parse(JSON.stringify(objectDescritpror.value))
+
+          let newArr = objectDescritpror2.value.map((item, index) => index === dataMarkers.class ? item + 1 : item) 
+          console.log('final value for mutation :', objectDescritpror2.value[dataMarkers.class]);
+          console.log('new array: ', newArr);
+
+          for (const key in objectDescritprorCopy) {
+            console.log(key.toString() === dataMarkers.section);
+
+            if (key.toString() === dataMarkers.section) {
+              objectDescritprorCopy[key] = newArr;
+            }
+          }
+
+
+          console.log('new obj to be set: ', tempObj);
+
+
+          setTempObj(objectDescritprorCopy)
+          
+        });
+      }
+
 
       const q = query(usersPointsCollection, where('userRef', '==', userId))
       const querySnapshot = await getDocs(q);
@@ -153,6 +202,9 @@ const ExitExcScreen = ({route}) => {
           
         });
       }
+
+
+      
         
         
 
@@ -249,6 +301,29 @@ const ExitExcScreen = ({route}) => {
         })
       ]).start();
 
+      if (dataMarkers.part === 'learning') {
+
+        updateDoc(myDocRef, {
+          learning: tempObj
+        })
+        .then(docRef => {
+            console.log("A New Document Field has been added to an existing document");
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+      } else if (dataMarkers.part === 'exercise') {
+        updateDoc(myDocRef, {
+          exercise: tempObj
+        })
+        .then(docRef => {
+            console.log("A New Document Field has been added to an existing document");
+        })
+        .catch(error => {
+            console.log(error);
+        })
+      }
 
       if (!isNewUser) {
         updateDoc(docRef, {

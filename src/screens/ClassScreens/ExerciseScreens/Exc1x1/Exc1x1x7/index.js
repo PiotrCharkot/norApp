@@ -19,7 +19,7 @@ const wordsCorrect = ['Ideelt', 'sett', 'ønsker', 'jeg', 'meg', 'seks', 'timers
 
 const Exc1x1x7 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params
 
    
     const [isCorrect, setIsCorrect] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -102,7 +102,7 @@ const Exc1x1x7 = ({route}) => {
     
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.topView}>
               <Text style={styles.questionText}>Mark mistakes in text.</Text>
@@ -165,8 +165,8 @@ const Exc1x1x7 = ({route}) => {
         correctAnswers={mistakesIndex}
         textLength={words.length}
         answerBonus={15}
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Exc1x1x8'}
         linkPrevious={'Exc1x1x6'}
         userPoints={currentPoints}
@@ -177,6 +177,7 @@ const Exc1x1x7 = ({route}) => {
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

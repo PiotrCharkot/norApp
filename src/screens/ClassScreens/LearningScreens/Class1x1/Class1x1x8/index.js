@@ -19,7 +19,7 @@ const indexOfText = [0, 2, 3, 4, 5]
 
 const Class1x1x8 = ({ route }) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points 8 screen: ' , userPoints );
     const [movingDraggable, setMovingDraggable] = useState(null);
@@ -74,7 +74,7 @@ const Class1x1x8 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -144,13 +144,14 @@ const Class1x1x8 = ({ route }) => {
         answerBonus={answerBonus}
         linkNext={'Class1x1x9'}
         linkPrevious={'Class1x1x7'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
         questionScreen={true}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

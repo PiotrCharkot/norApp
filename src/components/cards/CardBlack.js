@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image } from 'react-native'
 import React, {memo} from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,7 +10,6 @@ const transparent = 'rgba(255,255,255,0)';
 const CardBlack = (params) => {
 
    
-    console.log(params);
     const navigation = useNavigation();
 
   return (
@@ -28,10 +27,17 @@ const CardBlack = (params) => {
                         </View>
 
                             <View style={styles.titleContainer}>
-                                <Text style={{...styles.textTitle, shadowColor: params.color3}}>{params.title}{params.stars}</Text>
+                                <Text style={{...styles.textTitle, shadowColor: params.color3}}>{params.title}</Text>
                                 <Text style={styles.textDescription}>{params.description}</Text>
                             </View>
-
+                            <View style={styles.reindeerContainer}>
+                                <Image style={{...styles.reindeerPikto, tintColor: params.stars > 0 ? '#faf739' : '#252626'}} source={require('../../../assets/reindeerPikto.png')} />
+                                <Image style={{...styles.reindeerPikto, tintColor: params.stars > 1 ? '#faf739' : '#252626'}} source={require('../../../assets/reindeerPikto.png')} />
+                                <Image style={{...styles.reindeerPikto, tintColor: params.stars > 2 ? '#faf739' : '#252626'}} source={require('../../../assets/reindeerPikto.png')} />
+                                <Image style={{...styles.reindeerPikto, tintColor: params.stars > 3 ? '#faf739' : '#252626'}} source={require('../../../assets/reindeerPikto.png')} />
+                                <Image style={{...styles.reindeerPikto, tintColor: params.stars > 4 ? '#faf739' : '#252626'}} source={require('../../../assets/reindeerPikto.png')} />
+                                
+                            </View>
 
 
                         <View style={styles.whiteLine}>
@@ -139,6 +145,20 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontWeight: '500'
     },
+    reindeerContainer: {
+        position: 'absolute',
+        width: '100%',
+        bottom: 5,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    reindeerPikto: {
+        height: 25,
+        width: 25,
+        tintColor: '#faf739',
+        
+    }
 })
 
 

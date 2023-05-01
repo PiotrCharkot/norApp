@@ -10,6 +10,11 @@ import generalStyles from '../../../../../styles/generalStyles';
 const { width, height } = Dimensions.get("window");
 const currentScreen = 9;
 const totalPoints = 24 + currentScreen * 10;
+const dataForMarkers = {
+  part: 'learning',
+  section: 'section1',
+  class: 0
+}
 
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
@@ -24,7 +29,7 @@ const wordsCorrect = [
 
 const Class1x1x9 = ({ route }) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points 9 screen: ' , userPoints );
     const [movingDraggable, setMovingDraggable] = useState(null);
@@ -81,7 +86,7 @@ const Class1x1x9 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -135,8 +140,8 @@ const Class1x1x9 = ({ route }) => {
         answerBonus={answerBonus}
         linkNext={'ExitExcScreen'}
         linkPrevious={'Class1x1x8'}
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
@@ -144,6 +149,8 @@ const Class1x1x9 = ({ route }) => {
         comeBack={comeBack}
         totalPoints={totalPoints}
         learningScreen={true}
+        dataForMarkers={dataForMarkers}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

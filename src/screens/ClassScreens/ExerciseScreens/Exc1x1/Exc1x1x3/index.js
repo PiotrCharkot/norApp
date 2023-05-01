@@ -25,7 +25,7 @@ const indexOfText = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18, 19, 
 
 const Exc1x1x3 = ({ route }) => {
 
-  const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params
+  const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
@@ -99,7 +99,7 @@ const Exc1x1x3 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -169,8 +169,8 @@ const Exc1x1x3 = ({ route }) => {
         answerBonus={15}
         linkNext={'Exc1x1x4'}
         linkPrevious={'Exc1x1x2'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
@@ -179,6 +179,7 @@ const Exc1x1x3 = ({ route }) => {
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

@@ -32,7 +32,7 @@ const correctAnswers = [[false, true, false, false], [false, true, true, false],
 
 const Exc1x1x5 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute, latestAnswered} = route.params;
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params;
     
     const [isAnswer1Checked, setIsAnswer1Checked] = useState(false);
     const [isAnswer2Checked, setIsAnswer2Checked] = useState(false);
@@ -159,7 +159,7 @@ const Exc1x1x5 = ({route}) => {
     
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Choose correct answers.</Text>
@@ -221,8 +221,8 @@ const Exc1x1x5 = ({route}) => {
         userAnswers={allUserAnswers}
         correctAnswers={correctAnswers}
         answerBonus={15}
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Exc1x1x6'}
         linkPrevious={'Exc1x1x4'}
         userPoints={currentPoints}
@@ -233,6 +233,7 @@ const Exc1x1x5 = ({route}) => {
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

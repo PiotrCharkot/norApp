@@ -1,12 +1,13 @@
 import { View, Text, Animated, Dimensions, TouchableOpacity, Image } from 'react-native'
-import React, {useState, useRef, useEffect} from 'react'
-import { useIsFocused } from "@react-navigation/native";
+import React, {useState, useRef, useEffect, useCallback} from 'react'
+import { useIsFocused, useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 import { collection, getDocs, query, where, doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../../firebase/firebase-config'
 import { authentication } from '../../../firebase/firebase-config';
 import { onAuthStateChanged  } from 'firebase/auth';
+import uuid from 'react-native-uuid';
 import styles from './style';
 import Card from '../../components/cards/Card';
 import CardBlack from '../../components/cards/CardBlack';
@@ -20,6 +21,7 @@ import learningData6 from '../../listData/learningData6';
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.6 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
+let docId = uuid.v4();
 const colorsBackFlatlist = ['#f2d891', '#96f291', '#9aedd4', '#91c8f2', '#f291df', '#f29191', '#f2ae91']
 const colorsBackFlatlist2 = ['#f21d1d', '#ebf21d', '#32f21d', '#1deef2', '#1d2bf2', '#d21df2', '#f21d72']
 const colorsBackFlatlist3 = ['#f9faac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac']
@@ -53,7 +55,6 @@ const LearningScreen = () => {
   const [dataFlatList5, setDataFlatList5] = useState([]);
   const [dataFlatList6, setDataFlatList6] = useState([]);
   const [random, setRandom] = useState(0);
-  const [isDataReady, setIsDataReady] = useState(false);
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -110,60 +111,26 @@ const LearningScreen = () => {
         setUserId(authUser.uid)
       }
     });
+    
 
     return unscubscribe;
   }, [])
 
 
-  useEffect(() => {
-    const getDataFb = async () => {
-
-      const q = query(usersAchivments, where('userRef', '==', userId))
-      const querySnapshot = await getDocs(q);
-
-      if (querySnapshot.empty) {
-        console.log('no user in db yet');
-      } else {
-        console.log('user exist in data base');
-      }
-      
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, " !====> ", doc.data());
-        
-        for (let i = 0; i < doc.data().learning.section1.length; i++) {
-          console.log('six times: ', doc.data().learning.section1);
-
-          learningData1[i].stars = doc.data().learning.section1[i]
-        }
-        setIsDataReady(true)
-      });
-
-    }
-
-
-    if (userId !== 'userId') {
-
-      getDataFb();
-    }
-
-  
-    return () => {
-      getDataFb;
-    }
-  }, [userId])
   
 
   useEffect(() => {
     let tempVal = Math.floor(Math.random() * imagesMain.length);
     setRandom(tempVal)
-    console.log('ddddddddddddddddddata', learningData1);
+    
+    
     setDataFlatList([{key: 'left-spacer'}, ...learningData1, {key: 'right-spacer'}])
     setDataFlatList2([{key: 'left-spacer'}, ...learningData2, {key: 'right-spacer'}])
     setDataFlatList3([{key: 'left-spacer'}, ...learningData3, {key: 'right-spacer'}])
     setDataFlatList4([{key: 'left-spacer'}, ...learningData4, {key: 'right-spacer'}])
     setDataFlatList5([{key: 'left-spacer'}, ...learningData5, {key: 'right-spacer'}])
     setDataFlatList6([{key: 'left-spacer'}, ...learningData6, {key: 'right-spacer'}])
-  }, [isDataReady])
+  }, [])
 
   useEffect(() => {
 
@@ -202,6 +169,104 @@ const LearningScreen = () => {
     }
     
   }, [isFocused])
+
+
+  useFocusEffect(
+    useCallback(() => {
+
+      
+      if (userId !== 'userId') {
+
+        getDataFb();
+      }
+  
+      
+    }, [userId])
+  );
+
+
+  const setDataToFb = async () => {
+    await setDoc(doc(db, 'usersAchivments', docId), {
+      userRef: userId,
+      learning: {
+        section1: [0,0,0,0,0,0],
+        section2: [0,0,0,0,0],
+        section3: [0,0,0,0,0],
+        section4: [0,0,0,0,0],
+        section5: [0,0,0,0,0],
+        section6: [0,0,0,0,0],
+      },
+      exercise: {
+        section1: [0,0,0,0,0],
+        section2: [0,0,0,0,0],
+        section3: [0,0,0,0,0],
+        section4: [0,0,0,0,0],
+        section5: [0,0,0,0,0],
+        section6: [0,0,0,0,0],
+      },
+      gold: 0,
+      silver: 0,
+      bronze: 0,
+      userIsPro: false,
+
+    });
+  }
+
+
+  const getDataFb = async () => {
+
+
+    const q = query(usersAchivments, where('userRef', '==', userId))
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      setDataToFb();
+      console.log('no user in db yet');
+    } else {
+      console.log('user exist in data base');
+    }
+    
+    querySnapshot.forEach((doc) => {
+      
+      for (let i = 0; i < doc.data().learning.section1.length; i++) {
+        
+        learningData1[i].stars = doc.data().learning.section1[i]
+      }
+
+      for (let i = 0; i < doc.data().learning.section2.length; i++) {
+        
+        learningData2[i].stars = doc.data().learning.section2[i]
+      }
+      
+      for (let i = 0; i < doc.data().learning.section3.length; i++) {
+        
+        learningData3[i].stars = doc.data().learning.section3[i]
+      }
+
+      for (let i = 0; i < doc.data().learning.section4.length; i++) {
+        
+        learningData4[i].stars = doc.data().learning.section4[i]
+      }
+
+      for (let i = 0; i < doc.data().learning.section5.length; i++) {
+        
+        learningData5[i].stars = doc.data().learning.section5[i]
+      }
+
+      for (let i = 0; i < doc.data().learning.section6.length; i++) {
+        
+        learningData6[i].stars = doc.data().learning.section6[i]
+      }
+
+      setDataFlatList([{key: 'left-spacer'}, ...learningData1, {key: 'right-spacer'}])
+      setDataFlatList2([{key: 'left-spacer'}, ...learningData2, {key: 'right-spacer'}])
+      setDataFlatList3([{key: 'left-spacer'}, ...learningData3, {key: 'right-spacer'}])
+      setDataFlatList4([{key: 'left-spacer'}, ...learningData4, {key: 'right-spacer'}])
+      setDataFlatList5([{key: 'left-spacer'}, ...learningData5, {key: 'right-spacer'}])
+      setDataFlatList6([{key: 'left-spacer'}, ...learningData6, {key: 'right-spacer'}])
+    });
+
+  }
 
 
 
@@ -268,7 +333,8 @@ const LearningScreen = () => {
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 
@@ -301,7 +367,8 @@ const LearningScreen = () => {
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 
@@ -334,7 +401,8 @@ const LearningScreen = () => {
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 
@@ -367,7 +435,8 @@ const LearningScreen = () => {
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 
@@ -400,7 +469,8 @@ const LearningScreen = () => {
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      stars={item.stars}/>
     </Animated.View>
   }
 

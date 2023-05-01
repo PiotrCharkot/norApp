@@ -12,7 +12,7 @@ const currentScreen = 5;
 const Class1x1x5 = ({route}) => {
 
   
-    const {userPoints,  latestScreen, comeBackRoute} = route.params
+    const {userPoints,  latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points last screen in 5: ' , userPoints );
 
@@ -35,7 +35,7 @@ const Class1x1x5 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>The subject can also be something else like a place or an abstract concept. <Text style={styles.textColor}>Verb</Text> has to be always on the <Text style={styles.boldText}>second</Text> place in the sentence.</Text>
@@ -68,12 +68,13 @@ const Class1x1x5 = ({route}) => {
         <BottomBar 
         linkNext={'Class1x1x6'}
         linkPrevious={'Class1x1x4'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

@@ -12,7 +12,7 @@ const currentScreen = 4;
 const Class1x1x4 = ({route}) => {
 
   
-    const {userPoints,  latestScreen, comeBackRoute} = route.params
+    const {userPoints,  latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points last screen in 4: ' , userPoints );
 
@@ -35,7 +35,7 @@ const Class1x1x4 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>Norwegian verb can not stand alone in the sentence. It also needs a subject like 'I' or 'You'.</Text>
@@ -76,12 +76,13 @@ const Class1x1x4 = ({route}) => {
         <BottomBar 
         linkNext={'Class1x1x5'}
         linkPrevious={'Class1x1x3'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

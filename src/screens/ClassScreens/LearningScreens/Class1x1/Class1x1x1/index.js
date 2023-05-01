@@ -6,6 +6,7 @@ import BottomBar from '../../../../../components/bars/bottomBar'
 import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;
+const allScreensNum = 9;
 
 const Class1x1x1 = ({route}) => {
   
@@ -34,7 +35,7 @@ const Class1x1x1 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBack}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
         <View style={styles.body}>
           <View style={styles.topView}>
             <Text style={styles.title}>Presens - present time</Text>
@@ -53,13 +54,14 @@ const Class1x1x1 = ({route}) => {
       <View style={styles.bottomBarContainer}>
         <BottomBar 
         linkNext={'Class1x1x2'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         isFirstScreen={true}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

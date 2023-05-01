@@ -6,6 +6,7 @@ import BottomBar from '../../../../../components/bars/bottomBar'
 import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;
+const allScreensNum = 8;
 const colorUnderline = generalStyles.colorHighlightChoiceOption;
 const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
@@ -116,7 +117,7 @@ const Exc1x1x1 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={1} totalLenghtNum={8} latestScreen={latestScreenDone} comeBack={comeBack}/>
+      <ProgressBar screenNum={1} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
         <View style={styles.body}>
           <View style={styles.topView}>
             <Text style={styles.title}>Choose good anwer out of two</Text>
@@ -189,8 +190,8 @@ const Exc1x1x1 = ({route}) => {
         correctAnswers={correctAnswers}
         userAnswers={[A1, A2, A3, A4, A5]}
         linkNext={'Exc1x1x2'} 
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         isFirstScreen={true}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
@@ -199,6 +200,7 @@ const Exc1x1x1 = ({route}) => {
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         latestAnswered={latestScreenAnswered}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

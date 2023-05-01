@@ -16,7 +16,7 @@ const correctAnswers = [false, false, true, false];
 
 const Class1x1x7 = ({route}) => {
 
-    const {userPoints, latestScreen, comeBackRoute} = route.params
+    const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
     console.log('points 7nd screen: ' , userPoints );
     const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
@@ -42,16 +42,16 @@ const Class1x1x7 = ({route}) => {
             setCurrentPoints(userPoints)
         }
 
-        if (latestScreen >= currentScreen) {
-          //setAnswerBonus(0)  
+        // if (latestScreen >= currentScreen) {
+        //   setAnswerBonus(0)  
 
-          //why is set answer bonus = 0 ?????????????????? check other screens!!!
-        }
+        //   why is set answer bonus = 0 ?????????????????? check other screens!!!
+        // }
     })
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={9} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
@@ -74,8 +74,8 @@ const Class1x1x7 = ({route}) => {
         userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
         correctAnswers={correctAnswers}
         answerBonus={answerBonus}
-        buttonWidth={45}
-        buttonHeight={45}
+        buttonWidth={generalStyles.buttonNextPrevSize}
+        buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Class1x1x8'}
         linkPrevious={'Class1x1x6'}
         userPoints={currentPoints}
@@ -83,6 +83,7 @@ const Class1x1x7 = ({route}) => {
         currentScreen={currentScreen}
         questionScreen={true}
         comeBack={comeBack}
+        allScreensNum={allScreensNum}
         />
       </View>
     </View>

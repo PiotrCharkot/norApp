@@ -63,7 +63,7 @@ const BottomBar = (params) => {
             console.log('current points when go back: ', currentPoints);
             navigation.navigate({
                 name: params.linkPrevious,
-                params: { latestScreen: params.latestScreen, userPoints: currentPoints, latestAnswered: params.latestAnswered },
+                params: { latestScreen: params.latestScreen, userPoints: currentPoints, latestAnswered: params.latestAnswered, allScreensNum: params.allScreensNum },
                 merge: true,
             });
         }
@@ -426,7 +426,7 @@ const BottomBar = (params) => {
         } else {
   
             navigation.navigate(params.linkNext, {
-                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints, latestAnswered: params.latestAnswered
+                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints, latestAnswered: params.latestAnswered, dataMarkers: params.dataForMarkers, allScreensNum: params.allScreensNum
             })
         }
         
@@ -494,10 +494,10 @@ const BottomBar = (params) => {
                     text={params.text}
                     startGradient={[0.0, 0.0]}
                     endGradient={[1.0, 1.0]}
-                    borderTopRightRadius={23} 
-                    borderBottomRightRadius={23} 
-                    borderTopLeftRadius={23} 
-                    borderBottomLeftRadius={23} />
+                    borderTopRightRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                    borderBottomRightRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                    borderTopLeftRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                    borderBottomLeftRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} />
                 </View> }
             
             <View style={styles.buttonContainer}>
@@ -515,10 +515,10 @@ const BottomBar = (params) => {
                 text={params.text}
                 startGradient={[0.0, 0.0]}
                 endGradient={[1.0, 1.0]}
-                borderTopRightRadius={23} 
-                borderBottomRightRadius={23} 
-                borderTopLeftRadius={23} 
-                borderBottomLeftRadius={23} />
+                borderTopRightRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                borderBottomRightRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                borderTopLeftRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} 
+                borderBottomLeftRadius={params.buttonHeight ? params.buttonHeight / 2 : 20} />
             </View>
 
         </View>

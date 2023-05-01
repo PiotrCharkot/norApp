@@ -27,6 +27,7 @@ const generalStyles = StyleSheet.create({
     gradientBottomCorrectDraggable: 'lightgreen',
     gradientTopWrongDraggable: 'darkred',
     gradientBottomWrongDraggable: 'red',
+    buttonNextPrevSize: 45
 
 
 });
