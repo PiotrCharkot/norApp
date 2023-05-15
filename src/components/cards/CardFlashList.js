@@ -8,17 +8,17 @@ const screenHeight = Dimensions.get('window').height;
 
 const CardFlashList = (params) => {
 
-    const { refNummer, userIdRef, title, language } = params;
+    const { refNummer, userIdRef, title, language, userName } = params;
     const navigation = useNavigation();
 
     const pressLearn = () => {
        
-        navigation.navigate('LearnWord', {refToList: refNummer, userId: userIdRef, savedLang: language})
+        navigation.navigate('LearnWord', {refToList: refNummer, userId: userIdRef, savedLang: language, userN: userName})
     }
 
     const pressTest = () => {
         
-        navigation.navigate('TestWord', {refToList: refNummer, userId: userIdRef, savedLang: language, own: false})
+        navigation.navigate('TestWord', {refToList: refNummer, userId: userIdRef, savedLang: language, own: false, userN: userName})
     }
 
   return (

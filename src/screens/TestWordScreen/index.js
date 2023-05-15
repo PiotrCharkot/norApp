@@ -1,9 +1,10 @@
 import { View, Text, Animated, TouchableOpacity, FlatList, Image, Dimensions } from 'react-native'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where, doc, updateDoc  } from "firebase/firestore";
 import * as SecureStore from 'expo-secure-store';
+import uuid from 'react-native-uuid';
 import styles from './style'
 import CardFlippy from '../../components/cards/CardFlippy'
 import Loader from '../../components/other/Loader';
@@ -12,17 +13,36 @@ import { withAnchorPoint } from 'react-native-anchor-point';
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
+const pointsToScore = 200;
 let indexOfElement;
+let openTime;
+let closeTime;
 
 
 const TestWordScreen = ({route}) => {
 
-    const {userId, refToList, savedLang, own} = route.params;
+    const {userId, refToList, savedLang, own, userN} = route.params;
 
     const navigation = useNavigation();
 
     const words = collection(db, own ? 'wordsOwn' : 'words');
     const userWordsData = collection(db, 'usersWordsInfo');
+    const usersPointsCollection = collection(db, 'usersPoints');
+
+    let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
+    let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
+    let fourDaysAgo = new Date(new Date().setDate(new Date().getDate()-4)).toLocaleDateString();
+    let threeDaysAgo = new Date(new Date().setDate(new Date().getDate()-3)).toLocaleDateString();
+    let twoDaysAgo = new Date(new Date().setDate(new Date().getDate()-2)).toLocaleDateString();
+    let yesterday = new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString();
+    let today = new Date().toLocaleDateString();
+
+    let dayOfWeek = new Date(new Date().setDate(new Date().getDate())).getDay() === 0 ? 7 : new Date(new Date().setDate(new Date().getDate())).getDay();
+
+
+    let allDaysOfWeek = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
+    let currentWeek = allDaysOfWeek.slice(0, dayOfWeek)
+
     
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
 
@@ -34,6 +54,12 @@ const TestWordScreen = ({route}) => {
     const [documentId, setDocumentId] = useState('tempid');
     const [wordsLvlUp, setWordsLvlUp] = useState([]);
     const [wordsLvlDown, setWordsLvlDown] = useState([]);
+    const [currentDailyScore, setCurrentDailyScore] = useState(0);
+    const [daysInRowVal, setDaysInRowVal] = useState(0);
+    const [lastUpdateVal, setLastUpdateVal] = useState('');
+    const [totalPointsVal, setTotalPointsVal] = useState(0);
+    const [weeklyPointsVal, setWeeklyPointsVal] = useState(0);
+    const [documentIdPoints, setDocumentIdPoints] = useState('tempid');
     const [title, setTitle] = useState('');
     const [flip, setFlip] = useState(false);
     const [btnTxt, setBtnTxt] = useState('')
@@ -41,6 +67,7 @@ const TestWordScreen = ({route}) => {
     const [lastIdentification, setLastIdentification] = useState(200);
     
     const docRef = doc(db, "usersWordsInfo", documentId);
+    const docRefPoints = doc(db, "usersPoints", documentIdPoints);
 
     const xPositionDeg = interpolatedValueForX.interpolate({
         inputRange: [0, 360],
@@ -87,6 +114,9 @@ const TestWordScreen = ({route}) => {
 
     const exitButton = () => {
 
+        closeTime = new Date().getTime();
+
+        console.log('test screen was on in ', closeTime - openTime, 'miliseconds.');
         
         Animated.spring(interpolatedValueForX, {
             toValue: 360,
@@ -95,7 +125,9 @@ const TestWordScreen = ({route}) => {
             useNativeDriver: true,
         }).start();
     
-        updateUsersWordInfo()
+        updateUsersWordInfo();
+
+        updatePointsInFb();
         
     
         setTimeout(() => {
@@ -131,7 +163,7 @@ const TestWordScreen = ({route}) => {
     }
 
     const updateUsersWordInfo = async () => {
-        console.log('last id in heer', lastIdentification);
+        
         for (let i = 0; i < lastIdentification; i++) {
             
           
@@ -235,20 +267,47 @@ const TestWordScreen = ({route}) => {
 
         allUsersArrs.splice(indexOfElement, 1, userWordInfo) //here is the problem !!
 
-        await updateDoc(docRef, {
-            wordList: allUsersArrs
-        })
-        .then(docRef => {
-            console.log("A New Document Field has been added to an existing document");
-        })
-        .catch(error => {
-            console.log(error);
-        })
+
+
+        if (documentId !== 'tempid') {
+            await updateDoc(docRef, {
+                wordList: allUsersArrs
+            })
+            .then(docRef => {
+                console.log("A New Document Field has been added to an existing document");
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+        }
+        
         
 
     }
 
+    const updatePointsInFb = async () => {
 
+        let bonusPoints = Math.floor((closeTime - openTime) / 1000 * 2 / 3) 
+        console.log('bounus points is: ', bonusPoints);
+
+        if (documentIdPoints !== 'tempid' && bonusPoints > 5) {
+            updateDoc(docRefPoints, {
+                dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + bonusPoints : bonusPoints,
+                totalPoints: totalPointsVal + bonusPoints,
+                weeklyPoints: currentWeek.includes(lastUpdateVal) ? weeklyPointsVal + bonusPoints : bonusPoints,
+                lastUpdate: new Date().toLocaleDateString(),
+                daysInRow: currentDailyScore < pointsToScore && currentDailyScore + bonusPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
+            })
+            .then(docRef => {
+                console.log("A New Document Field has been added to an existing document updaiting points");
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    }
     
     const renderCard = ({item, index}) => {
 
@@ -265,6 +324,32 @@ const TestWordScreen = ({route}) => {
     }
 
     useEffect(() => {
+
+        console.log('show me my user name here: ', userN);
+        openTime = new Date().getTime();
+
+
+        let docId = uuid.v4();
+
+        const setDataToFbPoints = async () => {
+            await setDoc(doc(db, 'usersPoints', docId), {
+                userRef: userId,
+                userName: userN,
+                totalPoints: 0,
+                weeklyPoints: 0,
+                dailyPoints: 0,
+                daysInRow: 0,
+                lastUpdate: new Date().toLocaleDateString()
+            });
+
+
+            setDocumentIdPoints(docId);
+            setLastUpdateVal(new Date().toLocaleDateString());
+            // setTotalPointsVal(0);
+            // setWeeklyPointsVal(0);
+            // setCurrentDailyScore(0);
+            // setDaysInRowVal(0);
+        }
 
 
         const getDataFb = async () => {
@@ -300,6 +385,42 @@ const TestWordScreen = ({route}) => {
                 
             });
 
+
+            const q3 = query(usersPointsCollection, where('userRef', '==', userId))
+            const querySnapshot3 = await getDocs(q3);
+
+            if (querySnapshot3.empty) {
+        
+                setDataToFbPoints();
+            } else {
+                //set points and data from points collection to variables and update on exit!!!!!!!!!!!
+                //set tihis varuables in setDataPoints function !!!!!!!!!!!
+
+                querySnapshot3.forEach((doc) => {
+                    
+                    if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
+                      setCurrentDailyScore(0);
+                    } else {
+                      setCurrentDailyScore(doc.data().dailyPoints);
+                    }
+                    setDaysInRowVal(() => {
+                      if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
+                        return 0;
+                      } else {
+                        return doc.data().daysInRow
+                      }
+                    })
+                    
+                    setTotalPointsVal(doc.data().totalPoints);
+                    setLastUpdateVal(doc.data().lastUpdate);
+                    setWeeklyPointsVal(doc.data().weeklyPoints);
+                    setDocumentIdPoints(doc.id); 
+                    
+                    
+                  });
+
+            }
+            
         }
 
         getValueForLangSettings('norwegianFirst');
@@ -339,9 +460,9 @@ const TestWordScreen = ({route}) => {
             let arrayAllInfo = userWordInfo.words1.concat(userWordInfo.words2, userWordInfo.words3, userWordInfo.words4, userWordInfo.words5)
 
             for (let i = 0; i < 15; i++) {
-                console.log('once');
+                
                 let random1 = arrayAllInfo[Math.floor(Math.random() * arr1Leng)];
-                console.log('just added 1', !justAdded.includes(random1));
+                
                 
                 if (!justAdded.includes(random1)) {
                     let objToParse; 
@@ -350,7 +471,7 @@ const TestWordScreen = ({route}) => {
                             objToParse = el;
                         }
                     })
-                    console.log('server data content first',objToParse, arrayAllInfo,arr1Leng, random1, justAdded);
+                    
                     let deepCopyObj1 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj1.key = `${i.toString()}a`;
                     modifiedData.push(deepCopyObj1)
@@ -361,10 +482,10 @@ const TestWordScreen = ({route}) => {
                         justAdded.push(random1)
                     }
                 }
-                console.log('carry on');
+                
 
                 let random2 = arrayAllInfo[Math.floor(Math.random() * arr2Leng)];
-                console.log('just added 2', !justAdded.includes(random2));
+                
                 if (!justAdded.includes(random2)) {
                     let objToParse; 
                     serverData.map( el => {
@@ -372,7 +493,7 @@ const TestWordScreen = ({route}) => {
                             objToParse = el;
                         }
                     })
-                    console.log('server data content sec', objToParse,arrayAllInfo,arr2Leng, random2, justAdded);
+                    
                     let deepCopyObj2 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj2.key = `${i.toString()}b`;
                     modifiedData.push(deepCopyObj2)
@@ -386,7 +507,7 @@ const TestWordScreen = ({route}) => {
 
 
                 let random3 = arrayAllInfo[Math.floor(Math.random() * arr3Leng)];
-                console.log('just added 3', !justAdded.includes(random3));
+                
                 if (!justAdded.includes(random3)) {
                     let objToParse; 
                     serverData.map( el => {
@@ -394,7 +515,7 @@ const TestWordScreen = ({route}) => {
                             objToParse = el;
                         }
                     })
-                    console.log('server data content third',objToParse, arrayAllInfo,arr3Leng, random3, justAdded);
+                    
                     let deepCopyObj3 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj3.key = `${i.toString()}c`;
                     modifiedData.push(deepCopyObj3)
@@ -408,7 +529,7 @@ const TestWordScreen = ({route}) => {
 
 
                 let random4 = arrayAllInfo[Math.floor(Math.random() * arr4Leng)];
-                console.log('just added 4', !justAdded.includes(random4));
+                
                 if (!justAdded.includes(random4)) {
                     let objToParse; 
                     serverData.map( el => {
@@ -416,7 +537,7 @@ const TestWordScreen = ({route}) => {
                             objToParse = el;
                         }
                     })
-                    console.log('server data content fourth',objToParse, arrayAllInfo,arr4Leng, random4, justAdded);
+                    
                     let deepCopyObj4 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj4.key = `${i.toString()}d`;
                     modifiedData.push(deepCopyObj4)
@@ -427,9 +548,9 @@ const TestWordScreen = ({route}) => {
                         justAdded.push(random4)
                     }
                 }
-                console.log('before 5');
+                
                 let random5 = arrayAllInfo[Math.floor(Math.random() * arr5Leng)];
-                console.log('just added 5', !justAdded.includes(random5));
+                
                 if (!justAdded.includes(random5)) {
                     let objToParse; 
                     serverData.map( el => {
@@ -437,7 +558,7 @@ const TestWordScreen = ({route}) => {
                             objToParse = el;
                         }
                     })
-                    console.log('server data content fifth',objToParse, arrayAllInfo,arr5Leng, random5, justAdded);
+                    
                     let deepCopyObj5 = JSON.parse(JSON.stringify(objToParse))
                     deepCopyObj5.key = `${i.toString()}e`;
                     modifiedData.push(deepCopyObj5)
@@ -451,7 +572,7 @@ const TestWordScreen = ({route}) => {
                 
             } 
             
-            console.log(modifiedData);
+            
             setDataFlatList([{key: 'left-spacer'}, ...modifiedData, {key: 'right-spacer'}])
             
         }

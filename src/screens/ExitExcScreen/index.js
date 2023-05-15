@@ -39,7 +39,7 @@ const ExitExcScreen = ({route}) => {
 
   const [indicatotValue, setIndicatorValue] = useState(0);
   const [userId, setUserId] = useState('userId');
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState('');
   const [currentDailyScore, setCurrentDailyScore] = useState(0);
   const [daysInRowVal, setDaysInRowVal] = useState(0);
   const [lastUpdateVal, setLastUpdateVal] = useState('');

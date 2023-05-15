@@ -127,7 +127,6 @@ const ResultsScreen = () => {
       for (let i = 0; i < tempDataArrayWeekly.length; i++) {
         if (!currentWeek.includes(tempDataArrayWeekly[i].lastUpdate)) {
           tempDataArrayWeekly[i].weeklyPoints = 0;
-          console.log('well', tempDataArrayWeekly[i].lastUpdate);
         }
       }
 

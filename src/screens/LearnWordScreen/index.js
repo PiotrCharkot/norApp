@@ -12,6 +12,8 @@ import dummyData from '../../listData/learningData1';
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
+let openTime;
+let closeTime;
 
 
 
@@ -38,6 +40,9 @@ const LearnWordScreen = ({route}) => {
 
     const exitButton = () => {
 
+        closeTime = new Date().getTime();
+
+        console.log('screen was on in ', openTime - closeTime, 'miliseconds.');
         
         Animated.spring(interpolatedValueForX, {
             toValue: 360,
@@ -72,6 +77,8 @@ const LearnWordScreen = ({route}) => {
     
 
     useEffect(() => {
+
+        openTime = new Date().getTime();
 
         const getDataFb = async () => {
 

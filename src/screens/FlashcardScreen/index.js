@@ -34,6 +34,7 @@ const FlashcardScreen = () => {
   const [choosenLanguage, setChoosenLanguage] = useState('EN');
   const [languageListOpen, setLanguageListOpen] = useState(false);
   const [userId, setUserId] = useState('userId');
+  const [userName, setUserName] = useState('');
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -129,6 +130,12 @@ const FlashcardScreen = () => {
     const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
         
       if (authUser) {
+
+        if (authUser.isAnonymous) {
+          setUserName('Guest');
+        } else {
+          setUserName(authUser.displayName);
+        }
 
         setUserId(authUser.uid)
       }
@@ -424,32 +431,32 @@ const FlashcardScreen = () => {
         <View style={styles.listContainer}>
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder}]}}>
 
-            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Nouns / A1'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Nouns / A1'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder2}]}}>
 
-            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Ukedager / A1'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Ukedager / A1'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder3}]}}>
 
-            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Farger / A1'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Farger / A1'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder4}]}}>
 
-            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Next Card / A2'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'1'} userIdRef={userId} title={'Next Card / A2'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder5}]}}>
 
-            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Next Card / B1'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'2'} userIdRef={userId} title={'Next Card / B1'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <Animated.View style={{...styles.cardHolder, transform: [{scale: scaleCardHolder6}]}}>
 
-            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Next Card / B2'} language={choosenLanguage}/>
+            <CardFlashList refNummer={'3'} userIdRef={userId} title={'Next Card / B2'} language={choosenLanguage} userName={userName}/>
           </Animated.View>
 
           <View style={styles.marginBottom}></View>

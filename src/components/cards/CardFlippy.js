@@ -1,4 +1,4 @@
-import { View, Text, Animated, TouchableOpacity, Easing, StyleSheet, Dimensions, Image } from 'react-native'
+import { View, Text, Animated, TouchableOpacity, Easing, StyleSheet, Dimensions, Image, Pressable } from 'react-native'
 import React, { useRef, useState} from 'react'
 import { useEffect } from 'react';
 import { Audio } from "expo-av";
@@ -157,9 +157,9 @@ const CardFlippy = (params) => {
                 />
             </View>
             
-            <TouchableOpacity style={styles.opacityFlip}  onPress={rotateCard}>
+            <Pressable style={styles.opacityFlip}  onPress={rotateCard}>
                 <Image style={styles.imgFlip} source={require('../../../assets/flip.png')} />
-            </TouchableOpacity>
+            </Pressable>
             {wordData.soundLink === '' ? <View></View> : <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
                 <Image style={styles.iconSoundImg} source={require('../../../assets/wordSound.png')} />
             </TouchableOpacity>}
@@ -169,9 +169,9 @@ const CardFlippy = (params) => {
       <Animated.View style={{...styles.transView, transform: [{perspective: 500}, {rotateY: rotateValTrans}]}}>
         <LinearGradient colors={['#00BFFF', '#6d28ed']} style={styles.gradientNor}>
             <Text style={styles.textTranslation}>{translation}</Text>
-            <TouchableOpacity style={styles.opacityFlip}  onPress={rotateCardBack}>
+            <Pressable style={styles.opacityFlip}  onPress={rotateCardBack}>
                 <Image style={styles.imgFlip} source={require('../../../assets/flip.png')} />
-            </TouchableOpacity>
+            </Pressable>
         </LinearGradient>
       </Animated.View>
     </View>
