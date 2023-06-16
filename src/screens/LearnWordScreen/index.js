@@ -1,17 +1,20 @@
-import { View, Text, FlatList, Animated, Dimensions, TouchableOpacity, Image } from 'react-native'
+import { View, Text, FlatList, Animated, Dimensions, TouchableOpacity, Image, Easing } from 'react-native'
 import React, {useEffect, useState, useRef} from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { withAnchorPoint } from 'react-native-anchor-point';
 import { db } from '../../../firebase/firebase-config'
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, doc, where, updateDoc } from "firebase/firestore";
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
 import Loader from '../../components/other/Loader';
+import uuid from 'react-native-uuid';
 import dummyData from '../../listData/learningData1';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
+const pointsToScore = 200;
+const minimumPoints = 1;
 let openTime;
 let closeTime;
 
@@ -19,19 +22,55 @@ let closeTime;
 
 const LearnWordScreen = ({route}) => {
     
-    const {userId, refToList, savedLang, own} = route.params;
+    const {userId, refToList, savedLang, own, userN} = route.params;
     const words = collection(db, own ? 'wordsOwn' : 'words');
-    console.log(route.params);
-    const scrollX = useRef(new Animated.Value(0)).current;
+    const usersPointsCollection = collection(db, 'usersPoints');
+    
 
+    let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
+    let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
+    let fourDaysAgo = new Date(new Date().setDate(new Date().getDate()-4)).toLocaleDateString();
+    let threeDaysAgo = new Date(new Date().setDate(new Date().getDate()-3)).toLocaleDateString();
+    let twoDaysAgo = new Date(new Date().setDate(new Date().getDate()-2)).toLocaleDateString();
+    let yesterday = new Date(new Date().setDate(new Date().getDate()-1)).toLocaleDateString();
+    let today = new Date().toLocaleDateString();
+
+    let dayOfWeek = new Date(new Date().setDate(new Date().getDate())).getDay() === 0 ? 7 : new Date(new Date().setDate(new Date().getDate())).getDay();
+
+
+    let allDaysOfWeek = [today, yesterday, twoDaysAgo, threeDaysAgo, fourDaysAgo, fiveDaysAgo, sixDaysAgo];
+    let currentWeek = allDaysOfWeek.slice(0, dayOfWeek)
+
+    
+    const scrollX = useRef(new Animated.Value(0)).current;
+    const interpolatedValueForX = useRef(new Animated.Value(0)).current;
+    const pointsRotation = useRef(new Animated.Value(0)).current;
+    const pointsOffset = useRef(new Animated.Value(160)).current; 
+    const daysOffset = useRef(new Animated.Value(-200)).current;
+    const titleOpacity = useRef(new Animated.Value(1)).current; 
+    
     const [dataFlatList, setDataFlatList] = useState([]);
     const [showContent, setShowContent] = useState(false);
     const [serverData, setServerData] = useState([]);
     const [title, setTitle] = useState('');
-
+    const [currentDailyScore, setCurrentDailyScore] = useState(0);
+    const [daysInRowVal, setDaysInRowVal] = useState(0);
+    const [lastUpdateVal, setLastUpdateVal] = useState('');
+    const [totalPointsVal, setTotalPointsVal] = useState(0);
+    const [weeklyPointsVal, setWeeklyPointsVal] = useState(0);
+    const [documentIdPoints, setDocumentIdPoints] = useState('tempid');
+    const [displayedPoints, setDisplayedPoints] = useState(0);
+    
     const navigation = useNavigation();
+    
+    const docRefPoints = doc(db, "usersPoints", documentIdPoints);
 
-    const interpolatedValueForX = useRef(new Animated.Value(0)).current;
+    
+
+    const rotatePointsVal = pointsRotation.interpolate({
+        inputRange: [0, 2160],
+        outputRange: ["0deg", "2160deg"]
+    })
 
     const xPositionDeg = interpolatedValueForX.interpolate({
         inputRange: [0, 360],
@@ -51,7 +90,7 @@ const LearnWordScreen = ({route}) => {
             useNativeDriver: true,
         }).start();
     
-        
+        updatePointsInFb();
     
         setTimeout(() => {
     
@@ -63,7 +102,7 @@ const LearnWordScreen = ({route}) => {
             } else {
                 navigation.navigate('Main');
             }
-        }, 1500)
+        }, 1300)
     }
 
     const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -73,12 +112,98 @@ const LearnWordScreen = ({route}) => {
         return withAnchorPoint(transform, { x: valX, y: valY }, { width: viewWidth * 1.5, height: viewHeight * 1.5 });
     };
 
+
+    const showPointsAnimation = () => {
+
+        let bonusPoints2 = Math.floor((closeTime - openTime) / 1000 * 2 / 3) 
+        //animate points container
+        Animated.spring(pointsOffset, {
+            toValue: 0,
+            speed: 1,
+            bounciness: 0,
+            useNativeDriver: true,
+        }).start();
+
+        Animated.timing(pointsRotation, {
+            duration: 600,
+            toValue: 3600,
+            bounciness: 10, 
+            useNativeDriver: true,
+        }).start();
+
+        Animated.timing(titleOpacity, {
+            duration: 600,
+            toValue: 0.1,
+            bounciness: 0,
+            easing: Easing.bezier(0,1.14,.44,.97), 
+            useNativeDriver: true,
+        }).start();
+
+        if (currentDailyScore < pointsToScore && currentDailyScore + bonusPoints2 >= pointsToScore && bonusPoints2 > minimumPoints) {
+            Animated.spring(daysOffset, {
+                toValue: 0,
+                speed: 1,
+                bounciness: 0,
+                useNativeDriver: true,
+            }).start();
+        }
+ 
+        
+    }
+
+
+    const updatePointsInFb = async () => {
+
+        let bonusPoints = Math.floor((closeTime - openTime) / 1000 * 2 / 3) 
+        console.log('bounus points is: ', bonusPoints);
+
+        setDisplayedPoints(bonusPoints)
+
+        if (documentIdPoints !== 'tempid' && bonusPoints > minimumPoints) {
+
+        
+            showPointsAnimation();
+
+            updateDoc(docRefPoints, {
+                dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + bonusPoints : bonusPoints,
+                totalPoints: totalPointsVal + bonusPoints,
+                weeklyPoints: currentWeek.includes(lastUpdateVal) ? weeklyPointsVal + bonusPoints : bonusPoints,
+                lastUpdate: new Date().toLocaleDateString(),
+                daysInRow: currentDailyScore < pointsToScore && currentDailyScore + bonusPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
+            })
+            .then(docRef => {
+                console.log("A New Document Field has been added to an existing document updaiting points");
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    }
     
     
 
     useEffect(() => {
 
         openTime = new Date().getTime();
+
+        let docId = uuid.v4();
+
+        const setDataToFbPoints = async () => {
+            await setDoc(doc(db, 'usersPoints', docId), {
+                userRef: userId,
+                userName: userN,
+                totalPoints: 0,
+                weeklyPoints: 0,
+                dailyPoints: 0,
+                daysInRow: 0,
+                lastUpdate: new Date().toLocaleDateString()
+            });
+
+
+            setDocumentIdPoints(docId);
+            setLastUpdateVal(new Date().toLocaleDateString());
+            
+        }
 
         const getDataFb = async () => {
 
@@ -89,6 +214,41 @@ const LearnWordScreen = ({route}) => {
                 setServerData(doc.data().wordsArr)
                 setShowContent(true);
             });
+
+
+            const q3 = query(usersPointsCollection, where('userRef', '==', userId))
+            const querySnapshot3 = await getDocs(q3);
+
+            if (querySnapshot3.empty) {
+        
+                setDataToFbPoints();
+            } else {
+
+                querySnapshot3.forEach((doc) => {
+                    
+                    if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
+                      setCurrentDailyScore(0);
+                    } else {
+                      setCurrentDailyScore(doc.data().dailyPoints);
+                    }
+                    setDaysInRowVal(() => {
+                      if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
+                        return 0;
+                      } else {
+                        return doc.data().daysInRow
+                      }
+                    })
+                    
+                    setTotalPointsVal(doc.data().totalPoints);
+                    setLastUpdateVal(doc.data().lastUpdate);
+                    setWeeklyPointsVal(doc.data().weeklyPoints);
+                    setDocumentIdPoints(doc.id); 
+                    
+                    
+                  });
+
+            }
+
 
         }
 
@@ -159,9 +319,30 @@ const LearnWordScreen = ({route}) => {
         </View>
         {showContent ? (
                 <View style={styles.body}>
-                    <View style={styles.titleContainer}>
+                    <Animated.View style={{...styles.titleContainer, opacity: titleOpacity}}>
                         <Text style={styles.titleText}>{title}</Text>
-                    </View>
+                    </Animated.View>
+
+                    <Animated.View style={{...styles.bonusPointsContainer, transform: [{translateX: pointsOffset}]}}>
+                        <View>
+                            <Text style={styles.bonusPointsText}>+</Text>
+                        </View>
+                        <Animated.View style={{transform: [{rotateX: rotatePointsVal}]}}>
+
+                            <Text style={styles.bonusPointsText}> {displayedPoints} </Text>
+                        </Animated.View>
+                        <Text style={styles.bonusPointsText}>pts</Text>
+                    </Animated.View>
+
+
+                    <Animated.View style={{...styles.daysValContainer, transform: [{translateX: daysOffset}]}}>
+                            <View> 
+                                <Text style={styles.daysValText}>{daysInRowVal + 1} </Text>
+                            </View>
+                            <Image source={require('../../../assets/sun.png')}  style={styles.sunImg}/>
+                            <Text style={styles.daysValText}> streak</Text>
+                    </Animated.View>
+
                     <Animated.FlatList 
                         style={styles.flatlist}
                         horizontal

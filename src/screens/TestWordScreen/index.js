@@ -1,4 +1,4 @@
-import { View, Text, Animated, TouchableOpacity, FlatList, Image, Dimensions } from 'react-native'
+import { View, Text, Animated, TouchableOpacity, FlatList, Image, Dimensions, Easing } from 'react-native'
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
@@ -14,6 +14,7 @@ const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
 const pointsToScore = 200;
+const minimumPoints = 1;
 let indexOfElement;
 let openTime;
 let closeTime;
@@ -45,6 +46,10 @@ const TestWordScreen = ({route}) => {
 
     
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
+    const pointsRotation = useRef(new Animated.Value(0)).current;
+    const pointsOffset = useRef(new Animated.Value(160)).current; 
+    const daysOffset = useRef(new Animated.Value(-200)).current;
+    const titleOpacity = useRef(new Animated.Value(1)).current; 
 
     const [dataFlatList, setDataFlatList] = useState([{key: 'not empty'}]);
     const [showContent, setShowContent] = useState(false);
@@ -65,9 +70,18 @@ const TestWordScreen = ({route}) => {
     const [btnTxt, setBtnTxt] = useState('')
     const [flipOnStart, setFlipOnStart] = useState(false);
     const [lastIdentification, setLastIdentification] = useState(200);
+    const [displayedPoints, setDisplayedPoints] = useState(0);
     
     const docRef = doc(db, "usersWordsInfo", documentId);
     const docRefPoints = doc(db, "usersPoints", documentIdPoints);
+
+
+
+    const rotatePointsVal = pointsRotation.interpolate({
+        inputRange: [0, 2160],
+        outputRange: ["0deg", "2160deg"]
+    })
+    
 
     const xPositionDeg = interpolatedValueForX.interpolate({
         inputRange: [0, 360],
@@ -141,7 +155,7 @@ const TestWordScreen = ({route}) => {
             } else {
                 navigation.navigate('Main');
             }
-        }, 800)
+        }, 1300)
     }
 
     const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -287,12 +301,56 @@ const TestWordScreen = ({route}) => {
 
     }
 
+    const showPointsAnimation = () => {
+
+        let bonusPoints2 = Math.floor((closeTime - openTime) / 1000 * 2 / 3) 
+        //animate points container
+        Animated.spring(pointsOffset, {
+            toValue: 0,
+            speed: 1,
+            bounciness: 0,
+            useNativeDriver: true,
+        }).start();
+
+        Animated.timing(pointsRotation, {
+            duration: 600,
+            toValue: 3600,
+            bounciness: 10, 
+            useNativeDriver: true,
+        }).start();
+
+        Animated.timing(titleOpacity, {
+            duration: 600,
+            toValue: 0.1,
+            bounciness: 0,
+            easing: Easing.bezier(0,1.14,.44,.97), 
+            useNativeDriver: true,
+        }).start();
+
+        if (currentDailyScore < pointsToScore && currentDailyScore + bonusPoints2 >= pointsToScore && bonusPoints2 > minimumPoints) {
+            Animated.spring(daysOffset, {
+                toValue: 0,
+                speed: 1,
+                bounciness: 0,
+                useNativeDriver: true,
+            }).start();
+        }
+ 
+        
+    }
+
     const updatePointsInFb = async () => {
 
         let bonusPoints = Math.floor((closeTime - openTime) / 1000 * 2 / 3) 
         console.log('bounus points is: ', bonusPoints);
 
-        if (documentIdPoints !== 'tempid' && bonusPoints > 5) {
+        setDisplayedPoints(bonusPoints)
+
+        if (documentIdPoints !== 'tempid' && bonusPoints > minimumPoints) {
+
+        
+            showPointsAnimation();
+
             updateDoc(docRefPoints, {
                 dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + bonusPoints : bonusPoints,
                 totalPoints: totalPointsVal + bonusPoints,
@@ -345,10 +403,7 @@ const TestWordScreen = ({route}) => {
 
             setDocumentIdPoints(docId);
             setLastUpdateVal(new Date().toLocaleDateString());
-            // setTotalPointsVal(0);
-            // setWeeklyPointsVal(0);
-            // setCurrentDailyScore(0);
-            // setDaysInRowVal(0);
+            
         }
 
 
@@ -393,8 +448,6 @@ const TestWordScreen = ({route}) => {
         
                 setDataToFbPoints();
             } else {
-                //set points and data from points collection to variables and update on exit!!!!!!!!!!!
-                //set tihis varuables in setDataPoints function !!!!!!!!!!!
 
                 querySnapshot3.forEach((doc) => {
                     
@@ -611,6 +664,31 @@ const TestWordScreen = ({route}) => {
         </View>
 
         <View style={styles.body}>
+
+            <Animated.View style={{...styles.titleContainer, opacity: titleOpacity}}>
+                <Text style={styles.titleText}>{title}</Text>
+            </Animated.View>
+
+            <Animated.View style={{...styles.bonusPointsContainer, transform: [{translateX: pointsOffset}]}}>
+                <View>
+                    <Text style={styles.bonusPointsText}>+</Text>
+                </View>
+                <Animated.View style={{transform: [{rotateX: rotatePointsVal}]}}>
+
+                    <Text style={styles.bonusPointsText}> {displayedPoints} </Text>
+                </Animated.View>
+                <Text style={styles.bonusPointsText}>pts</Text>
+            </Animated.View>
+
+
+            <Animated.View style={{...styles.daysValContainer, transform: [{translateX: daysOffset}]}}>
+                    <View> 
+                        <Text style={styles.daysValText}>{daysInRowVal + 1} </Text>
+                    </View>
+                    <Image source={require('../../../assets/sun.png')}  style={styles.sunImg}/>
+                    <Text style={styles.daysValText}> streak</Text>
+            </Animated.View>
+
 
             {showContent ? (
                 <FlatList 

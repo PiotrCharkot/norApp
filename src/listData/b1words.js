@@ -984,14 +984,14 @@
         wordId: 81
       },
       {
-        nor: 'skjør',
-        eng: 'fragile',
-        pl: 'kruchy',
-        ar: 'هش',
-        ger: 'zerbrechlich',
-        lt: 'trapus',
+        nor: 'å hente',
+        eng: 'to fetch',
+        pl: 'przynieść',
+        ar: 'جلب',
+        ger: 'holen',
+        lt: 'atnešti',
         key: '82',
-        norEgz: 'Vær forsiktig, vasen er veldig skjør.',
+        norEgz: 'Kan du hente boken fra hylla?',
         soundLink: '',
         wordId: 82
       },
@@ -1824,14 +1824,14 @@
         wordId: 151
       },
       {
-        nor: 'oppriktig',
-        eng: 'sincere',
-        pl: 'szczery',
-        ar: 'صادق',
-        ger: 'aufrichtig',
-        lt: 'nuoširdus',
+        nor: 'å miste',
+        eng: 'to lose',
+        pl: 'tracić',
+        ar: 'تفقد',
+        ger: 'verlieren',
+        lt: 'prarasti',
         key: '152',
-        norEgz: 'Han ga en oppriktig unnskyldning for sine handlinger.',
+        norEgz: 'Jeg er redd for å miste nøklene mine.',
         soundLink: '',
         wordId: 152
       },
@@ -1954,29 +1954,6 @@
         norEgz: 'Husk å låse døren når du går ut.',
         soundLink: '',
         wordId: 162
-      },
-      {
-        nor: 'å hente',
-        eng: 'to fetch',
-        pl: 'przynieść',
-        ar: 'جلب',
-        ger: 'holen',
-        lt: 'atnešti',
-        key: '163',
-        norEgz: 'Kan du hente boken fra hylla?',
-        soundLink: '',
-        wordId: 163
-      },
-      {
-        nor: 'å miste',
-        eng: 'to lose',
-        pl: 'tracić',
-        ar: 'تفقد',
-        ger: 'verlieren',
-        lt: 'prarasti',
-        key: '164',
-        norEgz: 'Jeg er redd for å miste nøklene mine.',
-        soundLink: '',
-        wordId: 164
       }
+      
 ]

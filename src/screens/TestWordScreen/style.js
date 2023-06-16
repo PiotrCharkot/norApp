@@ -66,7 +66,46 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white'
-    }
+    },
+    bonusPointsContainer: {
+        position: 'absolute',
+        right: 20,
+        flexDirection: 'row',
+        
+    },
+    bonusPointsText: {
+        fontSize: 30,
+        fontWeight: '600',
+        color: '#00308f'
+    },
+    daysValContainer: {
+        position: 'absolute',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 20,
+    },
+    daysValText: {
+        fontSize: 30,
+        fontWeight: '500',
+        color: 'brown'
+    },
+    sunImg: {
+        height: 20,
+        width: 20,
+        tintColor: 'brown'
+    },
+    titleContainer: {
+        position: 'absolute',
+        width: '100%',
+        alignItems: 'center',
+        paddingTop: 5
+    },
+    titleText: {
+        fontSize: 30,
+        fontWeight: '600',
+        color: 'grey'
+    },
 });
 
 
