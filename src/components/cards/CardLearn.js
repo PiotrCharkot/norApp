@@ -48,6 +48,8 @@ const CardLearn = (params) => {
         <LinearGradient style={styles.gradient} colors={['#00BFFF', '#6d28ed']} start={[1, 0.35]} end={[1, 0.65]}>
             <View style={styles.topHalf}>
                 <Text style={styles.textNor}>{wordData.nor}</Text>
+                <Text style={styles.textNorExample}>{wordData.example}</Text>
+
             </View>
             <View style={styles.bottomHalf}>
                 <Text style={styles.textTranslation}>{translation}</Text>
@@ -99,7 +101,15 @@ const styles = StyleSheet.create({
     textNor: {
         color: 'white',
         fontSize: 30,
-        fontWeight: '500'
+        fontWeight: '500',
+        
+    },
+    textNorExample: {
+        marginTop: 20,
+        color: 'white',
+        fontSize: 20,
+        fontWeight: '500',
+        textAlign: 'center',
     },
     textTranslation: {
         color: 'white',

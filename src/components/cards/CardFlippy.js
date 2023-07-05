@@ -117,7 +117,7 @@ const CardFlippy = (params) => {
       <Animated.View style={{...styles.norView, transform: [{perspective: 500}, {rotateY: rotateVal}]}}>
         <LinearGradient colors={['#002D72', '#7B68EE']} style={styles.gradientNor}>
             <Text style={styles.textNor}>{wordData.nor}</Text>
-
+            <Text style={styles.textNorExample}>{wordData.example}</Text>
 
             <View style={styles.buttonYesContainer}>
                 <GradientButton  
@@ -260,6 +260,13 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.9,
         shadowRadius: 1.2,
         elevation: 5
+    },
+    textNorExample: {
+        marginTop: 160,
+        color: 'white',
+        fontSize: 20,
+        fontWeight: '500',
+        textAlign: 'center',
     },
     textTranslation: {
         color: 'white',

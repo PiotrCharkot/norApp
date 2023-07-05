@@ -8,7 +8,7 @@
       lt: 'klausti',
       key: '0',
       norEgz: 'Han spurte hvor bussen går.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fspoorre.mp3?alt=media&token=9425af20-3a4e-4a9c-97a3-8307a4477aa3',
       wordId: 0
     },
     {
@@ -20,7 +20,7 @@
       lt: 'atsakyti',
       key: '1',
       norEgz: 'Hun svarte raskt på spørsmålet.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsvare.mp3?alt=media&token=4f2c7adc-3be2-4efa-afd8-ded0149a5a7a',
       wordId: 1
     },
     {
@@ -32,7 +32,7 @@
       lt: 'atidaryti',
       key: '2',
       norEgz: 'Kan du åpne vinduet?',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Faapne.mp3?alt=media&token=e4c7c91d-1e98-4d7a-9dbc-39de78fb11e5',
       wordId: 2
     },
     {
@@ -44,7 +44,7 @@
       lt: 'piešinys',
       key: '3',
       norEgz: 'Hun laget en flott tegning.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftegning.mp3?alt=media&token=6189a861-b4d4-4da4-a613-5999ef5151f0',
       wordId: 3
     },
     {
@@ -56,7 +56,7 @@
       lt: 'tapyba',
       key: '4',
       norEgz: 'Dette er en vakker maling.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmaling.mp3?alt=media&token=f8c690be-a208-4a00-889e-287c2ad808ad',
       wordId: 4
     },
     {
@@ -68,7 +68,7 @@
       lt: 'virtuvė',
       key: '5',
       norEgz: 'Hun liker matlaging etter jobb.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmatlaging.mp3?alt=media&token=ac8f0968-c5c5-415f-a607-6d33d89bcb8e',
       wordId: 5
     },
     {
@@ -80,7 +80,7 @@
       lt: 'uždaryti',
       key: '6',
       norEgz: 'Husk å lukke døren.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flukke.mp3?alt=media&token=ed1851f9-8f52-4342-a6aa-ee5bfe6cdc25',
       wordId: 6
     },
     {
@@ -92,7 +92,7 @@
       lt: 'duoti',
       key: '7',
       norEgz: 'Han ga henne en gave.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgi.mp3?alt=media&token=11c6e157-1ddc-4e96-b3a0-b4328154a84f',
       wordId: 7
     },
     {
@@ -104,7 +104,7 @@
       lt: 'imti',
       key: '8',
       norEgz: 'Han tar bok fra hylla.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fta.mp3?alt=media&token=7bbe88a2-8c70-43a6-b709-b60e25556b57',
       wordId: 8
     },
     {
@@ -116,7 +116,7 @@
         lt: 'įdomus',
         key: '9',
         norEgz: 'Det var en interessant bok.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finteressant.mp3?alt=media&token=afe4910d-3530-402e-ab77-df7e3d7d6cc6',
         wordId: 9
       },
       {
@@ -128,7 +128,7 @@
         lt: 'nuobodus',
         key: '10',
         norEgz: 'Denne filmen er kjedelig.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjedelig.mp3?alt=media&token=b04f6436-d011-47b5-9962-449fdb0276e8',
         wordId: 10
       },
       {
@@ -140,7 +140,7 @@
         lt: 'suprasti',
         key: '11',
         norEgz: 'Jeg forstår ikke hva du sier.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fforstaa.mp3?alt=media&token=df6f43cc-ad2d-41b5-96f4-ec448dd367cd',
         wordId: 11
       },
       {
@@ -152,7 +152,7 @@
         lt: 'praktikuotis',
         key: '12',
         norEgz: 'Vi må øve før konserten.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Foove.mp3?alt=media&token=33df2ade-a7b6-42d0-97c1-81bb5d7c1b15',
         wordId: 12
       },
       {
@@ -164,7 +164,7 @@
         lt: 'tarptautinis',
         key: '13',
         norEgz: 'Dette er en internasjonal konferanse.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finternasjonal.mp3?alt=media&token=ef8ef7b5-030a-4e91-8338-5f18d4ef3853',
         wordId: 13
       },
       {
@@ -176,7 +176,7 @@
         lt: 'patogus',
         key: '14',
         norEgz: 'Denne stolen er komfortabel.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkomfortabel.mp3?alt=media&token=9a81ef80-e8fe-485b-9b27-b3534aeaa46a',
         wordId: 14
       },
       {
@@ -188,7 +188,7 @@
         lt: 'greitas',
         key: '15',
         norEgz: 'Han er kjapp til å løse problemer.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjapp.mp3?alt=media&token=f7ffa9e8-9f48-4f77-ac6f-d62401df4ba0',
         wordId: 15
       },
       {
@@ -200,7 +200,7 @@
         lt: 'žiema',
         key: '16',
         norEgz: 'Det snør om vinteren.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvinter.mp3?alt=media&token=b50b1f6e-6fe8-4948-962b-5bdb3ebce6de',
         wordId: 16
       },
       {
@@ -212,7 +212,7 @@
         lt: 'pavasaris',
         key: '17',
         norEgz: 'Våren er min favoritt årstid.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvaar.mp3?alt=media&token=7ebdbddf-eac2-4ca8-b83a-c969224d8f0b',
         wordId: 17
       },
       {
@@ -224,7 +224,7 @@
         lt: 'vasara',
         key: '18',
         norEgz: 'Sommerværet er varmt og solrikt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsommer.mp3?alt=media&token=7bfe5ef7-1580-49b0-afd7-11495c61adb3',
         wordId: 18
       },
       {
@@ -236,7 +236,7 @@
         lt: 'planuoti',
         key: '19',
         norEgz: 'Vi må planlegge ferien vår.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fplanlegge.mp3?alt=media&token=3d4d3dc9-576c-4705-b76e-757ac23fb50c',
         wordId: 19
       },
       {
@@ -248,7 +248,7 @@
         lt: 'sveikintis',
         key: '20',
         norEgz: 'Hun hilste på naboene sine.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhilse.mp3?alt=media&token=ab43a3af-a1e3-4b4c-9af7-c16b23affe2a',
         wordId: 20
       },
       {
@@ -260,7 +260,7 @@
         lt: 'švietimas',
         key: '21',
         norEgz: 'Utdanning er viktig for fremtiden.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Futdanning.mp3?alt=media&token=f09fd3fb-0fff-47d9-9cae-53332ed0297d',
         wordId: 21
       },
       {
@@ -272,7 +272,7 @@
         lt: 'personažas',
         key: '22',
         norEgz: 'Han er en interessant karakter i boken.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkarakter.mp3?alt=media&token=b9d2b16b-9d96-4015-abed-bc64b11f6ed9',
         wordId: 22
       },
       {
@@ -284,7 +284,7 @@
         lt: 'briedis',
         key: '23',
         norEgz: 'Vi så en elg i skogen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Felg.mp3?alt=media&token=0a9e420c-07b2-420a-8d8e-bc58fbffecad',
         wordId: 23
       },
       {
@@ -296,7 +296,7 @@
         lt: 'laiškas',
         key: '24',
         norEgz: 'Jeg fikk et brev i posten.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbrev.mp3?alt=media&token=00cf842f-99ad-4383-a0e2-6a3ee46e7eb3',
         wordId: 24
       },
       {
@@ -308,7 +308,7 @@
         lt: 'paprastas',
         key: '25',
         norEgz: 'Dette er en enkel oppgave.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fenkel.mp3?alt=media&token=6f3fe33e-415a-4e50-8c79-ef283889ba45',
         wordId: 25
       },
       {
@@ -320,7 +320,7 @@
         lt: 'sudėtingas',
         key: '26',
         norEgz: 'Matematikk er komplisert.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkomplisert.mp3?alt=media&token=e0ef4856-a90f-41e8-8023-db5b0170d640',
         wordId: 26
       },
       {
@@ -332,7 +332,7 @@
         lt: 'svarbus',
         key: '27',
         norEgz: 'Det er viktig å spise sunt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fviktig.mp3?alt=media&token=73cfed23-93d6-4a11-a890-d039021206ef',
         wordId: 27
       },
       {
@@ -344,7 +344,7 @@
         lt: 'eiti miegoti',
         key: '28',
         norEgz: 'Hun legger seg tidlig hver kveld.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fleggeseg.mp3?alt=media&token=3a4e6e34-4347-4a63-9954-2b197cd9832d',
         wordId: 28
       },
       {
@@ -356,7 +356,7 @@
         lt: 'bandyti',
         key: '29',
         norEgz: 'Jeg vil prøve denne kaken.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fproove.mp3?alt=media&token=f80d8d1f-c43c-4a7e-a32f-0d03f33e0829',
         wordId: 29
       },
       {
@@ -368,7 +368,7 @@
         lt: 'plonas',
         key: '30',
         norEgz: 'Dette teppet er veldig tynn.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftynn.mp3?alt=media&token=edb31027-f943-47b5-8205-333b210ed58f',
         wordId: 30
       },
       {
@@ -380,7 +380,7 @@
         lt: 'mandagus',
         key: '31',
         norEgz: 'Han er alltid høflig mot andre.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhooflig.mp3?alt=media&token=899d0953-da67-4c48-ad7b-22c951bd6b94',
         wordId: 31
       },
       {
@@ -392,7 +392,7 @@
         lt: 'nemandagus',
         key: '32',
         norEgz: 'Det er uhøflig å avbryte andre.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuhooflig.mp3?alt=media&token=84b53e9b-5843-4c6e-9e32-f45b9763eb60',
         wordId: 32
       },
       {
@@ -404,7 +404,7 @@
         lt: 'efektyvus',
         key: '33',
         norEgz: 'Denne metoden er veldig effektiv.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feffektiv.mp3?alt=media&token=8effd340-13ca-4640-8041-bf9d495839e8',
         wordId: 33
       },
       {
@@ -416,7 +416,7 @@
         lt: 'indelis',
         key: '34',
         norEgz: 'Hun oppbevarer honning i en krukke.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkrukke.mp3?alt=media&token=14482db3-ad89-462f-b637-fc009d0f4fcf',
         wordId: 34
       },
       {
@@ -428,7 +428,7 @@
         lt: 'degalinė',
         key: '35',
         norEgz: 'Vi må stoppe ved en bensinstasjon.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbensinstasjon.mp3?alt=media&token=4b129f39-f17d-42f4-8efc-3f00119b885c',
         wordId: 35
       },
       {
@@ -440,7 +440,7 @@
         lt: 'fabrikas',
         key: '36',
         norEgz: 'Han jobber i en fabrikk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffabrikk.mp3?alt=media&token=e0d536f4-ba0c-4e57-911b-54544a063446',
         wordId: 36
       },
       {
@@ -452,7 +452,7 @@
         lt: 'kepykla',
         key: '37',
         norEgz: 'De kjøper brød fra et bakeri.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbakeri.mp3?alt=media&token=f298c058-5b84-44d8-b8cc-2a0403b2cd78',
         wordId: 37
       },
       {
@@ -464,7 +464,7 @@
         lt: 'kirpėjas',
         key: '38',
         norEgz: 'Jeg har time hos en frisør i morgen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffrisoor.mp3?alt=media&token=7e9c74e7-b260-4941-b7c6-645c957d1860',
         wordId: 38
       },
       {
@@ -476,7 +476,7 @@
         lt: 'atsiminti',
         key: '39',
         norEgz: 'Jeg prøver å huske navnet hans.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhuske.mp3?alt=media&token=56dcc196-4d87-4d74-a5c2-b87410285c93',
         wordId: 39
       },
       {
@@ -488,7 +488,7 @@
         lt: 'pamiršti',
         key: '40',
         norEgz: 'Han pleier å glemme nøklene sine.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fglemme.mp3?alt=media&token=14c10b03-7f5e-49f9-8e6c-d13837d3da88',
         wordId: 40
       },
       {
@@ -500,7 +500,7 @@
         lt: 'dažytojas',
         key: '41',
         norEgz: 'Hun er en talentfull maler.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmaler.mp3?alt=media&token=8a7b2453-c831-46a7-9eed-6b83d9d3bea6',
         wordId: 41
       },
       {
@@ -512,7 +512,7 @@
         lt: 'elektrikas',
         key: '42',
         norEgz: 'Vi trenger en elektriker for å fikse ledningene.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Felektriker.mp3?alt=media&token=c3ee37fd-f06c-4b18-8846-2960e10ba3c8',
         wordId: 42
       },
       {
@@ -524,7 +524,7 @@
         lt: 'tunelis',
         key: '43',
         norEgz: 'Bilen kjører gjennom en tunnel.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftunnel.mp3?alt=media&token=b249e6f8-0ddf-4e9f-82b1-529482433c06',
         wordId: 43
       },
       {
@@ -536,7 +536,7 @@
         lt: 'vaisius',
         key: '44',
         norEgz: 'Eplet er en frukt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffrukt.mp3?alt=media&token=a005d771-67f5-438b-a05b-d96404e5b07e',
         wordId: 44
       },
       {
@@ -548,7 +548,7 @@
         lt: 'daržovė',
         key: '45',
         norEgz: 'Gulroten er en grønnsak.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgroonnsak.mp3?alt=media&token=6cfbe3dd-4ca8-4808-b478-817d318f1792',
         wordId: 45
       },
       {
@@ -560,7 +560,7 @@
         lt: 'neefektyvus',
         key: '46',
         norEgz: 'Den gamle metoden er ineffektiv.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fineffektiv.mp3?alt=media&token=dedd74f5-5f5a-4612-8295-25d644bda391',
         wordId: 46
       },
       {
@@ -572,7 +572,7 @@
         lt: 'saugus',
         key: '47',
         norEgz: 'Dette området er trygt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftrygg.mp3?alt=media&token=3b357fe5-2120-4749-9c94-48afd06b8a5f',
         wordId: 47
       },
       {
@@ -584,7 +584,7 @@
         lt: 'pavojingas',
         key: '48',
         norEgz: 'Kjør forsiktig, veien er farlig.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffarlig.mp3?alt=media&token=da25b174-1588-4b31-a43d-b7a32a400f9d',
         wordId: 48
       },
       {
@@ -608,7 +608,7 @@
         lt: 'keleivis',
         key: '50',
         norEgz: 'En passasjer venter på toget.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpassasjer.mp3?alt=media&token=fcda55de-12e8-4caf-832f-40ed1bd28e08',
         wordId: 50
       },
       {
@@ -620,7 +620,7 @@
         lt: 'vairuotojas',
         key: '51',
         norEgz: 'Sjåføren kjører bussen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsjaafoor.mp3?alt=media&token=1e4540cd-5d3b-4ae4-b2d8-006619f3a165',
         wordId: 51
       },
       {
@@ -632,7 +632,7 @@
         lt: 'padavėjas',
         key: '52',
         norEgz: 'Servitøren tar bestillingen vår.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fservitoor.mp3?alt=media&token=3b27f8fb-c168-4f56-9c61-0824649626fb',
         wordId: 52
       },
       {
@@ -644,7 +644,7 @@
         lt: 'pardavėjas',
         key: '53',
         norEgz: 'En selger hjelper kunden med å velge en vare.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fselger.mp3?alt=media&token=d706ad63-6c30-4021-b0b2-00aa779ced54',
         wordId: 53
       },
       {
@@ -656,7 +656,7 @@
         lt: 'uostyti',
         key: '54',
         norEgz: 'Blomstene lukter godt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flukte.mp3?alt=media&token=03349ab9-8528-4fff-8122-9c8e19a5eabe',
         wordId: 54
       },
       {
@@ -668,7 +668,7 @@
         lt: 'rasti',
         key: '55',
         norEgz: 'Jeg prøver å finne nøklene mine.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffinne.mp3?alt=media&token=891f0c90-18e1-4bf6-ad17-bae365f553e2',
         wordId: 55
       },
       {
@@ -680,7 +680,7 @@
         lt: 'direktorius',
         key: '56',
         norEgz: 'Direktøren styrer selskapet.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdirektoor.mp3?alt=media&token=f0851cc3-7e44-4461-8ec7-57260db61d56',
         wordId: 56
       },
       {
@@ -692,7 +692,7 @@
         lt: 'ženklas',
         key: '57',
         norEgz: 'Følg skiltene til flyplassen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskilt.mp3?alt=media&token=7d609bdb-dfe5-41aa-940f-ad21f6faf5b5',
         wordId: 57
       },
       {
@@ -704,7 +704,7 @@
         lt: 'bilietas',
         key: '58',
         norEgz: 'Jeg har billett til et tog.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbillett.mp3?alt=media&token=cd6f947a-decc-4fa7-9df6-d390d88040ff',
         wordId: 58
       },
       {
@@ -716,7 +716,7 @@
         lt: 'gydytojas',
         key: '59',
         norEgz: 'Hun må gå til en lege for å få råd.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flege.mp3?alt=media&token=03abe9fd-661c-425d-9901-b631e2913596',
         wordId: 59
       },
       {
@@ -728,7 +728,7 @@
         lt: 'liftas',
         key: '60',
         norEgz: 'Vi tok heisen opp til femte etasje.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fheis.mp3?alt=media&token=d64fd778-3e97-4738-8445-f8b6285ac8d3',
         wordId: 60
       },
       {
@@ -740,7 +740,7 @@
         lt: 'laiptai',
         key: '61',
         norEgz: 'Hun gikk opp trappen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftrapp.mp3?alt=media&token=809c78f2-8a85-46e8-b608-f1a77d14c913',
         wordId: 61
       },
       {
@@ -752,7 +752,7 @@
         lt: 'ragauti',
         key: '62',
         norEgz: 'Hun smakte på suppen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsmake.mp3?alt=media&token=f7748a02-9b25-46bf-bb34-e7433776cb08',
         wordId: 62
       },
       {
@@ -764,7 +764,7 @@
         lt: 'tikėti',
         key: '63',
         norEgz: 'Jeg tror det kommer til å regne i morgen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftro.mp3?alt=media&token=968c1501-c08b-4800-9c13-2de5e6413020',
         wordId: 63
       },
       {
@@ -776,7 +776,7 @@
         lt: 'sveikas',
         key: '64',
         norEgz: 'Grønnsaker er sunne.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsunn.mp3?alt=media&token=727462be-b82e-4c5d-9c1e-181ab875906e',
         wordId: 64
       },
       {
@@ -788,7 +788,7 @@
         lt: 'nesveikas',
         key: '65',
         norEgz: 'For mye sukker er usunt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fusunn.mp3?alt=media&token=2606d12a-6d69-477d-9586-34a1315e6535',
         wordId: 65
       },
       {
@@ -800,7 +800,7 @@
         lt: 'storas',
         key: '66',
         norEgz: 'Denne boken er veldig tykk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftykk.mp3?alt=media&token=0f1230b2-2e99-4c80-b10e-4b79330c97d7',
         wordId: 66
       },
       {
@@ -811,7 +811,7 @@
         ger: 'ein Musiker',
         lt: 'muzikantas',
         key: '67',
-        norEgz: '',
+        norEgz: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmusiker.mp3?alt=media&token=f8909e66-25c4-4e33-bf09-c3a03f978254',
         soundLink: 'Han er en stor musiker.',
         wordId: 67
       },
@@ -824,7 +824,7 @@
         lt: 'šokėjas',
         key: '68',
         norEgz: 'Hun er en talentfull danser.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdanser.mp3?alt=media&token=29a1d8fd-bdf5-4133-9e6c-9c76fcd97e4c',
         wordId: 68
       },
       {
@@ -836,7 +836,7 @@
         lt: 'menininkas',
         key: '69',
         norEgz: 'Han er en berømt kunstner.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkunstner.mp3?alt=media&token=b0eeba0f-5924-4cfc-ade0-36c66d0b5eef',
         wordId: 69
       },
       {
@@ -848,7 +848,7 @@
         lt: 'reporteris',
         key: '70',
         norEgz: 'Reporteren intervjuet politikeren.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Freporter.mp3?alt=media&token=3094ba5f-006b-4879-a7dd-1f98ceecc11b',
         wordId: 70
       },
       {
@@ -860,7 +860,7 @@
         lt: 'lygus',
         key: '71',
         norEgz: 'Overflaten er jevn og fin.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fjevn.mp3?alt=media&token=c4de4561-e3a8-4a8c-a7bf-122bb803798b',
         wordId: 71
       },
       {
@@ -872,7 +872,7 @@
         lt: 'bijoti',
         key: '72',
         norEgz: 'Han frykter høyder.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffrykte.mp3?alt=media&token=b961a07c-0576-4050-9831-a4a5717a1e3f',
         wordId: 72
       },
       {
@@ -884,7 +884,7 @@
         lt: 'tikėtis',
         key: '73',
         norEgz: 'Vi håper på godt vær i morgen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhaape.mp3?alt=media&token=fa0f2597-ee2a-4603-aed5-eb5753d375c8',
         wordId: 73
       },
       {
@@ -896,7 +896,7 @@
         lt: 'advokatas',
         key: '74',
         norEgz: 'Hun er en dyktig advokat.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fadvokat.mp3?alt=media&token=b1e73101-34ae-4068-8f5c-e505a6ad6f35',
         wordId: 74
       },
       {
@@ -908,7 +908,7 @@
         lt: 'virtuvės šefas',
         key: '75',
         norEgz: 'Han er en talentfull kokk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkokk.mp3?alt=media&token=9e756327-cf7c-49ac-9465-293bebad212b',
         wordId: 75
       },
       {
@@ -920,7 +920,7 @@
         lt: 'instrumentas',
         key: '76',
         norEgz: 'Hun spiller et musikkinstrument.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finstrument.mp3?alt=media&token=1c296120-c51a-4045-ab2f-3244b0530f74',
         wordId: 76
       },
       {
@@ -932,7 +932,7 @@
         lt: 'būgnas',
         key: '77',
         norEgz: 'Han spiller på en tromme.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftromme.mp3?alt=media&token=d18193dd-3a54-42d6-a9e4-eea5f4f00d86',
         wordId: 77
       },
       {
@@ -944,7 +944,7 @@
         lt: 'gitara',
         key: '78',
         norEgz: 'Hun spiller gitar i et band.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgitar.mp3?alt=media&token=afd0d9fd-e025-4217-96ad-8bc062f1cda5',
         wordId: 78
       },
       {
@@ -956,7 +956,7 @@
         lt: 'mylėti',
         key: '79',
         norEgz: 'Jeg elsker deg.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Felske.mp3?alt=media&token=18925ad8-60ba-4711-b780-76cf98bc92a1',
         wordId: 79
       },
       {
@@ -968,7 +968,7 @@
         lt: 'nekęsti',
         key: '80',
         norEgz: 'Hun hater å vente.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhate.mp3?alt=media&token=4d9508b9-66cb-4763-861e-044798d9e8c3',
         wordId: 80
       },
       {
@@ -980,7 +980,7 @@
         lt: 'nešti',
         key: '81',
         norEgz: 'Han bærer en tung ryggsekk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbeere.mp3?alt=media&token=7a97ec24-6e28-4614-b963-a2d75c96b082',
         wordId: 81
       },
       {
@@ -992,7 +992,7 @@
         lt: 'skambinti',
         key: '82',
         norEgz: 'Jeg ringer deg i kveld.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fringe.mp3?alt=media&token=76f5cf71-69e3-408f-8794-feb5215feb64',
         wordId: 82
       },
       {
@@ -1004,7 +1004,7 @@
         lt: 'rezervacija',
         key: '83',
         norEgz: 'Vi har en reservasjon for to personer.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Freservasjon.mp3?alt=media&token=ec06718d-e2ce-4049-aa09-cf622e40589d',
         wordId: 83
       },
       {
@@ -1016,7 +1016,7 @@
         lt: 'planeta',
         key: '84',
         norEgz: 'Jorden er en planet i solsystemet.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fplanet.mp3?alt=media&token=eedc4bf5-1839-4782-aa2c-bbfdbd30bb73',
         wordId: 84
       },
       {
@@ -1028,7 +1028,7 @@
         lt: 'ruduo',
         key: '85',
         norEgz: 'Høst er en vakker årstid med fargerike blader.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhoost.mp3?alt=media&token=7570c172-c17b-4ef9-9023-a8c7dd32f95d',
         wordId: 85
       },
       {
@@ -1040,7 +1040,7 @@
         lt: 'nesvarbu',
         key: '86',
         norEgz: 'Det er uviktig hvilken farge du velger.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuviktig.mp3?alt=media&token=39ac4c66-5be6-4997-81da-fe59f1e931b8',
         wordId: 86
       },
       {
@@ -1052,7 +1052,7 @@
         lt: 'alčiai',
         key: '87',
         norEgz: 'Jeg er veldig sulten.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsulten.mp3?alt=media&token=4317c383-5738-4340-b5e6-a4070edf3885',
         wordId: 87
       },
       {
@@ -1064,7 +1064,7 @@
         lt: 'pilnas',
         key: '88',
         norEgz: 'Jeg er mett etter den store middagen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmett.mp3?alt=media&token=fa1e95da-4828-4901-a6b1-2a607e117cec',
         wordId: 88
       },
       {
@@ -1076,7 +1076,7 @@
         lt: 'egzaminas',
         key: '89',
         norEgz: 'Jeg har en viktig eksamen i morgen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feksamen.mp3?alt=media&token=b3cbae3c-d66a-4ba9-b3d7-ac33a422033a',
         wordId: 89
       },
       {
@@ -1088,7 +1088,7 @@
         lt: 'tema',
         key: '90',
         norEgz: 'Matematikk er et utfordrende emne.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Femne.mp3?alt=media&token=68cb6b57-62fd-428e-bf94-0e199d21f6fe',
         wordId: 90
       },
       {
@@ -2089,3 +2089,6 @@
         }
     
 ]
+
+
+// høylyt does not have sound link!!

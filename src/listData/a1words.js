@@ -10,7 +10,7 @@
       sp: 'un coche',
       key: '0',
       norEgz: 'Han kjører en bil.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbil.mp3?alt=media&token=994e0f46-bc52-411f-8614-ed11bea959c8',
       wordId: 0
     },
     {
@@ -24,7 +24,7 @@
       sp: 'grande',
       key: '1',
       norEgz: 'Det er en stor hund.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstor.mp3?alt=media&token=cd01dbdf-b602-4e93-9ffe-b32599565abb',
       wordId: 1
     },
     {
@@ -38,7 +38,7 @@
       sp: 'largo',
       key: '2',
       norEgz: 'Broen er lang.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flang.mp3?alt=media&token=968d6e30-3a78-40a6-b254-d89fb4e9a749',
       wordId: 2
     },
     {
@@ -52,7 +52,7 @@
       sp: 'alto',
       key: '3',
       norEgz: 'Han er høy.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhooy.mp3?alt=media&token=dc477bb9-2921-4b1d-84d3-1f53fe0cfd63',
       wordId: 3
     },
     {
@@ -66,7 +66,7 @@
       sp: 'bajo',
       key: '4',
       norEgz: 'Taket er lavt.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flav.mp3?alt=media&token=7031e79f-3ac1-48e5-857f-709b493277c3',
       wordId: 4
     },
     {
@@ -80,7 +80,7 @@
       sp: 'vivir',
       key: '5',
       norEgz: 'Vi bor i Norge.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbo.mp3?alt=media&token=d06c822d-5c69-4dae-aa35-82a2477c2e7c',
       wordId: 5
     },
     {
@@ -94,7 +94,7 @@
       sp: 'estar de pie',
       key: '6',
       norEgz: 'Han står ved døren.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstaa.mp3?alt=media&token=3f7552fe-a9b0-43ab-9269-577674275a2c',
       wordId: 6
     },
     {
@@ -108,7 +108,7 @@
       sp: 'sentarse',
       key: '7',
       norEgz: 'Hun sitter på stolen.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsitte.mp3?alt=media&token=0f05cab9-248b-4a5b-9626-b538c71d31af',
       wordId: 7
     },
     {
@@ -122,7 +122,7 @@
       sp: 'pesado',
       key: '8',
       norEgz: 'Denne boken er tung.',
-      soundLink: '',
+      soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftung.mp3?alt=media&token=9a3892b8-d173-4b1c-ae87-a3d15b9e8f65',
       wordId: 8
     },
     {
@@ -136,7 +136,7 @@
         sp: 'una montaña',
         key: '9',
         norEgz: 'Det er et fjell i nærheten.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffjell.mp3?alt=media&token=ee408a00-a0e7-4d2f-8173-9b20bdefacb0',
         wordId: 9
       },
       {
@@ -150,7 +150,7 @@
         sp: 'un sofá',
         key: '10',
         norEgz: 'Vi har en ny sofa.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsofa.mp3?alt=media&token=8799ff44-f022-47d4-b7e8-9719589eb592',
         wordId: 10
       },
       {
@@ -164,7 +164,7 @@
         sp: 'una cama',
         key: '11',
         norEgz: 'Sengen er myk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fseng.mp3?alt=media&token=fd1d2f96-fdc8-4f56-bf02-c385776ba4b9',
         wordId: 11
       },
       {
@@ -178,7 +178,7 @@
         sp: 'pequeño',
         key: '12',
         norEgz: 'Det er en liten katt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fliten.mp3?alt=media&token=e8608887-2e76-42e1-b138-d02968a92dc6',
         wordId: 12
       },
       {
@@ -192,7 +192,7 @@
         sp: 'un árbol',
         key: '13',
         norEgz: 'Det er et tre i hagen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftre.mp3?alt=media&token=d213ef92-6bd5-49cd-8496-acda9ad2a8e3',
         wordId: 13
       },
       {
@@ -206,7 +206,7 @@
         sp: 'una flor',
         key: '14',
         norEgz: 'Han ga henne en blomst.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fblomst.mp3?alt=media&token=cc895940-29b4-41c1-8ac8-24b8c5face40',
         wordId: 14
       },
       {
@@ -220,7 +220,7 @@
         sp: 'fresco',
         key: '15',
         norEgz: 'Været er kjølig i dag.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjoolig.mp3?alt=media&token=2456b08f-503b-4608-9471-f8088297faa6',
         wordId: 15
       },
       {
@@ -234,7 +234,7 @@
         sp: 'seco',
         key: '16',
         norEgz: 'Klærne er tørre nå.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftoorr.mp3?alt=media&token=4258ffd1-910d-46d4-970a-0e5e71a0fd46',
         wordId: 16
       },
       {
@@ -248,7 +248,7 @@
         sp: 'mojado',
         key: '17',
         norEgz: 'Gulvet er vått.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvaat.mp3?alt=media&token=a92a350c-8793-4f10-a6db-34ee69d4c7b7',
         wordId: 17
       },{
         nor: 'sterk',
@@ -261,7 +261,7 @@
         sp: 'fuerte',
         key: '18',
         norEgz: 'Han er en sterk mann.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsterk.mp3?alt=media&token=c24a7702-26c6-41d7-b25a-7a82a2a39f1e',
         wordId: 18
       },
       {
@@ -275,7 +275,7 @@
         sp: 'débil',
         key: '19',
         norEgz: 'Signalet er svakt her.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsvak.mp3?alt=media&token=60d34454-1dd4-455f-b2e6-c2cbfcb6b4fd',
         wordId: 19
       },
       {
@@ -289,7 +289,7 @@
         sp: 'rápido',
         key: '20',
         norEgz: 'Han løper veldig raskt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Frask.mp3?alt=media&token=a67eeb87-1360-4d0f-9de8-0a8551157068',
         wordId: 20
       },
       {
@@ -303,7 +303,7 @@
         sp: 'un pastel',
         key: '21',
         norEgz: 'Hun laget en kake til festen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkake.mp3?alt=media&token=e9ccf858-92cd-44e9-acae-042826d58374',
         wordId: 21
       },
       {
@@ -317,7 +317,7 @@
         sp: 'una bicicleta',
         key: '22',
         norEgz: 'Han sykler til jobben.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsykkel.mp3?alt=media&token=618c4200-13cb-4745-80f3-12691892cb5f',
         wordId: 22
       },
       {
@@ -331,7 +331,7 @@
         sp: 'un barco',
         key: '23',
         norEgz: 'De reiste med en båt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbaat.mp3?alt=media&token=6a8777b3-e15c-4b5a-a9c4-6dc26f062284',
         wordId: 23
       },
       {
@@ -345,7 +345,7 @@
         sp: 'lento',
         key: '24',
         norEgz: 'Datamaskinen min er veldig treg.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftreg.mp3?alt=media&token=6acd7120-530a-46dc-823b-988ba0a2ec49',
         wordId: 24
       },
       {
@@ -359,7 +359,7 @@
         sp: 'bonito',
         key: '25',
         norEgz: 'Hun er en pen jente.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpen.mp3?alt=media&token=5481b467-0dca-4539-9647-df6c9b28c122',
         wordId: 25
       },
       {
@@ -373,7 +373,7 @@
         sp: 'un teléfono',
         key: '26',
         norEgz: 'Han ringte meg på telefonen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftelefon.mp3?alt=media&token=4c5dcbeb-a30e-439c-829f-77191c8fb202',
         wordId: 26
       },
       {
@@ -387,7 +387,7 @@
         sp: 'un periódico',
         key: '27',
         norEgz: 'Jeg leser avisen hver morgen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favis.mp3?alt=media&token=a99c9bca-c128-4f30-ba97-fd90698ae65a',
         wordId: 27
       },
       {
@@ -401,7 +401,7 @@
         sp: 'un espejo',
         key: '28',
         norEgz: 'Hun så seg selv i speilet.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fspeil.mp3?alt=media&token=860c19b1-9c72-44d9-8fc8-83076af5d7a5',
         wordId: 28
       },
       {
@@ -415,7 +415,7 @@
         sp: 'corto',
         key: '29',
         norEgz: 'Filmen var kort, men god.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkort.mp3?alt=media&token=b6f354a3-8ef9-40e6-8cc5-e39f123d2caa',
         wordId: 29
       },
       {
@@ -429,7 +429,7 @@
         sp: 'un amigo',
         key: '30',
         norEgz: 'Han er en god venn av meg.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvenn.mp3?alt=media&token=177a17bc-3293-495a-b53f-e50e6a072f77',
         wordId: 30
       },
       {
@@ -443,7 +443,7 @@
         sp: 'una chica',
         key: '31',
         norEgz: 'Det er en jente i parken.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fjente.mp3?alt=media&token=2f35c7b7-c3dc-4210-b3fb-071e77f467c0',
         wordId: 31
       },
       {
@@ -457,7 +457,7 @@
         sp: 'un chico',
         key: '32',
         norEgz: 'Han er en snill gutt.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgutt.mp3?alt=media&token=afc817af-2488-4810-adc9-ff8a0db1b2e0',
         wordId: 32
       },
       {
@@ -471,7 +471,7 @@
         sp: 'obtener',
         key: '33',
         norEgz: 'Jeg fikk en gave fra henne.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffaa.mp3?alt=media&token=e975bbf1-d4ff-43d8-bb89-5218805b69b5',
         wordId: 33
       },
       {
@@ -485,7 +485,7 @@
         sp: 'querer',
         key: '34',
         norEgz: 'Han ville gå på kino.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fville.mp3?alt=media&token=68914219-53ff-45ac-a103-b7b5c01a1ad2',
         wordId: 34
       },
       {
@@ -499,7 +499,7 @@
         sp: 'poder',
         key: '35',
         norEgz: 'Hun kunne ikke finne nøklene sine.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkunne.mp3?alt=media&token=cbc28c39-0a78-46a2-b1ca-072b363a4e9f',
         wordId: 35
       },
       {
@@ -513,7 +513,7 @@
         sp: 'tener que',
         key: '36',
         norEgz: 'Vi måtte vente i en time.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmaatte.mp3?alt=media&token=02f2a784-2710-44ff-9eeb-46c1b851df58',
         wordId: 36
       },
       {
@@ -527,7 +527,7 @@
         sp: 'un niño',
         key: '37',
         norEgz: 'Det er et søtt barn.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbarn.mp3?alt=media&token=75e9e474-3305-4699-b276-8aa25abbbdc1',
         wordId: 37
       },
       {
@@ -541,7 +541,7 @@
         sp: 'una familia',
         key: '38',
         norEgz: 'Familien vår bor i Norge.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffamilie.mp3?alt=media&token=456ee8d5-78fe-4967-a73f-f78165b03c68',
         wordId: 38
       },
       {
@@ -555,7 +555,7 @@
         sp: 'una casa',
         key: '39',
         norEgz: 'Vi kjøpte et nytt hus.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhus.mp3?alt=media&token=f42d6cc4-2585-4498-90c9-00393910ee09',
         wordId: 39
       },
       {
@@ -569,7 +569,7 @@
         sp: 'un libro',
         key: '40',
         norEgz: 'Jeg leser en interessant bok.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbok.mp3?alt=media&token=b72147af-c18b-4504-b421-9ae701b02c55',
         wordId: 40
       },
       {
@@ -583,7 +583,7 @@
         sp: 'viajar',
         key: '41',
         norEgz: 'De liker å reise rundt i verden.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Freise.mp3?alt=media&token=c2a0e50a-1e12-44af-853d-54eb9943f575',
         wordId: 41
     },
     {
@@ -597,7 +597,7 @@
         sp: 'escuchar',
         key: '42',
         norEgz: 'Hun lytter nøye til musikken.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flytte.mp3?alt=media&token=be3d123d-ddd5-4013-9f6b-d70d5178ac64',
         wordId: 42
     },
     {
@@ -611,7 +611,7 @@
         sp: 'aprender',
         key: '43',
         norEgz: 'Jeg vil lære å snakke norsk.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fleere.mp3?alt=media&token=febdecc0-e9d4-440c-8f48-ea54f8942dbb',
         wordId: 43
     },
     {
@@ -625,7 +625,7 @@
         sp: 'una silla',
         key: '44',
         norEgz: 'Sett deg ned på stolen.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstol.mp3?alt=media&token=d689b1b0-d210-4106-924f-b3fbebd8ca6f',
         wordId: 44
     },
     {
@@ -639,7 +639,7 @@
         sp: 'una mesa',
         key: '45',
         norEgz: 'Vi spiste middag ved bordet.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbord.mp3?alt=media&token=dc049ce7-478b-4910-bd8d-09ea9badabaf',
         wordId: 45
     },
     {
@@ -653,7 +653,7 @@
         sp: 'una escuela',
         key: '46',
         norEgz: 'Barna går på skolen hver dag.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskole.mp3?alt=media&token=26087d43-8fb9-465b-b615-b6c8ae9ad63f',
         wordId: 46
     },
     {
@@ -667,7 +667,7 @@
         sp: 'ver',
         key: '47',
         norEgz: 'Kan du se månen i kveld?',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fse.mp3?alt=media&token=8b1dfd13-b9df-4854-9deb-bed4f03872c9',
         wordId: 47
     },
     {
@@ -681,7 +681,7 @@
         sp: 'comer',
         key: '48',
         norEgz: 'Vi spiser middag klokka seks.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fspise.mp3?alt=media&token=94f0d894-ea58-461c-a006-acde95933f20',
         wordId: 48
     },
     {
@@ -695,7 +695,7 @@
         sp: 'un profesor',
         key: '49',
         norEgz: 'Læreren underviser i klasserommet.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fleerer.mp3?alt=media&token=2669dfa8-b1b0-49b6-9857-bb4baf3a8b21',
         wordId: 49
     },
     {
@@ -709,7 +709,7 @@
         sp: 'una manzana',
         key: '50',
         norEgz: 'Hun spiser et eple til lunsj.',
-        soundLink: '',
+        soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feple.mp3?alt=media&token=27062beb-9a12-44e1-9654-3d9ad143701e',
         wordId: 50
   },
   {
@@ -723,7 +723,7 @@
     sp: 'una puerta',
     key: '51',
     norEgz: 'Åpne døren, vær så snill.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdoor.mp3?alt=media&token=36df259e-d77b-4fbf-b54a-dc52f33b4109',
     wordId: 51
   },
   {
@@ -737,7 +737,7 @@
     sp: 'una ventana',
     key: '52',
     norEgz: 'Han åpnet vinduet for å få frisk luft.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvindu.mp3?alt=media&token=612490f2-e675-4a57-af64-66a44182d0ca',
     wordId: 52
   },
   {
@@ -751,7 +751,7 @@
     sp: 'un gato',
     key: '53',
     norEgz: 'Katten vår heter Luna.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkatt.mp3?alt=media&token=3193bfa2-904d-4dd8-bcbc-0b9988a5a92f',
     wordId: 53
   },
   {
@@ -765,7 +765,7 @@
     sp: 'un perro',
     key: '54',
     norEgz: 'Hunden min elsker å gå tur.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhund.mp3?alt=media&token=6f48901c-fab9-42ba-9c9b-a03a7f38d4dc',
     wordId: 54
   },
   {
@@ -779,7 +779,7 @@
     sp: 'una taza',
     key: '55',
     norEgz: 'Jeg drikker kaffe fra koppen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkopp.mp3?alt=media&token=2ec52834-17f7-4190-9bc9-582a46032be8',
     wordId: 55
   },
   {
@@ -793,7 +793,7 @@
     sp: 'un vaso',
     key: '56',
     norEgz: 'Han fylte et glass med vann.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fglass.mp3?alt=media&token=de4523b9-8065-4297-bfc1-0b220373f696',
     wordId: 56
   },
   {
@@ -807,7 +807,7 @@
     sp: 'una ciudad',
     key: '57',
     norEgz: 'Oslo er hovedstaden i Norge.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fby.mp3?alt=media&token=cb1c1625-6a96-49f7-9e7f-a382907b668a',
     wordId: 57
   },
   {
@@ -821,7 +821,7 @@
     sp: 'poner',
     key: '58',
     norEgz: 'Hun legger boken på bordet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flegge.mp3?alt=media&token=269e98ed-6417-453f-aefe-1c5c7af0c617',
     wordId: 58
   },
   {
@@ -835,7 +835,7 @@
     sp: 'trabajar',
     key: '59',
     norEgz: 'Han arbeider på et kontor.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Farbeide.mp3?alt=media&token=8392cbe4-a500-4810-a39e-bec82adb3d58',
     wordId: 59
   },
   {
@@ -849,7 +849,7 @@
     sp: 'estudiar',
     key: '60',
     norEgz: 'Hun studerer medisin på universitetet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstudere.mp3?alt=media&token=7a3ed484-3cfa-4f51-b425-a391dd8bfeb7',
     wordId: 60
   },
   {
@@ -863,7 +863,7 @@
     sp: 'reír',
     key: '61',
     norEgz: 'Barna ler når de ser klovnen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fle.mp3?alt=media&token=921151a7-0b0d-49f1-9b59-42e62020b141',
     wordId: 61
   },
   {
@@ -877,7 +877,7 @@
     sp: 'llorar',
     key: '62',
     norEgz: 'Babyen gråter når den er sulten.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgraate.mp3?alt=media&token=05035171-780d-4f38-a58f-c2d3193e58cc',
     wordId: 62
   },
   {
@@ -891,7 +891,7 @@
     sp: 'una maleta',
     key: '63',
     norEgz: 'Han pakker kofferten før reisen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkoffert.mp3?alt=media&token=6fd79fb5-3a69-42ae-8cd3-f09d175dbadb',
     wordId: 63
   },
   {
@@ -903,7 +903,7 @@
     lt: 'šalikas',
     key: '64',
     norEgz: 'Hun har på seg et skjerf for å holde seg varm.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskjerf.mp3?alt=media&token=d39e3ed2-ca48-4c3e-af0e-f04d78257884',
     wordId: 64
   },
   {
@@ -915,7 +915,7 @@
     lt: 'striukė',
     key: '65',
     norEgz: 'Han kjøpte en ny jakke i butikken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fjakke.mp3?alt=media&token=c036d7d1-dca5-4679-b925-7e263a098a3a',
     wordId: 65
   },
   {
@@ -927,7 +927,7 @@
     lt: 'ateiti',
     key: '66',
     norEgz: 'Han kommer til festen senere.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkomme.mp3?alt=media&token=f8dc22a8-84a8-43bd-9d35-5687491a5250',
     wordId: 66
   },
   {
@@ -939,7 +939,7 @@
     lt: 'galvoti',
     key: '67',
     norEgz: 'Jeg tenker på hva jeg skal gjøre i morgen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftenke.mp3?alt=media&token=c212e447-1309-4079-8427-3e764d4cfc84',
     wordId: 67
   },
   {
@@ -951,7 +951,7 @@
     lt: 'pirkti',
     key: '68',
     norEgz: 'Hun kjøper en billett til konserten.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjoope.mp3?alt=media&token=f3344d5b-7cff-41e2-81ef-85048f014e97',
     wordId: 68
   },
   {
@@ -963,7 +963,7 @@
     lt: 'vairuoti',
     key: '69',
     norEgz: 'Han kjører bilen til jobben.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjoore.mp3?alt=media&token=5cf53e21-e03e-4298-97c4-ad1ca1bae3d8',
     wordId: 69
   },
   {
@@ -975,7 +975,7 @@
     lt: 'kaklaraištis',
     key: '70',
     norEgz: 'Han har på seg et slips til bryllupet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fslips.mp3?alt=media&token=f9278413-be68-4945-8839-9c49788d30cf',
     wordId: 70
   },
   {
@@ -987,7 +987,7 @@
     lt: 'skėtis',
     key: '71',
     norEgz: 'Hun tar med seg en paraply i tilfelle det regner.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fparaply.mp3?alt=media&token=4db699c6-4d18-4330-b318-31b57bb862b0',
     wordId: 71
   },
   {
@@ -999,7 +999,7 @@
     lt: 'žvaigždė',
     key: '72',
     norEgz: 'Vi ser stjernene på nattehimmelen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstjerne.mp3?alt=media&token=658afd58-c05a-46e6-a299-a39bc021286a',
     wordId: 72
   },
   {
@@ -1011,7 +1011,7 @@
     lt: 'mėnulis',
     key: '73',
     norEgz: 'Månen lyser opp natten.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmaane.mp3?alt=media&token=74bec971-f5c8-4874-b4d9-1b59be842758',
     wordId: 73
   },
   {
@@ -1023,7 +1023,7 @@
     lt: 'bėgti',
     key: '74',
     norEgz: 'Hun løper hver morgen for å holde seg i form.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Floope.mp3?alt=media&token=7c6f40c4-347c-49e4-8bf2-644c3833e752',
     wordId: 74
   },
   {
@@ -1035,7 +1035,7 @@
     lt: 'šokti',
     key: '75',
     norEgz: 'Barnet hopper på trampolinen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhoppe.mp3?alt=media&token=3ce26483-25a6-4ccb-b59d-44d45ee36060',
     wordId: 75
   },
   {
@@ -1047,7 +1047,7 @@
     lt: 'plaukti',
     key: '76',
     norEgz: 'Han liker å svømme i innsjøen om sommeren.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsvoomme.mp3?alt=media&token=05b4f451-9219-4d7a-92ff-bb4a5c98a7d4',
     wordId: 76
   },
   {
@@ -1059,7 +1059,7 @@
     lt: 'šokti',
     key: '77',
     norEgz: 'De danser hele natten på festen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdanse.mp3?alt=media&token=6201b96c-bf31-4b45-bb8d-81f84525074e',
     wordId: 77
   },
   {
@@ -1071,7 +1071,7 @@
     lt: 'dainuoti',
     key: '78',
     norEgz: 'Hun synger i koret på skolen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsynge.mp3?alt=media&token=84f330d1-1057-4980-8682-729d62f29455',
     wordId: 78
   },
   {
@@ -1083,7 +1083,7 @@
     lt: 'saulė',
     key: '79',
     norEgz: 'Solen skinner på en klar dag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsol.mp3?alt=media&token=7e481b41-b506-48f1-9237-329f137065b0',
     wordId: 79
   },
   {
@@ -1095,7 +1095,7 @@
     lt: 'viešbutis',
     key: '80',
     norEgz: 'Vi bor på et hotell i ferien.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhotell.mp3?alt=media&token=baa36880-edd4-447b-bf08-6e52d90d0917',
     wordId: 80
   },
   {
@@ -1107,7 +1107,7 @@
     lt: 'bokštas',
     key: '81',
     norEgz: 'Det gamle slottet har et høyt tårn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftaarn.mp3?alt=media&token=646012dd-7373-47b6-ac34-1eedfe9fa077',
     wordId: 81
   },
   {
@@ -1119,7 +1119,7 @@
     lt: 'gatvė',
     key: '82',
     norEgz: 'Huset ligger ved en travel gate.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgate.mp3?alt=media&token=56414b0c-b540-4edc-bd11-e4870a89787d',
     wordId: 82
   },
   {
@@ -1131,7 +1131,7 @@
     lt: 'tiltas',
     key: '83',
     norEgz: 'Vi krysser broen for å komme til parken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbro.mp3?alt=media&token=125c8f61-8e4e-43c6-b042-eb6fe562fe00',
     wordId: 83
   },
   {
@@ -1143,7 +1143,7 @@
     lt: 'pilis',
     key: '84',
     norEgz: 'Turister besøker det historiske slottet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fslott.mp3?alt=media&token=419064cb-a84b-4352-8cd7-5b047b9dbd0b',
     wordId: 84
   },
   {
@@ -1155,7 +1155,7 @@
     lt: 'fontanas',
     key: '85',
     norEgz: 'Fontenen i parken er veldig vakker.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffontene.mp3?alt=media&token=24440f64-41d2-4986-94f1-245581547cd8',
     wordId: 85
   },
   {
@@ -1167,7 +1167,7 @@
     lt: 'lengvas',
     key: '86',
     norEgz: 'Denne oppgaven er lett for meg.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flett.mp3?alt=media&token=a62d5afa-d642-4577-bafa-7b7cb61eface',
     wordId: 86
   },
   {
@@ -1179,7 +1179,7 @@
     lt: 'parduoti',
     key: '87',
     norEgz: 'Han selger frukt på markedet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fselge.mp3?alt=media&token=fa8254cc-1a1e-4b3d-b4d1-8e3fbd9d85fb',
     wordId: 87
   },
   {
@@ -1191,7 +1191,7 @@
     lt: 'susitikti',
     key: '88',
     norEgz: 'Vi møtes på kafeen klokka to.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmoote.mp3?alt=media&token=8a46d9c3-a836-493d-9860-5c5e387ed988',
     wordId: 88
   },
   {
@@ -1203,7 +1203,7 @@
     lt: 'aplankyti',
     key: '89',
     norEgz: 'De besøker besteforeldrene sine i helgen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbesooke.mp3?alt=media&token=57db6c29-53b0-4b90-b37c-f5b8a7ea1dd7',
     wordId: 89
   },
   {
@@ -1215,7 +1215,7 @@
     lt: 'senas',
     key: '90',
     norEgz: 'Det gamle huset trenger reparasjon.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgammel.mp3?alt=media&token=56161850-987b-4d95-bd85-0e126a4675b2',
     wordId: 90
   },
   {
@@ -1227,7 +1227,7 @@
     lt: 'jaunas',
     key: '91',
     norEgz: 'Han er en ung og talentfull musiker.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fung.mp3?alt=media&token=8acda1b8-60ea-488d-950f-94d958734b96',
     wordId: 91
   },
   {
@@ -1239,7 +1239,7 @@
     lt: 'naujas',
     key: '92',
     norEgz: 'De har kjøpt en ny bil.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fny.mp3?alt=media&token=9c0b09a9-b6d1-48d5-8ce4-55bc5268fd7a',
     wordId: 92
   },
   {
@@ -1251,7 +1251,7 @@
     lt: 'šiltas',
     key: '93',
     norEgz: 'Det er en varm sommerdag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvarm.mp3?alt=media&token=4a9c8a2d-377c-4597-b6e6-3d8079f4bc44',
     wordId: 93
   },
   {
@@ -1263,7 +1263,7 @@
     lt: 'šaltas',
     key: '94',
     norEgz: 'Vinteren i Norge er veldig kald.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkald.mp3?alt=media&token=58d8fc3c-73d5-4559-ba90-feddf71a7c99',
     wordId: 94
   },
   {
@@ -1275,7 +1275,7 @@
     lt: 'šešėlis',
     key: '95',
     norEgz: 'Hun kjøpte en hatt for å beskytte seg mot solen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhatt.mp3?alt=media&token=d64f2373-7f43-4de4-be5a-e548ac089742',
     wordId: 95
   },
   {
@@ -1287,7 +1287,7 @@
     lt: 'piniginė',
     key: '96',
     norEgz: 'Han mistet lommeboken sin i går.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flommebok.mp3?alt=media&token=b9ce92b1-57b9-4190-b2bb-6c1d5a36efb6',
     wordId: 96
   },
   {
@@ -1299,7 +1299,7 @@
     lt: 'diržas',
     key: '97',
     norEgz: 'Hun kjøpte et nytt belte for å matche skoene.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbelte.mp3?alt=media&token=d8460c4a-2e10-450b-8d76-3f3a1a56296f',
     wordId: 97
   },
   {
@@ -1311,7 +1311,7 @@
     lt: 'raktas',
     key: '98',
     norEgz: 'Han mistet nøkkelen sin og kunne ikke komme inn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fnookkel.mp3?alt=media&token=423ba0f5-35b7-4ac5-b6d6-ab0c3b1fb206',
     wordId: 98
   },
   {
@@ -1323,7 +1323,7 @@
     lt: 'nuotrauka',
     key: '99',
     norEgz: 'Hun tok et vakkert bilde av solnedgangen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbilde.mp3?alt=media&token=ae5ba1d4-3036-4118-9b8a-45f01795bc95',
     wordId: 99
   },
   {
@@ -1335,7 +1335,7 @@
     lt: 'laikrodis',
     key: '100',
     norEgz: 'Han sjekket klokken for å se hvor mye tid som var igjen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fklokke.mp3?alt=media&token=67bbfa12-b0c8-49a2-995f-aff52101dbde',
     wordId: 100
   },
   {
@@ -1347,7 +1347,7 @@
     lt: 'apyrankė',
     key: '101',
     norEgz: 'Hun fikk et vakkert armbånd i bursdagsgave.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Farmbaand.mp3?alt=media&token=1849789b-0965-4dd1-8867-727904578216',
     wordId: 101
   },
   {
@@ -1359,7 +1359,7 @@
     lt: 'bjaurus',
     key: '102',
     norEgz: 'Han synes den gamle bygningen er stygg.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstygg.mp3?alt=media&token=fb0d5b21-2b3d-4864-ae6c-4b570dc23063',
     wordId: 102
   },
   {
@@ -1371,7 +1371,7 @@
     lt: 'švarus',
     key: '103',
     norEgz: 'Hun liker å holde huset sitt rent og ryddig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fren.mp3?alt=media&token=729d4172-1077-470a-8910-a7b939c08c1c',
     wordId: 103
   },
   {
@@ -1383,7 +1383,7 @@
     lt: 'nešvarus',
     key: '104',
     norEgz: 'Gulvet var skittent etter festen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskitten.mp3?alt=media&token=f72b81af-bff3-4b6d-bbcf-43ad089a17af',
     wordId: 104
   },
   {
@@ -1395,7 +1395,7 @@
     lt: 'tuščias',
     key: '105',
     norEgz: 'Kjøleskapet er tomt, vi må kjøpe mat.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftom.mp3?alt=media&token=d7994027-ab74-46bf-8236-1a03bf19c6e5',
     wordId: 105
   },
   {
@@ -1431,7 +1431,7 @@
     lt: 'paukštis',
     key: '108',
     norEgz: 'Fuglen satt på en gren og sang.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffull.mp3?alt=media&token=857adffc-1615-43c2-8250-80ef4aaeb2bc',
     wordId: 108
   },
   {
@@ -1443,7 +1443,7 @@
     lt: 'parkas',
     key: '109',
     norEgz: 'Barna lekte i parken hele ettermiddagen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpark.mp3?alt=media&token=5bff62ee-6eca-402c-8169-297973de32c8',
     wordId: 109
   },
   {
@@ -1455,7 +1455,7 @@
     lt: 'batai',
     key: '110',
     norEgz: 'Hun kjøpte et par nye sko i butikken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsko.mp3?alt=media&token=f0e60576-07a0-4b09-aa69-dd3ed55c6c68',
     wordId: 110
   },
   {
@@ -1467,7 +1467,7 @@
     lt: 'platus',
     key: '111',
     norEgz: 'Den brede elven strømmet rolig forbi.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbred.mp3?alt=media&token=2808b841-5b26-4c4c-a900-d0260c6aec0c',
     wordId: 111
   },
   {
@@ -1479,7 +1479,7 @@
     lt: 'geras',
     key: '112',
     norEgz: 'Hun er en god venn av meg.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgod.mp3?alt=media&token=d3e2963b-c7e2-4bf0-8c98-aaf6c70f7f7c',
     wordId: 112
   },
   {
@@ -1491,7 +1491,7 @@
     lt: 'blogas',
     key: '113',
     norEgz: 'Været var dårlig i dag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdaarlig.mp3?alt=media&token=6384f043-1fd0-4823-91ab-485fe7590879',
     wordId: 113
   },
   {
@@ -1503,7 +1503,7 @@
     lt: 'traukinys',
     key: '114',
     norEgz: 'Vi tok toget til byen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftog.mp3?alt=media&token=c5c2a835-5bda-41f2-b538-ff9b9e81863a',
     wordId: 114
   },
   {
@@ -1515,7 +1515,7 @@
     lt: 'lėktuvas',
     key: '115',
     norEgz: 'Hun reiste med fly til London.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffly.mp3?alt=media&token=cf5367d8-d071-46d2-9bbd-589b44327020',
     wordId: 115
   },
   {
@@ -1527,7 +1527,7 @@
     lt: 'kietas',
     key: '116',
     norEgz: 'Gulvet var hardt og kaldt.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhard.mp3?alt=media&token=e43007fe-4a67-4843-8739-4e7c69909399',
     wordId: 116
   },
   {
@@ -1539,7 +1539,7 @@
     lt: 'minkštas',
     key: '117',
     norEgz: 'Putene var myke og behagelige.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmyk.mp3?alt=media&token=3da3970c-2146-45c1-8bf4-8d884dd0c972',
     wordId: 117
   },
   {
@@ -1551,7 +1551,7 @@
     lt: 'šviesus',
     key: '118',
     norEgz: 'Rommene var lyse og luftige.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flys.mp3?alt=media&token=2c8cb979-e7ed-41ed-a6fb-d2d27ee7765a',
     wordId: 118
   },
   {
@@ -1563,7 +1563,7 @@
     lt: 'tamsus',
     key: '119',
     norEgz: 'Det blir mørkt tidlig om vinteren.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmoork.mp3?alt=media&token=f6b757a9-e8c6-412d-90dd-d09a53574b7d',
     wordId: 119
   },
   {
@@ -1575,7 +1575,7 @@
     lt: 'mobilusis telefonas',
     key: '120',
     norEgz: 'Han mistet mobiltelefonen sin i går',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmobiltelefon.mp3?alt=media&token=0801578c-dc8a-48aa-9afe-aaf6343423f2',
     wordId: 120
   },
   {
@@ -1587,7 +1587,7 @@
     lt: 'planšetė',
     key: '121',
     norEgz: 'Hun bruker nettbrettet til å lese e-bøker.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fnettbrett.mp3?alt=media&token=a311c65c-9b6b-4843-a72d-6fcc7dc86d05',
     wordId: 121
   },
   {
@@ -1599,7 +1599,7 @@
     lt: 'akimirka',
     key: '122',
     norEgz: 'Vent et øyeblikk, vær så snill.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fooyeblikk.mp3?alt=media&token=447599d6-9758-441f-b50b-c596873b9e4f',
     wordId: 122
   },
   {
@@ -1611,7 +1611,7 @@
     lt: 'filmas',
     key: '123',
     norEgz: 'Vi så en spennende film i går kveld.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffilm.mp3?alt=media&token=4fe25c9f-25fc-4710-aca5-b780587d83aa',
     wordId: 123
   },
   {
@@ -1623,7 +1623,7 @@
     lt: 'kartus',
     key: '124',
     norEgz: 'Grapefrukt kan smake litt bittert.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbitter.mp3?alt=media&token=61295c76-0933-447c-a6f5-f62f676fa92b',
     wordId: 124
   },
   {
@@ -1635,7 +1635,7 @@
     lt: 'aštrus',
     key: '125',
     norEgz: 'Kniven var skarp og kuttet lett gjennom papiret.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskarp.mp3?alt=media&token=0a5fffae-eecc-4e7c-bea6-0d830d80853a',
     wordId: 125
   },
   {
@@ -1647,7 +1647,7 @@
     lt: 'būti',
     key: '126',
     norEgz: 'Det er viktig å være tålmodig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fveere.mp3?alt=media&token=4ad4cd0a-4321-40e3-a422-76f2e2b7efb4',
     wordId: 126
   },
   {
@@ -1659,7 +1659,7 @@
     lt: 'turėti',
     key: '127',
     norEgz: 'Hun har en ny bil.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fha.mp3?alt=media&token=6fe73f1e-6074-4c0c-ad9b-655a3c8fac70',
     wordId: 127
   },
   {
@@ -1671,7 +1671,7 @@
     lt: 'piktas',
     key: '128',
     norEgz: 'Han ble sint da han mistet nøklene sine.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsint.mp3?alt=media&token=6847d24a-292b-4ecd-8f9f-f995aa0c1ac6',
     wordId: 128
   },
   {
@@ -1683,7 +1683,7 @@
     lt: 'ramus',
     key: '129',
     norEgz: 'Han er rolig',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Frolig.mp3?alt=media&token=a14a1b95-98f2-406d-83df-cf795bca8a1c',
     wordId: 129
   },
   {
@@ -1695,7 +1695,7 @@
     lt: 'pigus',
     key: '130',
     norEgz: 'Denne skjorten var veldig billig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbillig.mp3?alt=media&token=4f8384fd-6ed1-4b8b-98fb-b564fc990993',
     wordId: 130
   },
   {
@@ -1707,7 +1707,7 @@
     lt: 'dirbti',
     key: '131',
     norEgz: 'Hun jobber som lærer.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fjobbe.mp3?alt=media&token=ab2880a4-698c-4e45-a2ba-a3177a5a52a0',
     wordId: 131
   },
   {
@@ -1719,7 +1719,7 @@
     lt: 'kalbėti',
     key: '132',
     norEgz: 'Vi snakket sammen i flere timer.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsnakke.mp3?alt=media&token=f782e4b1-e87c-47a6-a3bc-574315421a2a',
     wordId: 132
   },
   {
@@ -1731,7 +1731,7 @@
     lt: 'sala',
     key: '133',
     norEgz: 'De tilbrakte ferien på en liten øy.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fooy.mp3?alt=media&token=f5529a4c-31bf-4265-ba5c-e9eff5f538b8',
     wordId: 133
   },
   {
@@ -1743,7 +1743,7 @@
     lt: 'upė',
     key: '134',
     norEgz: 'De padlet nedover elven i kano.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Felv.mp3?alt=media&token=addbfe5e-741d-4ce3-8254-c0d249a63e94',
     wordId: 134
   },
   {
@@ -1755,7 +1755,7 @@
     lt: 'jūra',
     key: '135',
     norEgz: 'Havet var rolig og vakkert.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fhav.mp3?alt=media&token=97566159-0e84-4a68-8cd8-b650a5b2e3c7',
     wordId: 135
   },
   {
@@ -1767,7 +1767,7 @@
     lt: 'liūdnas',
     key: '136',
     norEgz: 'Han følte seg trist etter å ha sagt farvel.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftrist.mp3?alt=media&token=5a6bfb0b-a7c7-42f6-8af5-456475c8dec0',
     wordId: 136
   },
   {
@@ -1779,7 +1779,7 @@
     lt: 'ežeras',
     key: '137',
     norEgz: 'De hadde en piknik ved innsjøen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finnsjoo.mp3?alt=media&token=afef4c5a-b44e-4fa4-8d49-04228e514a06',
     wordId: 137
   },
   {
@@ -1791,7 +1791,7 @@
     lt: 'miškas',
     key: '138',
     norEgz: 'De gikk på tur i skogen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskog.mp3?alt=media&token=de379fd4-4115-4afc-9367-2d2dacc1cf83',
     wordId: 138
   },
   {
@@ -1803,7 +1803,7 @@
     lt: 'daryti',
     key: '139',
     norEgz: 'Hva skal vi gjøre i helgen?',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgjoore.mp3?alt=media&token=2f6950bb-a431-4afe-9f84-2958da541b43',
     wordId: 139
   },
   {
@@ -1815,7 +1815,7 @@
     lt: 'sakyti',
     key: '140',
     norEgz: 'Hun sa at hun ville komme.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsi.mp3?alt=media&token=54d7c707-7615-47e3-ba3f-5ddab6daf7f8',
     wordId: 140
   },
   {
@@ -1827,7 +1827,7 @@
     lt: 'eiti',
     key: '141',
     norEgz: 'Han gikk til butikken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgaa.mp3?alt=media&token=fba1a90c-60ac-4d0e-a729-97db3c7a1f3b',
     wordId: 141
   },
   {
@@ -1839,7 +1839,7 @@
     lt: 'slėnis',
     key: '142',
     norEgz: 'De vandret gjennom dalen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdal.mp3?alt=media&token=06d4fab4-101f-4a20-b71d-21a8cef54379',
     wordId: 142
   },
   {
@@ -1851,7 +1851,7 @@
     lt: 'parduotuvė',
     key: '143',
     norEgz: 'Han kjøpte klær i butikken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbutikk.mp3?alt=media&token=876e75f1-f5a2-40c2-a7f0-c6325f4c2d05',
     wordId: 143
   },
   {
@@ -1863,7 +1863,7 @@
     lt: 'restoranas',
     key: '144',
     norEgz: 'De spiste middag på en restaurant.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Frestaurant.mp3?alt=media&token=24010f8a-8f63-4344-948f-a3d9b5d582a4',
     wordId: 144
   },
   {
@@ -1875,7 +1875,7 @@
     lt: 'ligoninė',
     key: '145',
     norEgz: 'Han ble kjørt til sykehuset etter ulykken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsykehus.mp3?alt=media&token=dcbf2629-08e6-4181-ad13-9e3a3b2e3086',
     wordId: 145
   },
   {
@@ -1887,7 +1887,7 @@
     lt: 'gerti',
     key: '146',
     norEgz: 'Han drakk et glass vann.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdrikke.mp3?alt=media&token=63e8e0d2-c805-48e3-95ff-bb4b58d67d2b',
     wordId: 146
   },
   {
@@ -1899,7 +1899,7 @@
     lt: 'gaisrinė',
     key: '147',
     norEgz: 'Brannstasjonen ligger i nærheten av parken.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbrannstasjon.mp3?alt=media&token=b744063e-2dde-4a7e-b217-1542389248d6',
     wordId: 147
   },
   {
@@ -1911,7 +1911,7 @@
     lt: 'policijos nuovada',
     key: '148',
     norEgz: 'Politistasjonen ligger ved siden av rådhuset.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpolitistasjon.mp3?alt=media&token=02f571c3-0401-45fc-a01f-9dd43f0cfe7f',
     wordId: 148
   },
   {
@@ -1923,7 +1923,7 @@
     lt: 'biblioteka',
     key: '149',
     norEgz: 'Han lånte en bok fra biblioteket.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbibliotek.mp3?alt=media&token=d49d6028-fd94-49c9-8b51-b9f522ef7076',
     wordId: 149
   },
   {
@@ -1935,7 +1935,7 @@
     lt: 'bankas',
     key: '150',
     norEgz: 'Hun gikk til banken for å ta ut penger.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbank.mp3?alt=media&token=1abca584-a8a4-40d1-90a7-b7743e3b2a30',
     wordId: 150
   },
   {
@@ -1947,7 +1947,7 @@
     lt: 'bažnyčia',
     key: '151',
     norEgz: 'Familien gikk til kirken hver søndag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkirke.mp3?alt=media&token=eaae606f-9a2c-4e42-bf8a-78101c452a2d',
     wordId: 151
   },
   {
@@ -1959,7 +1959,7 @@
     lt: 'skaityti',
     key: '152',
     norEgz: 'Hun liker å lese bøker om historie.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flese.mp3?alt=media&token=dfd0822b-364a-45c6-aa78-7e4ec2dd6546',
     wordId: 152
   },
   {
@@ -1971,7 +1971,7 @@
     lt: 'rašyti',
     key: '153',
     norEgz: 'Han skriver en e-post til sin venn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskrive.mp3?alt=media&token=086fbd16-cfa1-4e37-ace8-e5f9ae263f4e',
     wordId: 153
   },
   {
@@ -1983,7 +1983,7 @@
     lt: 'miegoti',
     key: '154',
     norEgz: 'Han pleier å sove tidlig om natten.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsove.mp3?alt=media&token=820919d1-9a40-4cd7-b0b3-98cd5120c75f',
     wordId: 154
   },
   {
@@ -1995,7 +1995,7 @@
     lt: 'pieštukas',
     key: '155',
     norEgz: 'Hun tegner med en blyant.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fblyant.mp3?alt=media&token=9c4e80df-737e-40f3-bdcb-f0ea438c87a1',
     wordId: 155
   },
   {
@@ -2007,7 +2007,7 @@
     lt: 'trintukas',
     key: '156',
     norEgz: 'Han brukte et viskelær for å fjerne feilen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fviskeleer.mp3?alt=media&token=e37a25a4-9061-4363-8073-2cd2aaaf7168',
     wordId: 156
   },
   {
@@ -2019,7 +2019,7 @@
     lt: 'rašiklis',
     key: '157',
     norEgz: 'Hun skrev et brev med en penn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpenn.mp3?alt=media&token=f24e9bc5-e4b9-411b-b0cd-22fabc97b267',
     wordId: 157
   },
   {
@@ -2031,7 +2031,7 @@
     lt: 'užrašų knyga',
     key: '158',
     norEgz: 'Hun skriver i en notatbok hver dag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fnotatbok.mp3?alt=media&token=aba446aa-3845-4db4-949b-213994d42a2f',
     wordId: 158
   },
   {
@@ -2043,7 +2043,7 @@
     lt: 'laimingas',
     key: '159',
     norEgz: 'Han er veldig glad i dag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fglad.mp3?alt=media&token=21b38b88-e818-49a6-ba0b-d67b4c5323d9',
     wordId: 159
   },
   {
@@ -2055,7 +2055,7 @@
     lt: 'brangus',
     key: '160',
     norEgz: 'Denne bilen er veldig dyr.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdyr.mp3?alt=media&token=9c301d17-5154-4bab-b30d-bbdae0bff368',
     wordId: 160
   },
   {
@@ -2067,7 +2067,7 @@
     lt: 'mielas',
     key: '161',
     norEgz: 'Hun har en søt liten hund.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsoot.mp3?alt=media&token=67e889bf-cd89-47a8-ad22-9aa7c1fd82ba',
     wordId: 161
   },
   {
@@ -2079,7 +2079,7 @@
     lt: 'rūgštus',
     key: '162',
     norEgz: 'Sitroner er sure.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsur.mp3?alt=media&token=1940bece-a88c-4047-b5bb-ae35fbbaf633',
     wordId: 162
   },
   {
@@ -2091,7 +2091,7 @@
     lt: 'sūrus',
     key: '163',
     norEgz: 'Potetgull er salt.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsalt.mp3?alt=media&token=2fb9021e-5320-4193-a5f8-de0e972d904e',
     wordId: 163
   },
   {
@@ -2103,7 +2103,7 @@
     lt: 'kuprinė',
     key: '164',
     norEgz: 'Han har en tung ryggsekk.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fryggsekk.mp3?alt=media&token=121fc373-5874-4079-84a6-8c04f1ae981e',
     wordId: 164
   },
   {
@@ -2115,7 +2115,7 @@
     lt: 'lėkštė',
     key: '165',
     norEgz: 'Hun serverte maten på en plate.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fplate.mp3?alt=media&token=cc29c5cc-5d78-4488-b469-16166b87df87',
     wordId: 165
   },
   {
@@ -2127,7 +2127,7 @@
     lt: 'fotoaparatas',
     key: '166',
     norEgz: 'Han tar bilde med kamera.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkamera.mp3?alt=media&token=2a185902-7054-4c38-a65c-b4d759a16114',
     wordId: 166
   },
   {
@@ -2139,7 +2139,7 @@
     lt: 'kompiuteris',
     key: '167',
     norEgz: 'Han kjøpte en ny datamaskin.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdatamaskin.mp3?alt=media&token=7d82bfe6-4c71-4ea3-8c09-9b248dadcae0',
     wordId: 167
   },
   {
@@ -2151,7 +2151,7 @@
     lt: 'pelė',
     key: '168',
     norEgz: 'Han bruker en trådløs mus.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmus.mp3?alt=media&token=54c7751d-e3ea-4bfe-9bd6-418424172cf0',
     wordId: 168
   },
   {
@@ -2163,7 +2163,7 @@
     lt: 'monitorius',
     key: '169',
     norEgz: 'Hun har en stor skjerm på kontoret.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskjerm.mp3?alt=media&token=b5be5282-a051-43c8-8cbb-04d577086cc8',
     wordId: 169
   },
   {
@@ -2175,7 +2175,7 @@
     lt: 'žaisti',
     key: '170',
     norEgz: 'Barna liker å spille fotball.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fspille.mp3?alt=media&token=c8412b2d-36d5-49e5-bfac-507e9bf923b3',
     wordId: 170
   },
   {
@@ -2187,7 +2187,7 @@
     lt: 'spausdintuvas',
     key: '171',
     norEgz: 'Hun trenger en ny skriver.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskriver.mp3?alt=media&token=a55f6d91-50ab-4d39-82f6-0a70c2b2a33d',
     wordId: 171
   },
   {
@@ -2199,7 +2199,7 @@
     lt: 'klaviatūra',
     key: '172',
     norEgz: 'Han kjøpte et mekanisk tastatur.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ftastatur.mp3?alt=media&token=1f3a0524-0107-49c0-94b8-330b61d8e773',
     wordId: 172
   },
   {
@@ -2211,7 +2211,7 @@
     lt: 'siauras',
     key: '173',
     norEgz: 'Veien er veldig smal.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsmal.mp3?alt=media&token=1b09749e-5d4a-4971-8c1f-a00746c637e1',
     wordId: 173
   }
 ]
@@ -2221,4 +2221,4 @@
 
 
 
-
+// add betale
