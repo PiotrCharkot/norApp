@@ -8,7 +8,7 @@
     lt: 'įvairovė',
     key: '0',
     norEgz: 'Vi må fremme en mangfoldighet av ideer.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmangfoldighet.mp3?alt=media&token=46cec13c-958a-4e4f-8447-5dff8d722a5b',
     wordId: 0
   },
   {
@@ -20,7 +20,7 @@
     lt: 'tuštinimasis',
     key: '1',
     norEgz: 'Attføring er en naturlig kroppsfunksjon.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fattfooring.mp3?alt=media&token=514c8af2-dccd-46fe-b415-82ee568f01a5',
     wordId: 1
   },
   {
@@ -44,7 +44,7 @@
     lt: 'šalutinis poveikis',
     key: '3',
     norEgz: 'Søvnløshet er en bivirkning av dette legemidlet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbivirkning.mp3?alt=media&token=31f0f338-b1e0-4012-a787-fe5244989de6',
     wordId: 3
   },
   {
@@ -56,7 +56,7 @@
     lt: 'savigarbos jausmas',
     key: '4',
     norEgz: 'Selvfølelse er viktig for mental helse.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fselvfoolelse.mp3?alt=media&token=2fe96dbb-f7ad-470e-b06e-fec6b5bf9f99',
     wordId: 4
   },
   {
@@ -68,7 +68,7 @@
     lt: 'kreipiantis dėmesį',
     key: '5',
     norEgz: 'Hun bar en oppsiktsvekkende kjole på festen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Foppsiktsvekkende.mp3?alt=media&token=e5e6ffd6-a10a-49c8-aa38-bd7fd69e51e3',
     wordId: 5
   },
   {
@@ -80,7 +80,7 @@
     lt: "eksponentinis",
     key: "6",
     norEgz: "Veksten i selskapet har vært eksponentiell.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feksponentiell.mp3?alt=media&token=ceccf225-1f0c-46e6-971d-9ca75fd04ba2",
     wordId: 6
   },
   {
@@ -92,7 +92,7 @@
     lt: "sutaikinantis",
     key: "7",
     norEgz: "Han hadde en forsonende tone i samtalen.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fforsonende.mp3?alt=media&token=207dcfc3-352d-466e-a472-6ea77a76dd5c",
     wordId: 7
   },
   {
@@ -104,7 +104,7 @@
     lt: "suskaidytas",
     key: "8",
     norEgz: "Informasjonen var fragmentert og vanskelig å forstå.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffragmentert.mp3?alt=media&token=859abfe1-b597-49c7-89d1-fe2543d88bd7",
     wordId: 8
   },
   {
@@ -116,7 +116,7 @@
     lt: "patvirtinti",
     key: "9",
     norEgz: "Sjefen må approbere endringene før de implementeres.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fapprobere.mp3?alt=media&token=0c0d3365-6d44-442c-9a64-33349f2d6937",
     wordId: 9
   },
   {
@@ -128,7 +128,7 @@
     lt: "arbitruoti",
     key: "10",
     norEgz: "Dommeren ble bedt om å arbitrere tvisten.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Farbitrere.mp3?alt=media&token=f5b8d331-3914-4dd9-86ff-c1f0c2bcbe87",
     wordId: 10
   },
   {
@@ -140,7 +140,7 @@
     lt: "dekonstruoti",
     key: "11",
     norEgz: "Hun prøvde å dekonstruere argumentet for å finne svakheter.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdekonstruere.mp3?alt=media&token=c6ff8f33-7088-4e93-8edc-7998632da30e",
     wordId: 11
   },
   {
@@ -152,7 +152,7 @@
     lt: "branduolinė fizika",
     key: "12",
     norEgz: "Han studerer en kjernefysikk ved universitetet.",
-    soundLink: "",
+    soundLink: "https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkjernefysikk.mp3?alt=media&token=0d046b7f-4df7-41ca-a1bc-4f74825b6861",
     wordId: 12
   },
   {
@@ -164,7 +164,7 @@
   lt: 'dėmėtas',
   key: '13',
   norEgz: 'Jakken hans er flekkvis farget.',
-  soundLink: '',
+  soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fflekkvis.mp3?alt=media&token=f0949c65-a521-4d29-81b7-e1b571c13721',
   wordId: 13
   },
   {
@@ -176,7 +176,7 @@
     lt: 'gracingas',
     key: '14',
     norEgz: 'Ballerinaen danset grasiøst over scenen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgrasioos.mp3?alt=media&token=d73279dc-9fef-43a9-b1ef-a9486580a014',
     wordId: 14
   },
   {
@@ -188,7 +188,7 @@
     lt: 'daugiasluoksnis',
     key: '15',
     norEgz: 'Hun har en flersidig personlighet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fflersidig.mp3?alt=media&token=8748a105-4073-4a42-b21d-178e8f64a36a',
     wordId: 15
   },
   {
@@ -200,7 +200,7 @@
     lt: 'iššūkio keliantis',
     key: '16',
     norEgz: 'Han kjører en prangende sportsbil.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fprangende.mp3?alt=media&token=27a0cc47-94b8-4ed8-8a37-5e33a3f84a20',
     wordId: 16
   },
   {
@@ -212,7 +212,7 @@
     lt: 'retorinis',
     key: '17',
     norEgz: 'Han stilte et retorisk spørsmål.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fretorisk.mp3?alt=media&token=587b40cb-b6d0-4c93-8fe3-9f02499560ce',
     wordId: 17
   },
   {
@@ -224,7 +224,7 @@
     lt: 'įtraukti',
     key: '18',
     norEgz: 'Det er viktig å engasjere elevene i læring.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fengasjere.mp3?alt=media&token=d36e3439-27f6-4b1c-b5db-32bbc2c4aeb8',
     wordId: 18
   },
   {
@@ -236,7 +236,7 @@
     lt: 'neviltis',
     key: '19',
     norEgz: 'Han var fortvilet over å ha mistet jobben.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffortvilet.mp3?alt=media&token=a901f81a-acbf-45ef-abd8-3f85d615b31a',
     wordId: 19
   },
   {
@@ -248,7 +248,7 @@
     lt: 'nepaaiškinamas',
     key: '20',
     norEgz: 'Det var en uforklarlig hendelse.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuforklarlig.mp3?alt=media&token=b5ac9d50-80ee-47f9-b012-d87fffd81d67',
     wordId: 20
   },
   {
@@ -260,7 +260,7 @@
     lt: 'beribis',
     key: '21',
     norEgz: 'Hun har en grenseløs kjærlighet for sine barn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgrenseloos.mp3?alt=media&token=3b33d1f1-5634-4b37-b203-a0c17b313d39',
     wordId: 21
   },
   {
@@ -272,7 +272,7 @@
     lt: 'baisus',
     key: '22',
     norEgz: 'Hun begikk en uhyrlig handling.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuhyrlig.mp3?alt=media&token=92ca84e5-b372-4545-ad66-2ff3ecd62145',
     wordId: 22
   },
   {
@@ -284,7 +284,7 @@
     lt: 'neraminantis',
     key: '23',
     norEgz: 'Det var noen foruroligende nyheter.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fforuroligende.mp3?alt=media&token=a8260ec5-ece3-44fa-9d49-f9db531c2ff4',
     wordId: 23
   },
   {
@@ -295,8 +295,8 @@
     ger: 'undurchdringlich',
     lt: 'nepralaidus',
     key: '24',
-    norEgz: 'Skogen var uoverkommelig og uforutsigbar.',
-    soundLink: '',
+    norEgz: 'Skogen var uoverkommelig og ugjennomtrengelig.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fugjennomtrengelig.mp3?alt=media&token=dade8f45-a5ad-470e-a1d9-d8d886cf36d1',
     wordId: 24
   },
   {
@@ -308,7 +308,7 @@
     lt: 'nepasiekiamas',
     key: '25',
     norEgz: 'Sjefen virker utilnærmelig og streng.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Futilneermelig.mp3?alt=media&token=05edf3d1-4eae-413d-9419-c2e79032ab12',
     wordId: 25
   },
   {
@@ -320,7 +320,7 @@
     lt: 'nesvetingas',
     key: '26',
     norEgz: 'Ørkenen kan være et ugjestmildt sted.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fugjestmild.mp3?alt=media&token=6c454e1c-fa8a-4923-872f-a0332b93d30f',
     wordId: 26
   },
   {
@@ -332,7 +332,7 @@
     lt: 'nenuspėjamas',
     key: '27',
     norEgz: 'Været er ofte uberegnelig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuberegnelig.mp3?alt=media&token=8bcc1101-b000-4f04-b3ab-33774e2ae9fd',
     wordId: 27
   },
   {
@@ -344,7 +344,7 @@
     lt: 'nepakartotas',
     key: '28',
     norEgz: 'Hans evner som musiker er uovertruffen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuovertruffen.mp3?alt=media&token=083ca26a-d278-4787-aeb1-368f4982bd7d',
     wordId: 28
   },
   {
@@ -356,7 +356,7 @@
     lt: 'nuoširdus',
     key: '29',
     norEgz: 'Hun uttrykte en inderlig bønn.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finderlig.mp3?alt=media&token=2e3117e9-d632-4db0-a115-8466e0f56f93',
     wordId: 29
   },
   {
@@ -368,7 +368,7 @@
     lt: 'nesvarbus',
     key: '30',
     norEgz: 'For ham var det en ubetydelig detalj.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fubetydelig.mp3?alt=media&token=d4eda0de-85d6-4bbd-ba76-053e91f2e1fe',
     wordId: 30
   },
   {
@@ -380,19 +380,19 @@
   lt: 'savigarba',
   key: '31',
   norEgz: 'Han har en høy selvtillit.',
-  soundLink: '',
+  soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fselvtillit.mp3?alt=media&token=49c31c59-a6d5-49aa-85e4-bf3991934449',
   wordId: 31
   },
   {
-    nor: 'uovertruffen',
-    eng: 'unmatched',
-    pl: 'niezrównany',
-    ar: 'لا مثيل له',
-    ger: 'unübertroffen',
-    lt: 'nepakartotas',
+    nor: 'å omskolere',
+    eng: 'to retrain',
+    pl: 'przeszkolić',
+    ar: 'إعادة تدريب',
+    ger: 'umschulen',
+    lt: 'perkvalifikuoti',
     key: '32',
-    norEgz: 'Hans evner som musiker er uovertruffen.',
-    soundLink: '',
+    norEgz: 'Mange arbeidere må omskolere for nye jobber.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fomskolere.mp3?alt=media&token=4b4e87b3-8f8a-4e24-a168-75f563d642b8',
     wordId: 32
   },
   {
@@ -404,7 +404,7 @@
   lt: 'tuštumas',
   key: '33',
   norEgz: 'Forfengelighet kan være en ulempe.',
-  soundLink: '',
+  soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fforfengelighet.mp3?alt=media&token=b501bb5a-3f85-4394-a2fd-354b3ef6865b',
   wordId: 33
   },
   {
@@ -416,43 +416,43 @@
   lt: 'neprieinamas',
   key: '34',
   norEgz: 'Ressursene er utilgjengelige på grunn av konflikten.',
-  soundLink: '',
+  soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Futilgjengelig.mp3?alt=media&token=17282c25-a037-4cc0-8e20-6c4579a8fcd4',
   wordId: 34
   },
   {
-    nor: 'utilnærmelig',
-    eng: 'unapproachable',
-    pl: 'nieprzystępny',
-    ar: 'غير قابل للوصول',
-    ger: 'unzugänglich',
-    lt: 'nepasiekiamas',
+    nor: 'å vekke',
+    eng: 'to awaken',
+    pl: 'obudzić',
+    ar: 'أيقظ',
+    ger: 'erwecken',
+    lt: 'pažadinti',
     key: '35',
-    norEgz: 'Sjefen virker utilnærmelig og streng.',
-    soundLink: '',
+    norEgz: 'Den gode nyheten klarte å vekke hans interesse.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvekke.mp3?alt=media&token=79b66ac7-3b13-4574-8023-2cd68bbdaed1',
     wordId: 35
   },
   {
-    nor: 'ugjestmild',
-    eng: 'inhospitable',
-    pl: 'niegościnny',
-    ar: 'غير مضياف',
-    ger: 'ungastlich',
-    lt: 'nesvetingas',
+    nor: 'å sammensmelte',
+    eng: 'to merge',
+    pl: 'połączyć',
+    ar: 'دمج',
+    ger: 'verschmelzen',
+    lt: 'sujungti',
     key: '36',
-    norEgz: 'Ørkenen kan være et ugjestmildt sted.',
-    soundLink: '',
+    norEgz: 'Vi planlegger å sammensmelte de to selskapene.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsammensmelte.mp3?alt=media&token=3dcf3ea3-faec-44ef-a57e-aa04a7312ffa',
     wordId: 36
   },
   {
-    nor: 'uberegnelig',
-    eng: 'unpredictable',
-    pl: 'nieobliczalny',
-    ar: 'غير قابل للتوقع',
-    ger: 'unberechenbar',
-    lt: 'nenuspėjamas',
+    nor: 'å differensiere',
+    eng: 'to differentiate',
+    pl: 'rozróżnić',
+    ar: 'ميّز',
+    ger: 'differenzieren',
+    lt: 'diferencijuoti',
     key: '37',
-    norEgz: 'Været er ofte uberegnelig.',
-    soundLink: '',
+    norEgz: 'Lærere må lære å differensiere instruksjonen.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdifferensiere.mp3?alt=media&token=21740b35-1bb1-41fc-8c8d-6b76b092ca4f',
     wordId: 37
   },
   {
@@ -464,7 +464,7 @@
     lt: 'nuviliantis',
     key: '38',
     norEgz: 'Avslutningen på boken var antiklimaktisk.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fantiklimaktisk.mp3?alt=media&token=39430572-831f-4f88-85f9-36317f79aeb7',
     wordId: 38
   },
   {
@@ -476,7 +476,7 @@
     lt: 'įsigyti',
     key: '39',
     norEgz: 'De prøver å erverve en ny eiendom.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ferverve.mp3?alt=media&token=ce2a8d7f-7010-40e0-b11e-43de5187f03c',
     wordId: 39
   },
   {
@@ -488,7 +488,7 @@
     lt: 'nenuoseklus',
     key: '40',
     norEgz: 'Hans historie virker inkonsekvent og usammenhengende.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finkonsekvent.mp3?alt=media&token=257f7a34-4cc5-468c-8df7-95e8cadd704c',
     wordId: 40
   },
   {
@@ -500,7 +500,7 @@
     lt: 'paaiškinti',
     key: '41',
     norEgz: 'Kan du redegjøre for dine handlinger?',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fredegjoore.mp3?alt=media&token=cff5e19a-f1e1-4efd-92ec-fbdb441c9b4d',
     wordId: 41
   },
   {
@@ -512,7 +512,7 @@
     lt: 'išdavystė',
     key: '42',
     norEgz: 'Han begikk en forræderi mot sitt eget folk.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fforreederi.mp3?alt=media&token=0e834ecc-c7fc-4f80-8b73-3c22b02c2e64',
     wordId: 42
   },
   {
@@ -524,7 +524,7 @@
     lt: 'atsvetimėjimas',
     key: '43',
     norEgz: 'Teknologi kan føre til fremmedgjøring.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffremmedgjooring.mp3?alt=media&token=09b8619a-401e-4018-9171-527415c6cce6',
     wordId: 43
   },
   {
@@ -536,7 +536,7 @@
     lt: 'tremtis',
     key: '44',
     norEgz: 'Forfatteren levde i eksil i mange år.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feksil.mp3?alt=media&token=38c7f9de-d86a-4769-af6d-8dd47d494d6f',
     wordId: 44
   },
   {
@@ -548,7 +548,7 @@
     lt: 'visagalis',
     key: '45',
     norEgz: 'Gud er ofte beskrevet som omnipotent.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fomnipotent.mp3?alt=media&token=c3ad648c-3d7e-4b04-96c5-829789dd9c16',
     wordId: 45
   },
   {
@@ -560,7 +560,7 @@
     lt: 'pilnas patoso',
     key: '46',
     norEgz: 'Talen hans var patosfylt og rørende.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fpatosfylt.mp3?alt=media&token=1243eff7-0f81-492d-8006-59d5675db10e',
     wordId: 46
   },
   {
@@ -572,31 +572,31 @@
     lt: 'sublimiškas',
     key: '47',
     norEgz: 'Landskapet her er virkelig sublim.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsublim.mp3?alt=media&token=d4d4330e-ca64-4bbf-87bb-d202271883bb',
     wordId: 47
   },
   {
-    nor: 'foruroligende',
-    eng: 'disturbing',
-    pl: 'niepokojący',
-    ar: 'مقلق',
-    ger: 'beunruhigend',
-    lt: 'neraminantis',
+    nor: 'å styrke',
+    eng: 'to strengthen',
+    pl: 'wzmocnić',
+    ar: 'عزز',
+    ger: 'stärken',
+    lt: 'sustiprinti',
     key: '48',
-    norEgz: 'Det var noen foruroligende nyheter.',
-    soundLink: '',
+    norEgz: 'Vi må styrke vårt forsvar mot sykdommer.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fstyrke.mp3?alt=media&token=f13613f8-0469-4115-90be-d6acf3099dda',
     wordId: 48
   },
   {
-    nor: 'ugjennomtrengelig',
-    eng: 'impenetrable',
-    pl: 'nieprzenikniony',
-    ar: 'غير قابل للإختراق',
-    ger: 'undurchdringlich',
-    lt: 'nepralaidus',
+    nor: 'å vandre',
+    eng: 'to wander',
+    pl: 'włóczyć się',
+    ar: 'تجول',
+    ger: 'wandern',
+    lt: 'klajoti',
     key: '49',
-    norEgz: 'Skogen var uoverkommelig og uforutsigbar.',
-    soundLink: '',
+    norEgz: 'Han liker å vandre i skogen.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fvandre.mp3?alt=media&token=f7e9873e-15da-406c-bd9c-b0a9a6a8d333',
     wordId: 49
   },
   {
@@ -608,7 +608,7 @@
     lt: 'sargyba',
     key: '50',
     norEgz: 'Banken har døgnet rundt bevoktning.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbevoktning.mp3?alt=media&token=73142248-e8dd-4898-9ea0-59e24c46c80d',
     wordId: 50
   },
   {
@@ -620,7 +620,7 @@
     lt: 'rezonuoti',
     key: '51',
     norEgz: 'Hans ord resonerte med publikum.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fresonere.mp3?alt=media&token=83ea8b37-20e3-450d-bc2f-c060a51ea8f3',
     wordId: 51
   },
   {
@@ -632,7 +632,7 @@
     lt: 'patrauklus',
     key: '52',
     norEgz: 'Han har en inntagende personlighet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Finntagende.mp3?alt=media&token=b87e76c1-273e-4b2c-afff-7114413d9846',
     wordId: 52
   },
   {
@@ -644,7 +644,7 @@
     lt: 'deklaracija',
     key: '53',
     norEgz: 'Han ga en offisiell erklæring om situasjonen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ferkleering.mp3?alt=media&token=c4bf07f5-46a7-40cd-9dc7-7d49467118cd',
     wordId: 53
   },
   {
@@ -656,7 +656,7 @@
     lt: 'pripažinimas',
     key: '54',
     norEgz: 'Han kom fram til en viktig erkjennelse.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ferkjennelse.mp3?alt=media&token=461ae66a-af5e-4a7d-8a80-f3501fdbc987',
     wordId: 54
   },
   {
@@ -668,7 +668,7 @@
     lt: 'užkariavimas',
     key: '55',
     norEgz: 'Romerriket hadde mange erobringer.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ferobring.mp3?alt=media&token=30292078-96e4-4f4b-b7b5-4c6b59fd7c28',
     wordId: 55
   },
   {
@@ -680,7 +680,7 @@
     lt: 'pseudo-mokslinis',
     key: '56',
     norEgz: 'Denne teorien er kvasivitenskapelig og upålitelig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkvasivitenskapelig.mp3?alt=media&token=8c8cc8e6-e55b-421e-b789-15a73efefdd9',
     wordId: 56
   },
   {
@@ -692,7 +692,7 @@
     lt: 'skundikas',
     key: '57',
     norEgz: 'Han har en kverulerende personlighet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkverulerende.mp3?alt=media&token=d3664dc4-b95f-47bd-8c0c-dedf35875cd3',
     wordId: 57
   },
   {
@@ -704,7 +704,7 @@
     lt: 'pavergiantis',
     key: '59',
     norEgz: 'Hun fortalte en fengslende historie.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffengslende.mp3?alt=media&token=168d0cb7-f450-421b-8398-1c1f35f091e5',
     wordId: 59
   },
   {
@@ -716,7 +716,7 @@
     lt: 'prabangus',
     key: '60',
     norEgz: 'Festen var overdådig med mye mat og drikke.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Foverdaadig.mp3?alt=media&token=4cb9b83c-8752-469b-9914-81ed08ded83d',
     wordId: 60
   },
   {
@@ -728,7 +728,7 @@
     lt: 'sąžinė',
     key: '61',
     norEgz: 'Han hadde en ren samvittighet etter å ha gjort det rette.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsamvittighet.mp3?alt=media&token=5cd0c1cd-7ccc-4ea3-b42e-6ed7b517b15e',
     wordId: 61
   },
   {
@@ -740,7 +740,7 @@
     lt: 'panaikinimas',
     key: '62',
     norEgz: 'Avskaffelsen av slaveri var et viktig skritt.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favskaffelse.mp3?alt=media&token=065e2428-5b18-4f52-ae7a-aea0a530a80d',
     wordId: 62
   },
   {
@@ -752,7 +752,7 @@
     lt: 'pasibjaurėjimas',
     key: '63',
     norEgz: 'Hun følte avsky for den grusomme handlingen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favsky.mp3?alt=media&token=f4281156-30b5-4b21-97ce-f7b51ae69017',
     wordId: 63
   },
   {
@@ -764,7 +764,7 @@
     lt: 'įmoka',
     key: '64',
     norEgz: 'Han betalte for bilen i månedlige avdrag.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favbetaling.mp3?alt=media&token=7d8cc616-4f21-4af1-ad50-23466ac66f52',
     wordId: 64
   },
   {
@@ -776,7 +776,7 @@
     lt: 'kaitrus',
     key: '65',
     norEgz: 'Været kan være lunefullt på fjellet.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Flunefull.mp3?alt=media&token=dae70ba2-9238-4138-af35-5b6fae5c8c91',
     wordId: 65
   },
   {
@@ -788,7 +788,7 @@
     lt: 'neracionalus',
     key: '66',
     norEgz: 'Hans oppførsel var fullstendig irrasjonell.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Firrasjonell.mp3?alt=media&token=04eebea2-4ba5-4cb9-91bc-c4b0eabc6fbf',
     wordId: 66
   },
   {
@@ -800,7 +800,7 @@
     lt: 'sukeliantis svaigulį',
     key: '67',
     norEgz: 'Høyden var svimlende.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fsvimlende.mp3?alt=media&token=0467c327-7612-4549-bc57-73c033f8751b',
     wordId: 67
   },
   {
@@ -812,19 +812,19 @@
     lt: 'pasibjaurėtinas',
     key: '68',
     norEgz: 'Oppførselen hans var avskyelig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favskyelig.mp3?alt=media&token=c54b71bf-635c-498e-845a-16df4b7bea82',
     wordId: 68
   },
   {
-    nor: 'lunefull',
-    eng: 'capricious',
-    pl: 'kapryśny',
-    ar: 'متقلب',
-    ger: 'launisch',
-    lt: 'kaitrus',
+    nor: 'å diversifisere',
+    eng: 'to diversify',
+    pl: 'dywersyfikować',
+    ar: 'تنوع',
+    ger: 'diversifizieren',
+    lt: 'diversifikuoti',
     key: '69',
-    norEgz: 'Været kan være lunefullt på fjellet.',
-    soundLink: '',
+    norEgz: 'Selskapet planlegger å diversifisere sine produkter.',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fdiversifisere.mp3?alt=media&token=91f91211-838b-4197-823f-9811af477eb2',
     wordId: 69
   },
   {
@@ -836,7 +836,7 @@
     lt: 'iškalbingas',
     key: '70',
     norEgz: 'Han er en veltalende talsmann.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fveltalende.mp3?alt=media&token=9b2507a3-0fd7-4576-b2f0-1d127ea83f33',
     wordId: 70
   },
   {
@@ -848,7 +848,7 @@
     lt: 'valingas',
     key: '71',
     norEgz: 'Hun er en viljesterk person.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fviljesterk.mp3?alt=media&token=96b57a87-8a65-4b7c-a41d-5ebeed12122f',
     wordId: 71
   },
   {
@@ -860,7 +860,7 @@
     lt: 'susilaikymas',
     key: '72',
     norEgz: 'Han praktiserer en avholdenhet fra alkohol.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favholdenhet.mp3?alt=media&token=31af29b3-7bf3-4820-bfee-d0395d58ab3e',
     wordId: 72
   },
   {
@@ -872,7 +872,7 @@
     lt: 'kraštutinis',
     key: '73',
     norEgz: 'Han har ytterliggående synspunkter.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fytterliggaaende.mp3?alt=media&token=5cf291a2-90b2-4eda-83a1-85df03120c1d',
     wordId: 73
   },
   {
@@ -884,7 +884,7 @@
     lt: 'prielaida',
     key: '74',
     norEgz: 'Vi baserer dette på en antakelse om økonomisk vekst.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fantakelse.mp3?alt=media&token=7bb3c5ec-5bef-49a0-b926-a6f7988bb713',
     wordId: 74
   },
   {
@@ -896,7 +896,7 @@
     lt: 'skirtis',
     key: '75',
     norEgz: 'Kommunen fikk en bevilling til nytt utstyr.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbevilling.mp3?alt=media&token=2f80eff9-22bf-46cf-b472-44aa42981387',
     wordId: 75
   },
   {
@@ -908,7 +908,7 @@
     lt: 'atsisveikinimas',
     key: '76',
     norEgz: 'Dette er en avsked mellom gode venner.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Favsked.mp3?alt=media&token=8e6c408f-b648-456e-a670-817d9df0c781',
     wordId: 76
   },
   {
@@ -920,7 +920,7 @@
     lt: 'pervertinti',
     key: '77',
     norEgz: 'Vi må reevaluere strategien vår.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Freevaluere.mp3?alt=media&token=c2b17e19-8f2a-4ae0-b8f8-17cea5c86b1c',
     wordId: 77
   },
   {
@@ -932,7 +932,7 @@
     lt: 'ciniškas',
     key: '78',
     norEgz: 'Han hadde et kynisk smil om munnen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkynisk.mp3?alt=media&token=79642e64-8704-4c25-a4c9-1de62c9d27a4',
     wordId: 78
   },
   {
@@ -944,7 +944,7 @@
     lt: 'išlaisvinti',
     key: '79',
     norEgz: 'Målet er å frigjøre landet fra undertrykkelse.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffrigjoore.mp3?alt=media&token=6ca11650-d2e3-42db-a037-578841e1b4bf',
     wordId: 79
   },
   {
@@ -956,7 +956,7 @@
     lt: 'kurstantis',
     key: '80',
     norEgz: 'Musikken på konserten var øredøvende.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fooredoovende.mp3?alt=media&token=f5db707c-ef86-4802-a7ac-aac97533d408',
     wordId: 80
   },
   {
@@ -968,7 +968,7 @@
     lt: 'iliuzinis',
     key: '81',
     norEgz: 'Fremgangen viste seg å være illusorisk.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fillusorisk.mp3?alt=media&token=b7ac41a3-5d09-44e1-a804-6e7f624a8b74',
     wordId: 81
   },
   {
@@ -980,7 +980,7 @@
     lt: 'kontempliuoti',
     key: '82',
     norEgz: 'Han satt og kontemplerte livets mysterier.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fkontemplere.mp3?alt=media&token=5f785924-8cfd-41c0-a8ba-f82bf3b3eb36',
     wordId: 82
   },
   {
@@ -992,7 +992,7 @@
     lt: 'paveldėjimas',
     key: '83',
     norEgz: 'Arvegangen i familien var komplisert.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Farvegang.mp3?alt=media&token=3526f457-0dc0-475e-9e1a-c59634d754ed',
     wordId: 83
   },
   {
@@ -1004,7 +1004,7 @@
     lt: 'auginimas',
     key: '84',
     norEgz: 'Beplantningen i hagen ser fantastisk ut.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbeplantning.mp3?alt=media&token=9413ba24-f9dc-4ec1-9b58-8170f41a2206',
     wordId: 84
   },
   {
@@ -1016,7 +1016,7 @@
     lt: 'nelyginamas',
     key: '85',
     norEgz: 'Hans talent er uforlignelig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fuforlignelig.mp3?alt=media&token=67437b96-b682-4e80-908e-39fa284d9291',
     wordId: 85
   },
   {
@@ -1028,7 +1028,7 @@
     lt: 'trapus',
     key: '86',
     norEgz: 'Vasen er veldig skjør, vær forsiktig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fskjoor.mp3?alt=media&token=86f8762f-5289-4773-8c66-e602ffb6f43b',
     wordId: 86
   },
   {
@@ -1040,7 +1040,7 @@
     lt: 'aiškus',
     key: '87',
     norEgz: 'Instruksjonene var eksplicitte og klare.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Feksplicit.mp3?alt=media&token=96d2a644-5da2-49b5-86a5-557b57f3249d',
     wordId: 87
   },
   {
@@ -1052,7 +1052,7 @@
     lt: 'neišreikštas',
     key: '88',
     norEgz: 'Hans implisitte forståelse var tydelig.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fimplisitt.mp3?alt=media&token=3695dddf-569d-40eb-a87c-78bb4302dc0b',
     wordId: 88
   },
   {
@@ -1064,7 +1064,7 @@
     lt: 'turėti',
     key: '89',
     norEgz: 'Han besitter en sjelden samling mynter.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fbesitte.mp3?alt=media&token=76ddaaac-3f1e-4ffe-8361-50fbf65f79ee',
     wordId: 89
   },
   {
@@ -1076,7 +1076,7 @@
     lt: 'medituoti',
     key: '90',
     norEgz: 'Hun liker å meditere hver morgen.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fmeditere.mp3?alt=media&token=88ee4367-54ec-4a37-9b6b-f596d6b90bc1',
     wordId: 90
   },
   {
@@ -1088,7 +1088,7 @@
     lt: 'peržiūrėti',
     key: '91',
     norEgz: 'Vi må revidere planene våre.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Frevidere.mp3?alt=media&token=9b6b8288-81f2-464e-86fb-28dd74569fef',
     wordId: 91
   },
   {
@@ -1100,7 +1100,7 @@
     lt: 'judinantis',
     key: '92',
     norEgz: 'Det var en gripende historie om overlevelse.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Fgripende.mp3?alt=media&token=7bb81448-c4e8-4a1e-90a0-9c214056b76f',
     wordId: 92
   },
   {
@@ -1535,90 +1535,11 @@
     soundLink: '',
     wordId: 128
   },
-  {
-    nor: 'å diversifisere',
-    eng: 'to diversify',
-    pl: 'dywersyfikować',
-    ar: 'تنوع',
-    ger: 'diversifizieren',
-    lt: 'diversifikuoti',
-    key: '129',
-    norEgz: 'Selskapet planlegger å diversifisere sine produkter.',
-    soundLink: '',
-    wordId: 129
-  },
-  {
-    nor: 'å vandre',
-    eng: 'to wander',
-    pl: 'włóczyć się',
-    ar: 'تجول',
-    ger: 'wandern',
-    lt: 'klajoti',
-    key: '130',
-    norEgz: 'Han liker å vandre i skogen.',
-    soundLink: '',
-    wordId: 130
-  },
-  {
-    nor: 'å styrke',
-    eng: 'to strengthen',
-    pl: 'wzmocnić',
-    ar: 'عزز',
-    ger: 'stärken',
-    lt: 'sustiprinti',
-    key: '131',
-    norEgz: 'Vi må styrke vårt forsvar mot sykdommer.',
-    soundLink: '',
-    wordId: 131
-  },
-  {
-    nor: 'å vekke',
-    eng: 'to awaken',
-    pl: 'obudzić',
-    ar: 'أيقظ',
-    ger: 'erwecken',
-    lt: 'pažadinti',
-    key: '132',
-    norEgz: 'Den gode nyheten klarte å vekke hans interesse.',
-    soundLink: '',
-    wordId: 132
-  },
-  {
-    nor: 'å sammensmelte',
-    eng: 'to merge',
-    pl: 'połączyć',
-    ar: 'دمج',
-    ger: 'verschmelzen',
-    lt: 'sujungti',
-    key: '133',
-    norEgz: 'Vi planlegger å sammensmelte de to selskapene.',
-    soundLink: '',
-    wordId: 133
-  },
-  {
-    nor: 'å differensiere',
-    eng: 'to differentiate',
-    pl: 'rozróżnić',
-    ar: 'ميّز',
-    ger: 'differenzieren',
-    lt: 'diferencijuoti',
-    key: '134',
-    norEgz: 'Lærere må lære å differensiere instruksjonen.',
-    soundLink: '',
-    wordId: 134
-  },
-  {
-    nor: 'å omskolere',
-    eng: 'to retrain',
-    pl: 'przeszkolić',
-    ar: 'إعادة تدريب',
-    ger: 'umschulen',
-    lt: 'perkvalifikuoti',
-    key: '135',
-    norEgz: 'Mange arbeidere må omskolere for nye jobber.',
-    soundLink: '',
-    wordId: 135
-  }
   
   
 ]
+
+
+
+
+//change avbegtaling to avdrag mayby id 64

@@ -1407,7 +1407,7 @@
     lt: 'pilnas',
     key: '106',
     norEgz: 'Bensintanken er full, vi kan kjøre langt.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffull.mp3?alt=media&token=857adffc-1615-43c2-8250-80ef4aaeb2bc',
     wordId: 106
   },
   {
@@ -1419,7 +1419,7 @@
     lt: 'žuvis',
     key: '107',
     norEgz: 'Han fanget en stor fisk i elven.',
-    soundLink: '',
+    soundLink: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Ffisk.mp3?alt=media&token=85300cf5-9272-4509-8e18-f4b3063e7372',
     wordId: 107
   },
   {
@@ -2221,4 +2221,4 @@
 
 
 
-// add betale
+// add betale, lock sth, money, idea, bike

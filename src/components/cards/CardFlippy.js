@@ -117,7 +117,7 @@ const CardFlippy = (params) => {
       <Animated.View style={{...styles.norView, transform: [{perspective: 500}, {rotateY: rotateVal}]}}>
         <LinearGradient colors={['#002D72', '#7B68EE']} style={styles.gradientNor}>
             <Text style={styles.textNor}>{wordData.nor}</Text>
-            <Text style={styles.textNorExample}>{wordData.example}</Text>
+            <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 160}}>{wordData.irr ? translation : wordData.example}</Text>
 
             <View style={styles.buttonYesContainer}>
                 <GradientButton  
@@ -168,7 +168,7 @@ const CardFlippy = (params) => {
       </Animated.View>
       <Animated.View style={{...styles.transView, transform: [{perspective: 500}, {rotateY: rotateValTrans}]}}>
         <LinearGradient colors={['#00BFFF', '#6d28ed']} style={styles.gradientNor}>
-            <Text style={styles.textTranslation}>{translation}</Text>
+            <Text style={styles.textTranslation}>{wordData.irr ? wordData.example : translation}</Text>
             <Pressable style={styles.opacityFlip}  onPress={rotateCardBack}>
                 <Image style={styles.imgFlip} source={require('../../../assets/flip.png')} />
             </Pressable>
@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 30,
         fontWeight: '500',
+        textAlign: 'center',
         shadowColor: 'black',
         shadowOffset: {
             width: 0,
@@ -262,9 +263,9 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     textNorExample: {
-        marginTop: 160,
         color: 'white',
         fontSize: 20,
+        paddingHorizontal: 5,
         fontWeight: '500',
         textAlign: 'center',
     },
@@ -273,6 +274,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: '500',
         shadowColor: 'black',
+        textAlign: 'center',
+        paddingHorizontal: 5,
         shadowOffset: {
             width: 0,
             height: 0,

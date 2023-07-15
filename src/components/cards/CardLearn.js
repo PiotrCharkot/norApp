@@ -47,12 +47,14 @@ const CardLearn = (params) => {
 
         <LinearGradient style={styles.gradient} colors={['#00BFFF', '#6d28ed']} start={[1, 0.35]} end={[1, 0.65]}>
             <View style={styles.topHalf}>
-                <Text style={styles.textNor}>{wordData.nor}</Text>
-                <Text style={styles.textNorExample}>{wordData.example}</Text>
+
+                <Text style={{...styles.textNor, fontSize: wordData.norexp ? 25 : 30}}>{wordData.nor}</Text>
+                <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 20}}>{wordData.example}</Text>
+                
 
             </View>
             <View style={styles.bottomHalf}>
-                <Text style={styles.textTranslation}>{translation}</Text>
+                <Text style={{...styles.textTranslation, fontSize: wordData.norexp ? 25 : 30}}>{translation}</Text>
             </View>
             {wordData.soundLink === '' ? <View></View> : <TouchableOpacity style={styles.iconContainer} onPress={playWordSound}>
 
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
         height: '50%',
         width: '100%',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     bottomHalf: {
         height: '50%',
@@ -100,21 +102,21 @@ const styles = StyleSheet.create({
     },
     textNor: {
         color: 'white',
-        fontSize: 30,
         fontWeight: '500',
-        
+        textAlign: 'center',
     },
     textNorExample: {
-        marginTop: 20,
         color: 'white',
         fontSize: 20,
         fontWeight: '500',
         textAlign: 'center',
+        paddingHorizontal: 5
     },
     textTranslation: {
         color: 'white',
         fontSize: 30,
-        fontWeight: '500'
+        fontWeight: '500',
+        textAlign: 'center',
     },
     iconContainer: {
         position: 'absolute',
