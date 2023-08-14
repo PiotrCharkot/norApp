@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Dimensions} from 'react-native'
+import {View, Text, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -7,7 +7,8 @@ import BottomBar from '../../../../../components/bars/bottomBar'
 import Draggable from '../../../../../components/other/Draggable'
 import generalStyles from '../../../../../styles/generalStyles';
 
-const { width, height } = Dimensions.get("window");
+
+const answerBonus = generalStyles.answerBonus;
 const currentScreen = 8;
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
@@ -26,25 +27,22 @@ const Class1x1x8 = ({ route }) => {
     const [releaseDraggable, setReleaseDraggable] = useState(null);
     const [words, setWords] = useState(['Jeg' ,'            ', 'hjelp', 'til å',  'skrive', 'jobbsøknad.','!!!' , 'trengte', 'å trenge' ,'trenger' ,'to trenger' , 'æ tgrenge' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
-    const [answerBonus, setAnswerBonus] = useState(8)
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
     
 
     useFocusEffect(() => {
-        if (latestScreen > currentScreen) {
-            setLatestScreenDone(latestScreen);
-            setComeBack(true)
-        }
+      if (latestScreen > currentScreen) {
+          setLatestScreenDone(latestScreen);
+          setComeBack(true)
+      }
 
-        if (route.params.userPoints > 0) {
-            console.log('setting new points', route.params.userPoints );
-            setCurrentPoints(userPoints)
-        }
+      if (route.params.userPoints > 0) {
+          console.log('setting new points', route.params.userPoints );
+          setCurrentPoints(userPoints)
+      }
 
-        // if (latestScreen >= currentScreen) {
-        //   setAnswerBonus(0)  
-        // }
+        
     })
 
     useEffect(() => {
@@ -144,6 +142,8 @@ const Class1x1x8 = ({ route }) => {
         answerBonus={answerBonus}
         linkNext={'Class1x1x9'}
         linkPrevious={'Class1x1x7'} 
+        correctMsg={'Impressive...'}
+        wrongMsg={`You've made a mistake. Let's recheck.`}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
@@ -175,8 +175,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
   bottomBarContainer: {
@@ -218,13 +218,13 @@ const styles = StyleSheet.create({
     borderColor: "red",
   },
   textInDraggable: {
-    fontSize: 18,
-    fontWeight: '500',
+    fontSize: generalStyles.screenTextSizeDraggable,
+    fontWeight: generalStyles.fontWeightDraggable,
     color: 'white'
   },
   textBody: {
-    fontSize: 18,
-    fontWeight: '500',
+    fontSize: generalStyles.screenTextSizeSmallest,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMediumPlus,
     flexWrap: 'wrap'
   },
   exgzampleTextContainer: {

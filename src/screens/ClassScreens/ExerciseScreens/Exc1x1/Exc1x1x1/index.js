@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   text: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '400',
     
   },

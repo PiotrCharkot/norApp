@@ -1,11 +1,14 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
+import { getAuth } from 'firebase/auth';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
 import AnswerButton from '../../../../../components/buttons/AnswerButton'
 import generalStyles from '../../../../../styles/generalStyles';
 
+
+const answerBonus = generalStyles.answerBonus;
 const currentScreen = 7;
 const answerOne = 'æ';
 const answerTwo = 'to';
@@ -18,12 +21,13 @@ const Class1x1x7 = ({route}) => {
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
-    console.log('points 7nd screen: ' , userPoints );
+    const auth = getAuth();
+    const user = auth.currentUser;
+
     const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
     const [isAnswerBChecked, setIsAnswerBChecked] = useState(false);
     const [isAnswerCChecked, setIsAnswerCChecked] = useState(false);
     const [isAnswerDChecked, setIsAnswerDChecked] = useState(false);
-    const [answerBonus, setAnswerBonus] = useState(8)
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -32,21 +36,17 @@ const Class1x1x7 = ({route}) => {
     
     useFocusEffect(() => {
         
-        if (latestScreen > currentScreen) {
-            setLatestScreenDone(latestScreen);
-            setComeBack(true);
-        }
+      if (latestScreen > currentScreen) {
+          setLatestScreenDone(latestScreen);
+          setComeBack(true);
+      }
 
-        if (route.params.userPoints > 0) {
-            console.log('setting new points', route.params.userPoints );
-            setCurrentPoints(userPoints)
-        }
+      if (route.params.userPoints > 0) {
+          console.log('setting new points', route.params.userPoints );
+          setCurrentPoints(userPoints)
+      }
 
-        // if (latestScreen >= currentScreen) {
-        //   setAnswerBonus(0)  
-
-        //   why is set answer bonus = 0 ?????????????????? check other screens!!!
-        // }
+        
     })
 
   return (
@@ -78,6 +78,8 @@ const Class1x1x7 = ({route}) => {
         buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Class1x1x8'}
         linkPrevious={'Class1x1x6'}
+        correctMsg={`Well done${user.isAnonymous ? '':  ` ${user.displayName}`}!`}
+        wrongMsg={'Wrong Answer, try again'}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}

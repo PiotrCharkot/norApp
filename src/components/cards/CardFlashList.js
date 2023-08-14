@@ -108,12 +108,12 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '700'
     },
     buttonText: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: '700'
     },
 });

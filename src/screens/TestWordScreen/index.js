@@ -2,7 +2,7 @@ import { View, Text, Animated, TouchableOpacity, FlatList, Image, Dimensions, Ea
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
-import { collection, getDocs, query, where, doc, updateDoc  } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, updateDoc, setDoc  } from "firebase/firestore";
 import * as SecureStore from 'expo-secure-store';
 import uuid from 'react-native-uuid';
 import styles from './style'
@@ -397,7 +397,8 @@ const TestWordScreen = ({route}) => {
                 weeklyPoints: 0,
                 dailyPoints: 0,
                 daysInRow: 0,
-                lastUpdate: new Date().toLocaleDateString()
+                lastUpdate: new Date().toLocaleDateString(),
+                userIsPro: false,
             });
 
 

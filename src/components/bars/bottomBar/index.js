@@ -468,12 +468,12 @@ const BottomBar = (params) => {
         </Animated.View>
         
         <Animated.View style={{...styles.wrongMessageContainer, transform: [{translateY: wrongMessagePosition}] }}>
-            <Text style={styles.textMessage}>Wrong Answer, try again</Text>
+            <Text style={styles.textMessage}>{params.wrongMsg}</Text>
         </Animated.View>
 
 
         <Animated.View style={{...styles.correctMessageContainer, transform: [{translateY: correctMessagePosition}] }}>
-            <Text style={styles.textMessage}>Correct Answer</Text>
+            <Text style={styles.textMessage}>{params.correctMsg}</Text>
         </Animated.View>
 
         <View style={styles.mainContainer}>
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
     },
     textMessage: {
         color: 'brown',
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '700'
     }
 })

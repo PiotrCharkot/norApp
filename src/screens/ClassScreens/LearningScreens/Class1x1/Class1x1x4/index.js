@@ -112,11 +112,11 @@ const styles = StyleSheet.create({
   },
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   exampleContainer: {
     marginHorizontal: 20,

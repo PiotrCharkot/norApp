@@ -95,6 +95,9 @@ const styles = StyleSheet.create({
         width: 15,
         tintColor: 'grey'
     },
+    input: {
+        fontSize: 12
+    },
     leftContainer: {
         justifyContent: 'center',
         alignItems: 'center',

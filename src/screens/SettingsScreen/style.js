@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: 'grey',
-        fontSize: 18
+        fontSize: 15
     },
     infoContainer: {
         width: screenWidth - 80,

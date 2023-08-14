@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     pointsText: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '700'
     },
     valContainer: {
@@ -125,10 +125,12 @@ const styles = StyleSheet.create({
         paddingRight: 10
     },
     fieldDescText: {
-        color: 'grey'
+        color: 'grey',
+        fontSize: 12,
     },
     fieldValText: {
-        fontWeight: '600'
+        fontWeight: '600',
+        fontSize: 12,
     },
     img: {
         height : picSize - 8,
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     textLoginButton: {
         color: 'white',
         fontWeight: '900',
-        fontSize: 20
+        fontSize: 16
     },
     btnChangePicOpacity: {
         marginTop: 30,
@@ -162,6 +164,9 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: 'lightgrey',
         borderRadius: 15,
+    },
+    btnChangePicOpacityText: {
+        fontSize: 12
     }
 });
 

@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     marginBottom: 4
   },
   wordsTxt: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '500'
   },
   btnContainer: {

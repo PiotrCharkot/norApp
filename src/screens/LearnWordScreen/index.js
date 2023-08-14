@@ -3,7 +3,7 @@ import React, {useEffect, useState, useRef} from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { withAnchorPoint } from 'react-native-anchor-point';
 import { db } from '../../../firebase/firebase-config'
-import { collection, getDocs, query, doc, where, updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, doc, where, updateDoc, setDoc } from "firebase/firestore";
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
 import Loader from '../../components/other/Loader';
@@ -196,7 +196,8 @@ const LearnWordScreen = ({route}) => {
                 weeklyPoints: 0,
                 dailyPoints: 0,
                 daysInRow: 0,
-                lastUpdate: new Date().toLocaleDateString()
+                lastUpdate: new Date().toLocaleDateString(),
+                userIsPro: false,
             });
 
 

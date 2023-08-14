@@ -54,11 +54,6 @@ const styles = StyleSheet.create({
     titleContainer: {
         marginTop: 20
     },
-    titleText: {
-        fontSize: 30,
-        fontWeight: '600',
-        color: 'grey'
-    },
     flatlist: {
         paddingTop: 100,
     },
@@ -80,7 +75,7 @@ const styles = StyleSheet.create({
         
     },
     bonusPointsText: {
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '600',
         color: '#00308f'
     },
@@ -93,7 +88,7 @@ const styles = StyleSheet.create({
         left: 0
     },
     daysValText: {
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '500',
         color: 'brown'
     },
@@ -109,7 +104,7 @@ const styles = StyleSheet.create({
         paddingTop: 5
     },
     titleText: {
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '600',
         color: 'grey'
     },

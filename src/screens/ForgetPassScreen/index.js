@@ -157,6 +157,7 @@ useEffect(() => {
 
                             <Input 
                             style={styles.input}
+                            autoCapitalize='none'
                             placeholder='send password to'
                             inputContainerStyle={styles.inputContainerStyle}
                             leftIcon={<Image style={styles.inputImg} source={require('../../../assets/email.png')}/>}

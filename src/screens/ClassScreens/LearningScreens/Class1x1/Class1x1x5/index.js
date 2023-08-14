@@ -104,20 +104,20 @@ const styles = StyleSheet.create({
   },
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   textColor: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
     color: 'green'
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '700'
+    fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
     marginHorizontal: 20,

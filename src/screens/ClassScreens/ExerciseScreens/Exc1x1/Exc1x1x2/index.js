@@ -287,7 +287,7 @@ rightContainer: {
    
   },
   textInDraggable: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     color: 'white',
     

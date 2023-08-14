@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     },
     textButton: {
         fontWeight: '600',
-        color: 'brown'
+        color: 'brown',
+        fontSize: 12
     },
     flatListsContainer: {
         marginTop: 235,
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontWeight: '900',
-        fontSize: 20,
+        fontSize: 16,
         color: 'brown'
     },
     flatlist: {

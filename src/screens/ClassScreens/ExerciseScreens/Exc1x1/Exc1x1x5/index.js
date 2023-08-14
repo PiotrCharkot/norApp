@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   questionTextMiddle: {
-    fontSize: 20
+    fontSize: 16
   },
   buttonsContainer: {
     marginTop: 10,
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     color: 'grey'
   },
   exgzampleText: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     flexWrap: 'wrap'
   },

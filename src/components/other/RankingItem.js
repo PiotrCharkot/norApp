@@ -11,7 +11,6 @@ const RankingItem = (item) => {
 
     const interpolatedValue = useRef(new Animated.Value(0)).current;
 
-    const [daysInRow, setDaysInRow] = useState(item.params.daysInRow);
     const [imgSrc, setImgSrc] = useState("https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AHD_transparent_picture.png&psig=AOvVaw06tXtft-O_kCjAPf3xT_cS&ust=1677700689506000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLD1rp-Auf0CFQAAAAAdAAAAABAE");
     
     const circlePositionDeg = interpolatedValue.interpolate({
@@ -63,9 +62,7 @@ const RankingItem = (item) => {
         });
 
 
-        if (item.params.lastUpdate !== item.today && item.params.lastUpdate !== item.yesterday) {
-            setDaysInRow(0)
-        }
+        
     }, [])
     
                      
@@ -89,7 +86,7 @@ const RankingItem = (item) => {
 
                     <View style={styles.resultsContainer}>
                         <View style={styles.daysContainer}>
-                            <Text style={styles.daysText}>{daysInRow}  </Text> 
+                            <Text style={styles.daysText}>{item.params.lastUpdate !== item.today && item.params.lastUpdate !== item.yesterday ? 0 : item.params.daysInRow}  </Text> 
                             <Animated.Image style={{...styles.pictureSun, transform: [{rotate: circlePositionDeg}] }}  source={require('../../../assets/sun.png')} />
                         </View>
                         <View style={styles.pointsContainer}>
@@ -133,7 +130,7 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
     positionText: {
-        fontSize: 40,
+        fontSize: 32,
         fontWeight: '900',
         color: '#ad42f5',
         textShadowColor: 'white',
@@ -158,7 +155,7 @@ const styles = StyleSheet.create({
         height: 18,
     },
     nameText: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '600',
         
     },
@@ -180,14 +177,14 @@ const styles = StyleSheet.create({
         
     },
     daysText: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '400',
     },
     pointsContainer: {
         paddingRight: 20
     },
     pointsText: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '400',
     }
 })

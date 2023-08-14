@@ -91,7 +91,7 @@ const ProfilScreen = () => {
     });
     
    
-}
+  }
 
 
   const downloadFromFb = async () => {
@@ -127,29 +127,45 @@ const ProfilScreen = () => {
     
 
     const q = query(userFbPoints, where('userRef', '==', user.uid))
-      const querySnapshot = await getDocs(q);
+    const querySnapshot = await getDocs(q);
+
+
+    if (querySnapshot.empty) {
+      console.log('there is no user in usersPoint collection with id: ', user.uid);
+      setUserDays(0);
+      setUserPoints(0);
+      setUserDailyPoints(0);
+      setUserWeeklyPoints(0);
+    } else {
+
       querySnapshot.forEach((doc) => {
+    
       
-       
         setUserDays(doc.data().daysInRow);
         setUserPoints(doc.data().totalPoints);
         setUserDailyPoints(doc.data().dailyPoints);
         setUserWeeklyPoints(doc.data().weeklyPoints);
-
+  
         if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
           setUserDays(0);
         }
-
+  
         if (doc.data().lastUpdate !== new Date().toLocaleDateString()) {
           setUserDailyPoints(0);
         }
-
+  
         if (!currentWeek.includes(doc.data().lastUpdate)) {
           setUserWeeklyPoints(0)
         }
+  
+  
+      })
+
+    }
 
 
-    })
+
+    
 
     let shortId = user.uid.substring(0, 10);
     setUserShortId(shortId)
@@ -170,7 +186,7 @@ const ProfilScreen = () => {
 
     
     if (user) {
-      console.log('user: ', user.uid);
+      console.log('user id in Profile screen: ', user.uid);
       //setUserId(user.uid); 
     }
 
@@ -290,7 +306,7 @@ const ProfilScreen = () => {
 
 
           <TouchableOpacity style={styles.btnChangePicOpacity} onPress={() => navigation.navigate('ChangePic', {userId: user.uid})}>
-            <Text>Change Picture</Text>
+            <Text style={styles.btnChangePicOpacityText}>Change Picture</Text>
           </TouchableOpacity>
 
 

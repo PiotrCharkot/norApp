@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   frameTitleText: {
-    fontSize: 24,
+    fontSize: 19,
     fontWeight: '600'
   },
   wordChoice: {
@@ -382,14 +382,9 @@ const styles = StyleSheet.create({
     borderColor: "red",
   },
   textInDraggable: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     color: 'white'
-  },
-  exgzampleText: {
-    fontSize: 18,
-    fontWeight: '500',
-    flexWrap: 'wrap'
   },
   exgzampleTextContainer: {
     flexWrap: 'wrap',
@@ -412,7 +407,7 @@ const styles = StyleSheet.create({
     color: 'grey'
   },
   exgzampleText: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     flexWrap: 'wrap'
   },

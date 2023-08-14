@@ -442,12 +442,12 @@ const styles = StyleSheet.create({
     borderColor: "red",
   },
   textInDraggable: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     color: 'white'
   },
   exgzampleText: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
     flexWrap: 'wrap'
   },

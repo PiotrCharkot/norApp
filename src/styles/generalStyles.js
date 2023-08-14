@@ -7,14 +7,21 @@ const generalStyles = StyleSheet.create({
     correctAnswerConfirmationColor: 'rgb(144, 238, 144)',
     wrongAnswerConfirmationColor: 'rgb(252, 109, 118)',
     neutralAnswerConfirmationColor: 'rgb(255, 255, 255)',
-    exerciseScreenTitleSize: 22,
-    learningScreenTitleSize: 22,
+    exerciseScreenTitleSize: 18,
+    learningScreenTitleSize: 18,
     exerciseScreenTitleFontWeight: '700',
     learningScreenTitleFontWeight: '700',
-    screenTextSize: 22,
-    screenTextSizeSmall: 20,
-    exampleTextSize: 30,
-    exampleTextSizeSmall: 20,
+    exerciseScreenTitleFontWeightMedium: '400',
+    learningScreenTitleFontWeightMedium: '400',
+    exerciseScreenTitleFontWeightMediumPlus: '500',
+    learningScreenTitleFontWeightMediumPlus: '500',
+    fontWeightDraggable: '500',
+    screenTextSize: 17,
+    screenTextSizeSmall: 16,
+    screenTextSizeSmallest: 14,
+    screenTextSizeDraggable: 14,
+    exampleTextSize: 24,
+    exampleTextSizeSmall: 16,
     exampleBackgroundColor: 'lightgrey',
     exampleTextWeight: '700',
     gradientTopDraggable: '#2a0845',
@@ -27,7 +34,9 @@ const generalStyles = StyleSheet.create({
     gradientBottomCorrectDraggable: 'lightgreen',
     gradientTopWrongDraggable: 'darkred',
     gradientBottomWrongDraggable: 'red',
-    buttonNextPrevSize: 45
+    buttonNextPrevSize: 45,
+    answerBonus: 8,
+    screenBonus: 10
 
 
 });

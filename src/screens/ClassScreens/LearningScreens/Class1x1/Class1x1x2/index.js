@@ -23,7 +23,7 @@ const Class1x1x2 = ({route}) => {
         
       console.log('play sound å');
       const { sound: playbackObject } = await Audio.Sound.createAsync(
-          { uri: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Faa.mp3?alt=media&token=c8b73f09-ecf0-4917-ae52-1306d9dd8476' },
+          { uri: 'https://firebasestorage.googleapis.com/v0/b/norapp-69bd4.appspot.com/o/wordsList1%2Faa.mp3?alt=media&token=6dee1799-ea0e-4360-b17c-da923f358f01' },
           { shouldPlay: true }
         );
   }
@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,

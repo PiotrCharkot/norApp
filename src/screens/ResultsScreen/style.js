@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     positionText: {
         top: -35,
         position: 'absolute',
-        fontSize: 60,
+        fontSize: 48,
         fontWeight: '900',
         color: '#ad42f5',
         textShadowColor: 'white',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: 'black',
         bottom: - 30,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '600',
         numberOfLines: 1
     },
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: 'black',
         bottom: - 50,
+        fontSize: 12
     },
     switcherContainer: {
         position: 'absolute',
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
         right: 20
     },
     switcherText: {
-        fontSize: 16,
+        fontSize: 13,
         fontWeight: '600',
         color: '#ad42f5'
     }

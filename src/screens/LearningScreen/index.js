@@ -21,7 +21,7 @@ import learningData6 from '../../listData/learningData6';
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.6 + 20;
 const spacerSize = (screenWidth - cardSize) / 2;
-let docId = uuid.v4();
+
 const colorsBackFlatlist = ['#f2d891', '#96f291', '#9aedd4', '#91c8f2', '#f291df', '#f29191', '#f2ae91']
 const colorsBackFlatlist2 = ['#f21d1d', '#ebf21d', '#32f21d', '#1deef2', '#1d2bf2', '#d21df2', '#f21d72']
 const colorsBackFlatlist3 = ['#f9faac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac']
@@ -186,6 +186,10 @@ const LearningScreen = () => {
 
 
   const setDataToFb = async () => {
+
+    let docId = uuid.v4();
+
+
     await setDoc(doc(db, 'usersAchivments', docId), {
       userRef: userId,
       learning: {
@@ -207,7 +211,6 @@ const LearningScreen = () => {
       gold: 0,
       silver: 0,
       bronze: 0,
-      userIsPro: false,
 
     });
   }

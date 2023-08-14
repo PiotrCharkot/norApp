@@ -118,11 +118,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   questionText: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
   bottomBarContainer: {

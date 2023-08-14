@@ -52,22 +52,22 @@ const Class1x1x6 = ({route}) => {
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Jeg spiser frokost klokka syv hver dag</Text>
-            <Text style={styles.textSmall}>I eat breakfast at seven o'clock every day</Text>
+            <Text style={styles.exampleTextSmallThin}>I eat breakfast at seven o'clock every day</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Hun kommer nå</Text>
-            <Text style={styles.textSmall}>She is coming now</Text>
+            <Text style={styles.exampleTextSmallThin}>She is coming now</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Vi reiser til Norge neste måned</Text>
-            <Text style={styles.textSmall}>We are traveling to Norway next month</Text>
+            <Text style={styles.exampleTextSmallThin}>We are traveling to Norway next month</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Hun er syk</Text>
-            <Text style={styles.textSmall}>She is sick</Text>
+            <Text style={styles.exampleTextSmallThin}>She is sick</Text>
           </View>
         </View>
     
@@ -112,15 +112,15 @@ const styles = StyleSheet.create({
   },
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '700'
+    fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
     paddingHorizontal: 5,
@@ -133,16 +133,22 @@ const styles = StyleSheet.create({
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
     fontWeight: generalStyles.exampleTextWeight,
+    textAlign: 'center',
   },
   exampleText: {
     fontSize: generalStyles.exampleTextSize,
     fontWeight: generalStyles.exampleTextWeight,
+  },
+  exampleTextSmallThin: {
+    fontSize: generalStyles.screenTextSizeSmall,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    textAlign: 'center',
   },
   bottomBarContainer: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
   },
-  
-  
+
+
 })

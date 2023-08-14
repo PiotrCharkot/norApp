@@ -8,6 +8,7 @@ import { EmailAuthProvider, linkWithCredential, updateProfile  } from "firebase/
 import { Input } from "react-native-elements";
 import { withAnchorPoint } from 'react-native-anchor-point';
 import { LinearGradient } from 'expo-linear-gradient';
+import uuid from 'react-native-uuid';
 import GradientButton from '../../components/buttons/GradientButton';
 import styles from './style';
 
@@ -44,7 +45,7 @@ const xPositionDeg = interpolatedValueForX.interpolate({
 
 const updateUserNameInRankigs = async (userIdentyfication, userN) => {
     console.log('my id in update is: ', userIdentyfication, 'and name is: ', userN );
-    
+    let docId = uuid.v4();
     const q = query(usersPointsCollection, where('userRef', '==', userIdentyfication))
     const querySnapshot = await getDocs(q);
 
@@ -67,6 +68,18 @@ const updateUserNameInRankigs = async (userIdentyfication, userN) => {
         })
     } else {
         console.log('there is no user in rankings yet');
+        //set new document here
+
+        await setDoc(doc(db, 'usersPoints', docId), {
+            userRef: userIdentyfication,
+            userName: userN,
+            totalPoints: 0,
+            weeklyPoints: 0,
+            dailyPoints: 0,
+            daysInRow: 0,
+            lastUpdate: new Date().toLocaleDateString(),
+            userIsPro: false,
+        });
     }
 }
 
@@ -212,6 +225,7 @@ useEffect(() => {
 
                             <Input 
                             style={styles.input}
+                            autoCapitalize='none'
                             placeholder='username'
                             inputContainerStyle={styles.inputContainerStyle}
                             leftIcon={<Image style={styles.inputImg} source={require('../../../assets/profil.png')}/>}
@@ -225,6 +239,7 @@ useEffect(() => {
 
                             <Input 
                             style={styles.input}
+                            autoCapitalize='none'
                             placeholder='email address'
                             inputContainerStyle={styles.inputContainerStyle}
                             leftIcon={<Image style={styles.inputImg} source={require('../../../assets/email.png')}/>}

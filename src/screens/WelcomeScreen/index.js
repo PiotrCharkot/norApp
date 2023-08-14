@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   logoText: {
     marginTop: 80,
-    fontSize: 60,
+    fontSize: 48,
     color: 'black',
     fontWeight: 'bold',
     opacity: 1

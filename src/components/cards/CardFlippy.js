@@ -250,9 +250,10 @@ const styles = StyleSheet.create({
     },
     textNor: {
         color: 'white',
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '500',
         textAlign: 'center',
+        paddingHorizontal: 10,
         shadowColor: 'black',
         shadowOffset: {
             width: 0,
@@ -264,18 +265,18 @@ const styles = StyleSheet.create({
     },
     textNorExample: {
         color: 'white',
-        fontSize: 20,
-        paddingHorizontal: 5,
+        fontSize: 16,
+        paddingHorizontal: 18,
         fontWeight: '500',
         textAlign: 'center',
     },
     textTranslation: {
         color: 'white',
-        fontSize: 30,
+        fontSize: 24,
         fontWeight: '500',
         shadowColor: 'black',
         textAlign: 'center',
-        paddingHorizontal: 5,
+        paddingHorizontal: 10,
         shadowOffset: {
             width: 0,
             height: 0,

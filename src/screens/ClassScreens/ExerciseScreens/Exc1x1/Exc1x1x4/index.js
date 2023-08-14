@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   text: {
-    fontSize: 19,
+    fontSize: 16,
     paddingBottom: 4,
     fontWeight: '400'
   },

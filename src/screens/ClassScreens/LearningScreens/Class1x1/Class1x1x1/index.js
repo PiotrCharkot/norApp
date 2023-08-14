@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '400',
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
   bottomBarContainer: {
     position: 'absolute',

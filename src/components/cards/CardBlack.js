@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: '800',
         shadowOffset: {
             width: -1,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     },
     textDescription: {
         color: 'white',
-        fontSize: 13,
+        fontSize: 11,
         fontWeight: '500'
     },
     reindeerContainer: {

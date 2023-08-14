@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     },
     textButton: {
         fontWeight: '600',
-        color: 'brown'
+        color: 'brown',
+        fontSize: 12
     },
     choosenLanguageContainer: {
         flexDirection: 'row',
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     languageText: {
         marginRight: 5,
         fontWeight: '800',
-        fontSize: 18,
+        fontSize: 14,
         color: 'brown'
     },
     iconLanguageImg:{

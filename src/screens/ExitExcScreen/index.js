@@ -114,7 +114,8 @@ const ExitExcScreen = ({route}) => {
         weeklyPoints: userPoints,
         dailyPoints: userPoints,
         daysInRow: 0,
-        lastUpdate: new Date().toLocaleDateString()
+        lastUpdate: new Date().toLocaleDateString(),
+        userIsPro: false,
       });
 
       setShowLineOffset(true);
@@ -446,7 +447,7 @@ const ExitExcScreen = ({route}) => {
           colorIcon={'white'}
           heightIcon={15} 
           widthIcon={15}
-          fontSize={20}
+          fontSize={16}
           noText={false}
           text={' go to main'}
           colorText={'white'}
@@ -469,7 +470,7 @@ const ExitExcScreen = ({route}) => {
           colorIcon={'white'}
           heightIcon={15} 
           widthIcon={15}
-          fontSize={20}
+          fontSize={16}
           noText={false}
           text={' check rankings '}
           colorText={'white'}
@@ -493,7 +494,7 @@ const ExitExcScreen = ({route}) => {
           </View>
 
         </View>
-        <Text>Today score: {currentDailyScore + userPoints}</Text>
+        <Text style={styles.todayScoreText}>Today score: {currentDailyScore + userPoints}</Text>
 
       </View>
       
@@ -516,14 +517,14 @@ const styles = StyleSheet.create({
     paddingTop: 100,
   },
   numbersTxt:{ 
-    fontSize: 45,
+    fontSize: 36,
     color: 'grey'
   },
   numberHolder: {
     position: 'absolute',
   },
   resultsTxt: {
-    fontSize: 20,
+    fontSize: 16,
     marginTop: 5
   },
   topLeftView: {
@@ -555,7 +556,7 @@ const styles = StyleSheet.create({
     
   },
   resultPecentText: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '700'
   },
   indicatorGradient: {
@@ -614,6 +615,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#283c86',
     borderWidth: 1,
     
+  },
+  todayScoreText: {
+    fontSize: 12
   },
   buttonView: {
     marginTop: 10
