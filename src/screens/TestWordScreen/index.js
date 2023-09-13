@@ -9,6 +9,7 @@ import styles from './style'
 import CardFlippy from '../../components/cards/CardFlippy'
 import Loader from '../../components/other/Loader';
 import { withAnchorPoint } from 'react-native-anchor-point';
+import { FlashList } from '@shopify/flash-list';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.7 + 20;
@@ -116,14 +117,21 @@ const TestWordScreen = ({route}) => {
     const changeSides = () => {
         
         if (flip === false) {
+            setShowContent(false);
             save('norwegianFirst', 'yes');
             setFlip(true);
             
         } else if (flip === true) {
+            setShowContent(false);
             save('norwegianFirst', 'no');
             setFlip(false);
             
         }
+
+        setTimeout(() => {
+            
+            setShowContent(true);
+        }, 1000);
     }
 
     const exitButton = () => {
@@ -168,12 +176,13 @@ const TestWordScreen = ({route}) => {
     const confirmButton = (wordRef) => {
         
         setWordsLvlUp([...wordsLvlUp, wordRef])  
-        console.log(wordsLvlUp);
+        console.log('word up', wordRef, wordsLvlUp);
     }
 
     const denyButton = (wordRef) => {
         
         setWordsLvlDown([...wordsLvlDown, wordRef])
+        console.log('word down', wordRef, wordsLvlDown);
     }
 
     const updateUsersWordInfo = async () => {
@@ -482,9 +491,17 @@ const TestWordScreen = ({route}) => {
         if (savedLang === 'PL') {
             setBtnTxt('Pol');
         } else if (savedLang === 'ES') {
-            setBtnTxt('Esp')
+            setBtnTxt('Spa')
         } else if (savedLang === 'EN') {
             setBtnTxt('Eng')
+        } else if (savedLang === 'DE') {
+            setBtnTxt('Ger')
+        }  else if (savedLang === 'LT') {
+            setBtnTxt('Lit')
+        }  else if (savedLang === 'UA') {
+            setBtnTxt('Ukr')
+        }  else if (savedLang === 'AR') {
+            setBtnTxt('Ara')
         } 
 
         getDataFb();
@@ -513,7 +530,7 @@ const TestWordScreen = ({route}) => {
 
             let arrayAllInfo = userWordInfo.words1.concat(userWordInfo.words2, userWordInfo.words3, userWordInfo.words4, userWordInfo.words5)
 
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 50; i++) {
                 
                 let random1 = arrayAllInfo[Math.floor(Math.random() * arr1Leng)];
                 
@@ -626,7 +643,7 @@ const TestWordScreen = ({route}) => {
                 
             } 
             
-            
+            console.log('length of list is: ', modifiedData.length);
             setDataFlatList([{key: 'left-spacer'}, ...modifiedData, {key: 'right-spacer'}])
             
         }
@@ -692,10 +709,10 @@ const TestWordScreen = ({route}) => {
 
 
             {showContent ? (
-                <FlatList 
+                <FlashList 
                     
                     horizontal
-                    style={styles.flatlist}
+                    //style={styles.flatlist}
                     estimatedItemSize={cardSize}
                     showsHorizontalScrollIndicator={false}
                     snapToInterval={cardSize}

@@ -35,6 +35,10 @@ const CardLearn = (params) => {
         setTranslation(wordData.lt)
       } else if (userLanguage === 'AR') {
         setTranslation(wordData.ar)
+      } else if (userLanguage === 'UA') {
+        setTranslation(wordData.ua)
+      } else if (userLanguage === 'ES') {
+        setTranslation(wordData.sp)
       }
     
     }, [])
@@ -49,7 +53,7 @@ const CardLearn = (params) => {
             <View style={styles.topHalf}>
 
                 <Text style={{...styles.textNor, fontSize: wordData.norexp ? 20 : 24}}>{wordData.nor}</Text>
-                <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 20}}>{wordData.example}</Text>
+                <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 20}}>{wordData.norEgz}</Text>
                 
 
             </View>

@@ -145,6 +145,7 @@ const ProfilScreen = () => {
         setUserPoints(doc.data().totalPoints);
         setUserDailyPoints(doc.data().dailyPoints);
         setUserWeeklyPoints(doc.data().weeklyPoints);
+        setUsername(doc.data().userName);
   
         if (doc.data().lastUpdate !== today && doc.data().lastUpdate !== yesterday) {
           setUserDays(0);
@@ -197,7 +198,6 @@ const ProfilScreen = () => {
     } else {
       
       setUserLoged(false);
-      setUsername('Guest');
       setUserEmail('No email');
     }
 

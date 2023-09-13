@@ -74,8 +74,8 @@ const Class1x2x7 = ({route}) => {  //name
         buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={'Class1x2x8'}  //link to next screen
         linkPrevious={'Class1x2x6'} //link to previous screen
-        correctMsg={'Keep up the good work'} //correct msg
-        wrongMsg={`There are 3 correct answers. Let's find them`} //wrong msg
+        correctMsg={'Keep up the good work.'} //correct msg
+        wrongMsg={`There are 3 correct answers. Let's find them.`} //wrong msg
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}

@@ -120,6 +120,12 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: '#6441A5',
+    fontWeight: '500'
+  },  
   boldText: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight

@@ -114,8 +114,9 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: 'green'
-  },
+    color: '#6441A5',
+    fontWeight: '500'
+  },  
   boldText: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight

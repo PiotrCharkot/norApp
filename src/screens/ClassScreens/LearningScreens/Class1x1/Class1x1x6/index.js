@@ -14,7 +14,6 @@ const Class1x1x6 = ({route}) => {
   
     const {userPoints,  latestScreen, comeBackRoute, allScreensNum} = route.params
     
-    console.log('points last screen in 6: ' , userPoints );
 
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
@@ -38,37 +37,29 @@ const Class1x1x6 = ({route}) => {
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>We use present time when:</Text>
-            <Text style={styles.text}></Text>
-
-            <Text style={styles.textSmall}> - something happens regulary,</Text>
-            <Text style={styles.textSmall}> - something happens right now,</Text>
-            <Text style={styles.textSmall}> - something is going to happen in the future,</Text>
-            <Text style={styles.textSmall}> - we want to describe current state, abilities or characteristics</Text>
-
-            
-
+            <Text style={styles.text}>But hey, a subject doesn't always have to be a person. It could be a place or even an abstract concept. {'\n\n'}One golden rule: <Text style={styles.textColor}>verb</Text> has to be always on the <Text style={styles.boldText}>second</Text> place in positive sentence.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Jeg spiser frokost klokka syv hver dag</Text>
-            <Text style={styles.exampleTextSmallThin}>I eat breakfast at seven o'clock every day</Text>
+            <Text style={styles.exampleTextSmall}>Tiden <Text style={styles.exampleTextSmallColor}>leger</Text> alle sår.</Text>
+            <Text style={styles.textSmall}>Time heals all wounds.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Hun kommer nå</Text>
-            <Text style={styles.exampleTextSmallThin}>She is coming now</Text>
+            <Text style={styles.exampleTextSmall}>Tillit <Text style={styles.exampleTextSmallColor}>kommer</Text> med tiden.</Text>
+            <Text style={styles.textSmall}>Trust comes with time.</Text>
+          </View>
+          
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Vann <Text style={styles.exampleTextSmallColor}>koker</Text> i en kjele.</Text>
+            <Text style={styles.textSmall}>Water boils in a pot.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Vi reiser til Norge neste måned</Text>
-            <Text style={styles.exampleTextSmallThin}>We are traveling to Norway next month</Text>
+            <Text style={styles.exampleTextSmall}>Her <Text style={styles.exampleTextSmallColor}>bor</Text> jeg.</Text>
+            <Text style={styles.textSmall}>I live here.</Text>
           </View>
 
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Hun er syk</Text>
-            <Text style={styles.exampleTextSmallThin}>She is sick</Text>
-          </View>
         </View>
     
 
@@ -118,12 +109,17 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: 'green',
+    fontWeight: '500'
+  },
   boldText: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
-    paddingHorizontal: 5,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',
@@ -133,22 +129,21 @@ const styles = StyleSheet.create({
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
     fontWeight: generalStyles.exampleTextWeight,
-    textAlign: 'center',
+  },
+  exampleTextSmallColor: {
+    fontSize: generalStyles.exampleTextSizeSmall,
+    fontWeight: generalStyles.exampleTextWeight,
+    color: 'green'
   },
   exampleText: {
     fontSize: generalStyles.exampleTextSize,
     fontWeight: generalStyles.exampleTextWeight,
-  },
-  exampleTextSmallThin: {
-    fontSize: generalStyles.screenTextSizeSmall,
-    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    textAlign: 'center',
   },
   bottomBarContainer: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
   },
-
-
+  
+  
 })

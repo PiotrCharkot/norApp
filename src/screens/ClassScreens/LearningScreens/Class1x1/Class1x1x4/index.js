@@ -1,74 +1,77 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React, { useState, useEffect  } from 'react'
+import {View, Text, StyleSheet, ScrollView, Dimensions, StatusBar, TouchableOpacity, Image, SafeAreaView, } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
+import Draggable from '../../../../../components/other/Draggable'
 import generalStyles from '../../../../../styles/generalStyles';
+
 
 const currentScreen = 4;
 
 
+const Class1x1x4 = ({ route }) => {
 
-const Class1x1x4 = ({route}) => {
-
-  
-    const {userPoints,  latestScreen, comeBackRoute, allScreensNum} = route.params
+    const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
-    console.log('points last screen in 4: ' , userPoints );
-
+    console.log('points 3 screen: ' , userPoints );
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
+    
 
 
     useFocusEffect(() => {
         if (latestScreen > currentScreen) {
             setLatestScreenDone(latestScreen);
             setComeBack(true)
-        } 
+        }
 
         if (route.params.userPoints > 0) {
+            console.log('setting new points', route.params.userPoints );
             setCurrentPoints(userPoints)
         }
+
+        
     })
 
+    
+
+
+    
 
   return (
     <View style={styles.mainContainer}>
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
+
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Norwegian verb can not stand alone in the sentence. It also needs a subject like 'I' or 'You'.</Text>
+            <Text style={styles.text}><Text style={styles.textColor}>Irregular verbs</Text> like to play by their own rules. They don't stick to the patterns we talked about earlier. Instead, they've got their own special forms in the present tense. So, heads up, you'll want to remember these!</Text>
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Let's see how can we use verb 'å like' (to like).</Text>
+            <Text style={styles.text}>Here are some common ones:</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Jeg liker musikk<Text style={styles.textSmall}> - I like music</Text></Text>
+            <Text style={styles.exampleText}>å være - er</Text>
+            <Text style={styles.text}>to be</Text>
           </View>
+
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Du liker musikk<Text style={styles.textSmall}> - You like music</Text></Text>
+            <Text style={styles.exampleText}>å gjøre - gjør</Text>
+            <Text style={styles.text}>to do</Text>
           </View>
+
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Han liker musikk<Text style={styles.textSmall}> - He likes music</Text></Text>
+            <Text style={styles.exampleText}>å kunne - kan</Text>
+            <Text style={styles.text}>to be able to</Text>
           </View>
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Hun liker musikk<Text style={styles.textSmall}> - She likes music</Text></Text>
-          </View>
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Det liker musikk<Text style={styles.textSmall}> - It likes music</Text></Text>
-          </View>
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Vi liker musikk<Text style={styles.textSmall}> - We like music</Text></Text>
-          </View>
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Dere liker musikk<Text style={styles.textSmall}> - You like music</Text></Text>
-          </View>
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>De liker musikk<Text style={styles.textSmall}> - They like music</Text></Text>
-          </View>
+
+          
+
+            
         </View>
     
 
@@ -110,30 +113,37 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginHorizontal: 20
   },
-  textSmall: {
-    fontSize: generalStyles.screenTextSizeSmall,
-    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-  },
   text: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
-  exampleContainer: {
-    marginHorizontal: 20,
-    marginVertical: 10,
-    alignItems: 'center',
-    backgroundColor: generalStyles.exampleBackgroundColor,
-    borderRadius: 6
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: '#6441A5',
+    fontWeight: '500'
   },
-  exampleTextSmall: {
-    fontSize: generalStyles.exampleTextSizeSmall,
-    fontWeight: generalStyles.exampleTextWeight,
+  questionText: {
+    fontSize: generalStyles.learningScreenTitleSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeight,
+    marginVertical: 10,
   },
   bottomBarContainer: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
   },
-  
+  exampleContainer: {
+    marginHorizontal: 20,
+    marginVertical: 20,
+    alignItems: 'center',
+    backgroundColor: generalStyles.exampleBackgroundColor,
+    borderRadius: 6
+  },
+  exampleText: {
+    fontSize: generalStyles.exampleTextSize,
+    fontWeight: generalStyles.exampleTextWeight,
+  },
   
 })
+

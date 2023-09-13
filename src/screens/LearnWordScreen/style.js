@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         paddingTop: 100,
     },
     body: {
+        height: '100%',
         alignItems: 'center',
         paddingTop: 0
     },

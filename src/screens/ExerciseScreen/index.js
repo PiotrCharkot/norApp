@@ -28,7 +28,8 @@ const ExerciseScreen = () => {
   const overlayOpacity = useRef(new Animated.Value(1)).current;
   const overlayOffset = useRef(new Animated.Value(0)).current;
 
-  const [dataFlatList, setDataFlatList] = useState([])
+  const [dataFlatList, setDataFlatList] = useState([]);
+  const [random, setRandom] = useState(0);
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -47,8 +48,15 @@ const ExerciseScreen = () => {
   })
 
 
+  const imagesMain = [require('../../../assets/reindeerRobo1.png'), require('../../../assets/reindeerRobo2.png'), require('../../../assets/reindeerRobo3.png'), require('../../../assets/reindeerRobo4.png'), require('../../../assets/reindeerRobo5.png'), require('../../../assets/reindeerRobo6.png')];
+  const imagesMainBlurred = [require('../../../assets/reindeerRobo1Blurred.png'), require('../../../assets/reindeerRobo2Blurred.png'), require('../../../assets/reindeerRobo3Blurred.png'), require('../../../assets/reindeerRobo4Blurred.png'), require('../../../assets/reindeerRobo5Blurred.png'), require('../../../assets/reindeerRobo6Blurred.png')];
+
+
   useEffect(() => {
-    setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}])
+    setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}]);
+
+    let tempVal = Math.floor(Math.random() * imagesMain.length);
+    setRandom(tempVal)
   }, [])
 
   useEffect(() => {
@@ -151,8 +159,8 @@ const ExerciseScreen = () => {
       scrollEventThrottle={16}
       >
 
-        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeerMid2.png')}/>
-        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeerMid2Blurred.png')}/>
+        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={imagesMain[random]}/>
+        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={imagesMainBlurred[random]}/>
         <Animated.View style={{...styles.gradientContainer, transform: [{scale: scaleImgOnDrag}]}}>
 
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>

@@ -71,6 +71,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         
     },
+    languageContainerList: {
+        flexDirection: 'row',
+        paddingVertical: 5,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        
+    },
     languageText: {
         marginRight: 5,
         fontWeight: '800',
@@ -89,10 +96,10 @@ const styles = StyleSheet.create({
     languageList: {
         position: 'absolute',
         width: 55,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
         right: 10,
         padding: 5,
-        top: -5,
+        top: -35,
         borderRadius: 5,
         
     },

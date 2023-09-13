@@ -10,23 +10,13 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 const answerBonus = generalStyles.answerBonus;
 const currentScreen = 9;
-const totalPoints = 3 * generalStyles.answerBonus + currentScreen * generalStyles.screenBonus;
-const dataForMarkers = {
-  part: 'learning',
-  section: 'section1',
-  class: 0
-}
-
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const wordsCorrect = [
-    [
-        ['jeg', 'spiser', 'mat', 'nå'],
-        ['nå',  'spiser', 'jeg','mat'],
-        ['mat', 'spiser', 'jeg', 'nå'],
-    ]
-]
+const correctAnswers = ['Jeg', 'trenger'];
+// exapmle ==> const correctAnswers = ['Jeg', 'trenger', 'tretti år', 'gammel'];
+const indexOfGaps = [1]
+const indexOfText = [0, 2, 3, 4, 5]
 
 const Class1x1x9 = ({ route }) => {
 
@@ -35,12 +25,10 @@ const Class1x1x9 = ({ route }) => {
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['nå', 'jeg' , 'mat', 'spiser' ]);
+    const [words, setWords] = useState(['Jeg' ,'            ', 'hjelp', 'til å',  'skrive', 'jobbsøknad.','!!!' , 'trengte', 'å trenge' ,'trenger' ,'to trenger' , 'æ trenge' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
-
-    const allUserAnswers = [words]
     
 
     useFocusEffect(() => {
@@ -54,7 +42,7 @@ const Class1x1x9 = ({ route }) => {
           setCurrentPoints(userPoints)
       }
 
-
+        
     })
 
     useEffect(() => {
@@ -88,41 +76,57 @@ const Class1x1x9 = ({ route }) => {
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Set words in correct order.</Text>
-                <Text style={styles.textBody}>(I'm eating food now.)</Text>
+                <Text style={styles.questionText}>Drag word to the gap to create correct sentence in present time.</Text>
+                <Text style={styles.textBody}>(I <Text style={styles.textColor}>need</Text> help to write job application.)</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
 
 
                 {words.map((item, index) => {
-                    return (
-                        <Draggable
-                        key={index}
-                        index={index}
-                        movingDraggable={movingDraggable}
-                        onMovingDraggable={onMovingDraggable}
-                        releaseDraggable={releaseDraggable}
-                        onReleaseDraggable={onReleaseDraggable}
-                        swap={swap}
-                        renderChild={(isMovedOver) => {
-                            return (
-        
-                            <LinearGradient
-                            colors={[gradientTop, gradientBottom]}
+                    
+                    if (indexOfText.includes(index)) {
+                        return (
+                            <View style={styles.exgzampleTextContainer} key={index}>
+                                <Text style={styles.textBody}>{item}</Text>
+                            </View>
+                        )
+                    } else if (item === '!!!') {
+                        return (
+                            <View style={styles.spacer} key={index}>
+                               
+                            </View>
+                        )
+                    }
+                    else {
+                        return (
+                            <Draggable
                             key={index}
-                                style={[
-                                isMovedOver && styles.draggableContainerSwap,
-                                styles.draggableContainer,
-                                ]}
-                            >
-                                
-                                <Text style={styles.textInDraggable}>{item}</Text>
-                            </LinearGradient>
-                            );
-                        }}
-                        />
-                    );
+                            index={index}
+                            movingDraggable={movingDraggable}
+                            onMovingDraggable={onMovingDraggable}
+                            releaseDraggable={releaseDraggable}
+                            onReleaseDraggable={onReleaseDraggable}
+                            swap={swap}
+                            renderChild={(isMovedOver) => {
+                                return (
+            
+                                <LinearGradient
+                                colors={[gradientTop, gradientBottom]}
+                                key={index}
+                                    style={[
+                                    isMovedOver && styles.draggableContainerSwap,
+                                    item.trim() == '' && !indexOfGaps.includes(index) ?  styles.draggableContainerEmpty : styles.draggableContainer,
+                                    ]}
+                                >
+                                    
+                                    <Text style={styles.textInDraggable}>{item}</Text>
+                                </LinearGradient>
+                                );
+                            }}
+                            />
+                        );
+                    }
                     
                 })}
 
@@ -132,14 +136,14 @@ const Class1x1x9 = ({ route }) => {
 
       <View style={styles.bottomBarContainer}>
         <BottomBar 
-        callbackButton={'checkAnswerOrderCheck'}
-        userAnswers={allUserAnswers}
-        correctAnswers={wordsCorrect}
+        callbackButton={'checkAnswer'}
+        userAnswers={words}
+        correctAnswers={correctAnswers}
         answerBonus={answerBonus}
-        linkNext={'ExitExcScreen'}
-        linkPrevious={'Class1x1x8'}
-        correctMsg={'Keep up the good work'}
-        wrongMsg={'Oh shoot, that is wrong!'}
+        linkNext={'Class1x1x10'}
+        linkPrevious={'Class1x1x8'} 
+        correctMsg={'Impressive...'}
+        wrongMsg={`You've made a mistake. Let's recheck.`}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
@@ -147,9 +151,6 @@ const Class1x1x9 = ({ route }) => {
         currentScreen={currentScreen}
         questionScreen={true}
         comeBack={comeBack}
-        totalPoints={totalPoints}
-        learningScreen={true}
-        dataForMarkers={dataForMarkers}
         allScreensNum={allScreensNum}
         />
       </View>
@@ -225,6 +226,10 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSizeSmallest,
     fontWeight: generalStyles.learningScreenTitleFontWeightMediumPlus,
     flexWrap: 'wrap'
+  },
+  textColor: {
+    color: '#6441A5',
+    fontWeight: '500'
   },
   exgzampleTextContainer: {
     flexWrap: 'wrap',

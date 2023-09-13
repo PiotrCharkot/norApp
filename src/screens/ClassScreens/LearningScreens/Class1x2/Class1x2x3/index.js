@@ -65,7 +65,7 @@ const Class1x2x3 = ({ route }) => { //name
 
 
           <View style={styles.textContainer}>
-                <Text style={styles.text}>leans more towards expressing a <Text style={styles.boldText}>willingness</Text> or a <Text style={styles.boldText}>prediction</Text>.</Text>
+                <Text style={styles.text}>leans more towards expressing a <Text style={styles.boldText}>willingness</Text> or a <Text style={styles.boldText}>desire</Text>.</Text>
             </View>
 
 

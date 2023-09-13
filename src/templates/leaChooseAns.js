@@ -122,6 +122,9 @@ const styles = StyleSheet.create({
   },
   textBold: {
     color: 'grey'
-  }
+  },
+  textColor: {
+    color: '#6441A5',
+  },
   
 })

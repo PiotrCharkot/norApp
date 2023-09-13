@@ -49,7 +49,7 @@ const Class1x1x2 = ({route}) => {
         <View style={styles.body}>
 
           <View style={styles.textContainer}>
-              <Text style={styles.text}>The base form of a verb is a verb with no changes and letter <Text style={styles.boldText}>'å'</Text> in front of it. For example the verb 'to help' is going to look like this: </Text>
+              <Text style={styles.text}>Ever heard of the <Text style={styles.textColor}>infinitive</Text> form of a verb in Norwegian? It's simply the unchanged, basic form of the verb with an <Text style={styles.boldText}>'å'</Text> in front. For instance, the verb 'to help' translates to: </Text>
           </View>
 
           <View style={styles.exampleContainer}>
@@ -57,7 +57,7 @@ const Class1x1x2 = ({route}) => {
           </View>
 
           <View style={styles.textContainer}>
-              <Text style={styles.text}>This is pronunciation of letter 'å'.</Text>
+              <Text style={styles.text}>By the way, here's how you pronounce 'å':</Text>
           </View>
 
           <View style={styles.pictureContainer}>
@@ -111,6 +111,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+  },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: '#6441A5',
+    fontWeight: '500'
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,

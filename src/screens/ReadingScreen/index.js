@@ -30,7 +30,8 @@ const ReadingScreen = () => {
   const overlayOffset = useRef(new Animated.Value(0)).current;
   const interpolatedValueForX = useRef(new Animated.Value(0)).current;
 
-  const [dataFlatList, setDataFlatList] = useState([])
+  const [dataFlatList, setDataFlatList] = useState([]);
+  const [random, setRandom] = useState(0);
 
   const xPositionDeg = interpolatedValueForX.interpolate({
       inputRange: [0, 360],
@@ -53,6 +54,10 @@ const ReadingScreen = () => {
     inputRange: colorsBackFlatlist5.map((_, i) => i * cardSize),
     outputRange: colorsBackFlatlist5.map((i) => i)
   })
+
+
+  const imagesMain = [require('../../../assets/reindeerBook1.png'), require('../../../assets/reindeerBook2.png'), require('../../../assets/reindeerBook3.png'), require('../../../assets/reindeerBook4.png'), require('../../../assets/reindeerBook5.png')];
+  const imagesMainBlurred = [require('../../../assets/reindeerBook1Blurred.png'), require('../../../assets/reindeerBook2Blurred.png'), require('../../../assets/reindeerBook3Blurred.png'), require('../../../assets/reindeerBook4Blurred.png'), require('../../../assets/reindeerBook5Blurred.png')];
 
 
   const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -80,6 +85,8 @@ const ReadingScreen = () => {
 }
 
   useEffect(() => {
+    let tempVal = Math.floor(Math.random() * imagesMain.length);
+    setRandom(tempVal)
     setDataFlatList([{key: 'left-spacer'}, ...textListData, {key: 'right-spacer'}])
   }, [])
 
@@ -165,8 +172,8 @@ const ReadingScreen = () => {
       scrollEventThrottle={16}
       >
 
-        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={require('../../../assets/reindeer-colorballs.png')}/>
-        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={require('../../../assets/reindeer-colorballs-blur.png')}/>
+        <Animated.Image style={{...styles.mainImg, transform: [{scale: scaleImgOnDrag}]}} source={imagesMain[random]}/>
+        <Animated.Image style={{...styles.mainImg, opacity: opacityImgBlur}} source={imagesMainBlurred[random]}/>
         <Animated.View style={{...styles.gradientContainer, transform: [{scale: scaleImgOnDrag}]}}>
 
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>

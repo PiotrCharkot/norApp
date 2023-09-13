@@ -82,8 +82,8 @@ const Class1x2x8 = ({ route }) => { // name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag words and place them in correct order to make a positive? sentence in future tense.</Text>
-                <Text style={styles.textBody}>(additional info text e.g. translation)</Text>
+                <Text style={styles.questionText}>Drag words and place them in correct order to make a positive sentence in future tense.</Text>
+                <Text style={styles.textBody}>(He is going to take the train tomorrow)</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -132,7 +132,7 @@ const Class1x2x8 = ({ route }) => { // name
         answerBonus={answerBonus}
         linkNext={'Class1x2x9'} //link next screen 
         linkPrevious={'Class1x2x7'} //link previous screen
-        correctMsg={'Keep up the good work'} //correct msg
+        correctMsg={`You’re doing a great job!`} //correct msg
         wrongMsg={'Oh shoot, that is wrong!'} //wrong msg
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}

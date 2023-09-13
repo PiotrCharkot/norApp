@@ -2,7 +2,8 @@ import { View, Text, StyleSheet, Dimensions, Animated, Image } from 'react-nativ
 import React, { useState, useEffect, useRef } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import GradientButton from '../../buttons/GradientButton'
+import GradientButton from '../../buttons/GradientButton';
+import generalStyles from '../../../styles/generalStyles';
 
 const screenWidth = Dimensions.get('window').width;
 const iconColor = 'white';
@@ -87,7 +88,7 @@ const BottomBar = (params) => {
     const buttonAction = () => {
         if (buttonFunction === 'checkAnswer' && params.currentScreen >= params.latestScreen ) {
 
-            let additonalScreenPoints = params.learningScreen ? params.currentScreen * 10 : 0;
+            let additonalScreenPoints = params.learningLastScreen ? params.currentScreen * generalStyles.screenBonus : 0;
             
             let isCorrect = () => {
                 let returnVal;
@@ -364,7 +365,7 @@ const BottomBar = (params) => {
             setPathIcon('next');
         } else if (buttonFunction === 'checkAnswerOrderCheck' && params.currentScreen >= params.latestScreen ) {
 
-            let additonalScreenPoints = params.learningScreen ? params.currentScreen * 10 : 0;
+            let additonalScreenPoints = params.learningLastScreen ? params.currentScreen * generalStyles.screenBonus : 0;
 
             const arrayEquals = (a, b) => {
                 return Array.isArray(a) &&

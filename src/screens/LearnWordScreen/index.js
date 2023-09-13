@@ -2,7 +2,7 @@ import { View, Text, FlatList, Animated, Dimensions, TouchableOpacity, Image, Ea
 import React, {useEffect, useState, useRef} from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { withAnchorPoint } from 'react-native-anchor-point';
-import { db } from '../../../firebase/firebase-config'
+import { db } from '../../../firebase/firebase-config';
 import { collection, getDocs, query, doc, where, updateDoc, setDoc } from "firebase/firestore";
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
@@ -42,7 +42,6 @@ const LearnWordScreen = ({route}) => {
     let currentWeek = allDaysOfWeek.slice(0, dayOfWeek)
 
     
-    const scrollX = useRef(new Animated.Value(0)).current;
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
     const pointsRotation = useRef(new Animated.Value(0)).current;
     const pointsOffset = useRef(new Animated.Value(160)).current; 
@@ -279,21 +278,12 @@ const LearnWordScreen = ({route}) => {
         if (!item.nor) {
           return <View style={{width: spacerSize}} ></View>
         }
-        const inputRange = [
-          (index - 2) * cardSize,
-          (index - 1) * cardSize,
-          index  * cardSize,
-        ];
+        
     
-        const translateY = scrollX.interpolate({
-          inputRange,
-          outputRange: [0, -50, 0]
-        })
-    
-        return <Animated.View style={{transform: [{translateY}]}}>
+        return <View>
     
           <CardLearn wordData={item} lang={savedLang}/>
-        </Animated.View>
+        </View>
     }
 
 
@@ -344,7 +334,7 @@ const LearnWordScreen = ({route}) => {
                             <Text style={styles.daysValText}> streak</Text>
                     </Animated.View>
 
-                    <Animated.FlatList 
+                    <FlatList 
                         style={styles.flatlist}
                         horizontal
                         showsHorizontalScrollIndicator={false}
@@ -353,11 +343,8 @@ const LearnWordScreen = ({route}) => {
                         data={dataFlatList}
                         renderItem={renderCard}
                         keyExtractor={(item) => item.key}
-                        onScroll={Animated.event(
-                        [{nativeEvent: {contentOffset: {x: scrollX}}}],
-                        {useNativeDriver: false}
-                        )}
                         scrollEventThrottle={16}
+                        
                     />
                 </View>
             ) : (

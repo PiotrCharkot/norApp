@@ -54,10 +54,11 @@ const styles = StyleSheet.create({
     },
     body: {
         height: '100%',  
+        
     },
     flatlist: {
         marginTop: 10,
-        paddingTop: 30,
+        paddingTop: 10,
         overflow: 'visible',
         height: '100%',
     },

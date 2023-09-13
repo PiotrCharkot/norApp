@@ -43,7 +43,7 @@ const Class1x2x1 = ({route}) => {   //name
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
         <View style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Presens futurum - future time</Text>
+            <Text style={styles.title}>Future tense - Presens futurum</Text>
           </View>
 
           <View style={styles.middleView}>
@@ -51,7 +51,7 @@ const Class1x2x1 = ({route}) => {   //name
               Hei{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}!
             </Text>
             <Text style={styles.text}>
-            We'll talk now about the future tense in Norwegian language. We often come across the term 'presens futurum' or just 'futurum'. It's the way to express things, events, or states set to occur in future.
+            We'll talk now about the future tense in Norwegian language. {'\n\n'}We often come across the term 'presens futurum' or just 'futurum'. It's the way to express things, events, or states set to occur in future.
             </Text>
 
             

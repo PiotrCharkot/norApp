@@ -40,7 +40,7 @@ const Class1x1x4 = ({route}) => { // name
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>But wait {user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}>{user.displayName}</Text>}, there's another way to paint a picture of the future! The phrase <Text style={styles.textColor}>"komme til å"</Text> often steps in.{'\n'}</Text>
+            <Text style={styles.text}>But wait{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}, there's another way to paint a picture of the future! The phrase <Text style={styles.textColor}>"komme til å"</Text> often steps in.{'\n'}</Text>
             <Text style={styles.text}>It is used to describe future actions or events. It is often used to indicate a <Text style={styles.boldText}>prediction</Text> or <Text style={styles.boldText}>expectation</Text> about something that will happen. </Text>
           </View>
 
@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: 'green'
+    color: 'green',
+    fontWeight: '500'
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,

@@ -108,6 +108,10 @@ const CardFlippy = (params) => {
             setTranslation(wordData.lt)
         } else if (userLanguage === 'AR') {
             setTranslation(wordData.ar)
+        } else if (userLanguage === 'UA') {
+            setTranslation(wordData.ua)
+        } else if (userLanguage === 'ES') {
+            setTranslation(wordData.sp)
         }
 
     }, [params])
@@ -117,7 +121,7 @@ const CardFlippy = (params) => {
       <Animated.View style={{...styles.norView, transform: [{perspective: 500}, {rotateY: rotateVal}]}}>
         <LinearGradient colors={['#002D72', '#7B68EE']} style={styles.gradientNor}>
             <Text style={styles.textNor}>{wordData.nor}</Text>
-            <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 160}}>{wordData.irr ? translation : wordData.example}</Text>
+            <Text style={{...styles.textNorExample, marginTop: wordData.norexp ? 0 : 160}}>{wordData.irr ? translation : wordData.norEgz}</Text>
 
             <View style={styles.buttonYesContainer}>
                 <GradientButton  
@@ -168,7 +172,7 @@ const CardFlippy = (params) => {
       </Animated.View>
       <Animated.View style={{...styles.transView, transform: [{perspective: 500}, {rotateY: rotateValTrans}]}}>
         <LinearGradient colors={['#00BFFF', '#6d28ed']} style={styles.gradientNor}>
-            <Text style={styles.textTranslation}>{wordData.irr ? wordData.example : translation}</Text>
+            <Text style={styles.textTranslation}>{wordData.irr ? wordData.norEgz : translation}</Text>
             <Pressable style={styles.opacityFlip}  onPress={rotateCardBack}>
                 <Image style={styles.imgFlip} source={require('../../../assets/flip.png')} />
             </Pressable>

@@ -99,8 +99,8 @@ const LearningScreen = () => {
 
 
   
-  const imagesMain = [require('../../../assets/reindeerMid1.png'), require('../../../assets/reindeerMid2.png'), require('../../../assets/reindeerMid3.png'), require('../../../assets/reindeerMid4.png'), require('../../../assets/reindeerMid5.png'), require('../../../assets/reindeerMid6.png')];
-  const imagesMainBlurred = [require('../../../assets/reindeerMid1Blurred.png'), require('../../../assets/reindeerMid2Blurred.png'), require('../../../assets/reindeerMid3Blurred.png'), require('../../../assets/reindeerMid4Blurred.png'), require('../../../assets/reindeerMid5Blurred.png'), require('../../../assets/reindeerMid6Blurred.png')];
+  const imagesMain = [require('../../../assets/reindeerRobo1.png'), require('../../../assets/reindeerRobo2.png'), require('../../../assets/reindeerRobo3.png'), require('../../../assets/reindeerRobo4.png'), require('../../../assets/reindeerRobo5.png'), require('../../../assets/reindeerRobo6.png')];
+  const imagesMainBlurred = [require('../../../assets/reindeerRobo1Blurred.png'), require('../../../assets/reindeerRobo2Blurred.png'), require('../../../assets/reindeerRobo3Blurred.png'), require('../../../assets/reindeerRobo4Blurred.png'), require('../../../assets/reindeerRobo5Blurred.png'), require('../../../assets/reindeerRobo6Blurred.png')];
 
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const LearningScreen = () => {
 
   useEffect(() => {
     let tempVal = Math.floor(Math.random() * imagesMain.length);
-    setRandom(tempVal)
+    setRandom(tempVal);
     
     
     setDataFlatList([{key: 'left-spacer'}, ...learningData1, {key: 'right-spacer'}])

@@ -47,11 +47,11 @@ const Class1x1x3 = ({ route }) => {
         <View style={styles.body}>
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}>As to create sentence in present tens we drop letter 'å' before verb and we add letter 'r' to the end of it.</Text>
+            <Text style={styles.text}>Creating a verb in the present tense? Easy! Just drop the 'å', and add an 'r' to your verb's tail-end.</Text>
           </View>
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}>We create most of verb like this:</Text>
+            <Text style={styles.text}>Here's the general idea how to create most verbs:</Text>
           </View>
 
           <View style={styles.exampleContainer}>

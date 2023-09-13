@@ -5,8 +5,10 @@ import { StyleSheet, Text, View, Dimensions, Animated, Pressable } from 'react-n
 import MaskedView from '@react-native-community/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { authentication } from '../../firebase/firebase-config';
-import { signInAnonymously, onAuthStateChanged  } from 'firebase/auth';
-
+import { signInAnonymously, onAuthStateChanged, getAuth  } from 'firebase/auth';
+import { db } from '../../firebase/firebase-config'
+import { collection, doc, setDoc } from "firebase/firestore";
+import uuid from 'react-native-uuid';
 import LearningScreen from '../screens/LearningScreen';
 import FlashcardScreen from '../screens/FlashcardScreen';
 import ProfilScreen from '../screens/ProfilScreen';
@@ -20,6 +22,10 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
 
+
+    const auth = getAuth();
+    const usersPointsCollection = collection(db, 'usersPoints');
+   
 
     const focusedIconColor = 'red'
     const focusedIconColor2 = '#b829e3'
@@ -46,6 +52,7 @@ const Tabs = () => {
     const [triggerCircelFour, setTriggerCircleFour] = useState(0);
     const [triggerCircelFive, setTriggerCircleFive] = useState(0);
     const [numberOfCircleTriggered, setNumberOfCircleTriggered] = useState(0);
+    const [allowDataUpload, setAllowDataUpload] = useState(false);
 
     const shakeOffset = 5;
 
@@ -77,15 +84,24 @@ const Tabs = () => {
 
     useEffect(() => {
         const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
+
+
+            
             if (authUser) {
                 console.log('in tab navigator - is anonymous?: ', authUser.isAnonymous);
+                console.log('user id in tab navigator is: ', authUser.uid);
+                
+
             }
             if (authUser && !authUser.isAnonymous) {
                 console.log('loging as registred user: ', authUser);
+                
             } else if (!authUser) {
                 signInAnonymously(authentication)
                 .then(() => {
-                    console.log('anonymus sign in was success');
+                    console.log('anonymus sign in was success. user id is: ', authUser);
+                    console.log('show me a user identification current user rught after anonymous sign  in: ', auth.currentUser.uid);
+                    setAllowDataUpload(true)
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -100,6 +116,45 @@ const Tabs = () => {
     
         return unscubscribe;
     }, [])
+
+
+    useEffect(() => {
+        console.log('runing use efect');
+
+        let docId = uuid.v4();
+        let randomGuestId = Math.floor(Math.random() * 1000000);
+        let stringId = randomGuestId.toString()
+        let nameToFb = 'Guest' + stringId;
+        console.log('string id is: ', nameToFb);
+
+        const setDataToFbPoints = async (userReference) => {
+            await setDoc(doc(db, 'usersPoints', docId), {
+                userRef: userReference,
+                userName: nameToFb,
+                totalPoints: 0,
+                weeklyPoints: 0,
+                dailyPoints: 0,
+                daysInRow: 0,
+                lastUpdate: new Date().toLocaleDateString(),
+                userIsPro: false,
+            });
+
+            
+        }
+
+      if (allowDataUpload && auth.currentUser.uid) {
+        
+        
+        console.log('show me a user identification current user: ', auth.currentUser.uid);
+
+
+        setDataToFbPoints(auth.currentUser.uid)
+
+
+        setAllowDataUpload(false);
+      }
+    }, [allowDataUpload])
+    
 
     useEffect(() => {
 

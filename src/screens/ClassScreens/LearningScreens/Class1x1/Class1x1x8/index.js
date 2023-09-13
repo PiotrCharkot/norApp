@@ -1,74 +1,53 @@
-import {View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
-import { LinearGradient } from 'expo-linear-gradient';
+import { getAuth } from 'firebase/auth';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
-import Draggable from '../../../../../components/other/Draggable'
+import AnswerButton from '../../../../../components/buttons/AnswerButton'
 import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
 const currentScreen = 8;
-const gradientTop = generalStyles.gradientTopDraggable2;
-const gradientBottom = generalStyles.gradientBottomDraggable2;
+const answerOne = 'æ';
+const answerTwo = 'to';
+const answerThree = 'å';
+const answerFour = 'a';
+const correctAnswers = [false, false, true, false];
 
-const correctAnswers = ['Jeg', 'trenger'];
-// exapmle ==> const correctAnswers = ['Jeg', 'trenger', 'tretti år', 'gammel'];
-const indexOfGaps = [1]
-const indexOfText = [0, 2, 3, 4, 5]
 
-const Class1x1x8 = ({ route }) => {
+const Class1x1x8 = ({route}) => {
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
-    console.log('points 8 screen: ' , userPoints );
-    const [movingDraggable, setMovingDraggable] = useState(null);
-    const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Jeg' ,'            ', 'hjelp', 'til å',  'skrive', 'jobbsøknad.','!!!' , 'trengte', 'å trenge' ,'trenger' ,'to trenger' , 'æ tgrenge' ]);
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
+    const [isAnswerBChecked, setIsAnswerBChecked] = useState(false);
+    const [isAnswerCChecked, setIsAnswerCChecked] = useState(false);
+    const [isAnswerDChecked, setIsAnswerDChecked] = useState(false);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
-    
 
+
+    
     useFocusEffect(() => {
+        
       if (latestScreen > currentScreen) {
           setLatestScreenDone(latestScreen);
-          setComeBack(true)
+          setComeBack(true);
       }
 
       if (route.params.userPoints > 0) {
-          console.log('setting new points', route.params.userPoints );
+          
           setCurrentPoints(userPoints)
       }
 
         
     })
-
-    useEffect(() => {
-      setMovingDraggable(null);
-      setReleaseDraggable(null);
-      return () => {};
-    }, [words]);
-
-
-    const onMovingDraggable = (movingDraggable) => {
-        setMovingDraggable(movingDraggable);
-    };
-    
-    const onReleaseDraggable = (releaseDraggable) => {
-        setMovingDraggable(null);
-        setReleaseDraggable(releaseDraggable);
-    };
-
-    const swap = (index1, index2) => {
-        var arr = [...words];
-        var temp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = temp;
-        setWords(arr);
-    };
-
 
   return (
     <View style={styles.mainContainer}>
@@ -76,76 +55,31 @@ const Class1x1x8 = ({ route }) => {
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Choose verb in right form to create sentence in present time.</Text>
-                <Text style={styles.textBody}>(I need help to write job application)</Text>
+                <Text style={styles.questionText}>Which letter is used before infinitive form of Norwegian verb?</Text>
             </View>
 
-            <View style={styles.squaresViewContainer}>
-
-
-                {words.map((item, index) => {
-                    
-                    if (indexOfText.includes(index)) {
-                        return (
-                            <View style={styles.exgzampleTextContainer} key={index}>
-                                <Text style={styles.textBody}>{item}</Text>
-                            </View>
-                        )
-                    } else if (item === '!!!') {
-                        return (
-                            <View style={styles.spacer} key={index}>
-                               
-                            </View>
-                        )
-                    }
-                    else {
-                        return (
-                            <Draggable
-                            key={index}
-                            index={index}
-                            movingDraggable={movingDraggable}
-                            onMovingDraggable={onMovingDraggable}
-                            releaseDraggable={releaseDraggable}
-                            onReleaseDraggable={onReleaseDraggable}
-                            swap={swap}
-                            renderChild={(isMovedOver) => {
-                                return (
-            
-                                <LinearGradient
-                                colors={[gradientTop, gradientBottom]}
-                                key={index}
-                                    style={[
-                                    isMovedOver && styles.draggableContainerSwap,
-                                    item.trim() == '' && !indexOfGaps.includes(index) ?  styles.draggableContainerEmpty : styles.draggableContainer,
-                                    ]}
-                                >
-                                    
-                                    <Text style={styles.textInDraggable}>{item}</Text>
-                                </LinearGradient>
-                                );
-                            }}
-                            />
-                        );
-                    }
-                    
-                })}
-
+            <View style={styles.buttonsContainer}>
+                <AnswerButton text={answerOne} returnAnswer={(boolean) => setIsAnswerAChecked(boolean)}/>
+                <AnswerButton text={answerTwo} returnAnswer={(boolean) => setIsAnswerBChecked(boolean)}/>
+                <AnswerButton text={answerThree} returnAnswer={(boolean) => setIsAnswerCChecked(boolean)}/>
+                <AnswerButton text={answerFour} returnAnswer={(boolean) => setIsAnswerDChecked(boolean)}/>
             </View>
+          
         </View>
     
 
       <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        callbackButton={'checkAnswer'}
-        userAnswers={words}
+        <BottomBar  
+        callbackButton={'checkAnswer'} 
+        userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
         correctAnswers={correctAnswers}
         answerBonus={answerBonus}
-        linkNext={'Class1x1x9'}
-        linkPrevious={'Class1x1x7'} 
-        correctMsg={'Impressive...'}
-        wrongMsg={`You've made a mistake. Let's recheck.`}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
+        linkNext={'Class1x1x9'}
+        linkPrevious={'Class1x1x7'}
+        correctMsg={`Well done${user.isAnonymous ? '':  ` ${user.displayName}`}!`}
+        wrongMsg={'Wrong Answer, try again.'}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
         currentScreen={currentScreen}
@@ -179,65 +113,18 @@ const styles = StyleSheet.create({
     fontWeight: generalStyles.learningScreenTitleFontWeight,
     marginVertical: 10,
   },
+  buttonsContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10
+  },
   bottomBarContainer: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
   },
-  squaresViewContainer: {
-    flexDirection: "row",
-    padding: 16,
-    height: 200,
-    flexWrap: 'wrap'
-  },
-  draggableContainer: {
-    paddingHorizontal: 6,
-    paddingVertical: 6,
-    borderRadius: 8,
-    margin: 6,
-    overflow: "hidden",
-    backgroundColor: 'lightgreen'
-  },
-  draggableContainerEmpty: {
-    width: 0,
-    height: 0,
-    paddingHorizontal: 0,
-    paddingVertical: 0,
-    borderRadius: 8,
-    margin: 0,
-    overflow: "hidden",
-    backgroundColor: 'white'
-  },
-  draggableContainerSwap: {
-    paddingTop: 4,
-    paddingLeft: 4,
-    paddingBottom: 0,
-    paddingRight: 4,
-    height: 30,
-    borderWidth: 2,
-    borderColor: "red",
-  },
-  textInDraggable: {
-    fontSize: generalStyles.screenTextSizeDraggable,
-    fontWeight: generalStyles.fontWeightDraggable,
-    color: 'white'
-  },
-  textBody: {
-    fontSize: generalStyles.screenTextSizeSmallest,
-    fontWeight: generalStyles.learningScreenTitleFontWeightMediumPlus,
-    flexWrap: 'wrap'
-  },
-  exgzampleTextContainer: {
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    height: 30,
-    marginVertical: 6,
-    marginHorizontal: 3
-    
-  },
-  spacer: {
-    height: 80,
-    width: '100%',
-  },
+  textBold: {
+    color: 'grey'
+  }
+  
 })
-

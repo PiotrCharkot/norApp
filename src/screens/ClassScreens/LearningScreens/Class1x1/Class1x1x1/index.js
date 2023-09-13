@@ -6,7 +6,7 @@ import BottomBar from '../../../../../components/bars/bottomBar'
 import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;
-const allScreensNum = 9;
+const allScreensNum = 10;
 
 const Class1x1x1 = ({route}) => {
   
@@ -38,12 +38,12 @@ const Class1x1x1 = ({route}) => {
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
         <View style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Presens - present time</Text>
+            <Text style={styles.title}>Present tense - Presens</Text>
           </View>
 
           <View style={styles.middleView}>
             <Text style={styles.text}>
-            In this class we are going to learn about present time. It is the most used time in norwegian language. It is also the easiest to learn.
+            Hello there! Today, we're diving into the <Text style={styles.textColor}>present tense</Text> in Norwegian language. It is the most used time in Norwegian. It's also one of the simplest to master! {'\n\n'}This tense is used to indicate actions, events, or states happening right now.
             </Text>
 
             
@@ -98,6 +98,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+  },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: '#6441A5',
+    fontWeight: '500'
   },
   bottomBarContainer: {
     position: 'absolute',

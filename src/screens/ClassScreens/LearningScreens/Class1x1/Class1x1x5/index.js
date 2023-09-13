@@ -14,7 +14,6 @@ const Class1x1x5 = ({route}) => {
   
     const {userPoints,  latestScreen, comeBackRoute, allScreensNum} = route.params
     
-    console.log('points last screen in 5: ' , userPoints );
 
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
@@ -38,29 +37,35 @@ const Class1x1x5 = ({route}) => {
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>The subject can also be something else like a place or an abstract concept. <Text style={styles.textColor}>Verb</Text> has to be always on the <Text style={styles.boldText}>second</Text> place in the sentence.</Text>
-          </View>
-
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Tiden <Text style={styles.exampleTextSmallColor}>leger</Text> alle sår</Text>
-            <Text style={styles.textSmall}>Time heals all wounds</Text>
-          </View>
-
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Tillit <Text style={styles.exampleTextSmallColor}>kommer</Text> med tiden</Text>
-            <Text style={styles.textSmall}>Trust comes with time</Text>
-          </View>
+            <Text style={styles.text}>Norwegian verbs can't stand alone in the sentence. They need some company. They always want a subject like 'I' or 'You' hanging around.{'\n\n'}</Text>
           
-          <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Vann <Text style={styles.exampleTextSmallColor}>koker</Text> i en kjele</Text>
-            <Text style={styles.textSmall}>Water boils in a pot</Text>
+            <Text style={styles.text}>Let's see how we can use verb 'å like' (to like).</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Her <Text style={styles.exampleTextSmallColor}>bor</Text> jeg</Text>
-            <Text style={styles.textSmall}>I live here</Text>
+            <Text style={styles.exampleTextSmall}>Jeg liker musikk<Text style={styles.textSmall}> - I like music</Text></Text>
           </View>
-
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Du liker musikk<Text style={styles.textSmall}> - You like music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Han liker musikk<Text style={styles.textSmall}> - He likes music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Hun liker musikk<Text style={styles.textSmall}> - She likes music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Det liker musikk<Text style={styles.textSmall}> - It likes music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Vi liker musikk<Text style={styles.textSmall}> - We like music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>Dere liker musikk<Text style={styles.textSmall}> - You like music</Text></Text>
+          </View>
+          <View style={styles.exampleContainer}>
+            <Text style={styles.exampleTextSmall}>De liker musikk<Text style={styles.textSmall}> - They like music</Text></Text>
+          </View>
         </View>
     
 
@@ -110,33 +115,15 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
-  textColor: {
-    fontSize: generalStyles.screenTextSize,
-    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: 'green'
-  },
-  boldText: {
-    fontSize: generalStyles.screenTextSize,
-    fontWeight: generalStyles.learningScreenTitleFontWeight
-  },
   exampleContainer: {
     marginHorizontal: 20,
-    marginVertical: 20,
+    marginVertical: 10,
     alignItems: 'center',
     backgroundColor: generalStyles.exampleBackgroundColor,
     borderRadius: 6
   },
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
-    fontWeight: generalStyles.exampleTextWeight,
-  },
-  exampleTextSmallColor: {
-    fontSize: generalStyles.exampleTextSizeSmall,
-    fontWeight: generalStyles.exampleTextWeight,
-    color: 'green'
-  },
-  exampleText: {
-    fontSize: generalStyles.exampleTextSize,
     fontWeight: generalStyles.exampleTextWeight,
   },
   bottomBarContainer: {

@@ -30,6 +30,7 @@ import Class1x1x6 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x
 import Class1x1x7 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x7";
 import Class1x1x8 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x8";
 import Class1x1x9 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x9";
+import Class1x1x10 from "../screens/ClassScreens/LearningScreens/Class1x1/Class1x1x10";
 import Class1x2x1 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x1";
 import Class1x2x2 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x2";
 import Class1x2x3 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x3";
@@ -38,6 +39,19 @@ import Class1x2x5 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x
 import Class1x2x6 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x6";
 import Class1x2x7 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x7";
 import Class1x2x8 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x8";
+import Class1x2x9 from "../screens/ClassScreens/LearningScreens/Class1x2/Class1x2x9";
+import Class1x3x1 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x1";
+import Class1x3x2 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x2";
+import Class1x3x3 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x3";
+import Class1x3x4 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x4";
+import Class1x3x5 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x5";
+import Class1x3x6 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x6";
+import Class1x3x7 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x7";
+import Class1x3x8 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x8";
+import Class1x3x9 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x9";
+import Class1x3x10 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x10";
+import Class1x3x11 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x11";
+import Class1x3x12 from "../screens/ClassScreens/LearningScreens/Class1x3/Class1x3x12";
 import Exc1x1x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x1";
 import Exc1x1x2 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x2";
 import Exc1x1x3 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x3";
@@ -83,6 +97,7 @@ const Router = () => {
                 <Stack.Screen name="Class1x2x6" component={Class1x2x6} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x2x7" component={Class1x2x7} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x2x8" component={Class1x2x8} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x2x9" component={Class1x2x9} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x3" component={Class1x1x3} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x4" component={Class1x1x4} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x5" component={Class1x1x5} options={{headerShown: false, animationEnabled: false }}/>
@@ -90,6 +105,19 @@ const Router = () => {
                 <Stack.Screen name="Class1x1x7" component={Class1x1x7} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x8" component={Class1x1x8} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Class1x1x9" component={Class1x1x9} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x1x10" component={Class1x1x10} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x1" component={Class1x3x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x2" component={Class1x3x2} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x3" component={Class1x3x3} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x4" component={Class1x3x4} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x5" component={Class1x3x5} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x6" component={Class1x3x6} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x7" component={Class1x3x7} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x8" component={Class1x3x8} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x9" component={Class1x3x9} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x10" component={Class1x3x10} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x11" component={Class1x3x11} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Class1x3x12" component={Class1x3x12} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x1x1" component={Exc1x1x1} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x1x2" component={Exc1x1x2} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x1x3" component={Exc1x1x3} options={{headerShown: false, animationEnabled: false }}/>

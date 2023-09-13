@@ -41,7 +41,7 @@ const Class1x2x6 = ({route}) => {  //name
             <Text style={styles.text}></Text>
 
             <Text style={styles.textSmall}> - to describe future plans or intentions,</Text>
-            <Text style={styles.textSmall}> - to express a willingness or a prediction,</Text>
+            <Text style={styles.textSmall}> - to express a willingness or a desire,</Text>
             <Text style={styles.textSmall}> - to indicate a scheduled or certain future event,</Text>
             <Text style={styles.textSmall}> - to indicate a prediction or expectation</Text>
 
@@ -50,23 +50,23 @@ const Class1x2x6 = ({route}) => {  //name
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Jeg skal begynne på et nytt prosjekt neste uke</Text>
-            <Text style={styles.exampleTextSmallThin}>I will start a new project next week</Text>
+            <Text style={styles.exampleTextSmall}>Jeg skal begynne på et nytt prosjekt neste uke.</Text>
+            <Text style={styles.exampleTextSmallThin}>I will start a new project next week.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Jeg vil hjelpe deg</Text>
-            <Text style={styles.exampleTextSmallThin}>I will help you</Text>
+            <Text style={styles.exampleTextSmall}>Jeg vil hjelpe deg.</Text>
+            <Text style={styles.exampleTextSmallThin}>I will help you.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Flyet lander om to timer</Text>
-            <Text style={styles.exampleTextSmallThin}>The plane lands in two hours</Text>
+            <Text style={styles.exampleTextSmall}>Flyet lander om to timer.</Text>
+            <Text style={styles.exampleTextSmallThin}>The plane lands in two hours.</Text>
           </View>
 
           <View style={styles.exampleContainer}>
-            <Text style={styles.exampleTextSmall}>Du kommer til å elske denne restauranten</Text>
-            <Text style={styles.exampleTextSmallThin}>You are going to love this restaurant</Text>
+            <Text style={styles.exampleTextSmall}>Du kommer til å elske denne restauranten.</Text>
+            <Text style={styles.exampleTextSmallThin}>You are going to love this restaurant.</Text>
           </View>
         </View>
     
