@@ -7,6 +7,7 @@ import { collection, getDocs, query, doc, where, updateDoc, setDoc } from "fireb
 import styles from './style'
 import CardLearn from '../../components/cards/CardLearn'
 import Loader from '../../components/other/Loader';
+import { FlashList } from '@shopify/flash-list';
 import uuid from 'react-native-uuid';
 import dummyData from '../../listData/learningData1';
 
@@ -22,10 +23,11 @@ let closeTime;
 
 const LearnWordScreen = ({route}) => {
     
-    const {userId, refToList, savedLang, own, userN} = route.params;
+    const {userId, refToList, savedLang, own, userN, myTitle} = route.params;
     const words = collection(db, own ? 'wordsOwn' : 'words');
     const usersPointsCollection = collection(db, 'usersPoints');
     
+    const navigation = useNavigation();
 
     let sixDaysAgo = new Date(new Date().setDate(new Date().getDate()-6)).toLocaleDateString();
     let fiveDaysAgo = new Date(new Date().setDate(new Date().getDate()-5)).toLocaleDateString();
@@ -60,7 +62,6 @@ const LearnWordScreen = ({route}) => {
     const [documentIdPoints, setDocumentIdPoints] = useState('tempid');
     const [displayedPoints, setDisplayedPoints] = useState(0);
     
-    const navigation = useNavigation();
     
     const docRefPoints = doc(db, "usersPoints", documentIdPoints);
 
@@ -185,25 +186,25 @@ const LearnWordScreen = ({route}) => {
 
         openTime = new Date().getTime();
 
-        let docId = uuid.v4();
+        //let docId = uuid.v4();
 
-        const setDataToFbPoints = async () => {
-            await setDoc(doc(db, 'usersPoints', docId), {
-                userRef: userId,
-                userName: userN,
-                totalPoints: 0,
-                weeklyPoints: 0,
-                dailyPoints: 0,
-                daysInRow: 0,
-                lastUpdate: new Date().toLocaleDateString(),
-                userIsPro: false,
-            });
+        // const setDataToFbPoints = async () => {
+        //     await setDoc(doc(db, 'usersPoints', docId), {
+        //         userRef: userId,
+        //         userName: userN,
+        //         totalPoints: 0,
+        //         weeklyPoints: 0,
+        //         dailyPoints: 0,
+        //         daysInRow: 0,
+        //         lastUpdate: new Date().toLocaleDateString(),
+        //         userIsPro: false,
+        //     });
 
 
-            setDocumentIdPoints(docId);
-            setLastUpdateVal(new Date().toLocaleDateString());
+        //     setDocumentIdPoints(docId);
+        //     setLastUpdateVal(new Date().toLocaleDateString());
             
-        }
+        // }
 
         const getDataFb = async () => {
 
@@ -220,8 +221,8 @@ const LearnWordScreen = ({route}) => {
             const querySnapshot3 = await getDocs(q3);
 
             if (querySnapshot3.empty) {
-        
-                setDataToFbPoints();
+                console.log('no data for userPoints for this user in Learnword screen. this is an error. there should be document for this user!');
+                //setDataToFbPoints();
             } else {
 
                 querySnapshot3.forEach((doc) => {
@@ -308,50 +309,57 @@ const LearnWordScreen = ({route}) => {
             </View>
 
         </View>
-        {showContent ? (
-                <View style={styles.body}>
-                    <Animated.View style={{...styles.titleContainer, opacity: titleOpacity}}>
-                        <Text style={styles.titleText}>{title}</Text>
-                    </Animated.View>
+        
+            <View style={styles.body}>
+                <Animated.View style={{...styles.titleContainer, opacity: titleOpacity}}>
+                    <Text style={styles.titleText}>{own ? myTitle : title}</Text>
+                </Animated.View>
 
-                    <Animated.View style={{...styles.bonusPointsContainer, transform: [{translateX: pointsOffset}]}}>
-                        <View>
-                            <Text style={styles.bonusPointsText}>+</Text>
+                <Animated.View style={{...styles.bonusPointsContainer, transform: [{translateX: pointsOffset}]}}>
+                    <View>
+                        <Text style={styles.bonusPointsText}>+</Text>
+                    </View>
+                    <Animated.View style={{transform: [{rotateX: rotatePointsVal}]}}>
+
+                        <Text style={styles.bonusPointsText}> {displayedPoints} </Text>
+                    </Animated.View>
+                    <Text style={styles.bonusPointsText}>pts</Text>
+                </Animated.View>
+
+
+                <Animated.View style={{...styles.daysValContainer, transform: [{translateX: daysOffset}]}}>
+                        <View> 
+                            <Text style={styles.daysValText}>{daysInRowVal + 1} </Text>
                         </View>
-                        <Animated.View style={{transform: [{rotateX: rotatePointsVal}]}}>
-
-                            <Text style={styles.bonusPointsText}> {displayedPoints} </Text>
-                        </Animated.View>
-                        <Text style={styles.bonusPointsText}>pts</Text>
-                    </Animated.View>
-
-
-                    <Animated.View style={{...styles.daysValContainer, transform: [{translateX: daysOffset}]}}>
-                            <View> 
-                                <Text style={styles.daysValText}>{daysInRowVal + 1} </Text>
-                            </View>
-                            <Image source={require('../../../assets/sun.png')}  style={styles.sunImg}/>
-                            <Text style={styles.daysValText}> streak</Text>
-                    </Animated.View>
-
-                    <FlatList 
-                        style={styles.flatlist}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        snapToInterval={cardSize}
-                        decelerationRate={0}
-                        data={dataFlatList}
-                        renderItem={renderCard}
-                        keyExtractor={(item) => item.key}
-                        scrollEventThrottle={16}
-                        
-                    />
-                </View>
-            ) : (
-                <View style={styles.loaderDisplay}>
-                    <Loader />
-                </View>
-            )}
+                        <Image source={require('../../../assets/sun.png')}  style={styles.sunImg}/>
+                        <Text style={styles.daysValText}> streak</Text>
+                </Animated.View>
+                
+                {showContent ? (
+                    <View style={{ flex: 1 }}>
+                        <View style={{ height: 0, width: 100}}></View>
+                        <FlashList 
+                            //style={styles.flatlist}
+                            horizontal
+                            estimatedItemSize={cardSize}
+                            showsHorizontalScrollIndicator={false}
+                            snapToInterval={cardSize}
+                            decelerationRate={0}
+                            data={dataFlatList}
+                            renderItem={renderCard}
+                            keyExtractor={(item) => item.key}
+                            scrollEventThrottle={16}
+                            
+                            />
+                
+                        </View>
+                ) : (
+                    <View style={styles.loaderDisplay}>
+                        <Loader />
+                    </View>
+                )}
+            </View>
+            
         
   
     </View>

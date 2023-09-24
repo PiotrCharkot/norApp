@@ -14,8 +14,8 @@ const dataForMarkers = {
 
 //linkNext={'ExitExcScreen'}
 
-totalPoints={totalPoints}
 //learningLastScreen={true}
+totalPoints={totalPoints}
 dataForMarkers={dataForMarkers}
 
 
@@ -26,22 +26,3 @@ dataForMarkers={dataForMarkers}
 
 
 
-
-
-//some styles
-
-{'\n\n'}
-
-//<Text style={styles.textColor}></Text>
-
-
-// textColor: {
-//   fontSize: generalStyles.screenTextSize,
-//   fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-//   color: '#6441A5',
-//   fontWeight: '500'
-// },
-
-
-
-// #6441A5 light purple

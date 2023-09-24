@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontWeight: '900',
-        fontSize: 20,
+        fontSize: 16 ,
         color: 'brown'
     },
     flatlist: {

@@ -45,13 +45,32 @@ const xPositionDeg = interpolatedValueForX.interpolate({
 
 const updateUserNameInRankigs = async (userIdentyfication, userN) => {
     console.log('my id in update is: ', userIdentyfication, 'and name is: ', userN );
-    let docId = uuid.v4();
+    //let docId = uuid.v4();
     const q = query(usersPointsCollection, where('userRef', '==', userIdentyfication))
     const querySnapshot = await getDocs(q);
 
-    if (!querySnapshot.empty) {
+    if (querySnapshot.empty) {
+
+        console.log('no data for userPoints for this user in RegisterScreen screen. this is an error. there should be document for this user!');
 
 
+        // console.log('there is no user in rankings yet');
+        // //set new document here
+
+        // await setDoc(doc(db, 'usersPoints', docId), {
+        //     userRef: userIdentyfication,
+        //     userName: userN,
+        //     totalPoints: 0,
+        //     weeklyPoints: 0,
+        //     dailyPoints: 0,
+        //     daysInRow: 0,
+        //     lastUpdate: new Date().toLocaleDateString(),
+        //     userIsPro: false,
+        // });
+
+
+    } else {
+        
         querySnapshot.forEach((item) => {
 
             const docRef = doc(db, "usersPoints", item.id);
@@ -66,20 +85,6 @@ const updateUserNameInRankigs = async (userIdentyfication, userN) => {
                 console.log(error);
             })
         })
-    } else {
-        console.log('there is no user in rankings yet');
-        //set new document here
-
-        await setDoc(doc(db, 'usersPoints', docId), {
-            userRef: userIdentyfication,
-            userName: userN,
-            totalPoints: 0,
-            weeklyPoints: 0,
-            dailyPoints: 0,
-            daysInRow: 0,
-            lastUpdate: new Date().toLocaleDateString(),
-            userIsPro: false,
-        });
     }
 }
 

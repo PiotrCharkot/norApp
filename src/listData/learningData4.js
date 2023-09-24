@@ -1,14 +1,14 @@
 export default dataObj = [
     {
-    title: 'Kongruens',
-    description: 'present time - introduction',
+    title: 'Artikler',
+    description: 'articles',
     level: 'A1',
     link: 'Class1x1x1',
     key: 1,
     showPro: false,
    },
     {
-    title: 'Uregelmessig bøyning av adjektiv',
+    title: 'Bøyning av substantiv',
     description: 'here is some description 2',
     level: 'A1',
     link: 'Class1x2x1',
@@ -16,7 +16,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Gradbøyning',
+    title: 'Uregelmessig bøyning',
     description: 'here is some description 3',
     level: 'A1',
     link: '',
@@ -24,7 +24,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Uregelmessig gradbøyning',
+    title: 'Bestemt eller ubestemt',
     description: 'here is some description 4',
     level: 'A1',
     link: '',
@@ -32,7 +32,7 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Mer og mest, mindre og minst',
+    title: 'Substaniv som ikke telles',
     description: 'here is some description 5',
     level: 'A1',
     link: '',
@@ -40,7 +40,7 @@ export default dataObj = [
     showPro: true,
    },
    {
-    title: 'Perfektum partisipp',
+    title: 'Genitiv',
     description: 'here is some description',
     level: 'A1',
     link: '',
@@ -48,7 +48,7 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Presens partisipp',
+    title: 'Substantivfraser',
     description: 'here is some description 2',
     level: 'A1',
     link: '',
@@ -56,7 +56,7 @@ export default dataObj = [
     showPro: true,
    },
     {
-    title: 'Adverb',
+    title: 'Samskriving',
     description: 'here is some description 3',
     level: 'A1',
     link: '',

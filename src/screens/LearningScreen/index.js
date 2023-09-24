@@ -185,35 +185,35 @@ const LearningScreen = () => {
   );
 
 
-  const setDataToFb = async () => {
+  // const setDataToFb = async () => {
 
-    let docId = uuid.v4();
+  //   let docId = uuid.v4();
 
 
-    await setDoc(doc(db, 'usersAchivments', docId), {
-      userRef: userId,
-      learning: {
-        section1: [0,0,0,0,0,0],
-        section2: [0,0,0,0,0],
-        section3: [0,0,0,0,0],
-        section4: [0,0,0,0,0],
-        section5: [0,0,0,0,0],
-        section6: [0,0,0,0,0],
-      },
-      exercise: {
-        section1: [0,0,0,0,0],
-        section2: [0,0,0,0,0],
-        section3: [0,0,0,0,0],
-        section4: [0,0,0,0,0],
-        section5: [0,0,0,0,0],
-        section6: [0,0,0,0,0],
-      },
-      gold: 0,
-      silver: 0,
-      bronze: 0,
+  //   await setDoc(doc(db, 'usersAchivments', docId), {
+  //     userRef: userId,
+  //     learning: {
+  //       section1: [0,0,0,0,0,0],
+  //       section2: [0,0,0,0,0],
+  //       section3: [0,0,0,0,0],
+  //       section4: [0,0,0,0,0],
+  //       section5: [0,0,0,0,0],
+  //       section6: [0,0,0,0,0],
+  //     },
+  //     exercise: {
+  //       section1: [0,0,0,0,0],
+  //       section2: [0,0,0,0,0],
+  //       section3: [0,0,0,0,0],
+  //       section4: [0,0,0,0,0],
+  //       section5: [0,0,0,0,0],
+  //       section6: [0,0,0,0,0],
+  //     },
+  //     gold: 0,
+  //     silver: 0,
+  //     bronze: 0,
 
-    });
-  }
+  //   });
+  // }
 
 
   const getDataFb = async () => {
@@ -223,7 +223,7 @@ const LearningScreen = () => {
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) {
-      setDataToFb();
+      //setDataToFb();
       console.log('no user in db yet');
     } else {
       console.log('user exist in data base');
@@ -525,8 +525,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 200, left: screenWidth / 2 - 100}}>
-            <Text style={styles.titleText}>Grammatisk tid</Text>
+          <View style={{...styles.titleContainer, width: 240, left: screenWidth / 2 - 120}}>
+            <Text style={styles.titleText}>Grammatical tenses</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -551,8 +551,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 120, left: screenWidth / 2 - 60}}>
-            <Text style={styles.titleText}>Verb</Text>
+          <View style={{...styles.titleContainer, width: 240, left: screenWidth / 2 - 120}}>
+            <Text style={styles.titleText}>Sentence structure</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -577,8 +577,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 160, left: screenWidth / 2 - 80}}>
-            <Text style={styles.titleText}>Substantiv</Text>
+          <View style={{...styles.titleContainer, width: 120, left: screenWidth / 2 - 60}}>
+            <Text style={styles.titleText}>Verb</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -603,8 +603,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 220, left: screenWidth / 2 - 110}}>
-            <Text style={styles.titleText}>Adjektiv og Adverb</Text>
+          <View style={{...styles.titleContainer, width: 120, left: screenWidth / 2 - 60}}>
+            <Text style={styles.titleText}>Noun</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -629,8 +629,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 280, left: screenWidth / 2 - 140}}>
-            <Text style={styles.titleText}>Pronomen og Determinativ</Text>
+          <View style={{...styles.titleContainer, width: 260, left: screenWidth / 2 - 130}}>
+            <Text style={styles.titleText}>Adjectives and Adverbs</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -655,8 +655,8 @@ const LearningScreen = () => {
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
             </LinearGradient>
         
-          <View style={{...styles.titleContainer, width: 220, left: screenWidth / 2 - 110}}>
-            <Text style={styles.titleText}>Setningsstruktur</Text>
+          <View style={{...styles.titleContainer, width: 280, left: screenWidth / 2 - 140}}>
+            <Text style={styles.titleText}>Pronoun and Determinative</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}

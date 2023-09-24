@@ -57,7 +57,7 @@ const Class1x3x2 = ({ route }) => { //name
             <Text style={styles.text}>(e.g. jeg, du, hun, det)</Text>
             <Text style={styles.textColor}>+</Text>
             <Text style={styles.exampleText}>verb</Text>
-            <Text style={styles.text}>in its 'preteritum' form</Text>
+            <Text style={styles.text}>in its 'past tense' form</Text>
             <Text style={styles.textColor}>+</Text>
             <Text style={styles.exampleText}>rest of the sentence.</Text>
           </View>
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '500'
   },
-  
   boldText: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight

@@ -12,14 +12,14 @@ const TextScreen = ({route}) => {
 
   const navigation = useNavigation();
 
-    const smallTxt = 20;
-    const mediumTxt = 26; 
-    const largeTxt = 30;
+    const smallTxt = 16;
+    const mediumTxt = 20; 
+    const largeTxt = 24;
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [expressions, setExpressions] = useState('');
-    const [fontSize, setFontSize] = useState(20);
+    const [fontSize, setFontSize] = useState(16);
     const [darkMode, setDarkMode] = useState('0');
 
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
@@ -31,22 +31,22 @@ const TextScreen = ({route}) => {
 
 
     const scaleTextUp = () => {
-      if (fontSize === 20) {
+      if (fontSize === 16) {
         setFontSize(mediumTxt)
-        saveTxtSize('fontSize', '26')
-      } else if ( fontSize === 26) {
+        saveTxtSize('fontSize', '20')
+      } else if ( fontSize === 20) {
         setFontSize(largeTxt)
-        saveTxtSize('fontSize', '30')
+        saveTxtSize('fontSize', '24')
       }
     }
 
     const scaleTextDown = () => {
-      if (fontSize === 30) {
+      if (fontSize === 24) {
         setFontSize(mediumTxt)
-        saveTxtSize('fontSize', '26')
-      } else if ( fontSize === 26) {
-        setFontSize(smallTxt)
         saveTxtSize('fontSize', '20')
+      } else if ( fontSize === 20) {
+        setFontSize(smallTxt)
+        saveTxtSize('fontSize', '16')
       }
     }
 

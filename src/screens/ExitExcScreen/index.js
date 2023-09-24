@@ -39,7 +39,7 @@ const ExitExcScreen = ({route}) => {
 
   const [indicatotValue, setIndicatorValue] = useState(0);
   const [userId, setUserId] = useState('userId');
-  const [userName, setUserName] = useState('');
+  //const [userName, setUserName] = useState('');
   const [currentDailyScore, setCurrentDailyScore] = useState(0);
   const [daysInRowVal, setDaysInRowVal] = useState(0);
   const [lastUpdateVal, setLastUpdateVal] = useState('');
@@ -49,7 +49,7 @@ const ExitExcScreen = ({route}) => {
   const [myDocumentId, setMyDocumentId] = useState('tempid');
   const [showLineOffset, setShowLineOffset] = useState(false);
   const [dayUp, setDayUp] = useState(false);
-  const [isNewUser, setIsNewUser] = useState(true);
+  //const [isNewUser, setIsNewUser] = useState(true);
   const [tempObj, setTempObj] = useState({})
 
   const interpolatedValue = useRef(new Animated.Value(-180)).current;
@@ -83,11 +83,11 @@ const ExitExcScreen = ({route}) => {
         
       if (authUser) {
 
-        if (authUser.isAnonymous) {
-          setUserName('Guest');
-        } else {
-          setUserName(authUser.displayName);
-        }
+        // if (authUser.isAnonymous) {
+        //   setUserName('Guest');
+        // } else {
+        //   setUserName(authUser.displayName);
+        // }
 
         setUserId(authUser.uid)
 
@@ -104,22 +104,22 @@ const ExitExcScreen = ({route}) => {
 
     console.log('some markers', dataMarkers);
 
-    let docId = uuid.v4();
+    //let docId = uuid.v4();
 
-    const setDataToFb = async () => {
-      await setDoc(doc(db, 'usersPoints', docId), {
-        userRef: userId,
-        userName: userName,
-        totalPoints: userPoints,
-        weeklyPoints: userPoints,
-        dailyPoints: userPoints,
-        daysInRow: 0,
-        lastUpdate: new Date().toLocaleDateString(),
-        userIsPro: false,
-      });
+    // const setDataToFb = async () => {
+    //   await setDoc(doc(db, 'usersPoints', docId), {
+    //     userRef: userId,
+    //     userName: userName,
+    //     totalPoints: userPoints,
+    //     weeklyPoints: userPoints,
+    //     dailyPoints: userPoints,
+    //     daysInRow: 0,
+    //     lastUpdate: new Date().toLocaleDateString(),
+    //     userIsPro: false,
+    //   });
 
-      setShowLineOffset(true);
-    }
+    //   setShowLineOffset(true);
+    // }
 
     
 
@@ -132,7 +132,7 @@ const ExitExcScreen = ({route}) => {
       
 
       if (querySnapshot2.empty) {
-        console.log('should not be empty');
+        console.log('getting userAchivments document failed in Exit screen, it is an error');
       } else {
     
         querySnapshot2.forEach((doc) => {
@@ -175,10 +175,10 @@ const ExitExcScreen = ({route}) => {
 
       if (querySnapshot.empty) {
         
-        setDataToFb();
+        //setDataToFb();
       } else {
     
-        setIsNewUser(false);
+        //setIsNewUser(false);
         
         querySnapshot.forEach((doc) => {
           console.log('my date in fb: ', doc.data().lastUpdate, 'date new:', new Date().toLocaleDateString());
@@ -326,21 +326,19 @@ const ExitExcScreen = ({route}) => {
         })
       }
 
-      if (!isNewUser) {
-        updateDoc(docRef, {
-          dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + userPoints : userPoints,
-          totalPoints: totalPointsVal + userPoints,
-          weeklyPoints: currentWeek.includes(lastUpdateVal) ? weeklyPointsVal + userPoints : userPoints,
-          lastUpdate: new Date().toLocaleDateString(),
-          daysInRow: currentDailyScore < pointsToScore && currentDailyScore + userPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
-        })
-        .then(docRef => {
-            console.log("A New Document Field has been added to an existing document");
-        })
-        .catch(error => {
-            console.log(error);
-        })
-      }
+      updateDoc(docRef, {
+        dailyPoints: lastUpdateVal === new Date().toLocaleDateString() ? currentDailyScore + userPoints : userPoints,
+        totalPoints: totalPointsVal + userPoints,
+        weeklyPoints: currentWeek.includes(lastUpdateVal) ? weeklyPointsVal + userPoints : userPoints,
+        lastUpdate: new Date().toLocaleDateString(),
+        daysInRow: currentDailyScore < pointsToScore && currentDailyScore + userPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
+      })
+      .then(docRef => {
+          console.log("A New Document Field has been added to an existing document");
+      })
+      .catch(error => {
+          console.log(error);
+      })
       
      
     }

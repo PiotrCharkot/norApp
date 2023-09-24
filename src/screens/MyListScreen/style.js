@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   },
   textButton: {
     fontWeight: '600',
-    color: 'brown'
+    color: 'brown',
+    fontSize: 12
   },
    iconX: {
     height: 25,
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     marginTop: 90
    },
    emptyContent: {
+    marginTop: 90,
     height: '75%',
     width: '100%',
     alignItems: 'center',
@@ -53,8 +55,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40
    },
    emptyContentText: {
-    fontSize: 20,
-    textAlign: 'center'
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: '700',
+    color: 'brown'
    },
    buttonContainer: {
     marginTop: 20,
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink'
    },
    buttonText: {
-    fontSize: 25,
+    fontSize: 20,
     color: 'white',
     fontWeight: '500'
    },

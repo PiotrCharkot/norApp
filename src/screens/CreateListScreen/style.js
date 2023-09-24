@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
+const screenHight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -27,6 +28,12 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
+    labelText: {
+        fontSize: 12
+    },
+    input: {
+        fontSize: 14
+    },
     addingContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -50,34 +57,71 @@ const styles = StyleSheet.create({
     },
     opacityBtnText: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '500'
     },
     infoContainer: {
         height: 65
     },
     textInfo: {
-        color: 'grey'
+        color: 'grey',
+        fontSize: 12
     },
     addedWords: {
         flex: 1,
     },
     wordsContainer: {
         height: 20,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     flatList: {
         
     },
     wordsText: {
-        fontSize: 20
+        fontSize: 16
     },
     image: {
         height: 16,
-        width: 16
+        width: 16,
+        marginLeft: 10,
     },
     checkboxContainer: {
         marginBottom: 50
+    },
+    messageContainer: {
+        position: 'absolute',
+        alignItems: 'center',
+        width: screenWidth - 50,
+        
+        justifyContent: 'center',
+        backgroundColor: 'pink',
+        borderColor: 'grey',
+        
+        borderRadius: 10,
+        top: 100,
+        left: 25
+    },
+    confirmationBtn: {
+        marginHorizontal: 20,
+        borderWidth: 2,
+        borderColor: 'white',
+        padding: 5,
+        width: 140,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+        marginBottom: 20,
+        marginTop: 20
+    },
+    opacityBtnTextInfo: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: '500',
+        color: 'white',
+        marginTop: 20,
+        paddingHorizontal: 10
+
     }
 
 });

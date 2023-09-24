@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Image, Animated, Easing, TouchableOpacity } from 'react-native'
 import React, {useState, useEffect, useRef, useCallback}  from 'react'
-import { onAuthStateChanged  } from 'firebase/auth';
+import { onAuthStateChanged, getAuth  } from 'firebase/auth';
 import { useIsFocused } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where, doc, setDoc, updateDoc } from "firebase/firestore";
@@ -41,6 +41,7 @@ const rotationTime = 300;
 const ResultsScreen = () => {
 
   const storage = getStorage();
+  const auth = getAuth();
 
 
   const [weekly, setWeekly] = useState(false);
@@ -71,7 +72,12 @@ const ResultsScreen = () => {
   const [daysFirstWeekly, setDaysFirstWeekly] = useState('');
   const [daysSecondWeekly, setDaysSecondWeekly] = useState('');
   const [daysThirdWeekly, setDaysThirdWeekly] = useState('');
-
+  const [idFirst, setIdFirst] = useState('');
+  const [idSecond, setIdSecond] = useState('');
+  const [idThird, setIdThird] = useState('');
+  const [idFirstWeekly, setIdFirstWeekly] = useState('');
+  const [idSecondWeekly, setIdSecondWeekly] = useState('');
+  const [idThirdWeekly, setIdThirdWeekly] = useState('');
 
   const interpolatedValueFlipFirst = useRef(new Animated.Value(0)).current;
   const interpolatedValueFlipSecond = useRef(new Animated.Value(-90)).current;
@@ -122,8 +128,7 @@ const ResultsScreen = () => {
 
     if (tempDataArray.length > 0) {
 
-      console.log(tempDataArrayWeekly);
-      console.log(currentWeek, !currentWeek.includes(tempDataArrayWeekly[4].lastUpdate));
+      
       for (let i = 0; i < tempDataArrayWeekly.length; i++) {
         if (!currentWeek.includes(tempDataArrayWeekly[i].lastUpdate)) {
           tempDataArrayWeekly[i].weeklyPoints = 0;
@@ -144,6 +149,7 @@ const ResultsScreen = () => {
      
     tempDataArray.push(extraItem);
     tempDataArrayWeekly.push(extraItem);
+
     
     setDataFlatList(tempDataArray.slice(3));
     setDataFlatListWeekly(tempDataArrayWeekly.slice(3));
@@ -156,6 +162,8 @@ const ResultsScreen = () => {
           if (i === 0) {
             setImgSrc(url)
             setFirstName(tempDataArray[i].userName)
+            setIdFirst(tempDataArray[i].userRef)
+            
             setDaysFirst(() => {
               if (tempDataArray[i].lastUpdate !== today && tempDataArray[i].lastUpdate !== yesterday) {
                 return 0;
@@ -167,6 +175,8 @@ const ResultsScreen = () => {
           } else if (i === 1) {
             setImgSrc2(url)
             setSecondName(tempDataArray[i].userName)
+            setIdSecond(tempDataArray[i].userRef)
+
             setDaysSecond(() => {
               if (tempDataArray[i].lastUpdate !== today && tempDataArray[i].lastUpdate !== yesterday) {
                 return 0;
@@ -178,6 +188,8 @@ const ResultsScreen = () => {
           } else if (i === 2) {
             setImgSrc3(url)
             setThirdName(tempDataArray[i].userName)
+            setIdThird(tempDataArray[i].userRef)
+
             setDaysThird(() => {
               if (tempDataArray[i].lastUpdate !== today && tempDataArray[i].lastUpdate !== yesterday) {
                 return 0;
@@ -202,6 +214,8 @@ const ResultsScreen = () => {
           if (i === 0) {
             setImgSrcWeekly(url)
             setFirstNameWeekly(tempDataArrayWeekly[i].userName)
+            setIdFirstWeekly(tempDataArrayWeekly[i].userRef)
+            
             setDaysFirstWeekly(() => {
               if (tempDataArrayWeekly[i].lastUpdate !== today && tempDataArrayWeekly[i].lastUpdate !== yesterday) {
                 return 0;
@@ -213,6 +227,8 @@ const ResultsScreen = () => {
           } else if (i === 1) {
             setImgSrc2Weekly(url)
             setSecondNameWeekly(tempDataArrayWeekly[i].userName)
+            setIdSecondWeekly(tempDataArrayWeekly[i].userRef)
+
             setDaysSecondWeekly(() => {
               if (tempDataArrayWeekly[i].lastUpdate !== today && tempDataArrayWeekly[i].lastUpdate !== yesterday) {
                 return 0;
@@ -224,6 +240,7 @@ const ResultsScreen = () => {
           } else if (i === 2) {
             setImgSrc3Weekly(url)
             setThirdNameWeekly(tempDataArrayWeekly[i].userName)
+            setIdThirdWeekly(tempDataArrayWeekly[i].userRef)
             setDaysThirdWeekly(() => {
               if (tempDataArrayWeekly[i].lastUpdate !== today && tempDataArrayWeekly[i].lastUpdate !== yesterday) {
                 return 0;
@@ -308,38 +325,38 @@ const ResultsScreen = () => {
       </View>
 
       {weekly ?  <View style={styles.topContainer}>
-        <View style={styles.positionSecond}>
+        <View style={{...styles.positionSecond, borderColor: idSecondWeekly === auth.currentUser.uid ? '#1D976C': '#A7BFE8'}}>
           <Image style={styles.pictureSecond}  source={{ uri: imgSrc2Weekly }} />
           <Text style={styles.positionText}>2</Text>
           <Text style={styles.userNameTop} numberOfLines={1}>{secondNameWeekly}</Text>
           <Text style={styles.pointsTop}>{daysSecondWeekly} / {pointsSecondWeekly}</Text>
         </View>
-        <View style={styles.positionThird}>
+        <View style={{...styles.positionThird, borderColor: idThirdWeekly === auth.currentUser.uid ? '#1D976C': '#A7BFE8'}}>
           <Image style={styles.pictureThird}  source={{ uri: imgSrc3Weekly }} />
           <Text style={styles.positionText}>3</Text>
           <Text style={styles.userNameTop} numberOfLines={1}>{thirdNameWeekly}</Text>
           <Text style={styles.pointsTop}>{daysThirdWeekly} / {pointsThirdWeekly}</Text>
         </View>
-        <View style={styles.positionFirst}>
+        <View style={{...styles.positionFirst, borderColor: idFirstWeekly === auth.currentUser.uid ? '#1D976C': '#6190E8'}}>
           <Image style={styles.pictureFirst}  source={{ uri: imgSrcWeekly }} />
           <Text style={styles.positionText}>1</Text>
           <Text style={styles.userNameTop} numberOfLines={1} >{firstNameWeekly}</Text>
           <Text style={styles.pointsTop}>{daysFirstWeekly} / {pointsFirstWeekly}</Text>
         </View>
       </View> : <View style={styles.topContainer}>
-        <View style={styles.positionSecond}>
-          <Image style={styles.pictureSecond}  source={{ uri: imgSrc2 }} />
+        <View style={{...styles.positionSecond, borderColor: idSecond === auth.currentUser.uid ? '#1D976C' : '#A7BFE8'}}>
+          <Image style={{...styles.pictureSecond}}  source={{ uri: imgSrc2 }} />
           <Text style={styles.positionText}>2</Text>
           <Text style={styles.userNameTop} numberOfLines={1}>{secondName}</Text>
           <Text style={styles.pointsTop}>{daysSecond} / {pointsSecond}</Text>
         </View>
-        <View style={styles.positionThird}>
+        <View style={{...styles.positionThird, borderColor: idThird === auth.currentUser.uid ? '#1D976C' : '#A7BFE8'}}>
           <Image style={styles.pictureThird}  source={{ uri: imgSrc3 }} />
           <Text style={styles.positionText}>3</Text>
           <Text style={styles.userNameTop} numberOfLines={1}>{thirdName}</Text>
           <Text style={styles.pointsTop}>{daysThird} / {pointsThird}</Text>
         </View>
-        <View style={styles.positionFirst}>
+        <View style={{...styles.positionFirst, borderColor: idFirst === auth.currentUser.uid ? '#1D976C' : '#6190E8'}}>
           <Image style={styles.pictureFirst}  source={{ uri: imgSrc }} />
           <Text style={styles.positionText}>1</Text>
           <Text style={styles.userNameTop} numberOfLines={1} >{firstName}</Text>

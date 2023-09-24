@@ -17,7 +17,6 @@ const CreateListScreen = ({ route }) => {
     const navigation = useNavigation();
     let wordIdentification = 0;
 
-    //display message ==========> cant create list without title and language
 
     const [title, setTitle] = useState('');
     const [language, setLanguage] = useState('');
@@ -37,6 +36,8 @@ const CreateListScreen = ({ route }) => {
     const [dataFlatList, setDataFlatList] = useState([]);
 
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
+    const messageOpacity = useRef(new Animated.Value(0)).current;
+    const [showMessage, setShowMessage] = useState(false)
 
 
     const xPositionDeg = interpolatedValueForX.interpolate({
@@ -57,6 +58,16 @@ const CreateListScreen = ({ route }) => {
         
     }
 
+    const dismissMessage = () => {
+        Animated.timing(messageOpacity, {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: true,
+        }).start();
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 500);
+    }
 
     const renderWords = ({item, index}) => {
 
@@ -143,6 +154,12 @@ const CreateListScreen = ({ route }) => {
         } else {
             //display message
             console.log('display message to fill rest of form ');
+            setShowMessage(true);
+            Animated.timing(messageOpacity, {
+                toValue: 1,
+                duration: 1000,
+                useNativeDriver: true,
+            }).start();
         }
     }
 
@@ -198,7 +215,7 @@ const CreateListScreen = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}> 
-
+       
       <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
         <TouchableOpacity onPress={() => exitButton()}>
             <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
@@ -206,13 +223,15 @@ const CreateListScreen = ({ route }) => {
         </TouchableOpacity>
       </Animated.View>
       <View style={styles.inputContainer}>
-        <Text>Title</Text>
+        <Text style={styles.labelText}>Title</Text>
         <Input 
+        style={styles.input}
         placeholder='Title e.g. Nouns - A1'
         onChangeText={(text) => setTitle(text)}
         />
-        <Text>Language</Text>
+        <Text style={styles.labelText}>Language</Text>
         <Input 
+        style={styles.input}
         placeholder='Your language e.g. english'
         onChangeText={(text) => setLanguage(text)}
         autoCapitalize='none'
@@ -223,6 +242,7 @@ const CreateListScreen = ({ route }) => {
             <View style={styles.inputHolder}>
 
                 <Input 
+                style={styles.input}
                 ref={norInput}
                 placeholder='norwegian word'
                 inputContainerStyle={styles.inputSmallContainerStyle}
@@ -235,6 +255,7 @@ const CreateListScreen = ({ route }) => {
             <View style={styles.inputHolder}>
 
                 <Input 
+                style={styles.input}
                 ref={transInput}
                 placeholder='translation'
                 inputContainerStyle={styles.inputSmallContainerStyle}
@@ -255,7 +276,7 @@ const CreateListScreen = ({ route }) => {
             {dataFlatList.length > 1 ? <TouchableOpacity  style={styles.opacityBtn} onPress={() => createList()}>
                 <Text style={styles.opacityBtnText}>Create list</Text>
             </TouchableOpacity> : <View style={styles.infoContainer}>
-                <Text style={styles.textInfo}>Add at least 2 words to create a list</Text>
+                <Text style={styles.textInfo}>Add at least two pairs of words to create a list</Text>
 
             </View> }
         </View>
@@ -290,13 +311,22 @@ const CreateListScreen = ({ route }) => {
                 {backgroundColor: 'white'}
             }
             textStyle={{
-                color: 'grey'
+                color: 'grey',
+                fontSize: 12
             }}
             />
 
             
         
         </View>
+
+        {showMessage ? <Animated.View style={{...styles.messageContainer, opacity: messageOpacity}}>
+            <Text style={styles.opacityBtnTextInfo}>Hold up! A list without a 'Title' and 'Language'? Please fill them in before making a list.</Text>
+            <TouchableOpacity  style={styles.confirmationBtn} onPress={() => dismissMessage()}>
+                <Text style={styles.opacityBtnText}>Ok</Text>
+            </TouchableOpacity>
+        </Animated.View> : <View></View>}   
+        
     </View>
   )
 }

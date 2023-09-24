@@ -52,7 +52,8 @@ const Class1x1x7 = ({route}) => {  //name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Question text?</Text>
+                <Text style={styles.questionText}>Choose correct answer.</Text>
+                <Text style={styles.textBody}>(additional info text e.g. translation)</Text>
             </View>
 
             <View style={styles.buttonsContainer}>
@@ -108,7 +109,8 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 40
   },
   buttonsContainer: {
     justifyContent: 'center',
@@ -119,6 +121,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
+  },
+  textBody: {
+    fontSize: generalStyles.screenTextSizeSmallest,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMediumPlus,
+    flexWrap: 'wrap'
   },
   textBold: {
     color: 'grey'

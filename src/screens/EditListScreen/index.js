@@ -285,6 +285,7 @@ const EditListScreen = ({ route }) => {
             <View style={styles.inputHolder}>
 
                 <Input 
+                style={styles.input}
                 ref={norInput}
                 placeholder='norwegian word'
                 inputContainerStyle={styles.inputSmallContainerStyle}
@@ -297,6 +298,7 @@ const EditListScreen = ({ route }) => {
             <View style={styles.inputHolder}>
 
                 <Input 
+                style={styles.input}
                 ref={transInput}
                 placeholder='translation'
                 inputContainerStyle={styles.inputSmallContainerStyle}
@@ -356,7 +358,8 @@ const EditListScreen = ({ route }) => {
                 {backgroundColor: 'white'}
             }
             textStyle={{
-                color: 'grey'
+                color: 'grey',
+                fontSize: 12
             }}
             />
 
@@ -371,7 +374,7 @@ const EditListScreen = ({ route }) => {
         <Animated.View style={{...styles.confirmationContainer, transform: [{translateY: confirmationPos}]}}>
             <View style={styles.confirmationContainerInside}>
 
-                <Text style={styles.confirmationText}>Are you sure you want to delete the entire list?</Text>
+                <Text style={styles.confirmationText}>About to throw this list into a shredder. Still on board?</Text>
 
                 <View style={styles.confirmationBtnCont}>
                     <TouchableOpacity style={styles.confirmationBtn} onPress={deleteList}>

@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         width: 120,
         borderRadius: 60,
         borderWidth: 6,
-        borderColor: '#6190E8'
     },
     positionSecond: {
         position: 'absolute',
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
         width: 100,
         borderRadius: 50,
         borderWidth: 6,
-        borderColor: '#A7BFE8',
         transform: [{translateX: -90}, {translateY: 40}]
     },
     positionThird: {
@@ -44,7 +42,6 @@ const styles = StyleSheet.create({
         width: 100,
         borderRadius: 50,
         borderWidth: 6,
-        borderColor: '#A7BFE8',
         transform: [{translateX: 90}, {translateY: 40}]
     },
     pictureFirst: {

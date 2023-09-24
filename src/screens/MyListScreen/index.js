@@ -22,17 +22,21 @@ const MyListScreen = ({ route }) => {
     const user = auth.currentUser;
     const navigation = useNavigation();
 
-    const [isContent, setIsContent] = useState(true); //diplay message if thera are no lists!!
+    const [isContent, setIsContent] = useState(false); 
     const [dataFlatlist, setDataFlatlist] = useState([]);
     const [userId, setUserId] = useState('');
 
     const interpolatedValueForX = useRef(new Animated.Value(0)).current;
+    const opacityMessage = useRef(new Animated.Value(0)).current;
     const isFocused = useIsFocused();
 
     const xPositionDeg = interpolatedValueForX.interpolate({
       inputRange: [0, 360],
       outputRange: ["0deg", "180deg"]
     })
+
+
+
 
     const renderItemFunc = ({item}) => {
   
@@ -76,8 +80,14 @@ const MyListScreen = ({ route }) => {
   
           if (querySnapshot.empty) {
             console.log('there is no lists for this user')
+            Animated.timing(opacityMessage, {
+              toValue: 1,
+              duration: 1000,
+              useNativeDriver: true
+            }).start()
           } else {
             console.log('user exist in data base');
+            setIsContent(true);
           }
           
           querySnapshot.forEach((doc) => {
@@ -110,7 +120,8 @@ const MyListScreen = ({ route }) => {
       </View>
       <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
         <TouchableOpacity onPress={() => exitButton()}>
-            <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
+          
+          <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
 
         </TouchableOpacity>
       </Animated.View>
@@ -130,11 +141,11 @@ const MyListScreen = ({ route }) => {
         scrollEventThrottle={16}
         />
 
-        </View> : <View style={styles.emptyContent}>
+        </View> : <Animated.View style={{...styles.emptyContent, opacity: opacityMessage}}>
         
-            <Text style={styles.emptyContentText}>You don't have any lists. Tap button at bottm to create new list</Text>
+          <Text style={styles.emptyContentText}>You don't have any lists. Tap button at bottm to create a new list</Text>
 
-        </View>}
+        </Animated.View>}
       
 
       

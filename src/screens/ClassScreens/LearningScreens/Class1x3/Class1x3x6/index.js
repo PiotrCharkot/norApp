@@ -40,7 +40,7 @@ const Class1x3x6 = ({route}) => {  //screen name
             <Text style={{...styles.text , fontSize: 20, fontWeight: '600', color: '#6441A5'}}>Group three:</Text>
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>This crew is all about stems that end in: -eie, øye, -ge, -de, -ve. {'\n\n\n'}Their transformation trick? Adding <Text style={styles.textColor}>-de</Text>:{'\n'}</Text>
+            <Text style={styles.text}>This crew is all about verbs that end in: -eie, øye, -ge, -de, -ve. {'\n\n\n'}Their transformation trick? Adding <Text style={styles.textColor}>-de</Text>:{'\n'}</Text>
           </View>
 
           <View style={styles.exampleContainer}>

@@ -168,7 +168,8 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight,
-    marginVertical: 10,
+    marginTop: 10,
+    marginBottom: 40
   },
   bottomBarContainer: {
     position: 'absolute',

@@ -53,3 +53,22 @@ export default generalStyles;
 // #666600 , #999966 - olives
 
          
+
+
+//some styles
+
+//{'\n\n'}
+
+//<Text style={styles.textColor}></Text>
+
+
+// textColor: {
+//   fontSize: generalStyles.screenTextSize,
+//   fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+//   color: '#6441A5',
+//   fontWeight: '500'
+// },
+
+
+
+// #6441A5 light purple

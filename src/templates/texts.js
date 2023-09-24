@@ -26,7 +26,7 @@
 // `Now that’s what I call a fine job!`
 // Good going!
 // Well done!
-// `You’ve got it made!
+// `You’ve got it made!`
 // I knew you could do it.
 // `Couldn’t have done it better myself.`
 // `That’s the right way to do it.`
@@ -46,7 +46,7 @@
 // Argh!
 // Oh shoot, that is wrong! 
 // Oh my gosh!!
-// Oopsie, Let's look at it again.
+// `Oopsie, Let's look at it again.`
 // Woopsie daisies, that is wrong! 
 // `You've made a mistake. Let's recheck.`
 // `You've messed up.`
@@ -57,10 +57,38 @@
 
 
 
+// Hello!
+// Hey there!
+// Greetings!
+// Salutations!
+// Howdy!
+// What's up?
+// Aloha!
+// Bonjour!
+// Hola!
+// Yo!
+// Good to see you!
+// How's it going?
+// How have you been?
+// Long time no see!
+// What's new?
+// How's everything?
+// Top of the morning to you!
+// How do you do?
+// What's happening?
+// G'day! (common in Australian English)
 
 
-
-
+// Hei! (Hi)
+// Hallo! (Hello)
+// God dag! (Good day)
+// Heisann! (Hey there)
+// Halla! (Informal hello, similar to "yo" in English)
+// Hva skjer? (What's up?)
+// Hei hei! (Casual hello)
+// God morgen! (Good morning)
+// God kveld! (Good evening)
+// Hyggelig å se deg! (Nice to see you)
 
 
 

@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
+    input: {
+        fontSize: 14
+    },
     addingContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -50,31 +53,34 @@ const styles = StyleSheet.create({
     },
     opacityBtnText: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '500'
     },
     infoContainer: {
         height: 65
     },
     textInfo: {
-        color: 'grey'
+        color: 'grey',
+        fontSize: 12
     },
     addedWords: {
         flex: 1,
     },
     wordsContainer: {
         height: 20,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     flatList: {
         
     },
     wordsText: {
-        fontSize: 20
+        fontSize: 16
     },
     image: {
         height: 16,
-        width: 16
+        width: 16,
+        marginLeft: 10,
     },
     checkboxContainer: {
         marginBottom: 50,
@@ -93,7 +99,8 @@ const styles = StyleSheet.create({
     },
     deleteOpacityText: {
         color: 'white',
-        fontWeight: '500'
+        fontWeight: '500',
+        fontSize: 12
     },
     confirmationContainer: {
         position: 'absolute',
@@ -111,7 +118,7 @@ const styles = StyleSheet.create({
         borderRadius: 14
     },
     confirmationText: {
-        fontSize: 24,
+        fontSize: 20,
         textAlign: 'center',
         fontWeight: '500',
         color: 'white',
@@ -133,7 +140,7 @@ const styles = StyleSheet.create({
         borderRadius: 8
     },
     confirmationBtnTxt: {
-        fontSize: 16,
+        fontSize: 13,
         fontWeight: '500',
         color: 'white'
     }

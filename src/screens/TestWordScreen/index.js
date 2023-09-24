@@ -23,7 +23,7 @@ let closeTime;
 
 const TestWordScreen = ({route}) => {
 
-    const {userId, refToList, savedLang, own, userN} = route.params;
+    const {userId, refToList, savedLang, own, userN, myTitle} = route.params;
 
     const navigation = useNavigation();
 
@@ -396,25 +396,25 @@ const TestWordScreen = ({route}) => {
         openTime = new Date().getTime();
 
 
-        let docId = uuid.v4();
+        //let docId = uuid.v4();
 
-        const setDataToFbPoints = async () => {
-            await setDoc(doc(db, 'usersPoints', docId), {
-                userRef: userId,
-                userName: userN,
-                totalPoints: 0,
-                weeklyPoints: 0,
-                dailyPoints: 0,
-                daysInRow: 0,
-                lastUpdate: new Date().toLocaleDateString(),
-                userIsPro: false,
-            });
+        // const setDataToFbPoints = async () => {
+        //     await setDoc(doc(db, 'usersPoints', docId), {
+        //         userRef: userId,
+        //         userName: userN,
+        //         totalPoints: 0,
+        //         weeklyPoints: 0,
+        //         dailyPoints: 0,
+        //         daysInRow: 0,
+        //         lastUpdate: new Date().toLocaleDateString(),
+        //         userIsPro: false,
+        //     });
 
 
-            setDocumentIdPoints(docId);
-            setLastUpdateVal(new Date().toLocaleDateString());
+        //     setDocumentIdPoints(docId);
+        //     setLastUpdateVal(new Date().toLocaleDateString());
             
-        }
+        // }
 
 
         const getDataFb = async () => {
@@ -455,8 +455,8 @@ const TestWordScreen = ({route}) => {
             const querySnapshot3 = await getDocs(q3);
 
             if (querySnapshot3.empty) {
-        
-                setDataToFbPoints();
+                console.log('no data for userPoints for this user in Learnword screen. this is an error. there should be document for this user!');
+                //setDataToFbPoints();
             } else {
 
                 querySnapshot3.forEach((doc) => {
@@ -684,7 +684,7 @@ const TestWordScreen = ({route}) => {
         <View style={styles.body}>
 
             <Animated.View style={{...styles.titleContainer, opacity: titleOpacity}}>
-                <Text style={styles.titleText}>{title}</Text>
+                <Text style={styles.titleText}>{own ? myTitle : title}</Text>
             </Animated.View>
 
             <Animated.View style={{...styles.bonusPointsContainer, transform: [{translateX: pointsOffset}]}}>

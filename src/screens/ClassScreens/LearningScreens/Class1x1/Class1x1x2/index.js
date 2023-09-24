@@ -57,7 +57,7 @@ const Class1x1x2 = ({route}) => {
           </View>
 
           <View style={styles.textContainer}>
-              <Text style={styles.text}>By the way, here's how you pronounce 'å':</Text>
+              <Text style={styles.text}>By the way, here's how you pronounce <Text style={styles.textColor}>'å'</Text>:</Text>
           </View>
 
           <View style={styles.pictureContainer}>

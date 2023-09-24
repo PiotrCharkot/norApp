@@ -49,7 +49,7 @@ const Class1x3x1 = ({route}) => {   //name
           <View style={styles.middleView}>
            
             <Text style={styles.text}>
-            Ready to journey back in time {user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}>{user.displayName}</Text>}? {'\n\n'}Let's explore <Text style={styles.textColor}>past tense</Text>. In Norwegian, <Text style={styles.textColor}>'preteritum'</Text> is how we talk about things that used to be. {'\n\n'}It is perfect for talking about actions, events, or things that took place in the past.
+            Ready to journey back in time{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}? {'\n\n'}Let's explore <Text style={styles.textColor}>past tense</Text>. In Norwegian, <Text style={styles.textColor}>'preteritum'</Text> is how we talk about things that used to be. {'\n\n'}It is perfect for talking about actions, events, or things that took place in the past.
             </Text>
 
             

@@ -76,7 +76,7 @@ const Class1x1x9 = ({ route }) => {
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag word to the gap to create correct sentence in present time.</Text>
+                <Text style={styles.questionText}>Drag the word into the gap to form a correct sentence in the present tense.</Text>
                 <Text style={styles.textBody}>(I <Text style={styles.textColor}>need</Text> help to write job application.)</Text>
             </View>
 

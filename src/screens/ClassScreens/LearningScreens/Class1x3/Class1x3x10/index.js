@@ -40,25 +40,25 @@ const Class1x3x10 = ({route}) => {  //name
             <Text style={styles.text}>So, when should you use the past tense in Norwegian?</Text>
             <Text style={styles.text}></Text>
 
-            <Text style={styles.textSmall}> - to describe completed actions in the past,</Text>
-            <Text style={styles.textSmall}> - to describe past habits or states,</Text>
-            <Text style={styles.textSmall}> - to narrate a sequence of past events,</Text>
 
             
 
           </View>
 
 
+            <Text style={{...styles.textSmall, marginHorizontal: 20, marginTop: 15}}> - to describe completed actions in the past,</Text>
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Jeg arbeidet i går.</Text>
             <Text style={styles.exampleTextSmallThin}>I worked yesterday.</Text>
           </View>
 
+            <Text style={{...styles.textSmall, marginHorizontal: 20, marginTop: 15}}> - to describe past habits or states,</Text>
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Vi bodde i Norge.</Text>
             <Text style={styles.exampleTextSmallThin}>We lived in Norway.</Text>
           </View>
 
+            <Text style={{...styles.textSmall, marginHorizontal: 20, marginTop: 15}}> - to narrate a sequence of past events,</Text>
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>Han kjøpte en bil, solgte den, og kjøpte en ny en.</Text>
             <Text style={styles.exampleTextSmallThin}>He bought a car, sold it, and bought a new one.</Text>

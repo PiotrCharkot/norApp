@@ -5,7 +5,9 @@ const screenHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     mainContainer: {
-    
+        height: "100%",
+        width: "100%",
+        flex: 1
     },
     header: {
         height: 80,
@@ -54,13 +56,11 @@ const styles = StyleSheet.create({
     titleContainer: {
         marginTop: 20
     },
-    flatlist: {
-        paddingTop: 100,
-    },
+
     body: {
-        height: '100%',
-        alignItems: 'center',
-        paddingTop: 0
+        
+        alignItems: 'flex-start',
+        flex: 1
     },
     loaderDisplay: {
         width: '100%',

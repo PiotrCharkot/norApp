@@ -56,12 +56,6 @@ const styles = StyleSheet.create({
         height: '100%',  
         
     },
-    flatlist: {
-        marginTop: 10,
-        paddingTop: 10,
-        overflow: 'visible',
-        height: '100%',
-    },
     loaderDisplay: {
         width: '100%',
         height: '100%',

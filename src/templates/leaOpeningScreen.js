@@ -48,10 +48,10 @@ const Class1x1x1 = ({route}) => {   //name
 
           <View style={styles.middleView}>
             <Text style={styles.textGreeting}>
-              Hei {user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}>{user.displayName}</Text>}!
+              Hei{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}!
             </Text>
             <Text style={styles.text}>
-            Here is comes introduction text
+            Here is comes introduction text<Text style={styles.textColor}></Text>
             </Text>
 
             

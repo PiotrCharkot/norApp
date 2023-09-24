@@ -21,7 +21,7 @@ const CardPublic = (params) => {
 
 
     const pressLearn = () => {
-        navigation.navigate('LearnWord', {refToList: params.listReference, userId: params.currentUser, savedLang: 'EN', own: true})
+        navigation.navigate('LearnWord', {refToList: params.listReference, userId: params.currentUser, savedLang: 'EN', own: true, myTitle: params.title})
     }
     
     const addToYour = async () => {
@@ -148,12 +148,12 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         color: 'white',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '600'
     },
     textLang: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '500'
     },
     touchableEdit: {
@@ -169,7 +169,8 @@ const styles = StyleSheet.create({
         borderColor: 'white'
     },
     touchableEditText: {
-        color: 'white'
+        color: 'white',
+        fontSize: 12
     },
     touchableTest: {
         position: 'absolute',
@@ -185,7 +186,8 @@ const styles = StyleSheet.create({
     },
     touchableTestText: {
         color: '#282e38',
-        fontWeight: '500'
+        fontWeight: '500',
+        fontSize: 12
     },
     wordNrCont: {
         position: 'absolute',
@@ -194,7 +196,7 @@ const styles = StyleSheet.create({
     },
     wordNrText: {
         color: 'white',
-        fontSize: 16,
+        fontSize: 13,
         fontWeight: '500'
     }
    

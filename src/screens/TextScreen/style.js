@@ -20,26 +20,26 @@ const styles = StyleSheet.create({
         
     },
     symbolTxt: {
-        fontSize: 60,
+        fontSize: 48,
         marginRight: 10
     },
     bulbPic: {
         height: 30,
         width: 30,
-        marginBottom: 10,
+        marginBottom: 11,
     },
     iconX: {
         height: 25,
         width: 25,
         tintColor: 'grey'
-       },
-       iconXContainer: {
+    },
+    iconXContainer: {
         height: 25,
         width: 25,
         position: 'absolute',
         left: screenWidth - 50,
         top: 50
-       },
+    },
     body: {
         flex: 1
     },
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textTitle: {
-        fontSize: 32,
+        fontSize: 26,
         fontWeight: '600',
         color: 'white'
     },

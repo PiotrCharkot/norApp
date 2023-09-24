@@ -24,7 +24,6 @@ const Tabs = () => {
 
 
     const auth = getAuth();
-    const usersPointsCollection = collection(db, 'usersPoints');
    
 
     const focusedIconColor = 'red'
@@ -121,13 +120,13 @@ const Tabs = () => {
     useEffect(() => {
         console.log('runing use efect');
 
-        let docId = uuid.v4();
         let randomGuestId = Math.floor(Math.random() * 1000000);
         let stringId = randomGuestId.toString()
         let nameToFb = 'Guest' + stringId;
         console.log('string id is: ', nameToFb);
-
+        
         const setDataToFbPoints = async (userReference) => {
+            let docId = uuid.v4();
             await setDoc(doc(db, 'usersPoints', docId), {
                 userRef: userReference,
                 userName: nameToFb,
@@ -142,17 +141,126 @@ const Tabs = () => {
             
         }
 
-      if (allowDataUpload && auth.currentUser.uid) {
+
+        const setDataToFbAchivments = async (userReference) => {
+
+            let docId2 = uuid.v4();
         
         
-        console.log('show me a user identification current user: ', auth.currentUser.uid);
+            await setDoc(doc(db, 'usersAchivments', docId2), {
+              userRef: userReference,
+              learning: {
+                section1: [0,0,0,0,0,0],
+                section2: [0,0,0,0,0],
+                section3: [0,0,0,0,0],
+                section4: [0,0,0,0,0],
+                section5: [0,0,0,0,0],
+                section6: [0,0,0,0,0],
+              },
+              exercise: {
+                section1: [0,0,0,0,0],
+                section2: [0,0,0,0,0],
+                section3: [0,0,0,0,0],
+                section4: [0,0,0,0,0],
+                section5: [0,0,0,0,0],
+                section6: [0,0,0,0,0],
+              },
+              gold: 0,
+              silver: 0,
+              bronze: 0,
+        
+            });
+        }
 
 
-        setDataToFbPoints(auth.currentUser.uid)
+        const setDataToFbWordsInfo = async (userReference) => {
 
 
-        setAllowDataUpload(false);
-      }
+            let docId3 = uuid.v4();
+
+
+
+            await setDoc(doc(db, 'usersWordsInfo', docId3), {
+              userReference: userReference,
+              wordList: [
+                {
+                  refToList: '1',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },{
+                  refToList: '2',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },
+                {
+                  refToList: '3',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },{
+                  refToList: '4',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },
+                {
+                  refToList: '5',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },{
+                  refToList: '6',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },
+                {
+                  refToList: '8',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                },{
+                  refToList: '9',
+                  words1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+                  words2: [],
+                  words3: [],
+                  words4: [],
+                  words5: [],
+                }
+              ],
+              
+            });
+        }
+
+        if (allowDataUpload && auth.currentUser.uid) {
+            
+            
+            console.log('show me a user identification current user: ', auth.currentUser.uid);
+
+
+            setDataToFbPoints(auth.currentUser.uid);
+            setDataToFbAchivments(auth.currentUser.uid);
+            setDataToFbWordsInfo(auth.currentUser.uid);
+
+
+            setAllowDataUpload(false);
+        }
     }, [allowDataUpload])
     
 
