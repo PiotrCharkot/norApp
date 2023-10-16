@@ -43,8 +43,7 @@ const Class1x4x2 = ({ route }) => { //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
             <Text style={styles.text}>Forming the present perfect is a piece of cake! Just pair up the auxiliary verb <Text style={styles.textColor2}>'har'</Text> with the present perfect form of your main verb. {'\n\n'}So it's like:</Text>
@@ -64,22 +63,27 @@ const Class1x4x2 = ({ route }) => { //name
             <Text style={styles.exampleText}>rest of the sentence.</Text>
           </View>
 
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x4x3'} //link next screen 
-        linkPrevious={'Class1x4x1'} // link previous screen
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x4x3'} //link next screen 
+          linkPrevious={'Class1x4x1'} // link previous screen
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -94,6 +98,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -136,6 +146,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',

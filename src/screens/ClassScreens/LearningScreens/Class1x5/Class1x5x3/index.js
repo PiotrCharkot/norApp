@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { Audio } from "expo-av";
@@ -44,8 +44,7 @@ const Class1x5x3 = ({route}) => { //name for component
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
               <Text style={styles.text}>The structure of past perfect is very similar to the structure of present perfect. The only difference is the auxiliary verb. In present perfect we use 'har', and in past perfect we use:</Text>
@@ -65,22 +64,26 @@ const Class1x5x3 = ({route}) => { //name for component
             </TouchableOpacity>
           </View>
           
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar  
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'Class1x5x4'} //link next
-        linkPrevious={'Class1x5x2'} //link previous
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar  
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          linkNext={'Class1x5x4'} //link next
+          linkPrevious={'Class1x5x2'} //link previous
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -96,6 +99,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   textContainer: {
     marginTop: 40,
@@ -132,6 +141,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',

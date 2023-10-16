@@ -532,7 +532,6 @@ export default BottomBar
 const styles = StyleSheet.create({
     mainContainer: {
         position: 'absolute',
-        
         bottom: 0,
         height: 100,
         width: '100%',

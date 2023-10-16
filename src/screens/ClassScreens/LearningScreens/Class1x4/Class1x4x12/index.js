@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -12,7 +12,7 @@ const currentScreen = 12; //current screen
 const answerOne = 'å få';  //answer a
 const answerTwo = 'fikk'; //answer b
 const answerThree = 'fått'; //answer c
-const answerFour = 'fådd'; //answer d
+const answerFour = 'får'; //answer d
 const correctAnswers = [false, false, true, false];  //correct answer true or false
 
 
@@ -48,8 +48,7 @@ const Class1x4x12 = ({route}) => {  //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Choose correct verb form for present perfect tense.{'\n'}</Text>
@@ -64,29 +63,34 @@ const Class1x4x12 = ({route}) => {  //name
                 <AnswerButton text={answerFour} returnAnswer={(boolean) => setIsAnswerDChecked(boolean)}/>
             </View>
           
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar  
-        callbackButton={'checkAnswer'} 
-        userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
-        correctAnswers={correctAnswers}
-        answerBonus={answerBonus}
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'Class1x4x13'}  //link to next screen
-        linkPrevious={'Class1x4x11'} //link to previous screen
-        correctMsg={'You must have been practicing'} //correct msg
-        wrongMsg={`You've messed up. Try again!`} //wrong msg
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        questionScreen={true}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar  
+          callbackButton={'checkAnswer'} 
+          userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
+          correctAnswers={correctAnswers}
+          answerBonus={answerBonus}
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          linkNext={'Class1x4x13'}  //link to next screen
+          linkPrevious={'Class1x4x11'} //link to previous screen
+          correctMsg={'You must have been practicing'} //correct msg
+          wrongMsg={`You've messed up. Try again!`} //wrong msg
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          questionScreen={true}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -101,6 +105,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { getAuth } from 'firebase/auth';
@@ -40,8 +40,7 @@ const Class2x2x1 = ({route}) => {   //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.topView}>
             <Text style={styles.title}>Questions and negations - Spørsmål og negasjoner</Text>
           </View>
@@ -54,24 +53,27 @@ const Class2x2x1 = ({route}) => {   //name
             Here's a fun twist with Norwegian questions! Instead of the usual Subject-Verb-Object (SVO) order we see in affirmative sentences, questions like to shake things up by going <Text style={styles.textColor}>Verb-Subject-Object (VSO).</Text> We just switch positions of subject and verb.
             </Text>
 
-            
           </View>
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class2x2x2'} //link to next screen
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        isFirstScreen={true}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class2x2x2'} //link to next screen
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          isFirstScreen={true}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -87,6 +89,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,

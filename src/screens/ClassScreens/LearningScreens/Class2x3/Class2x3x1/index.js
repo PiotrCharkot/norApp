@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { getAuth } from 'firebase/auth';
@@ -7,7 +7,7 @@ import BottomBar from '../../../../../components/bars/bottomBar'
 import generalStyles from '../../../../../styles/generalStyles';
 
 const currentScreen = 1;   //current screen
-const allScreensNum = 10;   //screens number
+const allScreensNum = 12;   //screens number
 
 const Class2x3x1 = ({route}) => {   //name 
 
@@ -40,10 +40,9 @@ const Class2x3x1 = ({route}) => {   //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Main and subordinate clauses - Hovedsetning og bisetning</Text>
+            <Text style={styles.title}>Main and subordinate clauses - Hovedsetning og leddsetning</Text>
           </View>
 
           <View style={styles.middleView}>
@@ -51,27 +50,30 @@ const Class2x3x1 = ({route}) => {   //name
             Good to see you{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}!
             </Text>
             <Text style={styles.text}>
-            "Hovedsetning" (<Text style={styles.textColor}>main clause</Text>) is an independent clause that can stand on its own as a complete sentence. It has a subject, a verb, and usually an object.<Text style={styles.textColor}></Text>
+            Let's dive into "hovedsetning" (<Text style={styles.textColor}>main clause</Text>). {'\n\n'}Main clause is an independent clause that can stand on its own as a complete sentence. It has a subject, a verb, and usually an object.<Text style={styles.textColor}></Text>
             </Text>
 
             
           </View>
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class2x3x2'} //link to next screen
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        isFirstScreen={true}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBack}/>
+        </View>
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class2x3x2'} //link to next screen
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          isFirstScreen={true}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -87,6 +89,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,

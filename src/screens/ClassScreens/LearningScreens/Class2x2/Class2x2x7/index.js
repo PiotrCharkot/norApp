@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState, useEffect  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -34,8 +34,7 @@ const Class2x2x7 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.textContainer}>
             <Text style={styles.text}><Text style={styles.textColor}>"Ikke sant?"</Text> is an important expression. It can be roughly translated to "isn't it?", "right?", or "don't you think?" in English. It's often used as a tag question or to seek agreement from the listener. It's like checking if they're on the same page.{'\n\n'}Here's how "ikke sant?" can be used:</Text>
           </View>
@@ -52,22 +51,26 @@ const Class2x2x7 = ({route}) => {
             <Text style={styles.textSmall}>- Right?</Text>
           </View>
 
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class2x2x8'}
-        linkPrevious={'Class2x2x6'} 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class2x2x8'}
+          linkPrevious={'Class2x2x6'} 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -82,6 +85,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -96,6 +105,7 @@ const styles = StyleSheet.create({
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    textAlign: 'center',
   },
   text: {
     fontSize: generalStyles.screenTextSize,
@@ -112,6 +122,8 @@ const styles = StyleSheet.create({
     fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 12,
     alignItems: 'center',
@@ -121,6 +133,7 @@ const styles = StyleSheet.create({
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
     fontWeight: generalStyles.exampleTextWeight,
+    textAlign: 'center',
   },
   exampleTextSmallColor: {
     fontSize: generalStyles.exampleTextSizeSmall,

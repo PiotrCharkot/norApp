@@ -150,8 +150,8 @@ const Tabs = () => {
             await setDoc(doc(db, 'usersAchivments', docId2), {
               userRef: userReference,
               learning: {
-                section1: [0,0,0,0,0,0],
-                section2: [0,0,0,0,0],
+                section1: [0,0,0,0,0],
+                section2: [0,0,0,0,0,0,0],
                 section3: [0,0,0,0,0],
                 section4: [0,0,0,0,0],
                 section5: [0,0,0,0,0],

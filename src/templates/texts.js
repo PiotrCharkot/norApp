@@ -107,3 +107,13 @@
 "We told our app not to eat digital cookies before loading... but it didn't listen! 🍪 Please refresh and keep the cookies away."
 
 "Oh dear! Our app decided to play hide and seek. 🙈 Count to ten and hit refresh! Let's see if it comes back."
+
+// import { getAuth } from 'firebase/auth';
+//   const auth = getAuth();
+//   const user = auth.currentUser;
+
+// Hei{user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}!
+// {user.isAnonymous ? <Text style={styles.textName}></Text> : <Text style={styles.textName}> {user.displayName}</Text>}
+
+
+// `Well done${user.isAnonymous ? '':  ` ${user.displayName}`}!`

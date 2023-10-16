@@ -133,26 +133,26 @@ const Class1x1x8 = ({ route }) => {  //screen name
         </View>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        callbackButton={'checkAnswer'}
-        userAnswers={words}
-        correctAnswers={correctAnswers}
-        answerBonus={answerBonus}
-        linkNext={'Class?x?x?'} //link to next screen
-        linkPrevious={'Class?x?x?'} //link to previous screen
-        correctMsg={'Impressive...'} //correct msg
-        wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        questionScreen={true}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          callbackButton={'checkAnswer'}
+          userAnswers={words}
+          correctAnswers={correctAnswers}
+          answerBonus={answerBonus}
+          linkNext={'Class?x?x?'} //link to next screen
+          linkPrevious={'Class?x?x?'} //link to previous screen
+          correctMsg={'Impressive...'} //correct msg
+          wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          questionScreen={true}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }

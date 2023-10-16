@@ -43,8 +43,7 @@ const Class1x1x3 = ({ route }) => { //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
             <Text style={styles.text}>Introduction text <Text style={styles.boldText}>Bold part of text</Text> some more text </Text>
@@ -56,41 +55,46 @@ const Class1x1x3 = ({ route }) => { //name
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>Bold big example</Text>
-            <Text style={styles.text}>small example</Text>
+            <Text style={styles.textInEgz}>small example</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>Bold big example</Text>
-            <Text style={styles.text}>small example</Text>
+            <Text style={styles.textInEgz}>small example</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>Bold big example</Text>
-            <Text style={styles.text}>small example</Text>
+            <Text style={styles.textInEgz}>small example</Text>
           </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>Bold big example</Text>
-            <Text style={styles.text}>small example</Text>
+            <Text style={styles.textInEgz}>small example</Text>
           </View>
 
             
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class?x?x?'} //link next screen 
-        linkPrevious={'Class?x?x?'} // link previous screen
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class?x?x?'} //link next screen 
+          linkPrevious={'Class?x?x?'} // link previous screen
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -105,6 +109,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -119,6 +129,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+  },
+  textInEgz: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    textAlign: 'center',
   },
   textColor: {
     fontSize: generalStyles.screenTextSize,
@@ -141,6 +156,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',
@@ -150,6 +167,7 @@ const styles = StyleSheet.create({
   exampleText: {
     fontSize: generalStyles.exampleTextSize,
     fontWeight: generalStyles.exampleTextWeight,
+    textAlign: 'center',
   },
   
 })

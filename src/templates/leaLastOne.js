@@ -26,3 +26,35 @@ dataForMarkers={dataForMarkers}
 
 
 
+
+// ScrollView modifications
+
+// <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
+
+
+
+
+{/* body: {
+  height: '100%',
+  width: '100%',
+  marginTop: 80,
+  marginBottom: 100,
+},
+progressBarContainer: {
+  width: '100%',
+  position: 'absolute',
+}, */}
+
+// wrap ProgreesBar component in View (if opening screen use =========> comeBack={comeBack})
+// place it over bottomBarContainer
+
+{/* <View style={styles.progressBarContainer}>
+
+        </View> */}
+//  this goes inside View ===>  <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+
+{/* exampleContainer: {
+   paddingHorizontal: 6,
+   paddingVertical: 4,
+ }, */}

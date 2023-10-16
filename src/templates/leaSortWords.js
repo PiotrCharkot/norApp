@@ -2,6 +2,7 @@ import {View, Text, StyleSheet} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { getAuth } from 'firebase/auth';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
 import Draggable from '../../../../../components/other/Draggable'
@@ -24,6 +25,10 @@ const wordsCorrect = [  // words in correct orders
 ]
 
 const Class1x1x9 = ({ route }) => { // name
+
+
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
@@ -80,50 +85,50 @@ const Class1x1x9 = ({ route }) => { // name
   return (
     <View style={styles.mainContainer}>
       <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+      <View style={styles.body}>
 
-            <View style={styles.topView}>
-                <Text style={styles.questionText}>Question text</Text>
-                <Text style={styles.textBody}>(additional info text e.g. translation)</Text>
-            </View>
+          <View style={styles.topView}>
+              <Text style={styles.questionText}>Question text</Text>
+              <Text style={styles.textBody}>(additional info text e.g. translation)</Text>
+          </View>
 
-            <View style={styles.squaresViewContainer}>
+          <View style={styles.squaresViewContainer}>
 
 
-                {words.map((item, index) => {
-                    return (
-                        <Draggable
-                        key={index}
-                        index={index}
-                        movingDraggable={movingDraggable}
-                        onMovingDraggable={onMovingDraggable}
-                        releaseDraggable={releaseDraggable}
-                        onReleaseDraggable={onReleaseDraggable}
-                        swap={swap}
-                        renderChild={(isMovedOver) => {
-                            return (
-        
-                            <LinearGradient
-                            colors={[gradientTop, gradientBottom]}
-                            key={index}
-                                style={[
-                                isMovedOver && styles.draggableContainerSwap,
-                                styles.draggableContainer,
-                                ]}
-                            >
-                                
-                                <Text style={styles.textInDraggable}>{item}</Text>
-                            </LinearGradient>
-                            );
-                        }}
-                        />
-                    );
-                    
-                })}
+              {words.map((item, index) => {
+                  return (
+                      <Draggable
+                      key={index}
+                      index={index}
+                      movingDraggable={movingDraggable}
+                      onMovingDraggable={onMovingDraggable}
+                      releaseDraggable={releaseDraggable}
+                      onReleaseDraggable={onReleaseDraggable}
+                      swap={swap}
+                      renderChild={(isMovedOver) => {
+                          return (
+      
+                          <LinearGradient
+                          colors={[gradientTop, gradientBottom]}
+                          key={index}
+                              style={[
+                              isMovedOver && styles.draggableContainerSwap,
+                              styles.draggableContainer,
+                              ]}
+                          >
+                              
+                              <Text style={styles.textInDraggable}>{item}</Text>
+                          </LinearGradient>
+                          );
+                      }}
+                      />
+                  );
+                  
+              })}
 
-            </View>
-        </View>
-    
+          </View>
+      </View>
+  
 
       <View style={styles.bottomBarContainer}>
         <BottomBar 

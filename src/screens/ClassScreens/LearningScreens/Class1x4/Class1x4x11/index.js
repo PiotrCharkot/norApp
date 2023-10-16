@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState, useEffect  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -34,8 +34,7 @@ const Class1x4x11 = ({route}) => {  //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>You can use the present perfect tense in Norwegian in the following situations:</Text>
             <Text style={styles.text}></Text>
@@ -69,22 +68,28 @@ const Class1x4x11 = ({route}) => {  //name
             <Text style={styles.exampleTextSmall}>Hun har lest boka flere ganger.</Text>
             <Text style={styles.exampleTextSmallThin}>She has read the book several times.</Text>
           </View>
+        </ScrollView>
+
+
+        <View style={styles.progressBarContainer}>
+
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         </View>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x4x12'} //link next sceen
-        linkPrevious={'Class1x4x10'} //link previous screen 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x4x12'} //link next sceen
+          linkPrevious={'Class1x4x10'} //link previous screen 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -99,6 +104,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -123,7 +134,8 @@ const styles = StyleSheet.create({
     fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
-    paddingHorizontal: 5,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 10,
     alignItems: 'center',

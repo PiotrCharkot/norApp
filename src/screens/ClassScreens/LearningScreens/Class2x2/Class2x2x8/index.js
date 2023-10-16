@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { Audio } from "expo-av";
@@ -52,8 +52,7 @@ const Class2x2x8 = ({route}) => { //name for component
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
               <Text style={styles.text}>Here's how you pronounce '<Text style={styles.textColor}>ikke</Text>' and '<Text style={styles.textColor}>ikke sant?</Text>':</Text>
@@ -79,22 +78,26 @@ const Class2x2x8 = ({route}) => { //name for component
             </TouchableOpacity>
           </View>
           
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar  
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'Class2x2x9'} //link next
-        linkPrevious={'Class2x2x7'} //link previous
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar  
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          linkNext={'Class2x2x9'} //link next
+          linkPrevious={'Class2x2x7'} //link previous
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -110,6 +113,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   textContainer: {
     marginTop: 40,
@@ -146,6 +155,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginTop: 30,
     marginBottom: 0,

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState, useEffect  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -34,8 +34,7 @@ const Class2x2x6 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>Let's have look on how to create negative sentence. {'\n\n'}As to do that we usually add the word <Text style={styles.textColor}>'ikke'</Text> (not) after the verb. The word <Text style={styles.textColor}>'ikke'</Text> negates the action or state expressed by the verb. Here are some examples:</Text>
           </View>
@@ -64,22 +63,26 @@ const Class2x2x6 = ({route}) => {
             <Text style={styles.textSmall}>(We will not travel to Spain.)</Text>
           </View>
 
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class2x2x7'}
-        linkPrevious={'Class2x2x5'} 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class2x2x7'}
+          linkPrevious={'Class2x2x5'} 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -94,6 +97,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -108,6 +117,7 @@ const styles = StyleSheet.create({
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    textAlign: 'center',
   },
   text: {
     fontSize: generalStyles.screenTextSize,
@@ -124,6 +134,8 @@ const styles = StyleSheet.create({
     fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 12,
     alignItems: 'center',
@@ -133,6 +145,7 @@ const styles = StyleSheet.create({
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
     fontWeight: generalStyles.exampleTextWeight,
+    textAlign: 'center',
   },
   exampleTextSmallColor: {
     fontSize: generalStyles.exampleTextSizeSmall,

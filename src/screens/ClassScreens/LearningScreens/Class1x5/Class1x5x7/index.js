@@ -135,7 +135,7 @@ const Class1x5x7 = ({ route }) => { // name
         linkNext={'Class1x5x8'} //link next screen 
         linkPrevious={'Class1x5x6'} //link previous screen
         correctMsg={'You make it look easy.'} //correct msg
-        wrongMsg={'Oh shoot, that is wrong! Try again.'} //wrong msg
+        wrongMsg={'Jeg hadde lest boken...'} //wrong msg
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}

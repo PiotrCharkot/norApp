@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    textAlign: 'center',
   },
   text: {
     fontSize: generalStyles.screenTextSize,
@@ -121,6 +122,7 @@ const styles = StyleSheet.create({
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
     fontWeight: generalStyles.exampleTextWeight,
+    textAlign: 'center',
   },
   exampleTextSmallColor: {
     fontSize: generalStyles.exampleTextSizeSmall,

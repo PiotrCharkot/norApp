@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -55,8 +55,7 @@ const Class1x4x13 = ({route}) => {  //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Which ending should be added to verb 'å snø' (to snow)?{'\n'}</Text>
@@ -70,32 +69,36 @@ const Class1x4x13 = ({route}) => {  //name
                 <AnswerButton text={answerFour} returnAnswer={(boolean) => setIsAnswerDChecked(boolean)}/>
             </View>
           
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar  
-        callbackButton={'checkAnswer'} 
-        userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
-        correctAnswers={correctAnswers}
-        answerBonus={answerBonus}
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'ExitExcScreen'}  //link to next screen
-        linkPrevious={'Class1x4x12'} //link to previous screen
-        correctMsg={'Nothing can stop you now.'} //correct msg
-        wrongMsg={`A minor oversight, let's recheck.`} //wrong msg
-        learningLastScreen={true}
-        totalPoints={totalPoints}
-        dataForMarkers={dataForMarkers}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        questionScreen={true}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar  
+          callbackButton={'checkAnswer'} 
+          userAnswers={[isAnswerAChecked, isAnswerBChecked, isAnswerCChecked, isAnswerDChecked]} 
+          correctAnswers={correctAnswers}
+          answerBonus={answerBonus}
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          linkNext={'ExitExcScreen'}  //link to next screen
+          linkPrevious={'Class1x4x12'} //link to previous screen
+          correctMsg={'Nothing can stop you now.'} //correct msg
+          wrongMsg={`A minor oversight, let's recheck.`} //wrong msg
+          learningLastScreen={true}
+          totalPoints={totalPoints}
+          dataForMarkers={dataForMarkers}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          questionScreen={true}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -110,6 +113,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
