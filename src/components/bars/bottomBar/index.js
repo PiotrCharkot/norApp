@@ -582,6 +582,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#cffadb',
         justifyContent: 'center',
         paddingLeft: 20,
+        paddingRight: 20,
         borderTopWidth: 2,
         borderTopColor: 'green'
         
@@ -593,6 +594,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffd4e1',
         justifyContent: 'center',
         paddingLeft: 20,
+        paddingRight: 20,
         borderTopWidth: 2,
         borderTopColor: 'red'
         

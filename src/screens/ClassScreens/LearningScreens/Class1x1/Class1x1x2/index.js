@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { Audio } from "expo-av";
@@ -45,8 +45,7 @@ const Class1x1x2 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
               <Text style={styles.text}>Ever heard of the <Text style={styles.textColor}>infinitive</Text> form of a verb in Norwegian? It's simply the unchanged, basic form of the verb with an <Text style={styles.boldText}>'å'</Text> in front. For instance, the verb 'to help' translates to: </Text>
@@ -66,22 +65,27 @@ const Class1x1x2 = ({route}) => {
             </TouchableOpacity>
           </View>
           
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar  
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'Class1x1x3'}
-        linkPrevious={'Class1x1x1'}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar  
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          linkNext={'Class1x1x3'}
+          linkPrevious={'Class1x1x1'}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -97,6 +101,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   textContainer: {
     marginTop: 40,
@@ -115,7 +125,7 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: '#6441A5',
+    color: generalStyles.colorText1,
     fontWeight: '500'
   },
   boldText: {
@@ -133,6 +143,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',
@@ -151,7 +163,7 @@ const styles = StyleSheet.create({
   pictureSound: {
     height: 100,
     width: 100,
-    tintColor: 'purple'
+    tintColor: generalStyles.colorText2
   }
   
 })

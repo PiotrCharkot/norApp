@@ -99,22 +99,17 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
-    marginTop: 80,
-    marginBottom: 100,
+    marginTop: generalStyles.marginTopBody,
+    marginBottom: generalStyles.marginBottomBody,
   },
   progressBarContainer: {
     width: '100%',
     position: 'absolute',
   },
-  topView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20
-  },
   textContainer: {
-    marginTop: 40,
-    marginBottom: 20,
-    marginHorizontal: 20
+    marginTop: generalStyles.marginTopTextCont,
+    marginBottom: generalStyles.marginBottomTextCont,
+    marginHorizontal: generalStyles.marginHorizontalTextCont
   },
   textSmall: {
     fontSize: generalStyles.screenTextSizeSmall,
@@ -127,17 +122,17 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: '#6441A5',
-    fontWeight: '500'
+    color: generalStyles.colorText1,
+    fontWeight: generalStyles.textColorFontWeight
   },
   exampleContainer: {
-    paddingHorizontal: 6,
-    paddingVertical: 4,
-    marginHorizontal: 20,
-    marginVertical: 10,
+    paddingHorizontal: generalStyles.paddingHorizontalEgzCont,
+    paddingVertical: generalStyles.paddingVerticalEgzCont,
+    marginHorizontal: generalStyles.marginHorizontalEgzCont,
+    marginVertical: generalStyles.marginVerticalEgzCont1,
     alignItems: 'center',
     backgroundColor: generalStyles.exampleBackgroundColor,
-    borderRadius: 6
+    borderRadius: generalStyles.borderRadiusEgzCont
   },
   exampleTextSmall: {
     fontSize: generalStyles.exampleTextSizeSmall,
@@ -146,7 +141,7 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   

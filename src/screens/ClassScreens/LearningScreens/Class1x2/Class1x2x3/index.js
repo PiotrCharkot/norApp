@@ -43,8 +43,7 @@ const Class1x2x3 = ({ route }) => { //name
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           
 
@@ -72,22 +71,26 @@ const Class1x2x3 = ({ route }) => { //name
          
 
             
-        </View>
+        </ScrollView>
     
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x2x4'} //link next screen 
-        linkPrevious={'Class1x2x2'} // link previous screen
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x2x4'} //link next screen 
+          linkPrevious={'Class1x2x2'} // link previous screen
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -102,6 +105,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -132,6 +141,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginBottom: 0,
     marginTop: 50,

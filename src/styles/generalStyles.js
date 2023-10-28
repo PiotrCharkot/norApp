@@ -4,6 +4,10 @@ const generalStyles = StyleSheet.create({
     backgroundColorLearnScreen: 'white',
     colorHighlightChoiceOption: 'lightgrey',
     colorHighlightChoosenAnswer: '#77A1D3',
+    colorText: 'green',
+    colorText1: '#6441A5',
+    colorText2: 'purple',
+    colorTextName: '#cf5eff',
     correctAnswerConfirmationColor: 'rgb(144, 238, 144)',
     wrongAnswerConfirmationColor: 'rgb(252, 109, 118)',
     neutralAnswerConfirmationColor: 'rgb(255, 255, 255)',
@@ -16,10 +20,12 @@ const generalStyles = StyleSheet.create({
     exerciseScreenTitleFontWeightMediumPlus: '500',
     learningScreenTitleFontWeightMediumPlus: '500',
     fontWeightDraggable: '500',
+    textNameFontWeight: '600',
     screenTextSize: 17,
     screenTextSizeSmall: 16,
     screenTextSizeSmallest: 14,
     screenTextSizeDraggable: 14,
+    spacerInDraggable: 40,
     exampleTextSize: 24,
     exampleTextSizeSmall: 16,
     exampleBackgroundColor: 'lightgrey',
@@ -36,9 +42,26 @@ const generalStyles = StyleSheet.create({
     gradientBottomWrongDraggable: 'red',
     buttonNextPrevSize: 45,
     answerBonus: 8,
-    screenBonus: 10
-
-
+    screenBonus: 10,
+    paddingHorizontalEgzCont: 6,
+    paddingVerticalEgzCont: 4,
+    marginHorizontalEgzCont: 20,
+    marginVerticalEgzCont: 20,
+    marginVerticalEgzCont1: 10,
+    borderRadiusEgzCont: 6,
+    marginTopBody: 80,
+    marginBottomBody: 100,
+    textColorFontWeight: '500',
+    marginTopTopView: 20,
+    marginBottomTopView: 20,
+    marginHorizontalTopView: 20,
+    marginTopMiddleView: 20,
+    marginBottomMiddleView: 20,
+    marginHorizontalMiddleView: 20,
+    marginTopTextCont: 40,
+    marginBottomTextCont: 20,
+    marginHorizontalTextCont: 20,
+    bottomBarDistFromBottom: 0
 });
 
 

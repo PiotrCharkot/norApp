@@ -37,7 +37,7 @@ const Class2x7x7 = ({route}) => { // name
     <View style={styles.mainContainer}> 
         <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}><Text style={styles.textColor}>Setningsadverbial</Text> can be placed in different positions within a sentence, but they often come at the beginning or after and the verb which is less common. {'\n\n'}Placing <Text style={styles.textColor}>adverbial</Text> at the end adds emphasis, making it seem like a kind of afterthought. {'\n\n'}The placement can sometimes affect the emphasis or focus of the sentence.</Text>
+            <Text style={styles.text}><Text style={styles.textColor}>Setningsadverbial</Text> can be placed in different positions within a sentence, but they often come at the beginning or after the verb which is less common. {'\n\n'}Placing <Text style={styles.textColor}>adverbial</Text> at the end adds emphasis, making it seem like a kind of afterthought. {'\n\n'}The placement can sometimes affect the emphasis or focus of the sentence.</Text>
           </View>
 
           

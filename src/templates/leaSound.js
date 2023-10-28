@@ -99,17 +99,17 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
-    marginTop: 80,
-    marginBottom: 100,
+    marginTop: generalStyles.marginTopBody,
+    marginBottom: generalStyles.marginBottomBody,
   },
   progressBarContainer: {
     width: '100%',
     position: 'absolute',
   },
   textContainer: {
-    marginTop: 40,
-    marginBottom: 20,
-    marginHorizontal: 20
+    marginTop: generalStyles.marginTopTextCont,
+    marginBottom: generalStyles.marginBottomTextCont,
+    marginHorizontal: generalStyles.marginHorizontalTextCont
   },
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
@@ -123,12 +123,12 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: '#6441A5',
-    fontWeight: '500'
+    color: generalStyles.colorText1,
+    fontWeight: generalStyles.textColorFontWeight
   },
   boldText: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '700'
+    fontWeight: generalStyles.learningScreenTitleFontWeight
   },
   buttonsContainer: {
     justifyContent: 'center',
@@ -137,17 +137,17 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   exampleContainer: {
-    paddingHorizontal: 6,
-    paddingVertical: 4,
-    marginHorizontal: 20,
-    marginVertical: 20,
+    paddingHorizontal: generalStyles.paddingHorizontalEgzCont,
+    paddingVertical: generalStyles.paddingVerticalEgzCont,
+    marginHorizontal: generalStyles.marginHorizontalEgzCont,
+    marginVertical: generalStyles.marginVerticalEgzCont,
     alignItems: 'center',
     backgroundColor: generalStyles.exampleBackgroundColor,
-    borderRadius: 6
+    borderRadius: generalStyles.borderRadiusEgzCont
   },
   exampleText: {
     fontSize: generalStyles.exampleTextSize,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   pictureSound: {
     height: 100,
     width: 100,
-    tintColor: 'purple'
+    tintColor: generalStyles.colorText2
   }
   
 })

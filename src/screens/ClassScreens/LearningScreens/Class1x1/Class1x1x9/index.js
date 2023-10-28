@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   textColor: {
-    color: '#6441A5',
+    color: generalStyles.colorText1,
     fontWeight: '500'
   },
   exgzampleTextContainer: {
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     
   },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState, useEffect  } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import ProgressBar from '../../../../../components/bars/progressBar'
@@ -34,12 +34,10 @@ const Class1x1x5 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Norwegian verbs can't stand alone in the sentence. They need some company. They always want a subject like 'I' or 'You' hanging around.{'\n\n'}</Text>
+            <Text style={styles.text}>Norwegian verbs can't stand alone in the sentence. They need some company. They always want a subject like 'I' or 'You' hanging around. {'\n\n'}Let's see how we can use verb '<Text style={styles.textColor}>å like</Text>' (to like).</Text>
           
-            <Text style={styles.text}>Let's see how we can use verb 'å like' (to like).</Text>
           </View>
 
           <View style={styles.exampleContainer}>
@@ -66,22 +64,27 @@ const Class1x1x5 = ({route}) => {
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleTextSmall}>De liker musikk<Text style={styles.textSmall}> - They like music</Text></Text>
           </View>
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x1x6'}
-        linkPrevious={'Class1x1x4'} 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x1x6'}
+          linkPrevious={'Class1x1x4'} 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -96,6 +99,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -115,7 +124,15 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: generalStyles.colorText,
+    fontWeight: '500'
+  },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 10,
     alignItems: 'center',

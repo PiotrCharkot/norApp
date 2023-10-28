@@ -133,7 +133,7 @@ const Class1x2x8 = ({ route }) => { // name
         linkNext={'Class1x2x9'} //link next screen 
         linkPrevious={'Class1x2x7'} //link previous screen
         correctMsg={`You’re doing a great job!`} //correct msg
-        wrongMsg={'Oh shoot, that is wrong!'} //wrong msg
+        wrongMsg={'Han kommer til å ta...'} //wrong msg
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         userPoints={currentPoints}
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     
   },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })

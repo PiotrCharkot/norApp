@@ -82,7 +82,7 @@ const Class1x2x9 = ({ route }) => {  //screen name
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Which verb is best in this sentence? Drag it and drop it in the gap.</Text>
-                <Text style={styles.textBody}>(I think it is going to be a warm day today.)</Text>
+                <Text style={styles.textBody}>(I think it <Text style={styles.textColor}>is going to</Text> be a warm day today.)</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -243,8 +243,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 3
     
   },
+  textColor: {
+    color: generalStyles.colorText1,
+    fontWeight: '500'
+  },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })

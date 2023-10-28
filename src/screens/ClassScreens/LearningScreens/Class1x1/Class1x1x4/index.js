@@ -43,16 +43,12 @@ const Class1x1x4 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}><Text style={styles.textColor}>Irregular verbs</Text> like to play by their own rules. They don't stick to the patterns we talked about earlier. Instead, they've got their own special forms in the present tense. So, heads up, you'll want to remember these!</Text>
+            <Text style={styles.text}><Text style={styles.textColor}>Irregular verbs</Text> like to play by their own rules. They don't stick to the patterns we talked about earlier. Instead, they've got their own special forms in the present tense. So, heads up, you'll want to remember these! {'\n\n'}Here are some common ones:</Text>
           </View>
 
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Here are some common ones:</Text>
-          </View>
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>å være - er</Text>
@@ -72,22 +68,27 @@ const Class1x1x4 = ({ route }) => {
           
 
             
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x1x5'}
-        linkPrevious={'Class1x1x3'} 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x1x5'}
+          linkPrevious={'Class1x1x3'} 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -102,6 +103,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -120,7 +127,7 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: '#6441A5',
+    color: generalStyles.colorText1,
     fontWeight: '500'
   },
   questionText: {
@@ -134,6 +141,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',

@@ -90,22 +90,22 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
-    marginTop: 80,
-    marginBottom: 100,
+    marginTop: generalStyles.marginTopBody,
+    marginBottom: generalStyles.marginBottomBody,
   },
   progressBarContainer: {
     width: '100%',
     position: 'absolute',
   },
   topView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20,
+    marginTop: generalStyles.marginTopTopView,
+    marginBottom: generalStyles.marginBottomTopView,
+    marginHorizontal: generalStyles. marginHorizontalTopView
   },
   middleView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20,
+    marginTop: generalStyles.marginTopMiddleView,
+    marginBottom: generalStyles.marginBottomMiddleView,
+    marginHorizontal: generalStyles. marginHorizontalMiddleView
   },
   title: {
     fontSize: generalStyles.learningScreenTitleSize,
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
   textColor: {
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
-    color: '#6441A5',
-    fontWeight: '500'
+    color: generalStyles.colorText1,
+    fontWeight: generalStyles.textColorFontWeight
   },
   textGreeting: {
     fontSize: generalStyles.screenTextSize,
@@ -129,12 +129,12 @@ const styles = StyleSheet.create({
   },
   textName: {
     fontSize: generalStyles.screenTextSize,
-    fontWeight: '600',
-    color: '#cf5eff'
+    fontWeight: generalStyles.textNameFontWeight,
+    color: generalStyles.colorTextName
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   

@@ -50,7 +50,6 @@ const Class1x1x9 = ({ route }) => { // name
         }
 
         if (route.params.userPoints > 0) {
-            console.log('setting new points', route.params.userPoints );
             setCurrentPoints(userPoints)
         }
 
@@ -88,7 +87,7 @@ const Class1x1x9 = ({ route }) => { // name
       <View style={styles.body}>
 
           <View style={styles.topView}>
-              <Text style={styles.questionText}>Question text</Text>
+              <Text style={styles.questionText}>Rearrange the words to form a correct sentence.</Text>
               <Text style={styles.textBody}>(additional info text e.g. translation)</Text>
           </View>
 
@@ -166,9 +165,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   topView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20
+    marginTop: generalStyles.marginTopTopView,
+    marginBottom: generalStyles.marginBottomTopView,
+    marginHorizontal: generalStyles. marginHorizontalTopView
   },
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
@@ -178,7 +177,7 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   squaresViewContainer: {
@@ -233,7 +232,7 @@ const styles = StyleSheet.create({
     
   },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })

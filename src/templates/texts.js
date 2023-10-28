@@ -39,7 +39,11 @@
 // `I'm impressed`
 // You must have been practicing
 // Tremendous!
-
+// 'Veldig bra!'
+// 'God jobb, fortsett med det'
+// 'Jeg visste at du kunne gjøre det.'
+// `Kunne ikke gjort det bedre selv.`
+// Ingenting kan stoppe deg nå.
 
 
 
@@ -55,7 +59,12 @@
 // A minor slip up has surfaced.
 // A minor oversight, let's recheck.
 
-
+// Det er feil!
+// Herregud!!
+// `La oss se på det igjen.`
+// `Du har gjort en feil. La oss sjekke på nytt.`
+// Prøv igjen.
+// La oss sjekke på nytt.
 
 // Hello!
 // Hey there!

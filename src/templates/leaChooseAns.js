@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
+import { getAuth } from 'firebase/auth';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
 import AnswerButton from '../../../../../components/buttons/AnswerButton'
@@ -20,6 +21,8 @@ const Class1x1x7 = ({route}) => {  //name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
+    const auth = getAuth();
+    const user = auth.currentUser;
     
     const [isAnswerAChecked, setIsAnswerAChecked] = useState(false);
     const [isAnswerBChecked, setIsAnswerBChecked] = useState(false);
@@ -39,7 +42,6 @@ const Class1x1x7 = ({route}) => {  //name
       }
 
       if (route.params.userPoints > 0) {
-          console.log('setting new points', route.params.userPoints );
           setCurrentPoints(userPoints)
       }
 
@@ -104,17 +106,17 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
-    marginTop: 80,
-    marginBottom: 100,
+    marginTop: generalStyles.marginTopBody,
+    marginBottom: generalStyles.marginBottomBody,
   },
   progressBarContainer: {
     width: '100%',
     position: 'absolute',
   },
   topView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20
+    marginTop: generalStyles.marginTopTopView,
+    marginBottom: generalStyles.marginBottomTopView,
+    marginHorizontal: generalStyles. marginHorizontalTopView
   },
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   textBody: {
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     color: 'grey'
   },
   textColor: {
-    color: '#6441A5',
+    color: generalStyles.colorText1,
   },
   
 })

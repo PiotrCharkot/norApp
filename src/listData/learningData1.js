@@ -29,7 +29,7 @@ export default dataObj = [
     level: 'A1',
     link: 'Class1x4x1',
     key: 4,
-    showPro: true,
+    showPro: false,
    },
     {
     title: 'Past perfect',
@@ -37,6 +37,6 @@ export default dataObj = [
     level: 'A1',
     link: 'Class1x5x1',
     key: 5,
-    showPro: true,
+    showPro: false,
    }
 ];

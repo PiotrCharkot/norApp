@@ -2,6 +2,7 @@ import {View, Text, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { getAuth } from 'firebase/auth';
 import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
 import Draggable from '../../../../../components/other/Draggable'
@@ -21,6 +22,9 @@ const indexOfText = [0, 2, 3, 4, 5] // array with indexes of text
 const Class1x1x8 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
+
+    const auth = getAuth();
+    const user = auth.currentUser;
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
@@ -169,9 +173,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   topView: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginHorizontal: 20
+    marginTop: generalStyles.marginTopTopView,
+    marginBottom: generalStyles.marginBottomTopView,
+    marginHorizontal: generalStyles. marginHorizontalTopView
   },
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: generalStyles.bottomBarDistFromBottom,
     width: '100%',
   },
   squaresViewContainer: {
@@ -227,7 +231,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   textColor: {
-    color: '#6441A5',
+    color: generalStyles.colorText1,
   },
   exgzampleTextContainer: {
     flexWrap: 'wrap',
@@ -238,7 +242,7 @@ const styles = StyleSheet.create({
     
   },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })

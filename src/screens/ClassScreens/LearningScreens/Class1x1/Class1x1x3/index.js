@@ -43,16 +43,13 @@ const Class1x1x3 = ({ route }) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
-        <View style={styles.body}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}>Creating a verb in the present tense? Easy! Just drop the 'å', and add an 'r' to your verb's tail-end.</Text>
+            <Text style={styles.text}>Creating a verb in the present tense? Easy! Just drop the 'å', and add an '<Text style={styles.textColor}>r</Text>' to your verb's tail-end. {'\n\n'}Here's the general idea how to create most verbs:</Text>
           </View>
 
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Here's the general idea how to create most verbs:</Text>
-          </View>
+          
 
           <View style={styles.exampleContainer}>
             <Text style={styles.exampleText}>å vente - venter</Text>
@@ -75,22 +72,27 @@ const Class1x1x3 = ({ route }) => {
           </View>
 
             
-        </View>
+        </ScrollView>
     
 
-      <View style={styles.bottomBarContainer}>
-        <BottomBar 
-        linkNext={'Class1x1x4'}
-        linkPrevious={'Class1x1x2'} 
-        buttonWidth={generalStyles.buttonNextPrevSize}
-        buttonHeight={generalStyles.buttonNextPrevSize}
-        userPoints={currentPoints}
-        latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
-        comeBack={comeBack}
-        allScreensNum={allScreensNum}
-        />
-      </View>
+        <View style={styles.progressBarContainer}>
+          <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+
+        </View>
+
+        <View style={styles.bottomBarContainer}>
+          <BottomBar 
+          linkNext={'Class1x1x4'}
+          linkPrevious={'Class1x1x2'} 
+          buttonWidth={generalStyles.buttonNextPrevSize}
+          buttonHeight={generalStyles.buttonNextPrevSize}
+          userPoints={currentPoints}
+          latestScreen={latestScreenDone}
+          currentScreen={currentScreen}
+          comeBack={comeBack}
+          allScreensNum={allScreensNum}
+          />
+        </View>
     </View>
   )
 }
@@ -105,6 +107,12 @@ const styles = StyleSheet.create({
   body: {
     height: '100%',
     width: '100%',
+    marginTop: 80,
+    marginBottom: 100,
+  },
+  progressBarContainer: {
+    width: '100%',
+    position: 'absolute',
   },
   topView: {
     marginTop: 20,
@@ -120,6 +128,12 @@ const styles = StyleSheet.create({
     fontSize: generalStyles.screenTextSize,
     fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
   },
+  textColor: {
+    fontSize: generalStyles.screenTextSize,
+    fontWeight: generalStyles.learningScreenTitleFontWeightMedium,
+    color: generalStyles.colorText,
+    fontWeight: '500'
+  },
   questionText: {
     fontSize: generalStyles.learningScreenTitleSize,
     fontWeight: generalStyles.learningScreenTitleFontWeight,
@@ -131,6 +145,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   exampleContainer: {
+    paddingHorizontal: 6,
+    paddingVertical: 4,
     marginHorizontal: 20,
     marginVertical: 20,
     alignItems: 'center',

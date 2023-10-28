@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     
   },
   spacer: {
-    height: 80,
+    height: generalStyles.spacerInDraggable,
     width: '100%',
   },
 })
