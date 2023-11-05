@@ -1,3 +1,4 @@
+
 import {View, Text, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { useFocusEffect } from "@react-navigation/native";
@@ -10,16 +11,24 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 8;  //current screen 
+const currentScreen = 13;  //current screen 
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const correctAnswers = ['Jeg', 'trenger']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
 
-const indexOfGaps = [1] // array with index of a gap in text
-const indexOfText = [0, 2, 3, 4, 5] // array with indexes of text
+const totalPoints = 3 * generalStyles.answerBonus + currentScreen * generalStyles.screenBonus;
+const dataForMarkers = {
+  part: 'learning',
+  section: 'section5',
+  class: 1
+}
 
-const Class1x1x8 = ({ route }) => {  //screen name
+const correctAnswers = ['Han', 'har', 'alltid', 'tatt', 'vare', 'på', 'sine', 'bøker']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
+
+const indexOfGaps = [6] // array with index of a gap in text
+const indexOfText = [0, 1, 2, 3, 4, 5, 7] // array with indexes of text
+
+const Class5x2x13 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
 
@@ -28,7 +37,7 @@ const Class1x1x8 = ({ route }) => {  //screen name
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Jeg' ,'            ', 'hjelp', 'til å',  'skrive', 'jobbsøknad.','!!!' , 'trengte', 'å trenge' ,'trenger' ,'to trenger' , 'æ tgrenge' ]); // arr with word in order, after '!!!' comes word to choose from
+    const [words, setWords] = useState(['Han', 'har', 'alltid', 'tatt', 'vare', 'på', '            ', 'bøker', '!!!' , 'sitt', 'sine' , 'sin', 'si']); // arr with word in order, after '!!!' comes word to choose from Han har alltid tatt vare på sine bøker.
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -79,8 +88,8 @@ const Class1x1x8 = ({ route }) => {  //screen name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag correct answer into the gap.</Text>
-                <Text style={styles.textBody}>(additional <Text style={styles.textColor}></Text>text)</Text>
+                <Text style={styles.questionText}>Drag correct form into the gap.</Text>
+                <Text style={styles.textBody}>He has always taken care of his (own) books.</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -143,10 +152,10 @@ const Class1x1x8 = ({ route }) => {  //screen name
           userAnswers={words}
           correctAnswers={correctAnswers}
           answerBonus={answerBonus}
-          linkNext={'Class?x?x?'} //link to next screen
-          linkPrevious={'Class?x?x?'} //link to previous screen
-          correctMsg={'Impressive...'} //correct msg
-          wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
+          linkNext={'ExitExcScreen'} //link to next screen
+          linkPrevious={'Class5x2x12'} //link to previous screen
+          correctMsg={`You’re learning fast${user.isAnonymous ? '':  ` ${user.displayName}`}!`} //correct msg
+          wrongMsg={`'bøker' is plural...`} //wrong msg
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
           userPoints={currentPoints}
@@ -155,13 +164,16 @@ const Class1x1x8 = ({ route }) => {  //screen name
           questionScreen={true}
           comeBack={comeBack}
           allScreensNum={allScreensNum}
+          learningLastScreen={true}
+          totalPoints={totalPoints}
+          dataForMarkers={dataForMarkers}
           />
         </View>
     </View>
   )
 }
 
-export default Class1x1x8 //name for export
+export default Class5x2x13 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

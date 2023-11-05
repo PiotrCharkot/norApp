@@ -7,6 +7,7 @@ import { collection, getDocs, query, where, doc, setDoc, updateDoc } from "fireb
 import { getStorage, ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { authentication } from '../../../firebase/firebase-config';
 import RankingItem from '../../components/other/RankingItem';
+import { FlashList } from '@shopify/flash-list';
 import styles from './style';
 
 
@@ -369,15 +370,15 @@ const ResultsScreen = () => {
       
       <View style={styles.middleContainer}>
         
-        { weekly ? <FlatList
-          style={styles.flatList}
+        { weekly ? <FlashList
           data={dataFlatListWeekly}
+          estimatedItemSize={68}
           keyExtractor={(item) => item.userRef}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => <RankingItem params={item} userRef={userId} today={today} yesterday={yesterday} weekly={true}/>}
-          /> : <FlatList
-          style={styles.flatList}
+          /> : <FlashList
           data={dataFlatList}
+          estimatedItemSize={68}
           keyExtractor={(item) => item.userRef}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => <RankingItem params={item} userRef={userId} today={today} yesterday={yesterday} weekly={false}/>}

@@ -73,30 +73,45 @@ const RankingItem = (item) => {
   ) : (
     <View style={styles.wrapper}>
 
+        
+
         <View style={styles.positionContainer}>
             <Text style={styles.positionText}>{item.params.position}</Text>
         </View>
-            <LinearGradient colors={ item.params.userRef === item.userRef ? ['#1D976C', '#93F9B9'] : ['#6190E8', '#A7BFE8']} start={[0.8, 0.2]} style={styles.gradient}>
-                <LinearGradient colors={ item.params.userRef === item.userRef ? ['#93F9B9', 'white'] : [ '#A7BFE8', 'white']} start={[0.85, 0.5]} end={[0.3, 0.5]} style={styles.colorLine}></LinearGradient>
-                <View  style={{...styles.mainContainer}}>
-                
-                    <View style={styles.nameContainer}>
-                        <Text style={styles.nameText}>{item.params.userName}</Text>
-                    </View>
 
-                    <View style={styles.resultsContainer}>
-                        <View style={styles.daysContainer}>
-                            <Text style={styles.daysText}>{item.params.lastUpdate !== item.today && item.params.lastUpdate !== item.yesterday ? 0 : item.params.daysInRow}  </Text> 
-                            <Animated.Image style={{...styles.pictureSun, transform: [{rotate: circlePositionDeg}] }}  source={require('../../../assets/sun.png')} />
-                        </View>
-                        <View style={styles.pointsContainer}>
-                            <Text style={styles.pointsText}>{item.weekly ? item.params.weeklyPoints : item.params.totalPoints}</Text>
-                        </View>
-                    </View>
-                    
+
+        
+        <LinearGradient colors={ item.params.userRef === item.userRef ? ['#1D976C', '#93F9B9'] : ['#6190E8', '#A7BFE8']} start={[0.8, 0.2]} style={styles.gradient}>
+            <LinearGradient colors={ item.params.userRef === item.userRef ? ['#93F9B9', 'white'] : [ '#A7BFE8', 'white']} start={[0.85, 0.5]} end={[0.3, 0.5]} style={styles.colorLine}></LinearGradient>
+            <View  style={{...styles.mainContainer}}>
+            
+
+                <View style={styles.proContainer}>
+                    <Text style={styles.proText}>{item.params.userIsPro ? 'PRO' : ''}</Text>
                 </View>
-            </LinearGradient>
-            <Image style={styles.picture}  source={{ uri: imgSrc }} />
+
+                <View style={styles.nameContainer}>
+                    <Text style={styles.nameText}>{item.params.userName}</Text>
+                </View>
+
+                <View style={styles.resultsContainer}>
+                    <View style={styles.daysContainer}>
+                        <Text style={styles.daysText}>{item.params.lastUpdate !== item.today && item.params.lastUpdate !== item.yesterday ? 0 : item.params.daysInRow}  </Text> 
+                        <Animated.Image style={{...styles.pictureSun, transform: [{rotate: circlePositionDeg}] }}  source={require('../../../assets/sun.png')} />
+                    </View>
+                    <View style={styles.pointsContainer}>
+                        <Text style={styles.pointsText}>{item.weekly ? item.params.weeklyPoints : item.params.totalPoints}</Text>
+                    </View>
+                </View>
+                
+
+            </View>
+        </LinearGradient>
+
+        
+        <Image style={styles.picture}  source={{ uri: imgSrc }} />
+
+            
     </View>
   )
 }
@@ -138,7 +153,7 @@ const styles = StyleSheet.create({
     },
     picture: {
         position: 'absolute',
-        top: 15,
+        bottom: -5,
         height: 60,
         width: 60,
         borderRadius: 30
@@ -152,15 +167,16 @@ const styles = StyleSheet.create({
         marginLeft: 60,
         paddingLeft: 10,
         width: screenWidth / 2 - 50,
-        height: 18,
+        //height: 18,
+        //overflow: 'visible',
+        //backgroundColor: 'pink'
     },
     nameText: {
         fontSize: 16,
         fontWeight: '600',
-        
     },
     resultsContainer: {
-        height: 20,
+        //height: 20,
         width: screenWidth / 2 - 50,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -186,5 +202,16 @@ const styles = StyleSheet.create({
     pointsText: {
         fontSize: 16,
         fontWeight: '400',
-    }
+    },
+    proContainer: {
+        position: 'absolute',
+        right: 30,
+        transform: [{rotate: '-7deg'}],
+        
+    },
+    proText: {
+        fontSize: 70,
+        color: 'rgba(255, 255, 255, 0.15)',
+        fontWeight: '900'
+    },
 })
