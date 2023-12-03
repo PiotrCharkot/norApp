@@ -9,15 +9,15 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 11; //current screen
-const answerOne = 'nyt';  //answer a
-const answerTwo = 'nye'; //answer b
-const answerThree = 'nytt'; //answer c
-const answerFour = 'ny'; //answer d
-const correctAnswers = [false, false, true, false];  //correct answer true or false
+const currentScreen = 10; //current screen
+const answerOne = 'deres';  //answer a
+const answerTwo = 'mine'; //answer b
+const answerThree = 'dine'; //answer c
+const answerFour = 'min'; //answer d
+const correctAnswers = [false, true, false, false];  //correct answer true or false
 
 
-const Class5x3x11 = ({route}) => {  //name
+const Class6x2x10 = ({route}) => {  //name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
@@ -53,9 +53,9 @@ const Class5x3x11 = ({route}) => {  //name
         <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Choose the correct form of the adjective 'new' in the following sentence.</Text>
-                <Text style={styles.textBody}>Han reiser i et ____ tog.</Text>
-                <Text style={styles.textBody}>He travels in a new train.</Text>
+                <Text style={styles.questionText}>Choose correct answer.</Text>
+                <Text style={styles.textBody}>Dere er _____ beste venner.</Text>
+                <Text style={styles.textBody}>You are my best friends.</Text>
             </View>
 
             <View style={styles.buttonsContainer}>
@@ -81,10 +81,10 @@ const Class5x3x11 = ({route}) => {  //name
           answerBonus={answerBonus}
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
-          linkNext={'Class5x3x12'}  //link to next screen
-          linkPrevious={'Class5x3x10'} //link to previous screen
-          correctMsg={`Good for you${user.isAnonymous ? '':  ` ${user.displayName}`}!`} //correct msg
-          wrongMsg={'Argh, that is wrong!'} //wrong msg
+          linkNext={'Class6x2x11'}  //link to next screen
+          linkPrevious={'Class6x2x9'} //link to previous screen
+          correctMsg={'Good effort!'} //correct msg
+          wrongMsg={`You've messed up.`} //wrong msg
           userPoints={currentPoints}
           latestScreen={latestScreenDone}
           currentScreen={currentScreen}
@@ -97,7 +97,7 @@ const Class5x3x11 = ({route}) => {  //name
   )
 }
 
-export default Class5x3x11 //name for export
+export default Class6x2x10 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

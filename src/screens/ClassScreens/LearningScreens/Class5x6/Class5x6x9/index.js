@@ -10,16 +10,23 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 10;  //current screen 
+const currentScreen = 9;  //current screen 
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const correctAnswers = ['Han', 'leser', 'et', 'gammelt']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
+const totalPoints = 3 * generalStyles.answerBonus + currentScreen * generalStyles.screenBonus;
+const dataForMarkers = {
+  part: 'learning',
+  section: 'section5',
+  class: 5
+}
 
-const indexOfGaps = [3] // array with index of a gap in text
-const indexOfText = [0, 1, 2, 4] // array with indexes of text
+const correctAnswers = ['Hun', 'er', 'mer']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
 
-const Class5x3x10 = ({ route }) => {  //screen name
+const indexOfGaps = [2] // array with index of a gap in text
+const indexOfText = [0, 1, 3, 4, 5, 6] // array with indexes of text
+
+const Class5x6x9 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
 
@@ -28,7 +35,7 @@ const Class5x3x10 = ({ route }) => {  //screen name
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Han', 'leser', 'et','            ', 'kart', '!!!' ,'gamle', 'gammel', 'gammelt' ]); // arr with word in order, after '!!!' comes word to choose from Han leser et gammelt kart.
+    const [words, setWords] = useState(['Hun', 'er', '            ', 'forsiktig', 'enn', 'broren', 'sin.', '!!!' , 'mest' ,'minst' ,'mer' , 'mindre' ]); // arr with word in order, after '!!!' comes word to choose from Hun er mer forsiktig enn broren sin.
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -79,8 +86,8 @@ const Class5x3x10 = ({ route }) => {  //screen name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag the correct form of adjective 'old' into the gap.</Text>
-                <Text style={styles.textBody}>He is reading an <Text style={styles.textColor}>old</Text> map.</Text>
+                <Text style={styles.questionText}>Drag correct answer into the gap.</Text>
+                <Text style={styles.textBody}>She is more careful than her brother.</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -143,10 +150,10 @@ const Class5x3x10 = ({ route }) => {  //screen name
           userAnswers={words}
           correctAnswers={correctAnswers}
           answerBonus={answerBonus}
-          linkNext={'Class5x3x11'} //link to next screen
-          linkPrevious={'Class5x3x9'} //link to previous screen
-          correctMsg={'Impressive...'} //correct msg
-          wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
+          linkNext={'ExitExcScreen'} //link to next screen
+          linkPrevious={'Class5x6x8'} //link to previous screen
+          correctMsg={`Kjempe bra${user.isAnonymous ? '':  ` ${user.displayName}`}!`} //correct msg
+          wrongMsg={`La oss se på det igjen.`} //wrong msg
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
           userPoints={currentPoints}
@@ -155,13 +162,16 @@ const Class5x3x10 = ({ route }) => {  //screen name
           questionScreen={true}
           comeBack={comeBack}
           allScreensNum={allScreensNum}
+          learningLastScreen={true}
+          totalPoints={totalPoints}
+          dataForMarkers={dataForMarkers}
           />
         </View>
     </View>
   )
 }
 
-export default Class5x3x10 //name for export
+export default Class5x6x9 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

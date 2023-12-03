@@ -24,7 +24,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Degree inflection',
+    title: 'The degree of comparison',
     description: 'Gradbøyning',
     level: 'A1',
     link: 'Class5x4x1',
@@ -32,7 +32,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'Irregular degree inflection',
+    title: 'Irregular degree of comparison',
     description: 'Uregelmessig gradbøyning',
     level: 'A1',
     link: 'Class5x5x1',
@@ -40,7 +40,7 @@ export default dataObj = [
     showPro: false,
    },
     {
-    title: 'The degree of comparison',
+    title: 'The degree of comparison II',
     description: 'Mer, mest, mindre og minst',
     level: 'A1',
     link: 'Class5x6x1',

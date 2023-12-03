@@ -10,16 +10,16 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 10;  //current screen 
+const currentScreen = 7;  //current screen 
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const correctAnswers = ['Han', 'leser', 'et', 'gammelt']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
+const correctAnswers = ['Jeg', 'så', 'deg']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
 
-const indexOfGaps = [3] // array with index of a gap in text
-const indexOfText = [0, 1, 2, 4] // array with indexes of text
+const indexOfGaps = [2] // array with index of a gap in text
+const indexOfText = [0, 1, 3, 4] // array with indexes of text
 
-const Class5x3x10 = ({ route }) => {  //screen name
+const Class6x1x7 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
 
@@ -28,7 +28,7 @@ const Class5x3x10 = ({ route }) => {  //screen name
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Han', 'leser', 'et','            ', 'kart', '!!!' ,'gamle', 'gammel', 'gammelt' ]); // arr with word in order, after '!!!' comes word to choose from Han leser et gammelt kart.
+    const [words, setWords] = useState(['Jeg' , 'så', '            ', 'i', 'butikken.' ,'!!!' , 'dine' ,'din' , 'deg' ,'du', 'ditt' ]); // arr with word in order, after '!!!' comes word to choose from Jeg så deg i butikken.
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -79,8 +79,9 @@ const Class5x3x10 = ({ route }) => {  //screen name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag the correct form of adjective 'old' into the gap.</Text>
-                <Text style={styles.textBody}>He is reading an <Text style={styles.textColor}>old</Text> map.</Text>
+                <Text style={styles.questionText}>Drag correct answer into the gap.</Text>
+                
+                <Text style={styles.textBody}>I saw <Text style={styles.textColor}>you</Text> in the store.</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -143,9 +144,9 @@ const Class5x3x10 = ({ route }) => {  //screen name
           userAnswers={words}
           correctAnswers={correctAnswers}
           answerBonus={answerBonus}
-          linkNext={'Class5x3x11'} //link to next screen
-          linkPrevious={'Class5x3x9'} //link to previous screen
-          correctMsg={'Impressive...'} //correct msg
+          linkNext={'Class6x1x8'} //link to next screen
+          linkPrevious={'Class6x1x6'} //link to previous screen
+          correctMsg={'Just wow...'} //correct msg
           wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
@@ -161,7 +162,7 @@ const Class5x3x10 = ({ route }) => {  //screen name
   )
 }
 
-export default Class5x3x10 //name for export
+export default Class6x1x7 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

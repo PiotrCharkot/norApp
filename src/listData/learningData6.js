@@ -17,7 +17,7 @@ export default dataObj = [
    },
     {
     title: 'Demonstrative pronouns',
-    description: 'Demonstrativer',
+    description: 'Question words',
     level: 'A1',
     link: 'Class6x3x1',
     key: 3,

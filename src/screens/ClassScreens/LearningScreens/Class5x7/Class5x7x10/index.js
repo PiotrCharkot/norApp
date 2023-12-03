@@ -14,12 +14,12 @@ const currentScreen = 10;  //current screen
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const correctAnswers = ['Han', 'leser', 'et', 'gammelt']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
+const correctAnswers = ['Hun', 'så', 'det', 'knuste']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
 
 const indexOfGaps = [3] // array with index of a gap in text
-const indexOfText = [0, 1, 2, 4] // array with indexes of text
+const indexOfText = [0, 1, 2, 4, 5, 6] // array with indexes of text
 
-const Class5x3x10 = ({ route }) => {  //screen name
+const Class5x7x10 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
 
@@ -28,7 +28,7 @@ const Class5x3x10 = ({ route }) => {  //screen name
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['Han', 'leser', 'et','            ', 'kart', '!!!' ,'gamle', 'gammel', 'gammelt' ]); // arr with word in order, after '!!!' comes word to choose from Han leser et gammelt kart.
+    const [words, setWords] = useState(['Hun', 'så', 'det', '            ', 'glasset', 'på', 'gulvet.', '!!!' , 'knust', 'knusende' ,'knuse', 'knuste' ]); // arr with word in order, after '!!!' comes word to choose from Hun så det knuste glasset på gulvet.
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -79,8 +79,9 @@ const Class5x3x10 = ({ route }) => {  //screen name
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Drag the correct form of adjective 'old' into the gap.</Text>
-                <Text style={styles.textBody}>He is reading an <Text style={styles.textColor}>old</Text> map.</Text>
+                <Text style={styles.questionText}>Drag correct answer into the gap.</Text>
+                
+                <Text style={styles.textBody}>She saw the <Text style={styles.textColor}>broken</Text> glass on the floor.</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -143,10 +144,10 @@ const Class5x3x10 = ({ route }) => {  //screen name
           userAnswers={words}
           correctAnswers={correctAnswers}
           answerBonus={answerBonus}
-          linkNext={'Class5x3x11'} //link to next screen
-          linkPrevious={'Class5x3x9'} //link to previous screen
-          correctMsg={'Impressive...'} //correct msg
-          wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
+          linkNext={'Class5x7x11'} //link to next screen
+          linkPrevious={'Class5x7x9'} //link to previous screen
+          correctMsg={'You make it look easy.'} //correct msg
+          wrongMsg={`Try again.`} //wrong msg
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
           userPoints={currentPoints}
@@ -161,7 +162,7 @@ const Class5x3x10 = ({ route }) => {  //screen name
   )
 }
 
-export default Class5x3x10 //name for export
+export default Class5x7x10 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {
