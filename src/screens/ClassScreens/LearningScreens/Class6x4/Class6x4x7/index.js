@@ -9,15 +9,15 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 9; //current screen
-const answerOne = 'Disse';  //answer a
-const answerTwo = 'Denne'; //answer b
-const answerThree = 'Det'; //answer c
-const answerFour = 'Dette'; //answer d
-const correctAnswers = [true, false, false, false];  //correct answer true or false
+const currentScreen = 7; //current screen
+const answerOne = 'mange';  //answer a
+const answerTwo = 'mye'; //answer b
+const answerThree = 'flere'; //answer c
+const answerFour = 'få'; //answer d
+const correctAnswers = [false, true, false, false];  //correct answer true or false
 
 
-const Class6x3x9 = ({route}) => {  //name
+const Class6x4x7 = ({route}) => {  //name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
@@ -54,8 +54,8 @@ const Class6x3x9 = ({route}) => {  //name
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Choose correct answer.</Text>
-                <Text style={styles.textBody}>______ eplene er søte.</Text>
-                <Text style={styles.textBody}>These apples are sweet.</Text>
+                <Text style={styles.textBody}>Jeg har ____ arbeid å gjøre.</Text>
+                <Text style={styles.textBody}>I have much work to do.</Text>
             </View>
 
             <View style={styles.buttonsContainer}>
@@ -81,10 +81,10 @@ const Class6x3x9 = ({route}) => {  //name
           answerBonus={answerBonus}
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
-          linkNext={'Class6x3x10'}  //link to next screen
-          linkPrevious={'Class6x3x8'} //link to previous screen
-          correctMsg={'Keep up the good work'} //correct msg
-          wrongMsg={'Oh shoot, that is wrong!'} //wrong msg
+          linkNext={'Class6x4x8'}  //link to next screen
+          linkPrevious={'Class6x4x6'} //link to previous screen
+          correctMsg={'Keep up the hard work!'} //correct msg
+          wrongMsg={'A minor slip up has surfaced.'} //wrong msg
           userPoints={currentPoints}
           latestScreen={latestScreenDone}
           currentScreen={currentScreen}
@@ -97,7 +97,7 @@ const Class6x3x9 = ({route}) => {  //name
   )
 }
 
-export default Class6x3x9 //name for export
+export default Class6x4x7 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

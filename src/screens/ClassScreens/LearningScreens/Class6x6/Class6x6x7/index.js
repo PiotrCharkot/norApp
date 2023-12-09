@@ -10,23 +10,24 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 const answerBonus = generalStyles.answerBonus;
-const currentScreen = 11;  //current screen 
+const currentScreen = 7;  //current screen 
 const gradientTop = generalStyles.gradientTopDraggable2;
 const gradientBottom = generalStyles.gradientBottomDraggable2;
 
-const correctAnswers = ['Hvilke']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
+const correctAnswers = ['Du', 'må', 'roe', 'deg']; // array with correct words in line up to the word that goes in gap. exapmle ==> const correctAnswers = ['Jeg', 'trenger'];
 
-const indexOfGaps = [0] // array with index of a gap in text
-const indexOfText = [1, 2, 3, 4] // array with indexes of text
+const indexOfGaps = [3] // array with index of a gap in text
+const indexOfText = [0, 1, 2, 4] // array with indexes of text
+
 
 const totalPoints = 3 * generalStyles.answerBonus + currentScreen * generalStyles.screenBonus;
 const dataForMarkers = {
   part: 'learning',
   section: 'section6',
-  class: 2
+  class: 5
 }
 
-const Class6x3x11 = ({ route }) => {  //screen name
+const Class6x6x7 = ({ route }) => {  //screen name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
 
@@ -35,7 +36,7 @@ const Class6x3x11 = ({ route }) => {  //screen name
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [words, setWords] = useState(['            ', 'bøker', 'har', 'du', 'lest?' ,'!!!' , 'Hvilken' ,'Hvilken' ,'Hvor', 'Når' , 'Hvilke' ]); // arr with word in order, after '!!!' comes word to choose from Hvilke bøker har du lest?
+    const [words, setWords] = useState(['Du', 'må', 'roe', '            ', 'ned.','!!!' , 'dere', 'meg' ,'deg' ,'seg' , 'oss' ]); // arr with word in order, after '!!!' comes word to choose from Du må roe deg ned.
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -87,7 +88,7 @@ const Class6x3x11 = ({ route }) => {  //screen name
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Drag correct answer into the gap.</Text>
-                <Text style={styles.textBody}>Which books have you read?</Text>
+                <Text style={styles.textBody}>You need to calm down.</Text>
             </View>
 
             <View style={styles.squaresViewContainer}>
@@ -151,9 +152,9 @@ const Class6x3x11 = ({ route }) => {  //screen name
           correctAnswers={correctAnswers}
           answerBonus={answerBonus}
           linkNext={'ExitExcScreen'} //link to next screen
-          linkPrevious={'Class6x3x10'} //link to previous screen
-          correctMsg={'Nice work!'} //correct msg
-          wrongMsg={`A minor oversight, let's recheck.`} //wrong msg
+          linkPrevious={'Class6x6x6'} //link to previous screen
+          correctMsg={`Well done${user.isAnonymous ? '':  ` ${user.displayName}`}!`} //correct msg
+          wrongMsg={`You've made a mistake. Let's recheck.`} //wrong msg
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
           userPoints={currentPoints}
@@ -171,7 +172,7 @@ const Class6x3x11 = ({ route }) => {  //screen name
   )
 }
 
-export default Class6x3x11 //name for export
+export default Class6x6x7 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {

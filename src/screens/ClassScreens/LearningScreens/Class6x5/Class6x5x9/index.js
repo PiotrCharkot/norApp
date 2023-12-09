@@ -10,14 +10,21 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 const answerBonus = generalStyles.answerBonus;
 const currentScreen = 9; //current screen
-const answerOne = 'Disse';  //answer a
-const answerTwo = 'Denne'; //answer b
-const answerThree = 'Det'; //answer c
-const answerFour = 'Dette'; //answer d
-const correctAnswers = [true, false, false, false];  //correct answer true or false
+const answerOne = 'Noe';  //answer a
+const answerTwo = 'Ingen'; //answer b
+const answerThree = 'Ingenting'; //answer c
+const answerFour = 'Noen'; //answer d
+const correctAnswers = [false, true, false, false];  //correct answer true or false
 
 
-const Class6x3x9 = ({route}) => {  //name
+const totalPoints = 3 * generalStyles.answerBonus + currentScreen * generalStyles.screenBonus;
+const dataForMarkers = {
+  part: 'learning',
+  section: 'section6',
+  class: 4
+}
+
+const Class6x5x9 = ({route}) => {  //name
 
     const {userPoints, latestScreen, comeBackRoute, allScreensNum} = route.params
     
@@ -54,8 +61,8 @@ const Class6x3x9 = ({route}) => {  //name
 
             <View style={styles.topView}>
                 <Text style={styles.questionText}>Choose correct answer.</Text>
-                <Text style={styles.textBody}>______ eplene er søte.</Text>
-                <Text style={styles.textBody}>These apples are sweet.</Text>
+                <Text style={styles.textBody}>______ visste svaret.</Text>
+                <Text style={styles.textBody}>No one knew the answer.</Text>
             </View>
 
             <View style={styles.buttonsContainer}>
@@ -81,23 +88,26 @@ const Class6x3x9 = ({route}) => {  //name
           answerBonus={answerBonus}
           buttonWidth={generalStyles.buttonNextPrevSize}
           buttonHeight={generalStyles.buttonNextPrevSize}
-          linkNext={'Class6x3x10'}  //link to next screen
-          linkPrevious={'Class6x3x8'} //link to previous screen
-          correctMsg={'Keep up the good work'} //correct msg
-          wrongMsg={'Oh shoot, that is wrong!'} //wrong msg
+          linkNext={'ExitExcScreen'}  //link to next screen
+          linkPrevious={'Class6x5x8'} //link to previous screen
+          correctMsg={'Good going!'} //correct msg
+          wrongMsg={`Argh!!!`} //wrong msg
           userPoints={currentPoints}
           latestScreen={latestScreenDone}
           currentScreen={currentScreen}
           questionScreen={true}
           comeBack={comeBack}
           allScreensNum={allScreensNum}
+          learningLastScreen={true}
+          totalPoints={totalPoints}
+          dataForMarkers={dataForMarkers}
           />
         </View>
     </View>
   )
 }
 
-export default Class6x3x9 //name for export
+export default Class6x5x9 //name for export
 
 const styles = StyleSheet.create({
   mainContainer: {
