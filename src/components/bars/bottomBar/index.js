@@ -62,9 +62,10 @@ const BottomBar = (params) => {
         } else {
            
             console.log('current points when go back: ', currentPoints);
+            console.log('num when go back: ', params.currentScreen);
             navigation.navigate({
                 name: params.linkPrevious,
-                params: { latestScreen: params.latestScreen, userPoints: currentPoints, latestAnswered: params.latestAnswered, allScreensNum: params.allScreensNum },
+                params: { latestScreen: params.latestScreen, userPoints: currentPoints, latestAnswered: params.latestAnswered, allScreensNum: params.allScreensNum, exeList: params.questionList, linkList: params.links, nextScreen: params.currentScreen - 1 },
                 merge: true,
             });
         }
@@ -427,7 +428,7 @@ const BottomBar = (params) => {
         } else {
   
             navigation.navigate(params.linkNext, {
-                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints, latestAnswered: params.latestAnswered, dataMarkers: params.dataForMarkers, allScreensNum: params.allScreensNum
+                userPoints: currentPoints, latestScreen: params.latestScreen, comeBackRoute: params.comeBack, allPoints: params.totalPoints, latestAnswered: params.latestAnswered, dataMarkers: params.dataForMarkers, allScreensNum: params.allScreensNum, exeList: params.questionList, linkList: params.links, nextScreen: params.currentScreen + 1
             })
         }
         

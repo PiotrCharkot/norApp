@@ -21,6 +21,10 @@ const gradientBottom = generalStyles.gradientBottomDraggable2;
 const correctAnswers = ['Over', '80%', 'av', 'befolkningen', 'i Norge','bor i', 'byer og', 'tetsteder,', 'og de', 'fleste', 'byene', 'ligger', 'ved', 'kysten.', 'De', 'vokste', 'opprinnelig', 'fram', 'der det', 'var', 'næringsgrunnlag,', 'og der', 'det gikk', 'vei', 'eller', 'man', 'kunne', 'komme', 'fram', 'med båt.', 'Bergen er', 'et godt', 'eksempel.', 'Fram til', '1830', 'var', 'Bergen', 'Norges', 'største', 'by.' ];
 const indexOfGaps = [3, 12, 16, 24, 28, 35]
 const indexOfText = [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 29, 30, 31, 32, 33, 34, 36, 37, 38, 39]
+//const indexOfText = [...correctAnswers.keys()].map(i => i);
+
+
+const isCorrectNewArr = Array(correctAnswers.length).fill(0);
 
 
 const Exc1x1x3 = ({ route }) => {
@@ -29,7 +33,7 @@ const Exc1x1x3 = ({ route }) => {
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [isCorrect, setIsCorrect] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    const [isCorrect, setIsCorrect] = useState(isCorrectNewArr);
     const [answersChecked, setAnswersChecked] = useState([]);
     const [words, setWords] = useState(['Over', '80%', 'av', '            ', 'i Norge','bor i', 'byer og', 'tetsteder,', 'og de', 'fleste', 'byene', 'ligger', '            ', 'kysten.', 'De', 'vokste','            ', 'fram', 'der det', 'var', 'næringsgrunnlag,', 'og der', 'det gikk', 'vei', '            ', 'man', 'kunne', 'komme', '            ', 'med båt.', 'Bergen er', 'et godt', 'eksempel.', 'Fram til', '1830', '            ', 'Bergen', 'Norges', 'største', 'by.', '!!!' , 'var', 'gammel', 'befolkningen', 'er','eller', 'andre', 'opprinnelig', 'bli', 'ung','fram', 'pen', 'ved', 'til', 'fra' ]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
@@ -92,7 +96,7 @@ const Exc1x1x3 = ({ route }) => {
         arr[index1] = arr[index2];
         arr[index2] = temp;
         setWords(arr);
-        setIsCorrect([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        setIsCorrect(isCorrectNewArr);
         setResetCheck(!resetCheck)
     };
 

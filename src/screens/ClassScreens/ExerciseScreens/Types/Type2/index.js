@@ -9,7 +9,7 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 
-const currentScreen = 2;
+
 const correct = generalStyles.gradientTopCorrectDraggable;
 const correct1 = generalStyles.gradientBottomCorrectDraggable;
 const incorrect = generalStyles.gradientBottomWrongDraggable;
@@ -20,31 +20,33 @@ const gradientTop2 = generalStyles.gradientTopDraggable3;
 const gradientBottom2 = generalStyles.gradientBottomDraggable3;
 
 
-const correctAnswers = ['Å treffe spikeren på hodet', 'Å love gull og grønne skoger', 'Å ta med en klype salt', 'Å skjære alle over en kam', 'Å gå over bekken etter vann', 'Bedre sent enn aldri', 
-'Som sild i tønne', 'Å satse alt på ett kort', 'Å slå to fluer i en smekk', 'Å smøre seg med tålmodighet', 'Å gjøre noen en bjørnetjeneste'   ];
+// const correctAnswers = ['Å treffe spikeren på hodet', 'Å love gull og grønne skoger', 'Å ta med en klype salt', 'Å skjære alle over en kam', 'Å gå over bekken etter vann', 'Bedre sent enn aldri', 
+// 'Som sild i tønne', 'Å satse alt på ett kort', 'Å slå to fluer i en smekk', 'Å smøre seg med tålmodighet', 'Å gjøre noen en bjørnetjeneste'   ];
 
 
-const isCorrectNewArr = Array(correctAnswers.length).fill(0);
 
-const Exc1x1x2 = ({route}) => {
+const Type2 = ({route}) => {
+    
+    const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum, exeList, linkList, nextScreen} = route.params
+    
 
-    const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params
+    const isCorrectNewArr = Array(exeList[nextScreen - 1].correctAnswers.length).fill(0);
     
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
     const [isCorrect, setIsCorrect] = useState(isCorrectNewArr)
     const [answersChecked, setAnswersChecked] = useState([])
-    const [wordsLeft, setWordsLeft] = useState(['Å ta med ', 'Å love gull og ', 'Å treffe spikeren ', 'Å skjære alle ', 'Å gå over bekken ', 'Bedre sent ', 'Som sild ', 'Å satse alt ', 'Å slå to fluer ', 'Å smøre seg med ',  'Å gjøre noen ' ]);
-    const [wordsRight, setWordsRight] = useState(['på ett kort', 'tålmodighet', 'over en kam', 'etter vann', 'enn aldri', 'i en smekk', 'en klype salt','en bjørnetjeneste', 'i tønne', 'på hodet', 'grønne skoger'  ]);
+    const [wordsLeft, setWordsLeft] = useState(exeList[nextScreen - 1].leftSideWords);
+    const [wordsRight, setWordsRight] = useState(exeList[nextScreen - 1].rightSideWords);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
-    const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
+    const [latestScreenDone, setLatestScreenDone] = useState(nextScreen);
     const [comeBack, setComeBack] = useState(false);
     const [resetCheck, setResetCheck] = useState(false);
     const [latestScreenAnswered, setLatestScreenAnswered] = useState(latestAnswered);
 
     useFocusEffect(() => {
         
-        if (latestScreen > currentScreen) {
+        if (latestScreen > nextScreen) {
             setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
             setComeBack(true)
@@ -59,7 +61,7 @@ const Exc1x1x2 = ({route}) => {
     useEffect(() => {
 
         if (answersChecked.length !== 0) {
-          setLatestScreenAnswered(currentScreen);
+          setLatestScreenAnswered(nextScreen);
           for (let i = 0; i < answersChecked.length; i++) {
 
             const newArr = [...isCorrect];
@@ -105,11 +107,11 @@ const Exc1x1x2 = ({route}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+      <ProgressBar screenNum={nextScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
         <View style={styles.body}>
 
             <View style={styles.topView}>
-                <Text style={styles.questionText}>Match left to right.</Text>
+                <Text style={styles.questionText}>Match left to right. yyyy</Text>
             </View>
 
             <View style={styles.swapableContainer}>
@@ -190,28 +192,30 @@ const Exc1x1x2 = ({route}) => {
         callbackButton={'matchLR'} 
         userAnswers={wordsLeft}
         userAnswers2={wordsRight}
-        correctAnswers={correctAnswers}
+        correctAnswers={exeList[nextScreen - 1].correctAnswers}
         answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={'Exc1x1x3'}
-        linkPrevious={'Exc1x1x1'}
+        linkNext={linkList[nextScreen]}
+        linkPrevious={linkList[nextScreen - 2]}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
-        currentScreen={currentScreen}
+        currentScreen={nextScreen}
         questionScreen={true}
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
         allScreensNum={allScreensNum}
+        questionList={exeList}
+        links={linkList}
         />
       </View>
     </View>
   )
 }
 
-export default Exc1x1x2
+export default Type2
 
 const styles = StyleSheet.create({
   mainContainer: {
