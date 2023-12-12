@@ -5,23 +5,27 @@ import ProgressBar from '../../../../../components/bars/progressBar'
 import BottomBar from '../../../../../components/bars/bottomBar'
 import generalStyles from '../../../../../styles/generalStyles';
 import Loader from '../../../../../components/other/Loader';
-import type1prep from '../../../../../listData/exerciseData/A1/Type1/Prepositions'
-import type2prep from '../../../../../listData/exerciseData/A1/Type2/Prepositions'
-import type3prep from '../../../../../listData/exerciseData/A1/Type3/Prepositions'
-import type4prep from '../../../../../listData/exerciseData/A1/Type4/Prepositions'
+import type1prep from '../../../../../listData/exerciseData/A1/Type1Data/Prepositions'
+import type2prep from '../../../../../listData/exerciseData/A1/Type2Data/Prepositions'
+import type3prep from '../../../../../listData/exerciseData/A1/Type3Data/Prepositions'
+import type4prep from '../../../../../listData/exerciseData/A1/Type4Data/Prepositions'
+import type5prep from '../../../../../listData/exerciseData/A1/Type5Data/Prepositions'
+import type6prep from '../../../../../listData/exerciseData/A1/Type6Data/Prepositions'
+
+
 
 const currentScreen = 1;
-const allScreensNum = 4;
+const allScreensNum = 6;
 const colorUnderline = generalStyles.colorHighlightChoiceOption;
 const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
-//const correctAnswers = [1, 2, 2, 1, 1];
+
 //Type1 opening screen
 
 
-const typesInSet = [type1prep, type4prep, type2prep, type3prep];
-const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type3'];
+const typesInSet = [type1prep, type4prep, type2prep, type3prep, type5prep, type6prep];
+const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type3', 'Type5', 'Type6'];
 
 const Exc1x2x1 = ({route}) => {
   
@@ -110,8 +114,29 @@ const Exc1x2x1 = ({route}) => {
     for (let i = 0; i < typesInSet.length; i++) {
         let randomVal = Math.floor(Math.random() * typesInSet[i].length); 
 
-        // console.log(randomVal);
-        // console.log('leng ', typesInSet[i].length);
+        if (typesInSet[i][randomVal].typeOfScreen === '3') {
+
+            let newArrGaps = [];
+            let newArrText = [];
+
+            for (let j = 0; j < typesInSet[i][randomVal].correctAnswers.length; j++) {
+                if (typesInSet[i][randomVal].wordsWithGaps[j] === '            ') {
+                    newArrGaps.push(j)
+                } else {
+                    newArrText.push(j)
+                }
+            }
+
+
+            typesInSet[i][randomVal].gapsIndex = newArrGaps;
+            typesInSet[i][randomVal].textIndex = newArrText;
+            console.log('gaps: ', newArrGaps);
+            console.log('text: ', newArrText);
+
+
+        }
+
+
         tempArr.push(typesInSet[i][randomVal])
     }
 

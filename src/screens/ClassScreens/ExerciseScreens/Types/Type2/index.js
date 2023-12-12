@@ -20,9 +20,6 @@ const gradientTop2 = generalStyles.gradientTopDraggable3;
 const gradientBottom2 = generalStyles.gradientBottomDraggable3;
 
 
-// const correctAnswers = ['Å treffe spikeren på hodet', 'Å love gull og grønne skoger', 'Å ta med en klype salt', 'Å skjære alle over en kam', 'Å gå over bekken etter vann', 'Bedre sent enn aldri', 
-// 'Som sild i tønne', 'Å satse alt på ett kort', 'Å slå to fluer i en smekk', 'Å smøre seg med tålmodighet', 'Å gjøre noen en bjørnetjeneste'   ];
-
 
 
 const Type2 = ({route}) => {
@@ -32,12 +29,13 @@ const Type2 = ({route}) => {
 
     const isCorrectNewArr = Array(exeList[nextScreen - 1].correctAnswers.length).fill(0);
     
-    const [movingDraggable, setMovingDraggable] = useState(null);
-    const [releaseDraggable, setReleaseDraggable] = useState(null);
-    const [isCorrect, setIsCorrect] = useState(isCorrectNewArr)
-    const [answersChecked, setAnswersChecked] = useState([])
     const [wordsLeft, setWordsLeft] = useState(exeList[nextScreen - 1].leftSideWords);
     const [wordsRight, setWordsRight] = useState(exeList[nextScreen - 1].rightSideWords);
+    const [movingDraggable, setMovingDraggable] = useState(null);
+    const [releaseDraggable, setReleaseDraggable] = useState(null);
+    const [isCorrect, setIsCorrect] = useState(isCorrectNewArr);
+
+    const [answersChecked, setAnswersChecked] = useState([]);
     const [currentPoints, setCurrentPoints] = useState(userPoints);
     const [latestScreenDone, setLatestScreenDone] = useState(nextScreen);
     const [comeBack, setComeBack] = useState(false);
@@ -274,6 +272,7 @@ rightContainer: {
     
   },
   draggableContainer: {
+    height: 32,
     paddingHorizontal: 6,
     paddingVertical: 6,
     borderRadius: 8,
@@ -283,6 +282,7 @@ rightContainer: {
     
   },
   draggableContainerSwap: {
+    height: 32,
     paddingTop: 4,
     paddingLeft: 4,
     paddingBottom: 0,

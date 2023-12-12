@@ -31,6 +31,7 @@ const Exc1x1x3 = ({ route }) => {
 
   const {userPoints, latestScreen, comeBackRoute, latestAnswered, allScreensNum} = route.params
     
+
     const [movingDraggable, setMovingDraggable] = useState(null);
     const [releaseDraggable, setReleaseDraggable] = useState(null);
     const [isCorrect, setIsCorrect] = useState(isCorrectNewArr);
