@@ -391,6 +391,8 @@ import Type3 from "../screens/ClassScreens/ExerciseScreens/Types/Type3";
 import Type4 from "../screens/ClassScreens/ExerciseScreens/Types/Type4";
 import Type5 from "../screens/ClassScreens/ExerciseScreens/Types/Type5";
 import Type6 from "../screens/ClassScreens/ExerciseScreens/Types/Type6";
+import Type7 from "../screens/ClassScreens/ExerciseScreens/Types/Type7";
+import Type8 from "../screens/ClassScreens/ExerciseScreens/Types/Type8";
 
 
 
@@ -788,6 +790,8 @@ const Router = () => {
                 <Stack.Screen name="Type4" component={Type4} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type5" component={Type5} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type6" component={Type6} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Type7" component={Type7} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Type8" component={Type8} options={{headerShown: false, animationEnabled: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

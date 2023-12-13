@@ -51,7 +51,7 @@ dataForMarkers={dataForMarkers}
 // <View style={styles.progressBarContainer}>
 
 //         </View>
-// //  this goes inside View ===>  <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
+// // //  this goes inside View ===>  <ProgressBar screenNum={currentScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
 
 
 // {/* exampleContainer: {

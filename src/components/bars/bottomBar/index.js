@@ -136,7 +136,7 @@ const BottomBar = (params) => {
             }
 
         } else if (buttonFunction === 'checkAnswersManyQ' && params.currentScreen >= params.latestScreen) {
-            let bonusAnswer = 3;
+            let bonusAnswer = generalStyles.bonusCheckAnswersManyQ;
             let questionPoints = 0;
             let returnArr = [];
 
@@ -176,7 +176,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen) {
-            let bonusAnswer = 4;
+            let bonusAnswer = generalStyles.bonusCheckAllAnswers;
             let returnArr = [];
             let questionPoints = 0;
 
@@ -203,7 +203,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'matchLR' && params.currentScreen >= params.latestScreen) {
-            let bonusAnswer = 4;
+            let bonusAnswer = generalStyles.bonusMatchLR;
             let returnArr = [];
             let questionPoints = 0;
 
@@ -230,7 +230,7 @@ const BottomBar = (params) => {
             setPathIcon('next');
         } else if (buttonFunction === 'checkAnswerGapsText' && params.currentScreen >= params.latestScreen) {
             
-            let bonusAnswer = 6;
+            let bonusAnswer = generalStyles.bonusCheckAnswerGapsText;
             let returnArr = [];
             let questionPoints = correctAnswers.length * bonusAnswer * -1 + (params.numberOfGaps * bonusAnswer);
             for (let i = 0; i < correctAnswers.length; i++) {
@@ -256,7 +256,7 @@ const BottomBar = (params) => {
             setPathIcon('next');
         } else if (buttonFunction === 'chooseCorrectCategory' && params.currentScreen >= params.latestScreen) {
 
-            let bonusAnswer = 2;
+            let bonusAnswer = generalStyles.bonusChooseCorrectCategory;
             let returnArr = [];
             let questionPoints = 0;
             for (let i = 0; i < params.userAnswers.length; i++) {
@@ -289,7 +289,7 @@ const BottomBar = (params) => {
             setPathIcon('next');
             
         } else if (buttonFunction === 'markMistakes' && params.currentScreen >= params.latestScreen) {
-            let bonusAnswer = 6;
+            let bonusAnswer = generalStyles.bonusMarkMistakes;
             let returnArr = [];
             let questionPoints = 0;
             let wrongAnswer = 0;
@@ -326,7 +326,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         }  else if (buttonFunction === 'orderChceck' && params.currentScreen >= params.latestScreen) {
-            let bonusAnswer = 6;
+            let bonusAnswer = generalStyles.bonusOrderChceck;
             let returnArr = [];
             let questionPoints = 0;
 

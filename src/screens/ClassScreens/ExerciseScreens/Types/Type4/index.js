@@ -10,6 +10,7 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
+const exitLink = 'ExitExcScreen'
 
 const Type4 = ({route}) => {
 
@@ -319,7 +320,7 @@ const Type4 = ({route}) => {
         answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={linkList[nextScreen]}
+        linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}

@@ -9,23 +9,7 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
-const answer1 = 'meg';
-const answer2 = 'oss';
-const answer3 = 'dere';
-const answer4 = 'deg';
-const answer5 = 'ønsker';
-const answer6 = 'kommer til å';
-const answer7 = 'skal';
-const answer8 = 'trenger';
-const answer9 = 'dere';
-const answer10 = 'deg';
-const answer11 = 'meg';
-const answer12 = 'seg';
-const answer13 = 'oss';
-const answer14 = 'dere';
-const answer15 = 'seg';
-const answer16 = 'deg';
-
+const exitLink = 'ExitExcScreen'
 
 
 
@@ -232,7 +216,7 @@ const Type5 = ({route}) => {
         answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={linkList[nextScreen]}
+        linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}

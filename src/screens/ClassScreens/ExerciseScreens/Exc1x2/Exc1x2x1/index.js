@@ -11,11 +11,13 @@ import type3prep from '../../../../../listData/exerciseData/A1/Type3Data/Preposi
 import type4prep from '../../../../../listData/exerciseData/A1/Type4Data/Prepositions'
 import type5prep from '../../../../../listData/exerciseData/A1/Type5Data/Prepositions'
 import type6prep from '../../../../../listData/exerciseData/A1/Type6Data/Prepositions'
+import type7prep from '../../../../../listData/exerciseData/A1/Type7Data/Prepositions'
+import type8prep from '../../../../../listData/exerciseData/A1/Type8Data/Prepositions'
 
 
 
 const currentScreen = 1;
-const allScreensNum = 6;
+const allScreensNum = 8;
 const colorUnderline = generalStyles.colorHighlightChoiceOption;
 const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
@@ -24,8 +26,8 @@ const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.
 //Type1 opening screen
 
 
-const typesInSet = [type1prep, type4prep, type2prep, type3prep, type5prep, type6prep];
-const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type3', 'Type5', 'Type6'];
+const typesInSet = [type1prep, type4prep, type2prep, type3prep, type5prep, type6prep, type7prep, type8prep];
+const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type3', 'Type5', 'Type6', 'Type7', 'Type8'];
 
 const Exc1x2x1 = ({route}) => {
   
@@ -109,42 +111,82 @@ const Exc1x2x1 = ({route}) => {
   useEffect(() => {
 
     let tempArr = []; 
+    let sumOfAllPoints = 0;
 
 
     for (let i = 0; i < typesInSet.length; i++) {
         let randomVal = Math.floor(Math.random() * typesInSet[i].length); 
 
-        if (typesInSet[i][randomVal].typeOfScreen === '3') {
 
-            let newArrGaps = [];
-            let newArrText = [];
+        if (typesInSet[i][randomVal].typeOfScreen === '1') {
+          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
+        } else if (typesInSet[i][randomVal].typeOfScreen === '2') {
+          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].correctAnswers.length * generalStyles.bonusMatchLR
+        } else if (typesInSet[i][randomVal].typeOfScreen === '3') {
 
-            for (let j = 0; j < typesInSet[i][randomVal].correctAnswers.length; j++) {
-                if (typesInSet[i][randomVal].wordsWithGaps[j] === '            ') {
-                    newArrGaps.push(j)
-                } else {
-                    newArrText.push(j)
-                }
+          let newArrGaps = [];
+          let newArrText = [];
+
+          for (let j = 0; j < typesInSet[i][randomVal].correctAnswers.length; j++) {
+              if (typesInSet[i][randomVal].wordsWithGaps[j] === '            ') {
+                  newArrGaps.push(j)
+              } else {
+                  newArrText.push(j)
+              }
+          }
+
+
+          typesInSet[i][randomVal].gapsIndex = newArrGaps;
+          typesInSet[i][randomVal].textIndex = newArrText;
+
+          sumOfAllPoints = sumOfAllPoints + newArrGaps.length * generalStyles.bonusCheckAnswerGapsText
+
+        } else if (typesInSet[i][randomVal].typeOfScreen === '4') {
+          
+          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
+
+        } else if (typesInSet[i][randomVal].typeOfScreen === '5') {
+          
+          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAnswersManyQ
+
+        } else if (typesInSet[i][randomVal].typeOfScreen === '6') {
+          
+          sumOfAllPoints = sumOfAllPoints + (typesInSet[i][randomVal].correctAnswers[0].length + typesInSet[i][randomVal].correctAnswers[1].length) * generalStyles.bonusChooseCorrectCategory
+
+        } else if (typesInSet[i][randomVal].typeOfScreen === '7') {
+
+
+          let newArrMistakes = [];
+
+
+          for (let j = 0; j < typesInSet[i][randomVal].words.length; j++) {
+            
+            if (typesInSet[i][randomVal].words[j] != typesInSet[i][randomVal].wordsCorrect[j]) {
+              newArrMistakes.push(j);
             }
 
+          }
 
-            typesInSet[i][randomVal].gapsIndex = newArrGaps;
-            typesInSet[i][randomVal].textIndex = newArrText;
-            console.log('gaps: ', newArrGaps);
-            console.log('text: ', newArrText);
+          console.log('my mistakes: ', newArrMistakes);
+          typesInSet[i][randomVal].mistakesIndex = newArrMistakes;
 
+          sumOfAllPoints = sumOfAllPoints + newArrMistakes.length * generalStyles.bonusMarkMistakes
 
-        }
+        } else if (typesInSet[i][randomVal].typeOfScreen === '8') {
+          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusOrderChceck
+        } 
 
-
+        
         tempArr.push(typesInSet[i][randomVal])
-    }
-
-
+      }
+      
+      
     console.log('my list of questions', tempArr);
+    console.log('my total points: ', sumOfAllPoints);
     setExeList(tempArr);
     setCorrectAnswers(tempArr[0].correctAnswers);
     setContentReady(true);
+
 
 
   }, [])

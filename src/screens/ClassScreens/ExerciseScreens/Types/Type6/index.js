@@ -20,8 +20,7 @@ const gradientBottom = generalStyles.gradientBottomDraggable2;
 const leftContainerCapacity = 5;
 const rightContainerCapacity = 10;
 
-
-const correctAnswers = [['høyttaler', 'bil', 'melk' ,'flaske', 'farge'], ['kort', 'bord', 'barn',  'universitet', 'vindu']];
+const exitLink = 'ExitExcScreen'
 
 
 const Type6 = ({route}) => {
@@ -284,7 +283,7 @@ const Type6 = ({route}) => {
         answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={linkList[nextScreen]}
+        linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}

@@ -20,6 +20,7 @@ const gradientTop2 = generalStyles.gradientTopDraggable3;
 const gradientBottom2 = generalStyles.gradientBottomDraggable3;
 
 
+const exitLink = 'ExitExcScreen'
 
 
 const Type2 = ({route}) => {
@@ -194,7 +195,7 @@ const Type2 = ({route}) => {
         answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
-        linkNext={linkList[nextScreen]}
+        linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]}
         userPoints={currentPoints}
         latestScreen={latestScreenDone}
