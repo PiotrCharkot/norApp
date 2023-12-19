@@ -386,6 +386,7 @@ import Exc1x1x6 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x6";
 import Exc1x1x7 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x7";
 import Exc1x1x8 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x8";
 import Exc1x2x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x2/Exc1x2x1";
+import Type1 from "../screens/ClassScreens/ExerciseScreens/Types/Type1";
 import Type2 from "../screens/ClassScreens/ExerciseScreens/Types/Type2";
 import Type3 from "../screens/ClassScreens/ExerciseScreens/Types/Type3";
 import Type4 from "../screens/ClassScreens/ExerciseScreens/Types/Type4";
@@ -785,6 +786,7 @@ const Router = () => {
                 <Stack.Screen name="Exc1x1x7" component={Exc1x1x7} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x1x8" component={Exc1x1x8} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x2x1" component={Exc1x2x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Type1" component={Type1} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type2" component={Type2} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type3" component={Type3} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type4" component={Type4} options={{headerShown: false, animationEnabled: false }}/>

@@ -100,7 +100,6 @@ const Type4 = ({route}) => {
         
 
 
-        console.log('my exeercise list: ' , exeList[nextScreen - 1]);
         if (latestScreen > nextScreen) {
             setLatestScreenAnswered(latestAnswered);
             setLatestScreenDone(latestScreen);
@@ -317,7 +316,6 @@ const Type4 = ({route}) => {
         callbackButton={'checkAllAnswers'} 
         userAnswers={[A1, A2, A3, A4, A5, A6, A7, A8]}
         correctAnswers={exeList[nextScreen - 1].correctAnswers}
-        answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
@@ -333,6 +331,8 @@ const Type4 = ({route}) => {
         allScreensNum={allScreensNum}
         questionList={exeList}
         links={linkList}
+        totalPoints={exeList[exeList.length - 2]}
+        dataForMarkers={exeList[exeList.length - 1]}
         />
       </View>
     </View>

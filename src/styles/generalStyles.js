@@ -49,6 +49,7 @@ const generalStyles = StyleSheet.create({
     bonusCheckAnswerGapsText: 6,
     bonusChooseCorrectCategory: 2,
     bonusMarkMistakes: 6,
+    bonusMarkMistakesPenaltyPoints: 2,
     bonusOrderChceck: 6,
     paddingHorizontalEgzCont: 6,
     paddingVerticalEgzCont: 4,

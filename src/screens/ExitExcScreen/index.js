@@ -1,10 +1,9 @@
 import { View, Text, Dimensions, Easing, Animated, StyleSheet } from 'react-native'
-import React, {useState, useEffect, useRef, useCallback}  from 'react'
+import React, {useState, useEffect, useRef}  from 'react'
 import { onAuthStateChanged  } from 'firebase/auth';
 import { db } from '../../../firebase/firebase-config'
 import { collection, getDocs, query, where, doc, setDoc, updateDoc } from "firebase/firestore";
 import { authentication } from '../../../firebase/firebase-config';
-import uuid from 'react-native-uuid';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-community/masked-view';
 import { withAnchorPoint } from 'react-native-anchor-point';
@@ -39,7 +38,6 @@ const ExitExcScreen = ({route}) => {
 
   const [indicatotValue, setIndicatorValue] = useState(0);
   const [userId, setUserId] = useState('userId');
-  //const [userName, setUserName] = useState('');
   const [currentDailyScore, setCurrentDailyScore] = useState(0);
   const [daysInRowVal, setDaysInRowVal] = useState(0);
   const [lastUpdateVal, setLastUpdateVal] = useState('');
@@ -49,8 +47,8 @@ const ExitExcScreen = ({route}) => {
   const [myDocumentId, setMyDocumentId] = useState('tempid');
   const [showLineOffset, setShowLineOffset] = useState(false);
   const [dayUp, setDayUp] = useState(false);
-  //const [isNewUser, setIsNewUser] = useState(true);
   const [tempObj, setTempObj] = useState({})
+  const [allowChangesFb, setAllowChangesFb] = useState(false)
 
   const interpolatedValue = useRef(new Animated.Value(-180)).current;
   const interpolatedValueFlipFirst = useRef(new Animated.Value(0)).current;
@@ -83,12 +81,7 @@ const ExitExcScreen = ({route}) => {
         
       if (authUser) {
 
-        // if (authUser.isAnonymous) {
-        //   setUserName('Guest');
-        // } else {
-        //   setUserName(authUser.displayName);
-        // }
-
+        
         setUserId(authUser.uid)
 
       }
@@ -104,25 +97,7 @@ const ExitExcScreen = ({route}) => {
 
     console.log('some markers', dataMarkers);
 
-    //let docId = uuid.v4();
-
-    // const setDataToFb = async () => {
-    //   await setDoc(doc(db, 'usersPoints', docId), {
-    //     userRef: userId,
-    //     userName: userName,
-    //     totalPoints: userPoints,
-    //     weeklyPoints: userPoints,
-    //     dailyPoints: userPoints,
-    //     daysInRow: 0,
-    //     lastUpdate: new Date().toLocaleDateString(),
-    //     userIsPro: false,
-    //   });
-
-    //   setShowLineOffset(true);
-    // }
-
     
-
 
     const getDataFb = async () => {
 
@@ -138,32 +113,109 @@ const ExitExcScreen = ({route}) => {
         querySnapshot2.forEach((doc) => {
           console.log(doc.id, doc.data());
           setMyDocumentId(doc.id)
-          let objectDescritpror = Object.getOwnPropertyDescriptor(doc.data(), dataMarkers.part)
-
-          console.log('my descritptor', objectDescritpror.value);
-
-          let objectDescritpror2 = Object.getOwnPropertyDescriptor(objectDescritpror.value, dataMarkers.section);
 
 
-          let objectDescritprorCopy = JSON.parse(JSON.stringify(objectDescritpror.value))
+          if (dataMarkers.part === 'learning') {
 
-          let newArr = objectDescritpror2.value.map((item, index) => index === dataMarkers.class ? item + 1 : item) 
-          console.log('final value for mutation :', objectDescritpror2.value[dataMarkers.class]);
-          console.log('new array: ', newArr);
 
-          for (const key in objectDescritprorCopy) {
-            console.log(key.toString() === dataMarkers.section);
+            let objectDescritpror = Object.getOwnPropertyDescriptor(doc.data(), dataMarkers.part)
+            let objectDescritprorCopy = JSON.parse(JSON.stringify(objectDescritpror.value))
 
-            if (key.toString() === dataMarkers.section) {
-              objectDescritprorCopy[key] = newArr;
+              
+
+            let objectDescritpror2 = Object.getOwnPropertyDescriptor(objectDescritpror.value, dataMarkers.section);
+
+
+
+            let newArr = objectDescritpror2.value.map((item, index) => index === dataMarkers.class ? item + 1 : item) 
+            
+
+            for (const key in objectDescritprorCopy) {
+              
+
+              if (key.toString() === dataMarkers.section) {
+                objectDescritprorCopy[key] = newArr;
+              }
             }
+
+
+            
+
+
+            setTempObj(objectDescritprorCopy);
+            setAllowChangesFb(true);
+
+
+          } else if (dataMarkers.part === 'exercise') {
+
+
+
+            let newObjectDescritpror = Object.getOwnPropertyDescriptor(doc.data(), dataMarkers.part)
+            let newObjectDescritprorCopy = JSON.parse(JSON.stringify(newObjectDescritpror.value))
+            
+            
+            
+            let newObjectDescritpror2 = Object.getOwnPropertyDescriptor(newObjectDescritpror.value, dataMarkers.section);
+            let newObjectDescritprorCopy2 = JSON.parse(JSON.stringify(newObjectDescritpror2.value))
+
+            let newObjectDescritpror3 = Object.getOwnPropertyDescriptor(newObjectDescritpror2.value, dataMarkers.class);
+
+
+            
+            let newNewArr = newObjectDescritpror3.value.map((item, index) => {
+              if (index === 0 && item < Math.floor(userPoints / allPoints * 100)) {
+                
+                item = Math.floor(userPoints / allPoints * 100)
+                
+                return item
+              } else if (index === 0 && item >= Math.floor(userPoints / allPoints * 100)) {
+                return item
+              }
+              
+              
+              if (index === 1) {
+                
+                item = item + userPoints
+                
+                return item
+              } else if (index === 2) {
+                
+                item = item + allPoints
+                
+                return item
+              }
+            })
+            
+            
+
+            for (const key in newObjectDescritprorCopy2) {
+              
+              if (key.toString() === dataMarkers.class) {
+                
+                newObjectDescritprorCopy2[key] = newNewArr;
+              }
+            }
+
+
+            
+
+            for (const key in newObjectDescritprorCopy) {
+
+              if (key.toString() === dataMarkers.section) {
+
+                newObjectDescritprorCopy[key] = newObjectDescritprorCopy2
+              }
+            }
+
+
+
+            setTempObj(newObjectDescritprorCopy);
+            setAllowChangesFb(true);
+
           }
 
 
-          console.log('new obj to be set: ', tempObj);
-
-
-          setTempObj(objectDescritprorCopy)
+          
           
         });
       }
@@ -302,24 +354,24 @@ const ExitExcScreen = ({route}) => {
         })
       ]).start();
 
-      if (dataMarkers.part === 'learning') {
+      if (dataMarkers.part === 'learning' && allowChangesFb) {
 
         updateDoc(myDocRef, {
           learning: tempObj
         })
         .then(docRef => {
-            console.log("A New Document Field has been added to an existing document");
+            console.log("A New Document Field has been added to an existing document Learning part");
         })
         .catch(error => {
             console.log(error);
         })
 
-      } else if (dataMarkers.part === 'exercise') {
+      } else if (dataMarkers.part === 'exercise' && allowChangesFb) {
         updateDoc(myDocRef, {
           exercise: tempObj
         })
         .then(docRef => {
-            console.log("A New Document Field has been added to an existing document");
+            console.log("A New Document Field has been added to an existing document Exercise part");
         })
         .catch(error => {
             console.log(error);
@@ -334,7 +386,7 @@ const ExitExcScreen = ({route}) => {
         daysInRow: currentDailyScore < pointsToScore && currentDailyScore + userPoints >= pointsToScore ? daysInRowVal + 1 : daysInRowVal
       })
       .then(docRef => {
-          console.log("A New Document Field has been added to an existing document");
+          console.log("A New Document Field has been added to an existing document Points part");
       })
       .catch(error => {
           console.log(error);

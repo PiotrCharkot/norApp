@@ -192,7 +192,6 @@ const Type2 = ({route}) => {
         userAnswers={wordsLeft}
         userAnswers2={wordsRight}
         correctAnswers={exeList[nextScreen - 1].correctAnswers}
-        answerBonus={15}
         buttonWidth={generalStyles.buttonNextPrevSize}
         buttonHeight={generalStyles.buttonNextPrevSize}
         linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
@@ -208,6 +207,8 @@ const Type2 = ({route}) => {
         allScreensNum={allScreensNum}
         questionList={exeList}
         links={linkList}
+        totalPoints={exeList[exeList.length - 2]}
+        dataForMarkers={exeList[exeList.length - 1]}
         />
       </View>
     </View>

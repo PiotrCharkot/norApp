@@ -74,9 +74,9 @@ const Type3 = ({ route }) => {
           setIsCorrect(newArr);
           
         }
-    }
-  
-  }, [answersChecked])
+      }
+    
+    }, [answersChecked])
 
     const onMovingDraggable = (movingDraggable) => {
         setMovingDraggable(movingDraggable);
@@ -97,7 +97,8 @@ const Type3 = ({ route }) => {
         setResetCheck(!resetCheck)
     };
 
-
+    
+    
   return (
     <View style={styles.mainContainer}>
       <ProgressBar screenNum={nextScreen} totalLenghtNum={allScreensNum} latestScreen={latestScreenDone} comeBack={comeBackRoute}/>
@@ -167,7 +168,6 @@ const Type3 = ({ route }) => {
         userAnswers={words}
         correctAnswers={exeList[nextScreen - 1].correctAnswers}
         numberOfGaps={exeList[nextScreen - 1].gapsIndex.length}
-        answerBonus={15}
         linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]} 
         buttonWidth={generalStyles.buttonNextPrevSize}
@@ -183,6 +183,8 @@ const Type3 = ({ route }) => {
         allScreensNum={allScreensNum}
         questionList={exeList}
         links={linkList}
+        totalPoints={exeList[exeList.length - 2]}
+        dataForMarkers={exeList[exeList.length - 1]}
         />
       </View>
     </View>

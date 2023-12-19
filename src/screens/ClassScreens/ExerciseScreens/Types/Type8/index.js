@@ -9,7 +9,7 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 
-const totalPoints = 212;
+
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 const gradientTop = generalStyles.gradientTopDraggable2;
@@ -96,6 +96,7 @@ const Type8 = ({ route }) => {
     })
 
     useEffect(() => {
+
       setMovingDraggable(null);
       setReleaseDraggable(null);
       return () => {};
@@ -349,7 +350,6 @@ const Type8 = ({ route }) => {
         callbackButton={'orderChceck'}
         userAnswers={allUserAnswers}
         correctAnswers={exeList[nextScreen - 1].wordsCorrect}
-        answerBonus={15}
         linkNext={allScreensNum === nextScreen ? exitLink : linkList[nextScreen]}
         linkPrevious={linkList[nextScreen - 2]} 
         buttonWidth={generalStyles.buttonNextPrevSize}
@@ -362,10 +362,11 @@ const Type8 = ({ route }) => {
         checkAns={(arr) => setAnswersChecked(arr)}
         resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
-        totalPoints={totalPoints}
         allScreensNum={allScreensNum}
         questionList={exeList}
         links={linkList}
+        totalPoints={exeList[exeList.length - 2]}
+        dataForMarkers={exeList[exeList.length - 1]}
         />
       </View>
     </View>

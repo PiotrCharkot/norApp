@@ -15,6 +15,18 @@ import type7prep from '../../../../../listData/exerciseData/A1/Type7Data/Preposi
 import type8prep from '../../../../../listData/exerciseData/A1/Type8Data/Prepositions'
 
 
+// import files with data
+
+// add markers for data
+
+const dataForMarkers = {
+  part: 'exercise',
+  section: 'section1',
+  class: 'class3'
+}
+
+
+//set current screen as 1 and all screens as X
 
 const currentScreen = 1;
 const allScreensNum = 8;
@@ -23,23 +35,35 @@ const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 
+
+// set typeInSet as array with data from import
+// set array with links to screens
+
+// delete exitLink
+
+const typesInSet = [type1prep, type4prep, type2prep, type1prep, type5prep, type6prep, type7prep, type8prep];
+const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type1', 'Type5', 'Type6', 'Type7', 'Type8'];
+
+
 //Type1 opening screen
-
-
-const typesInSet = [type1prep, type4prep, type2prep, type3prep, type5prep, type6prep, type7prep, type8prep];
-const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type3', 'Type5', 'Type6', 'Type7', 'Type8'];
 
 const Exc1x2x1 = ({route}) => {
   
-  const [latestScreenDone, setLatestScreenDone] = useState(currentScreen);
-  const [latestScreenAnswered, setLatestScreenAnswered] = useState(0);
 
-  const [currentPoints, setCurrentPoints] = useState(0);
+  // destruction of route object moves to useEffect in if statment if (route.params)
+
+  const [latestScreenDone, setLatestScreenDone] = useState(currentScreen); // set to current screen
+  const [latestScreenAnswered, setLatestScreenAnswered] = useState(0); // set to 0
+
+  const [currentPoints, setCurrentPoints] = useState(0); // set to 0
   const [comeBack, setComeBack] = useState(false);
   const [answersChecked, setAnswersChecked] = useState([]);
-  const [correctAnswers, setCorrectAnswers]= useState([])
-  const [contentReady, setContentReady] = useState(false)
+  const [resetCheck, setResetCheck] = useState(false);
+  const [correctAnswers, setCorrectAnswers]= useState([]) // in opening screen i have to set correct Ansewers after setting ExeList
 
+  // create content redy as false and exeList as []
+
+  const [contentReady, setContentReady] = useState(false)
   const [exeList, setExeList] = useState([])
 
 
@@ -84,15 +108,28 @@ const Exc1x2x1 = ({route}) => {
     outputRange: outputColors
   })
 
+
+
+  const resetAnimation = () => {
+
+    setResetCheck(!resetCheck)
+    for (let i = 0; i < answersChecked.length; i++) {
+        Animated.timing(backgroundArray[i], {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: false
+        }).start();
+    }
+  }
     
    
     
   useFocusEffect(() => {
+    // destruction of route object if (route.params)
     if (route.params) {
       const {userPoints, latestScreen, comeBackRoute, latestAnswered, nextScreen} = route.params;
       
 
-      console.log('screen num in opening screen: ', nextScreen);
       if (latestScreen > currentScreen) {
         setLatestScreenDone(latestScreen);
         setLatestScreenAnswered(latestAnswered);
@@ -100,6 +137,7 @@ const Exc1x2x1 = ({route}) => {
       }
 
       if (route.params.userPoints > 0) {
+        console.log('setting new points', route.params.userPoints );
         setCurrentPoints(userPoints)
     }
     }
@@ -115,70 +153,76 @@ const Exc1x2x1 = ({route}) => {
 
 
     for (let i = 0; i < typesInSet.length; i++) {
-        let randomVal = Math.floor(Math.random() * typesInSet[i].length); 
+      let randomVal = Math.floor(Math.random() * typesInSet[i].length); 
 
 
-        if (typesInSet[i][randomVal].typeOfScreen === '1') {
-          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
-        } else if (typesInSet[i][randomVal].typeOfScreen === '2') {
-          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].correctAnswers.length * generalStyles.bonusMatchLR
-        } else if (typesInSet[i][randomVal].typeOfScreen === '3') {
+      if (typesInSet[i][randomVal].typeOfScreen === '1') {
+        sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
+      } else if (typesInSet[i][randomVal].typeOfScreen === '2') {
+        sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].correctAnswers.length * generalStyles.bonusMatchLR
+      } else if (typesInSet[i][randomVal].typeOfScreen === '3') {
 
-          let newArrGaps = [];
-          let newArrText = [];
+        let newArrGaps = [];
+        let newArrText = [];
 
-          for (let j = 0; j < typesInSet[i][randomVal].correctAnswers.length; j++) {
-              if (typesInSet[i][randomVal].wordsWithGaps[j] === '            ') {
-                  newArrGaps.push(j)
-              } else {
-                  newArrText.push(j)
-              }
-          }
-
-
-          typesInSet[i][randomVal].gapsIndex = newArrGaps;
-          typesInSet[i][randomVal].textIndex = newArrText;
-
-          sumOfAllPoints = sumOfAllPoints + newArrGaps.length * generalStyles.bonusCheckAnswerGapsText
-
-        } else if (typesInSet[i][randomVal].typeOfScreen === '4') {
-          
-          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
-
-        } else if (typesInSet[i][randomVal].typeOfScreen === '5') {
-          
-          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAnswersManyQ
-
-        } else if (typesInSet[i][randomVal].typeOfScreen === '6') {
-          
-          sumOfAllPoints = sumOfAllPoints + (typesInSet[i][randomVal].correctAnswers[0].length + typesInSet[i][randomVal].correctAnswers[1].length) * generalStyles.bonusChooseCorrectCategory
-
-        } else if (typesInSet[i][randomVal].typeOfScreen === '7') {
-
-
-          let newArrMistakes = [];
-
-
-          for (let j = 0; j < typesInSet[i][randomVal].words.length; j++) {
-            
-            if (typesInSet[i][randomVal].words[j] != typesInSet[i][randomVal].wordsCorrect[j]) {
-              newArrMistakes.push(j);
+        for (let j = 0; j < typesInSet[i][randomVal].correctAnswers.length; j++) {
+            if (typesInSet[i][randomVal].wordsWithGaps[j] === '            ') {
+                newArrGaps.push(j)
+            } else {
+                newArrText.push(j)
             }
+        }
 
+
+        typesInSet[i][randomVal].gapsIndex = newArrGaps;
+        typesInSet[i][randomVal].textIndex = newArrText;
+
+        sumOfAllPoints = sumOfAllPoints + newArrGaps.length * generalStyles.bonusCheckAnswerGapsText
+
+      } else if (typesInSet[i][randomVal].typeOfScreen === '4') {
+        
+        sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAllAnswers
+
+      } else if (typesInSet[i][randomVal].typeOfScreen === '5') {
+        
+        sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusCheckAnswersManyQ
+
+      } else if (typesInSet[i][randomVal].typeOfScreen === '6') {
+        
+        sumOfAllPoints = sumOfAllPoints + (typesInSet[i][randomVal].correctAnswers[0].length + typesInSet[i][randomVal].correctAnswers[1].length) * generalStyles.bonusChooseCorrectCategory
+
+      } else if (typesInSet[i][randomVal].typeOfScreen === '7') {
+
+
+        let newArrMistakes = [];
+
+
+        for (let j = 0; j < typesInSet[i][randomVal].words.length; j++) {
+          
+          if (typesInSet[i][randomVal].words[j] != typesInSet[i][randomVal].wordsCorrect[j]) {
+            newArrMistakes.push(j);
           }
 
-          console.log('my mistakes: ', newArrMistakes);
-          typesInSet[i][randomVal].mistakesIndex = newArrMistakes;
+        }
 
-          sumOfAllPoints = sumOfAllPoints + newArrMistakes.length * generalStyles.bonusMarkMistakes
+        console.log('my mistakes: ', newArrMistakes);
+        typesInSet[i][randomVal].mistakesIndex = newArrMistakes;
 
-        } else if (typesInSet[i][randomVal].typeOfScreen === '8') {
-          sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusOrderChceck
-        } 
+        sumOfAllPoints = sumOfAllPoints + newArrMistakes.length * generalStyles.bonusMarkMistakes
 
-        
-        tempArr.push(typesInSet[i][randomVal])
-      }
+      } else if (typesInSet[i][randomVal].typeOfScreen === '8') {
+        sumOfAllPoints = sumOfAllPoints + typesInSet[i][randomVal].nuberOfQuestions * generalStyles.bonusOrderChceck
+      } 
+
+      
+      tempArr.push(typesInSet[i][randomVal])
+    }
+
+    
+
+    tempArr.push(sumOfAllPoints);
+    tempArr.push(dataForMarkers);
+    
       
       
     console.log('my list of questions', tempArr);
@@ -228,6 +272,12 @@ const Exc1x2x1 = ({route}) => {
   
 
 
+  // change comeBackRoute to comeBack
+  // set ScrollView in contentReady
+
+  // bottom bar => delete previousLink,    add isFirstScreen = true,   currentScreen set to currentScreen
+  // bottom bar => delete totalPoints and dataForMarkers,         set linkNext to linkNext={linkList[currentScreen]}
+
   return (
     <View style={styles.mainContainer}>
 
@@ -241,9 +291,9 @@ const Exc1x2x1 = ({route}) => {
 
             {exeList[0].nuberOfQuestions > 0 ? <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA1}} >
                 <Text style={styles.text}>
-                {exeList[0].questions[0][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA1(1)}>
+                {exeList[0].questions[0][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 1 ? colorChosenAns : colorUnderline}} onPress={() => {setA1(1); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[0][1]}</Text>
-                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA1(2)}>
+                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A1 === 2 ? colorChosenAns : colorUnderline}} onPress={() => {setA1(2); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[0][2]}</Text>
                         </TouchableOpacity>{exeList[0].questions[0][3]}
                 </Text>
@@ -252,9 +302,9 @@ const Exc1x2x1 = ({route}) => {
 
             {exeList[0].nuberOfQuestions > 1 ? <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA2}} >
                 <Text style={styles.text}>
-                {exeList[0].questions[1][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA2(1)}>
+                {exeList[0].questions[1][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 1 ? colorChosenAns : colorUnderline}} onPress={() => {setA2(1); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[1][1]}</Text>
-                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA2(2)}>
+                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A2 === 2 ? colorChosenAns : colorUnderline}} onPress={() => {setA2(2); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[1][2]}</Text>
                         </TouchableOpacity>{exeList[0].questions[1][3]}
                 </Text>
@@ -264,9 +314,9 @@ const Exc1x2x1 = ({route}) => {
 
             {exeList[0].nuberOfQuestions > 2 ? <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA3}} >
                 <Text style={styles.text}>
-                {exeList[0].questions[2][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA3(1)}>
+                {exeList[0].questions[2][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 1 ? colorChosenAns : colorUnderline}} onPress={() => {setA3(1); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[2][1]}</Text>
-                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA3(2)}>
+                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A3 === 2 ? colorChosenAns : colorUnderline}} onPress={() => {setA3(2); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[2][2]}</Text>
                         </TouchableOpacity>{exeList[0].questions[2][3]}
                 </Text>
@@ -277,9 +327,9 @@ const Exc1x2x1 = ({route}) => {
 
             {exeList[0].nuberOfQuestions > 3 ? <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA4}} >
                 <Text style={styles.text}>
-                {exeList[0].questions[3][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA4(1)}>
+                {exeList[0].questions[3][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 1 ? colorChosenAns : colorUnderline}} onPress={() => {setA4(1); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[3][1]}</Text>
-                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA4(2)}>
+                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A4 === 2 ? colorChosenAns : colorUnderline}} onPress={() => {setA4(2); resetAnimation();}}>
                             <Text style={styles.text}>{exeList[0].questions[3][2]}</Text>
                         </TouchableOpacity>{exeList[0].questions[3][3]}
                 </Text>
@@ -289,11 +339,11 @@ const Exc1x2x1 = ({route}) => {
 
             {exeList[0].nuberOfQuestions > 4 ? <Animated.View style={{...styles.questionContainer, backgroundColor: backgroundA5}} >
                 <Text style={styles.text}>
-                {exeList[0].questions[4][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 1 ? colorChosenAns : colorUnderline}} onPress={() => setA5(1)}>
-                            <Text style={styles.text}>{exeList[0].questions[3][1]}</Text>
-                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 2 ? colorChosenAns : colorUnderline}} onPress={() => setA5(2)}>
-                            <Text style={styles.text}>{exeList[0].questions[3][2]}</Text>
-                        </TouchableOpacity>{exeList[0].questions[3][3]}
+                {exeList[0].questions[4][0]}<TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 1 ? colorChosenAns : colorUnderline}} onPress={() => {setA5(1); resetAnimation();}}>
+                            <Text style={styles.text}>{exeList[0].questions[4][1]}</Text>
+                            </TouchableOpacity> / <TouchableOpacity style={{...styles.answerOpacity, backgroundColor: A5 === 2 ? colorChosenAns : colorUnderline}} onPress={() => {setA5(2); resetAnimation();}}>
+                            <Text style={styles.text}>{exeList[0].questions[4][2]}</Text>
+                        </TouchableOpacity>{exeList[0].questions[4][3]}
                 </Text>
             </Animated.View> : <View style={{height: 0}}></View>}
             
@@ -328,11 +378,11 @@ const Exc1x2x1 = ({route}) => {
         questionScreen={true}
         comeBack={comeBack}
         checkAns={(arr) => setAnswersChecked(arr)}
+        resetCheck={resetCheck}
         latestAnswered={latestScreenAnswered}
         allScreensNum={allScreensNum}
         questionList={exeList}
         links={linkList}
-        previousScreen={currentScreen}
         />
       </View>
     </View>

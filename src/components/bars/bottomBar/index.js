@@ -124,7 +124,7 @@ const BottomBar = (params) => {
                 }).start();
                 
                 setCurrentPoints(() => {
-                    console.log('what is status of answer: ', failedAnswer, params.userPoints, params.answerBonus);
+                    
                     return failedAnswer ? params.userPoints + additonalScreenPoints : params.userPoints + params.answerBonus  + additonalScreenPoints ;
                 })
             } else {
@@ -176,6 +176,7 @@ const BottomBar = (params) => {
             setButtonFunction('goToNext');
             setPathIcon('next');
         } else if (buttonFunction === 'checkAllAnswers' && params.currentScreen >= params.latestScreen) {
+
             let bonusAnswer = generalStyles.bonusCheckAllAnswers;
             let returnArr = [];
             let questionPoints = 0;
@@ -190,6 +191,8 @@ const BottomBar = (params) => {
             }
 
             params.checkAns(returnArr);
+
+            console.log('curscrenn : ', params.currentScreen, '    lta   :', params.latestAnswered );
 
             if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 setCurrentPoints(() => {
@@ -292,7 +295,7 @@ const BottomBar = (params) => {
             let bonusAnswer = generalStyles.bonusMarkMistakes;
             let returnArr = [];
             let questionPoints = 0;
-            let wrongAnswer = 0;
+            let wrongAnswer = 0; 
             let correctAnswer = 0;
 
             for (let i = 0; i < params.textLength; i++) {
@@ -315,7 +318,7 @@ const BottomBar = (params) => {
 
             if (!answCheckOnce && params.currentScreen > params.latestAnswered) {
                 
-                let penaltyWrongAns = (params.userAnswers.length - correctAnswers.length + wrongAnswer) * 2;
+                let penaltyWrongAns = (params.userAnswers.length - correctAnswers.length + wrongAnswer) * generalStyles.bonusMarkMistakesPenaltyPoints;
                 setCurrentPoints(() => {
                     return params.userPoints + questionPoints - penaltyWrongAns;
                 })
