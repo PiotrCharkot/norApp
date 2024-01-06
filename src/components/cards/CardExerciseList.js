@@ -7,16 +7,18 @@ const screenWidth = Dimensions.get('window').width;
 
 const CardExerciseList = (params) => {
     
-
+    const { language, title } = params;
     
     const navigation = useNavigation();
 
+    
   return (
-    <TouchableOpacity style={styles.mainContainer} onPress={() => navigation.navigate(params.link)}>
+    <TouchableOpacity style={styles.mainContainer} onPress={() => navigation.navigate(params.link, {savedLang: language})}>
         <View style={styles.innerContainer}>
             <LinearGradient colors={[ '#6BE68E', '#38663C']} style={styles.gradient} >
 
-            <Text style={styles.textTitle}>{params.title}</Text>
+            <Text style={styles.textTitle}>{title
+            }</Text>
             <Text style={styles.textDescription}>{params.description}</Text>
             
       

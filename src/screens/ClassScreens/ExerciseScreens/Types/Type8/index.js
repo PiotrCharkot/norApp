@@ -9,7 +9,6 @@ import generalStyles from '../../../../../styles/generalStyles';
 
 
 
-
 const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 const gradientTop = generalStyles.gradientTopDraggable2;

@@ -1,7 +1,7 @@
 import { View, Text, Image, Animated, Dimensions, TouchableOpacity } from 'react-native'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, useCallback} from 'react'
 import * as SecureStore from 'expo-secure-store';
-import { useIsFocused } from "@react-navigation/native";
+import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { onAuthStateChanged  } from 'firebase/auth';
 import { useNavigation } from "@react-navigation/native";
 import { db } from '../../../firebase/firebase-config'
@@ -216,6 +216,16 @@ const FlashcardScreen = () => {
   }
 
 
+  useFocusEffect(
+    useCallback(() => {
+
+      
+      getValueFor('language');
+  
+      
+    }, [])
+  );
+
 
   useEffect(() => {
     const unscubscribe = onAuthStateChanged(authentication, (authUser) => {
@@ -236,7 +246,6 @@ const FlashcardScreen = () => {
     let tempVal = Math.floor(Math.random() * imagesMain.length);
     setRandom(tempVal);
     
-    getValueFor('language');
 
     return unscubscribe;
   }, [])
@@ -1348,9 +1357,8 @@ const FlashcardScreen = () => {
           <Text style={styles.languageText}>AR</Text>
           <Image style={styles.flagImg} source={require('../../../assets/arabic.png')} />
         </TouchableOpacity>
-        
-
       </Animated.View>
+
       <Animated.View style={{...styles.whiteOverlay, opacity: overlayOpacity, transform: [{translateX: overlayOffset}]}}></Animated.View>
     </View>
   )

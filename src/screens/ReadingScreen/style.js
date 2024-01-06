@@ -32,7 +32,12 @@ const styles = StyleSheet.create({
     head: {
         height: 80,
         width: "100%",
-        backgroundColor: 'rgba(255,255,255,0)'
+        backgroundColor: 'rgba(255,255,255,0)',
+        justifyContent: 'flex-end'
+    },
+    headBottom: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between'
     },
     iconX: {
         height: 25,
@@ -40,11 +45,10 @@ const styles = StyleSheet.create({
         tintColor: 'grey'
     },
     iconXContainer: {
-        height: 25,
-        width: 25,
-        position: 'absolute',
-        left: screenWidth - 50,
-        top: 50
+        flexDirection: 'row',
+        marginTop: 12,
+        marginLeft: 15,
+        height: 28
     },
     flatListsContainer: {
         marginTop: 235,
@@ -73,6 +77,50 @@ const styles = StyleSheet.create({
         position: 'absolute',
         height: screenWidth * 0.35 + 110,
         width: '100%',
+    },
+    choosenLanguageContainer: {
+        flexDirection: 'row',
+        margin: 10,
+        overflow: 'visible'
+    },
+    languageContainer: {
+        flexDirection: 'row',
+        padding: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    languageContainerList: {
+        flexDirection: 'row',
+        paddingVertical: 5,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        
+    },
+    languageText: {
+        marginRight: 5,
+        fontWeight: '800',
+        fontSize: 14,
+        color: 'brown'
+    },
+    iconLanguageImg:{
+        height: 20,
+        width: 20,
+        tintColor: 'black',
+    },
+    flagImg:{
+        height: 20,
+        width: 20,
+    },
+    languageList: {
+        position: 'absolute',
+        width: 55,
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
+        right: 10,
+        padding: 5,
+        top: -35,
+        borderRadius: 5,
+        
     },
 });
 

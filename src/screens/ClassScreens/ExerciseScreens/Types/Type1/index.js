@@ -144,7 +144,7 @@ const Type1 = ({route}) => {
 
         <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Choose good anwer out of two</Text>
+            <Text style={styles.title}>Choose good anwer out of two yyyyy</Text>
           </View>
 
           <View style={styles.middleView}>

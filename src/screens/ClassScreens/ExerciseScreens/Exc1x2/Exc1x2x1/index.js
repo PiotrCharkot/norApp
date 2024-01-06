@@ -15,34 +15,40 @@ import type7prep from '../../../../../listData/exerciseData/A1/Type7Data/Preposi
 import type8prep from '../../../../../listData/exerciseData/A1/Type8Data/Prepositions'
 
 
-// import files with data
+// import files with data and Loader component
 
 // add markers for data
 
 const dataForMarkers = {
   part: 'exercise',
   section: 'section1',
-  class: 'class3'
+  class: 'class1'
 }
-
-
-//set current screen as 1 and all screens as X
-
-const currentScreen = 1;
-const allScreensNum = 8;
-const colorUnderline = generalStyles.colorHighlightChoiceOption;
-const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
-const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
 
 
 
 // set typeInSet as array with data from import
 // set array with links to screens
+// set correct firsts link and data type
 
-// delete exitLink
 
 const typesInSet = [type1prep, type4prep, type2prep, type1prep, type5prep, type6prep, type7prep, type8prep];
 const linkList = ['Exc1x2x1', 'Type4', 'Type2', 'Type1', 'Type5', 'Type6', 'Type7', 'Type8'];
+
+
+
+//set current screen as 1 and allScreenNum
+
+const currentScreen = 1;
+const allScreensNum = linkList.length;
+
+const colorUnderline = generalStyles.colorHighlightChoiceOption;
+const colorChosenAns = generalStyles.colorHighlightChoosenAnswer;
+const outputColors = [generalStyles.wrongAnswerConfirmationColor, generalStyles.neutralAnswerConfirmationColor, generalStyles.correctAnswerConfirmationColor];
+
+
+// delete exitLink
+
 
 
 //Type1 opening screen
@@ -59,12 +65,14 @@ const Exc1x2x1 = ({route}) => {
   const [comeBack, setComeBack] = useState(false);
   const [answersChecked, setAnswersChecked] = useState([]);
   const [resetCheck, setResetCheck] = useState(false);
-  const [correctAnswers, setCorrectAnswers]= useState([]) // in opening screen i have to set correct Ansewers after setting ExeList
+  const [instructions, setInstructions] = useState('some instructions');
+  const [newInstructions, setNewInstructions] = useState('');
+  const [correctAnswers, setCorrectAnswers]= useState([]); // in opening screen set correct Ansewers after setting ExeList in useEffect (tempArr)
 
   // create content redy as false and exeList as []
 
-  const [contentReady, setContentReady] = useState(false)
-  const [exeList, setExeList] = useState([])
+  const [contentReady, setContentReady] = useState(false);
+  const [exeList, setExeList] = useState([]);
 
 
   const a1background = useRef(new Animated.Value(0)).current;
@@ -125,9 +133,10 @@ const Exc1x2x1 = ({route}) => {
    
     
   useFocusEffect(() => {
+
     // destruction of route object if (route.params)
     if (route.params) {
-      const {userPoints, latestScreen, comeBackRoute, latestAnswered, nextScreen} = route.params;
+      const {userPoints, latestScreen, comeBackRoute, latestAnswered, nextScreen, savedLang} = route.params;
       
 
       if (latestScreen > currentScreen) {
@@ -139,12 +148,28 @@ const Exc1x2x1 = ({route}) => {
       if (route.params.userPoints > 0) {
         console.log('setting new points', route.params.userPoints );
         setCurrentPoints(userPoints)
+      }
+
+      if (savedLang === 'PL') {
+        setInstructions('polskie instrukcje')
+      } else if (savedLang === 'DE') {
+        setInstructions('niemieckie instrukcje')
+      } else if (savedLang === 'LT') {
+        setInstructions('litewskie instrukcje')
+      } else if (savedLang === 'AR') {
+        setInstructions('arabskie instrukcje')
+      } else if (savedLang === 'UA') {
+        setInstructions('ukr instrukcje')
+      } else if (savedLang === 'ES') {
+        setInstructions('esp instrukcje')
+      }
+
     }
-    }
-    
+
   })
 
 
+  // add this useEffect that sets array with links and questions and counts totalPoints 
 
   useEffect(() => {
 
@@ -205,7 +230,6 @@ const Exc1x2x1 = ({route}) => {
 
         }
 
-        console.log('my mistakes: ', newArrMistakes);
         typesInSet[i][randomVal].mistakesIndex = newArrMistakes;
 
         sumOfAllPoints = sumOfAllPoints + newArrMistakes.length * generalStyles.bonusMarkMistakes
@@ -228,6 +252,29 @@ const Exc1x2x1 = ({route}) => {
     console.log('my list of questions', tempArr);
     console.log('my total points: ', sumOfAllPoints);
     setExeList(tempArr);
+
+
+    if (tempArr[0].instructions) {
+
+      if (route.params.savedLang === 'PL') {
+        setNewInstructions(tempArr[0].instructions.pl)
+      } else if (route.params.savedLang === 'DE') {
+        setNewInstructions(tempArr[0].instructions.ger)
+      } else if (route.params.savedLang === 'LT') {
+        setNewInstructions(tempArr[0].instructions.lt)
+      } else if (route.params.savedLang === 'AR') {
+        setNewInstructions(tempArr[0].instructions.ar)
+      } else if (route.params.savedLang === 'UA') {
+        setNewInstructions(tempArr[0].instructions.ua)
+      } else if (route.params.savedLang === 'ES') {
+        setNewInstructions(tempArr[0].instructions.sp)
+      } else if (route.params.savedLang === 'EN') {
+        setNewInstructions(tempArr[0].instructions.eng)
+      }
+    }
+    
+
+
     setCorrectAnswers(tempArr[0].correctAnswers);
     setContentReady(true);
 
@@ -243,7 +290,7 @@ const Exc1x2x1 = ({route}) => {
     
 
     if (answersChecked.length !== 0) {
-        setLatestScreenAnswered(currentScreen);
+        setLatestScreenAnswered(currentScreen); //set to currentScreen
         let delayAnimation = 0;
             
         for (let i = 0; i < answersChecked.length; i++) {
@@ -272,10 +319,13 @@ const Exc1x2x1 = ({route}) => {
   
 
 
-  // change comeBackRoute to comeBack
-  // set ScrollView in contentReady
+  // change comeBackRoute to comeBack in progressBar
+  // change screenNum to 1 in progressBar
 
-  // bottom bar => delete previousLink,    add isFirstScreen = true,   currentScreen set to currentScreen
+  // set ScrollView in contentReady
+  // set content to exeList[0].content
+
+  // bottom bar => delete previousLink,    add isFirstScreen={true}   currentScreen set to currentScreen
   // bottom bar => delete totalPoints and dataForMarkers,         set linkNext to linkNext={linkList[currentScreen]}
 
   return (
@@ -283,7 +333,7 @@ const Exc1x2x1 = ({route}) => {
 
       {contentReady ? <ScrollView showsVerticalScrollIndicator={false} style={styles.body}>
           <View style={styles.topView}>
-            <Text style={styles.title}>Choose good anwer out of two</Text>
+            <Text style={styles.title}>{exeList[0].instructions ? newInstructions : instructions}</Text>
           </View>
 
           <View style={styles.middleView}>

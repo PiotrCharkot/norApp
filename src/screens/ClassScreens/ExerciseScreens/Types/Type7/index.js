@@ -142,7 +142,7 @@ const Type7 = ({route}) => {
 
           <View style={styles.btnContainer}>
           
-            {showMistakes ? <AnswerButton text={'Show correct text'} colors={['#00308F', '#007FFF']}  returnAnswer={(boolean) => setShowCorrect(boolean)}/> : null}
+            {showMistakes ? <AnswerButton text={showCorrect ? 'Show incorrect text' : 'Show correct text'} colors={['#00308F', '#007FFF']}  returnAnswer={(boolean) => setShowCorrect(boolean)}/> : null}
           </View>
           
 

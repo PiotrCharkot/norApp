@@ -1,5 +1,6 @@
 import { View, Text, Image, Animated, ScrollView, FlatList, Dimensions, TouchableOpacity } from 'react-native'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, useCallback} from 'react'
+import * as SecureStore from 'expo-secure-store';
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -26,10 +27,14 @@ const ReadingScreen = () => {
   
   const scrollY = useRef(new Animated.Value(0)).current;
   const scrollX = useRef(new Animated.Value(0)).current;
+  const scaleLanguageHight = useRef(new Animated.Value(0)).current;
+  const translateLanguage = useRef(new Animated.Value(100)).current;
   const overlayOpacity = useRef(new Animated.Value(1)).current;
   const overlayOffset = useRef(new Animated.Value(0)).current;
   const interpolatedValueForX = useRef(new Animated.Value(0)).current;
 
+  const [choosenLanguage, setChoosenLanguage] = useState('EN');
+  const [languageListOpen, setLanguageListOpen] = useState(false);
   const [dataFlatList, setDataFlatList] = useState([]);
   const [random, setRandom] = useState(0);
 
@@ -58,6 +63,59 @@ const ReadingScreen = () => {
 
   const imagesMain = [require('../../../assets/reindeerBook1.png'), require('../../../assets/reindeerBook2.png'), require('../../../assets/reindeerBook3.png'), require('../../../assets/reindeerBook4.png'), require('../../../assets/reindeerBook5.png')];
   const imagesMainBlurred = [require('../../../assets/reindeerBook1Blurred.png'), require('../../../assets/reindeerBook2Blurred.png'), require('../../../assets/reindeerBook3Blurred.png'), require('../../../assets/reindeerBook4Blurred.png'), require('../../../assets/reindeerBook5Blurred.png')];
+
+
+
+  async function save(key, value) {
+    await SecureStore.setItemAsync(key, value);
+  }
+  
+  async function getValueFor(key) {
+    let result = await SecureStore.getItemAsync(key);
+    if (result) {
+      console.log("Here's your value", result);
+      setChoosenLanguage(result);
+    } else {
+      console.log('No values stored under that key.');
+    }
+  }
+
+
+  const changeLanguage = (language) => {
+    if (language !== null) {
+      setChoosenLanguage(language);
+      save('language', language);
+    }
+    if (!languageListOpen) {
+      setLanguageListOpen(true)
+      Animated.timing(scaleLanguageHight, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true
+      }).start();
+      
+    } else {
+      setLanguageListOpen(false)
+      Animated.timing(scaleLanguageHight, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true
+      }).start()
+    }
+    
+  }
+
+
+  useFocusEffect(
+    useCallback(() => {
+
+      
+      getValueFor('language');
+  
+      
+    }, [])
+  );
+
 
 
   const getTransform = (viewHeight, viewWidth, transValA, transValB, valX, valY) => {
@@ -156,13 +214,24 @@ const ReadingScreen = () => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.head}>
+        <View style={styles.headBottom}>
 
-      <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
-        <TouchableOpacity onPress={() => exitButton()}>
-            <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
+          <Animated.View style={{...styles.iconXContainer, ...getTransform(25, 25, { rotate: xPositionDeg }, { translateX: 0 }, 0.5, 0.5)}}>
+            <TouchableOpacity onPress={() => exitButton()}>
+                <Image style={{...styles.iconX}} source={require('../../../assets/close.png')} />
 
-        </TouchableOpacity>
-      </Animated.View>
+            </TouchableOpacity>
+          </Animated.View>
+
+
+          <View style={styles.choosenLanguageContainer}>
+            <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage(choosenLanguage)}>
+            <Text style={styles.languageText}>{choosenLanguage}</Text>
+              <Image style={styles.iconLanguageImg} source={require('../../../assets/language.png')} />
+            </TouchableOpacity>
+            
+          </View>
+        </View>
       </View>
 
       <Animated.ScrollView onScroll={Animated.event(
@@ -207,6 +276,37 @@ const ReadingScreen = () => {
         </Animated.View>
       </Animated.ScrollView>
         
+
+      <Animated.View style={{...styles.languageList, transform: [{scaleY: scaleLanguageHight}, {translateY: translateLanguage}]}}>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('EN')}>
+          <Text style={styles.languageText}>EN</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/united-kingdom.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('DE')}>
+          <Text style={styles.languageText}>DE</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/german.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('PL')}>
+          <Text style={styles.languageText}>PL</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/poland.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('LT')}>
+          <Text style={styles.languageText}>LT</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/lithuania.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('UA')}>
+          <Text style={styles.languageText}>UA</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/ukraine.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('ES')}>
+          <Text style={styles.languageText}>SP</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/spain.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('AR')}>
+          <Text style={styles.languageText}>AR</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/arabic.png')} />
+        </TouchableOpacity>
+      </Animated.View>
       
       <Animated.View style={{...styles.whiteOverlay, opacity: overlayOpacity, transform: [{translateX: overlayOffset}]}}></Animated.View>
     </View>

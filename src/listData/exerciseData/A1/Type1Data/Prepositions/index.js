@@ -6,7 +6,16 @@ export default dataObj = [
     questions: [
         ['De snakket om det, ', 'mens', 'fordi', ' de spiste'],
         ['Kristian drar på ferie ', 'mens', 'til tross for at', ' han ikke har mye penger'],
-    ]
+    ],
+    instructions: {
+        eng: 'Choose good anwer out of two from data base',
+        pl: 'polskie instrukcje baza danych',
+        ar: 'سيارة',
+        ger: 'ein Auto',
+        lt: 'automobilis',
+        ua: 'автомобіль', 
+        sp: 'un coche',
+    },
    },
    {
     typeOfScreen: '1',

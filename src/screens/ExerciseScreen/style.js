@@ -92,6 +92,50 @@ const styles = StyleSheet.create({
         height: screenWidth * 0.35 + 110,
         width: '100%',
     },
+    choosenLanguageContainer: {
+        flexDirection: 'row',
+        margin: 10,
+        overflow: 'visible'
+    },
+    languageContainer: {
+        flexDirection: 'row',
+        padding: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+    },
+    languageContainerList: {
+        flexDirection: 'row',
+        paddingVertical: 5,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        
+    },
+    languageText: {
+        marginRight: 5,
+        fontWeight: '800',
+        fontSize: 14,
+        color: 'brown'
+    },
+    iconLanguageImg:{
+        height: 20,
+        width: 20,
+        tintColor: 'black',
+    },
+    flagImg:{
+        height: 20,
+        width: 20,
+    },
+    languageList: {
+        position: 'absolute',
+        width: 55,
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
+        right: 10,
+        padding: 5,
+        top: -35,
+        borderRadius: 5,
+        
+    },
 });
 
 

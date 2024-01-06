@@ -386,6 +386,13 @@ import Exc1x1x6 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x6";
 import Exc1x1x7 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x7";
 import Exc1x1x8 from "../screens/ClassScreens/ExerciseScreens/Exc1x1/Exc1x1x8";
 import Exc1x2x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x2/Exc1x2x1";
+import Exc1x3x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x3/Exc1x3x1";
+import Exc1x4x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x4/Exc1x4x1";
+import Exc1x5x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x5/Exc1x5x1";
+import Exc1x6x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x6/Exc1x6x1";
+import Exc1x7x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x7/Exc1x7x1";
+import Exc1x8x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x8/Exc1x8x1";
+import Exc1x9x1 from "../screens/ClassScreens/ExerciseScreens/Exc1x9/Exc1x9x1";
 import Type1 from "../screens/ClassScreens/ExerciseScreens/Types/Type1";
 import Type2 from "../screens/ClassScreens/ExerciseScreens/Types/Type2";
 import Type3 from "../screens/ClassScreens/ExerciseScreens/Types/Type3";
@@ -394,6 +401,7 @@ import Type5 from "../screens/ClassScreens/ExerciseScreens/Types/Type5";
 import Type6 from "../screens/ClassScreens/ExerciseScreens/Types/Type6";
 import Type7 from "../screens/ClassScreens/ExerciseScreens/Types/Type7";
 import Type8 from "../screens/ClassScreens/ExerciseScreens/Types/Type8";
+
 
 
 
@@ -786,6 +794,13 @@ const Router = () => {
                 <Stack.Screen name="Exc1x1x7" component={Exc1x1x7} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x1x8" component={Exc1x1x8} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Exc1x2x1" component={Exc1x2x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x3x1" component={Exc1x3x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x4x1" component={Exc1x4x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x5x1" component={Exc1x5x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x6x1" component={Exc1x6x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x7x1" component={Exc1x7x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x8x1" component={Exc1x8x1} options={{headerShown: false, animationEnabled: false }}/>
+                <Stack.Screen name="Exc1x9x1" component={Exc1x9x1} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type1" component={Type1} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type2" component={Type2} options={{headerShown: false, animationEnabled: false }}/>
                 <Stack.Screen name="Type3" component={Type3} options={{headerShown: false, animationEnabled: false }}/>

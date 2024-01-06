@@ -1,5 +1,6 @@
 import { View, Text, Image, Animated, ScrollView, FlatList, Dimensions, TouchableOpacity } from 'react-native'
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect, useCallback} from 'react'
+import * as SecureStore from 'expo-secure-store';
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
@@ -27,9 +28,15 @@ const ExerciseScreen = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
   const overlayOpacity = useRef(new Animated.Value(1)).current;
   const overlayOffset = useRef(new Animated.Value(0)).current;
+  const scaleLanguageHight = useRef(new Animated.Value(0)).current;
+  const translateLanguage = useRef(new Animated.Value(100)).current;
 
+  const [choosenLanguage, setChoosenLanguage] = useState('EN');
+  const [languageListOpen, setLanguageListOpen] = useState(false);
   const [dataFlatList, setDataFlatList] = useState([]);
   const [random, setRandom] = useState(0);
+  const [title1, setTitle1] = useState('level');
+  const [readingBtnTxt, setReadingButtonTxt] = useState('Reading');
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -52,14 +59,83 @@ const ExerciseScreen = () => {
   const imagesMainBlurred = [require('../../../assets/reindeerRobo1Blurred.png'), require('../../../assets/reindeerRobo2Blurred.png'), require('../../../assets/reindeerRobo3Blurred.png'), require('../../../assets/reindeerRobo4Blurred.png'), require('../../../assets/reindeerRobo5Blurred.png'), require('../../../assets/reindeerRobo6Blurred.png')];
 
 
+  async function save(key, value) {
+    await SecureStore.setItemAsync(key, value);
+  }
+  
+  async function getValueFor(key) {
+    let result = await SecureStore.getItemAsync(key);
+    if (result) {
+      console.log("Here's your value", result);
+      setChoosenLanguage(result);
+    } else {
+      console.log('No values stored under that key.');
+    }
+  }
+
+
+  const changeLanguage = (language) => {
+    if (language !== null) {
+      setChoosenLanguage(language);
+      save('language', language);
+
+      if (language === 'PL') {
+        setReadingButtonTxt('Czytanie')
+      } else if (language === 'DE') {
+        setReadingButtonTxt('Czytanie niem')
+      } else if (language === 'LT') {
+        setReadingButtonTxt('Czytanie lt')
+      } else if (language === 'AR') {
+        setReadingButtonTxt('Czytaniearabskui')
+      } else if (language === 'UA') {
+        setReadingButtonTxt('Czytanieua')
+      } else if (language === 'ES') {
+        setReadingButtonTxt('Czytaniesp')
+      } else if (language === 'EN') {
+        setReadingButtonTxt('Reading')
+      }
+    }
+    if (!languageListOpen) {
+      setLanguageListOpen(true)
+      Animated.timing(scaleLanguageHight, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true
+      }).start();
+      
+    } else {
+      setLanguageListOpen(false)
+      Animated.timing(scaleLanguageHight, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true
+      }).start()
+    }
+    
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+
+      
+      getValueFor('language');
+  
+      
+    }, [])
+  );
+
   useEffect(() => {
     setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}]);
 
     let tempVal = Math.floor(Math.random() * imagesMain.length);
-    setRandom(tempVal)
+    setRandom(tempVal); 
+
+    
   }, [])
 
   useEffect(() => {
+
+    
 
     if (isFocused) {
       Animated.sequence([
@@ -76,7 +152,9 @@ const ExerciseScreen = () => {
           useNativeDriver: true
         }),
     
-      ]).start()
+      ]).start();
+
+      
     } else {
       Animated.sequence([
         Animated.timing(overlayOffset, {
@@ -90,16 +168,49 @@ const ExerciseScreen = () => {
           duration: 10,
           useNativeDriver: true
         }),
-      ]).start()
+      ]).start();
+      
       
     }
+
+
+    
     
   }, [isFocused])
+
+
+  useEffect(() => {
+    if (choosenLanguage === 'PL') {
+      setReadingButtonTxt('Czytanie');
+      setTitle1('Poziom');
+    } else if (choosenLanguage === 'DE') {
+      setReadingButtonTxt('Czytanie niem');
+      setTitle1('Poziom niem');
+    } else if (choosenLanguage === 'LT') {
+      setReadingButtonTxt('Czytanie lt');
+      setTitle1('litews');
+    } else if (choosenLanguage === 'AR') {
+      setReadingButtonTxt('Czytaniearabskui');
+      setTitle1('arabski');
+    } else if (choosenLanguage === 'UA') {
+      setReadingButtonTxt('Czytanieua');
+      setTitle1('ukrai');
+    } else if (choosenLanguage === 'ES') {
+      setReadingButtonTxt('Czytaniesp');
+      setTitle1('spanish');
+    } else if (choosenLanguage === 'EN') {
+      setReadingButtonTxt('Reading');
+      setTitle1('level');
+    }
+  }, [choosenLanguage])
+  
+
 
 
   const renderCard = ({item, index}) => {
 
     let colorSqu = colorsBackFlatlist5[index - 1]
+    let translatedTitle = '';
 
     if (!item.title) {
       return <View style={{width: spacerSize}} ></View>
@@ -115,22 +226,36 @@ const ExerciseScreen = () => {
       outputRange: [0, -50, 0]
     })
 
+    if (choosenLanguage === 'PL') {
+      translatedTitle = item.title.pl
+    } else if (choosenLanguage === 'DE') {
+      translatedTitle = item.title.ger
+    } else if (choosenLanguage === 'LT') {
+      translatedTitle = item.title.lt
+    } else if (choosenLanguage === 'AR') {
+      translatedTitle = item.title.ar
+    } else if (choosenLanguage === 'UA') {
+      translatedTitle = item.title.ua
+    } else if (choosenLanguage === 'ES') {
+      translatedTitle = item.title.sp
+    } else if (choosenLanguage === 'EN') {
+      translatedTitle = item.title.eng
+    }
+
     return <Animated.View style={{transform: [{translateY}]}}>
 
       <CardExerciseList 
-      title={item.title} 
+      title={translatedTitle} 
       description={item.description} 
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
-      colorSmallSqu={colorSqu}/>
+      colorSmallSqu={colorSqu}
+      language={choosenLanguage}/>
     </Animated.View>
   }
 
-  const sendToPro = () => {
-    console.log('send to upgrade');
-  }
-
+  
 
   return (
     <View style={styles.mainContainer}>
@@ -138,15 +263,17 @@ const ExerciseScreen = () => {
         <View style={styles.headBottom}>
           <View style={styles.readingButtonContainer}>
             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Reading')}>
-              <Text style={styles.textButton}>Reading</Text>
+              <Text style={styles.textButton}>{readingBtnTxt}</Text>
               <Image style={styles.bookPic} source={require('../../../assets/book.png')} />
             </TouchableOpacity>
           </View>
         
-          <View style={styles.readingButtonContainer}>
-            <TouchableOpacity style={styles.buttonContainer} onPress={sendToPro}>
-              <Text style={styles.textButton}>upgrade to Pro</Text>
+          <View style={styles.choosenLanguageContainer}>
+            <TouchableOpacity style={styles.languageContainer} onPress={() => changeLanguage(choosenLanguage)}>
+            <Text style={styles.languageText}>{choosenLanguage}</Text>
+              <Image style={styles.iconLanguageImg} source={require('../../../assets/language.png')} />
             </TouchableOpacity>
+            
           </View>
           
         </View>
@@ -173,7 +300,7 @@ const ExerciseScreen = () => {
             </LinearGradient>
         
           <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Title</Text>
+            <Text style={styles.titleText}>{title1}</Text>
           </View>
           <Animated.FlatList 
             style={styles.flatlist}
@@ -193,6 +320,38 @@ const ExerciseScreen = () => {
 
         </Animated.View>
       </Animated.ScrollView>
+
+
+      <Animated.View style={{...styles.languageList, transform: [{scaleY: scaleLanguageHight}, {translateY: translateLanguage}]}}>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('EN')}>
+          <Text style={styles.languageText}>EN</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/united-kingdom.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('DE')}>
+          <Text style={styles.languageText}>DE</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/german.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('PL')}>
+          <Text style={styles.languageText}>PL</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/poland.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('LT')}>
+          <Text style={styles.languageText}>LT</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/lithuania.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('UA')}>
+          <Text style={styles.languageText}>UA</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/ukraine.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('ES')}>
+          <Text style={styles.languageText}>SP</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/spain.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.languageContainerList} onPress={() => changeLanguage('AR')}>
+          <Text style={styles.languageText}>AR</Text>
+          <Image style={styles.flagImg} source={require('../../../assets/arabic.png')} />
+        </TouchableOpacity>
+      </Animated.View>
         
       
       <Animated.View style={{...styles.whiteOverlay, opacity: overlayOpacity, transform: [{translateX: overlayOffset}]}}></Animated.View>
