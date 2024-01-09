@@ -4,10 +4,14 @@ import * as SecureStore from 'expo-secure-store';
 import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
+import { collection, getDocs, query, where, doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { db } from '../../../firebase/firebase-config'
+import { onAuthStateChanged, getAuth  } from 'firebase/auth';
 import styles from './style'
 import Card from '../../components/cards/Card';
 import CardExerciseList from '../../components/cards/CardExerciseList';
-import exerciseData from '../../listData/exerciseData';
+import CardExe from '../../components/cards/CardExe';
+import exerciseData1 from '../../listData/exerciseData1';
 
 const screenWidth = Dimensions.get('window').width;
 const cardSize = screenWidth * 0.6 + 20;
@@ -18,6 +22,10 @@ const colorsBackFlatlist3 = ['#e6746e', '#e6e46e', '#7ae66e', '#6ee6e2', '#6e7ae
 const colorsBackFlatlist4 = ['#fccccc', '#fafccc', '#d2fccc', '#ccfcfc', '#ccd0fc', '#f8ccfc', '#fccccc', '#fafccc', '#d2fccc', '#ccfcfc', '#ccd0fc', '#f8ccfc']
 const colorsBackFlatlist5 = ['#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#f9faac', '#b0faac', '#acf9fa', '#b4acfa', '#faacf3', '#faacac', '#f9faac',]
 const transparent = 'rgba(255,255,255,0)';
+
+
+const auth = getAuth();
+const usersAchivments = collection(db, 'usersAchivments');
 
 
 const ExerciseScreen = () => {
@@ -37,6 +45,7 @@ const ExerciseScreen = () => {
   const [random, setRandom] = useState(0);
   const [title1, setTitle1] = useState('level');
   const [readingBtnTxt, setReadingButtonTxt] = useState('Reading');
+  
 
   const opacityImgBlur = scrollY.interpolate({
     inputRange: [0, 60],
@@ -66,7 +75,6 @@ const ExerciseScreen = () => {
   async function getValueFor(key) {
     let result = await SecureStore.getItemAsync(key);
     if (result) {
-      console.log("Here's your value", result);
       setChoosenLanguage(result);
     } else {
       console.log('No values stored under that key.');
@@ -124,8 +132,14 @@ const ExerciseScreen = () => {
     }, [])
   );
 
+
+
+
   useEffect(() => {
-    setDataFlatList([{key: 'left-spacer'}, ...exerciseData, {key: 'right-spacer'}]);
+
+
+
+    setDataFlatList([{key: 'left-spacer'}, ...exerciseData1, {key: 'right-spacer'}]);
 
     let tempVal = Math.floor(Math.random() * imagesMain.length);
     setRandom(tempVal); 
@@ -205,6 +219,59 @@ const ExerciseScreen = () => {
   }, [choosenLanguage])
   
 
+  useFocusEffect(
+    useCallback(() => {
+
+      
+      getDataFb();
+  
+      
+    }, [])
+  );
+
+
+  const getDataFb = async () => {
+
+    
+    const q = query(usersAchivments, where('userRef', '==', auth.currentUser.uid))
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+
+      
+      for (let i = 0; i < exerciseData1.length; i++) {
+
+        if (exerciseData1[i].key === 1) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class0
+        } else if (exerciseData1[i].key === 2) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class1
+        } else if (exerciseData1[i].key === 3) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class2
+        } else if (exerciseData1[i].key === 4) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class3
+        } else if (exerciseData1[i].key === 5) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class4
+        } else if (exerciseData1[i].key === 6) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class5
+        } else if (exerciseData1[i].key === 7) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class6
+        } else if (exerciseData1[i].key === 8) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class7
+        } else if (exerciseData1[i].key === 9) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class8
+        } else if (exerciseData1[i].key === 10) {
+          exerciseData1[i].bars = doc.data().exercise.section1.class9
+        } 
+        
+      }
+    })
+
+
+    setDataFlatList([{key: 'left-spacer'}, ...exerciseData1, {key: 'right-spacer'}]);
+
+    
+
+  }
 
 
   const renderCard = ({item, index}) => {
@@ -244,14 +311,15 @@ const ExerciseScreen = () => {
 
     return <Animated.View style={{transform: [{translateY}]}}>
 
-      <CardExerciseList 
+      <CardExe 
       title={translatedTitle} 
       description={item.description} 
       level={item.level} 
       link={item.link} 
       showPro={item.showPro}
       colorSmallSqu={colorSqu}
-      language={choosenLanguage}/>
+      language={choosenLanguage}
+      barsData={item.bars}/>
     </Animated.View>
   }
 
@@ -293,7 +361,6 @@ const ExerciseScreen = () => {
         <LinearGradient colors={['white', transparent, transparent, transparent, transparent, 'white']} start={[0.0, 0.0]} end={[0.0, 1.0]}  style={{...styles.gradinetImg}}>
         </LinearGradient>
         </Animated.View>
-      
         <Animated.View style={{...styles.flatListsContainer, backgroundColor: backgroundFlatlist}}>
           
           <LinearGradient colors={['white', 'rgba(255,255,255,0)', 'white']} start={[0.0, 0.1]} end={[0.0, 1.0]}  style={styles.gradinetFlatlist}>
@@ -319,6 +386,7 @@ const ExerciseScreen = () => {
           />
 
         </Animated.View>
+        
       </Animated.ScrollView>
 
 

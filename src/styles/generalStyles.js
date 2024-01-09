@@ -103,3 +103,7 @@ export default generalStyles;
 
 
 // #6441A5 light purple
+
+
+// '#2a0845', '#6441A5','#6441A5', '#6441A5' 
+// '#2a0845', '#2a0845',  '#6441A5'

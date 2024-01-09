@@ -22,7 +22,7 @@ import type8prep from '../../../../../listData/exerciseData/A1/Type8Data/Preposi
 const dataForMarkers = {
   part: 'exercise',
   section: 'section1',
-  class: 'class1'
+  class: 'class0'
 }
 
 
